@@ -11,6 +11,7 @@
 %Packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[english,ngerman]{babel}
 \usepackage{mathrsfs}
 \usepackage[pdftex]{graphicx}
 \usepackage{latexsym}
@@ -62,25 +63,25 @@ headsep=10mm, footskip=12mm}
 \begin{center} 
 
 
-\textbf{\Huge Preconditioner for cell-based finite element operator} 
+\textbf{\Huge Präkonditionierer für zell-basierte finiten Elemente Operatoren} 
 \vspace*{2cm}
 
-{\Large Bachelor Thesis}
+{\Large Bachelorarbeit}
 \vspace*{1cm}
 
 
-submitted by \\[0.5cm]
+eingereicht von \\[0.5cm]
 
 {\Large Enes Witwit}
 \vspace*{1cm}
 
-supervised by  \\[0.5cm]
+betreuut von  \\[0.5cm]
 {\Large Prof. Dr. Kanschat}
 \vspace*{3cm}
 
 \textbf{
-Faculty of Mathematics and Computer Science\\[1cm]
-University of Heidelberg}
+Fakultät für Mathematik und Infromatik\\[1cm]
+Universität Heidelberg}
 \end{center}
 \end{titlepage}
 
@@ -93,20 +94,23 @@ University of Heidelberg}
 
 \noindent\rule{16cm}{0.4pt}
 
-I hereby declare that, to the best of my knowledge, this thesis is the product of my own independent
-work. All content and ideas drawn from external sources, directly or indirectly, published
-or unpublished, are indicated as such. This thesis has neither been previously submitted in
-whole, nor in parts, for a degree at this or any university. \\[2ex] 
+Hiermit versichere ich, dass ich die vorliegende Bachelorarbeit selbständig
+verfasst habe.
+Ich versichere, dass ich keine anderen als die angegebenen Quellen benutzt und
+alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als
+solche gekennzeichnet habe, und dass die eingereichte Arbeit weder vollständig
+noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahren
+gewesen ist. \\[2ex] 
 
 \noindent
 
-\today \hspace*{1cm}  Heidelberg \hspace*{5cm} Signature\\[5ex]
+\today \hspace*{1cm}  Heidelberg \hspace*{5cm} Unterschrift\\[5ex]
 % Unterschrift (handgeschrieben)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-Summary
+Zusammenfassung
 
 
 
@@ -133,9 +137,9 @@ Summary
 
 
 \newpage
+\section*{Abbildungsverzeichnis}
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
-\section*{List of figures}
-\addcontentsline{toc}{section}{List of figures}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,8 +147,8 @@ Summary
 
 
 \newpage
-\section*{List of tables}
-\addcontentsline{toc}{section}{List of tables}
+\section*{Tabellenverzeichnis}
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -159,8 +163,8 @@ Summary
 \pagenumbering{arabic} 
 \setcounter{page}{1}
 %Einleitung und Motivation
-\section{Introduction}
-
+\section{Einführung}
+\input{Einfuehrung/einfuehrung.tex}
 
 
 %\input{./Einleitung/motivation.tex}
@@ -171,33 +175,36 @@ Summary
 
 
 % Chapter 1
-\section{Theory}
-\subsection{Partial Differential Equation}
-\subsection{Finite Element Method}
-\subsection{Numerical linear solver}
-\subsection{Tensor Decompositions}
-\subsubsection{Fundamentals}
-\subsubsection{Tucker Decomposition}
+\section{Theorie}
+\subsection{Schwache Lösungen}
+\input{Theorie/schwach.tex}
+\subsection{Methode der finiten Elemente}
+\input{Theorie/fem.tex}
+\subsection{Diskontinuierliche Galerkin-Methode}
+\input{Theorie/dgfem.tex}
+\subsection{Tensor Dekomposition}
+\input{Theorie/tensor.tex}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Chapter 2
-\section{Preconditioner for cell-based finite element operator }
+\section{Präkonditionierer für zell-basierte finiten Elemente Operatoren }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Chapter 3
-\section{Numerical Investigations}
+\section{Numerische Untersuchungen}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Chapter 4
-\section{Results}
+\section{Resultate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
