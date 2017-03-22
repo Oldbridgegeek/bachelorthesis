@@ -1,5 +1,22 @@
 Es ist naheliegend, dass wir uns zu erst mit notwendigen Funktionenräumen beschäftigen und uns auf analytischer Ebene eine Umformulierung der Differentialgleichung zu nutze machen, welche uns letztlich die Grundlage für die finiten Elementen Methode liefert.
 
+Dazu schauen wir uns folgendes Randwert Problem an:
+\begin{equation}
+	- \Delta u = f \text{ in } \Omega	
+\end{equation}
 
+Wir sehen von der Form der Differentialgleichung, dass die gesuchte \textit{klassische Lösung}, was immer das auch bedeuten mag, bestimmte Bedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal differenzierbar sein sollte.
+Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ liegt. In unserem Fall wäre folgender Raum ergiebig:
 
+\begin{equation*}
+	H^{1}(\Omega) = \{ v \in L_{2}(\Omega) : \dfrac{\delta v}{\delta x_{i}} \in L_{2}(\Omega), i=1,...,d \}
+\end{equation*}
+
+Diese Räume nennt man Sobolev Räume. Allgemein sind sie definiert durch:
+
+\begin{Definition} Sobolev-Raum
+
+\end{Definition}
+
+Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der finiten Elementen Methode ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit sprengen, daher verweis ich an gegebenen Stellen an weiterführende Literatur.
 
