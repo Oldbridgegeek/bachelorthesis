@@ -3,11 +3,11 @@
 \contentsline {section}{Abbildungsverzeichnis}{VI}
 \contentsline {section}{Tabellenverzeichnis}{VII}
 \contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
-\contentsline {section}{\numberline {2}Theorie}{1}
-\contentsline {subsection}{\numberline {2.1}Schwache L\IeC {\"o}sungen}{1}
-\contentsline {subsection}{\numberline {2.2}Methode der finiten Elemente}{1}
-\contentsline {subsection}{\numberline {2.3}Diskontinuierliche Galerkin-Methode}{1}
-\contentsline {subsection}{\numberline {2.4}Tensor Dekomposition}{1}
-\contentsline {section}{\numberline {3}Pr\IeC {\"a}konditionierer f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{1}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{1}
-\contentsline {section}{\numberline {5}Resultate}{1}
+\contentsline {section}{\numberline {2}Theorie}{2}
+\contentsline {subsection}{\numberline {2.1}Schwache L\IeC {\"o}sungen}{3}
+\contentsline {subsection}{\numberline {2.2}Methode der finiten Elemente}{4}
+\contentsline {subsection}{\numberline {2.3}Diskontinuierliche Galerkin-Methode}{5}
+\contentsline {subsection}{\numberline {2.4}Tensor Dekomposition}{6}
+\contentsline {section}{\numberline {3}Pr\IeC {\"a}konditionierer f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{6}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{6}
+\contentsline {section}{\numberline {5}Resultate}{6}

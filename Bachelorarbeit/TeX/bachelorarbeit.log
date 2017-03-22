@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  22 MAR 2017 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  22 MAR 2017 17:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1268,16 +1268,16 @@ LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
 \openout4 = `bachelorarbeit.lof'.
 
  [6] [7] (./Einfuehrung/einfuehrung.tex)
+[1] [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 179.
-
-(./Theorie/schwach.tex) (./Theorie/fem.tex) (./Theorie/dgfem.tex)
-(./Theorie/tensor.tex) [1]
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 183.
+ (./Theorie/schwach.tex) [3] (./Theorie/fem.tex) [4]
+(./Theorie/dgfem.tex) [5] (./Theorie/tensor.tex) [6]
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
-               before end of `thebibliography' environment on input line 217.
+               before end of `thebibliography' environment on input line 227.
 
-[2] (./bachelorarbeit.aux)
+[7] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1293,10 +1293,10 @@ Here is how much of TeX's memory you used:
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on bachelorarbeit.pdf (9 pages, 25616 bytes).
+Output written on bachelorarbeit.pdf (14 pages, 27516 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
