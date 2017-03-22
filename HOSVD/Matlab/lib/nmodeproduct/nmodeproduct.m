@@ -48,4 +48,4 @@ B = reshape(B,dimvecB);
 % shift the dimensions back! so that only dimension n has changed from I_n to J
 B = shiftdim(B,length(dimvecB)-n+1);
 
-% and we re done!
+% and we re done!   
