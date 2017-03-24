@@ -1,4 +1,4 @@
-function [TENSOR] = mass_tensor(order,weights,nodes,vertex)
+    function [TENSOR] = mass_tensor(order,weights,nodes,vertex)
     % Calculate Tensor Entries
     for i1 = 1:order+1
         for i2 =1:order+1

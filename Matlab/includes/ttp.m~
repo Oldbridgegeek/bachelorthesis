@@ -1,0 +1,12 @@
+function TENSOR_PRODUCT = ttp(TENSOR_1, TENSOR_2)
+   n = size(TENSOR_1);
+   count_2d_func = n*n;
+   for i=1:count_2d_func
+       for k=1:count_2d_func
+           [i_1,i_2]=transform_2d(i);
+           [k_1,k_2]=transford_2d(k);
+           for j=1:count_2d_func
+               TENSOR_PRODUCT(i_1,i_2,k_1,k_2) +=  TE
+
+
+end
