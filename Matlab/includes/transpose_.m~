@@ -1,0 +1,8 @@
+function TENSOR_TRANSPOSED = transpose_(TENSOR,order)
+    MATRIX = tensor_to_matrix(TENSOR,order);
+    MATRIX_TRASNPO
+
+
+
+
+end
