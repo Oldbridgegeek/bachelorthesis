@@ -1,3 +1,4 @@
+% Tranpose quadratic Tensors
 function TENSOR_TRANSPOSED = transpose_(TENSOR,order)
     MATRIX = tensor_to_matrix(TENSOR,order);
     MATRIX_TRANSPOSED = transpose(MATRIX);

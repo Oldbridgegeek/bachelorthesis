@@ -1,3 +1,5 @@
+% Check if the HOSVD spitts out the correct result
+
 function fulfilled = check_hosvd(TENSOR,S,U)
     n = size(U);
     size_ = n(3);

@@ -1,5 +1,7 @@
+% Transform a tensor to a matrix via lexicographical order
+
 function MATRIX = tensor_to_matrix(TENSOR,order)
-    for i1 = 1:order+1
+     for i1 = 1:order+1
         for i2 =1:order+1
             for j1 =1:order+1
                 for j2 = 1:order+1
