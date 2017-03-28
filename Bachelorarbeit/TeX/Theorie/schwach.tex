@@ -1,22 +1,81 @@
 Es ist naheliegend, dass wir uns zu erst mit notwendigen Funktionenräumen beschäftigen und uns auf analytischer Ebene eine Umformulierung der Differentialgleichung zu nutze machen, welche uns letztlich die Grundlage für die finiten Elementen Methode liefert.
 
 Dazu schauen wir uns folgendes Randwert Problem an:
-\begin{equation}
-	- \Delta u = f \text{ in } \Omega	
+\begin{equation} \label{eq:dg}
+\begin{aligned}
+	- \Delta u &= f \text{ in } \Omega \\
+	u &= 0 \text{ in } \delta \Omega	
+\end{aligned}
 \end{equation}
 
-Wir sehen von der Form der Differentialgleichung, dass die gesuchte \textit{klassische Lösung}, was immer das auch bedeuten mag, bestimmte Bedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal differenzierbar sein sollte.
-Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ liegt. In unserem Fall wäre folgender Raum ergiebig:
+Wir sehen von der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal stetig differenzierbar sein sollte.
+Dementsprechend legen die Differenzierbarkeitsanforderungen den Raum $u \in C_{0}^{2}$ nahe.
+
+Nun kann es aber sein, dass eine Lösung für dieses Problem garnicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion anschauen.
+\begin{equation}
+\begin{aligned}
+f(x) &= | x |
+\end{aligned}
+\end{equation}
+
+Offensichtlich ist diese Funktion in 0 nicht stetig differenzierbar. Trotzdem können wir eine Ableitung finden, die wir schwache Ableitung nennen. 
+\begin{equation}
+\begin{aligned}
+f'(x) &= 
+\begin{cases}
+-1 \text{ für } x < 0 \\
+0 \text{ für } x = 0  \\
+1 \text{ für } x > 0 
+\end{cases}
+\end{aligned}
+\end{equation}
+
+Nun um das was wir jetzt für die Betragsfunktion gemacht haben, für unser Randwertproblem zu machen nutzen wir eine funktionalanalytische Idee die aus der Distributionstheorie stammt.
+Wir multiplizieren mit einer Testfunktion $\psi$  und integrieren über das Gebiet.
+
+\begin{equation}
+\label{eq:sf1}
+\int_{\Omega} - \Delta u \psi dx = \int_{\Omega} f \psi dx
+\end{equation}
+
+Der nächste Schritt, welcher durchwegs fundamental für die Herleitung ist, ist die intuitive Nutzung der Struktur und Integrationswerkzeuge um zu erreichen, dass an u weniger Differenzierbarkeitsanforderungen gebunden sind. Für diesen Schritt ist der Satz von Green und die partielle Integration von Wichtigkeit.
+
+\begin{Lemma} Satz von Green
+\end{Lemma}
+
+\begin{Lemma} Partielle Integration
+\end{Lemma}
+
+Für unsere Differentialgleichung (\ref{eq:sf1}) nutzen wir die partielle Integration und erhalten.
+
+\begin{equation} \label{eq:sf2}
+\int_{\Omega} - \nabla u \nabla \psi dx = \int_{\Omega} f \psi dx
+\end{equation}
+  
+Dies ist die so genannte Variationsgleichung. Sie ist ein erster Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie.
+Die Lösung $u$ von (\ref{eq:sf2}) nennt man \textit{schwache Lösung} für das Problem (\ref{eq:dg}).
+Die Lösung $u \in C_{0}^{2}$ von (\ref{eq:dg}) nennt man \textit{klassische Lösung}. Nun wissen wir in welchem Raum die klassische Lösung liegt, aber welche Topologie ist für die schwache Lösung sinnvoll? 
+Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ für (\ref{eq:sf2}) liegt. In unserem Fall wäre folgender Raum ergiebig:
 
 \begin{equation*}
-	H^{1}(\Omega) = \{ v \in L_{2}(\Omega) : \dfrac{\delta v}{\delta x_{i}} \in L_{2}(\Omega), i=1,...,d \}
+	H_{0}^{1}(\Omega) = \{ v \in L_{2}(\Omega) : \dfrac{\delta v}{\delta x_{i}} \in L_{2}(\Omega), v=0 \text{ in } \delta \Omega \text{ , } i=1,...,d \}
 \end{equation*}
 
 Diese Räume nennt man Sobolev Räume. Allgemein sind sie definiert durch:
 
-\begin{Definition} Sobolev-Raum
-
+\begin{Definition} Sobolev Raum
 \end{Definition}
 
+Das heißt Sobolev Räume sind eine Teilmenge von den $L_{2}$ Räumen.
 Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der finiten Elementen Methode ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit sprengen, daher verweis ich an gegebenen Stellen an weiterführende Literatur.
+
+Die Sobolev Räume wurden mit Skalarprodukten ausgestattet, sodass unsere Variationsgleichung intuitiv als Skalarprodukt der zugrundeliegenden Sobolev Räume geschrieben werden kann.
+
+\begin{Lemma} Sobolev Norm
+\end{Lemma}
+
+\begin{Lemma} Sobolev Skalarprodukt
+\end{Lemma}
+
+
 

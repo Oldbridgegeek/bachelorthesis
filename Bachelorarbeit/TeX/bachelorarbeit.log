@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  22 MAR 2017 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  27 MAR 2017 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1278,32 +1278,34 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 186.
  (./Theorie/schwach.tex
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 8.
-) [3] (./Theorie/fem.tex) [4]
-(./Theorie/dgfem.tex) [5] (./Theorie/tensor.tex) [6] (./bachelorarbeit.bbl)
-[7] (./bachelorarbeit.aux)
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 43.
+ [3]) [4] (./Theorie/galerkin.tex) [5]
+(./Theorie/fem.tex) [6] (./Theorie/dgfem.tex) [7] (./Theorie/tensor.tex)
+[8] (./bachelorarbeit.bbl) [9] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8274 strings out of 493014
- 123328 string characters out of 6133351
- 276477 words of memory out of 5000000
- 11631 multiletter control sequences out of 15000+600000
+ 8283 strings out of 493014
+ 123483 string characters out of 6133351
+ 278507 words of memory out of 5000000
+ 11637 multiletter control sequences out of 15000+600000
  35113 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,6n,51p,8493b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,15n,51p,8493b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on bachelorarbeit.pdf (14 pages, 52673 bytes).
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on bachelorarbeit.pdf (16 pages, 72796 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
