@@ -17,10 +17,12 @@
 \usepackage{latexsym}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{geometry}
+\usepackage{color}
 \usepackage{enumitem}   
 \usepackage[LGRgreek]{mathastext}
 \usepackage{mathtools}
-
+\usepackage{oldgerm}
+\usepackage{algpseudocode}
 \usepackage{cite}
 
 
@@ -38,17 +40,6 @@ headsep=10mm, footskip=12mm}
 \newtheorem{Beispiel}[Satz]{Beispiel}
 \newtheorem{Annahme}{Annahme}
 \numberwithin{equation}{section} 
-
-% einige Abkuerzungen
-\newcommand{\C}{\mathbb{C}} 
-\newcommand{\K}{\mathbb{K}} 
-\newcommand{\R}{\mathbb{R}} 
-\newcommand{\Q}{\mathbb{Q}} 
-\newcommand{\Z}{\mathbb{Z}} 
-\newcommand{\N}{\mathbb{N}}
-
-% einige Verbesserungen
-\renewcommand{\hat}[1]{\widehat{#1}}
 
 
 \begin{document}
@@ -202,11 +193,16 @@ Zusammenfassung
 \subsection{Tensor Dekomposition}
 \input{Theorie/tensor.tex}
 
+\newpage
+\subsection{Summenfaktorisierung}
+\input{Theorie/sumfac.tex}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Chapter 2
+\newpage
 \section{Präkonditionierer für zell-basierte finiten Elemente Operatoren }
 
 

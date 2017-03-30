@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  27 MAR 2017 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  30 MAR 2017 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -605,6 +605,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen122
 \Gm@dimlist=\toks28
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 144.
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip61
@@ -1084,53 +1092,78 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen131
 \l_MT_below_shortintertext_sep=\dimen132
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/oldgerm.sty
+Package: oldgerm 1998/06/07 v2.1j LaTeX2e package for Old German fonts
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count110
+\c@ALG@rem=\count111
+\c@ALG@nested=\count112
+\ALG@tlm=\skip66
+\ALG@thistlm=\skip67
+\c@ALG@Lnr=\count113
+\c@ALG@blocknr=\count114
+\c@ALG@storecount=\count115
+\c@ALG@tmpcounter=\count116
+\ALG@tmplength=\skip68
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-\c@Satz=\count110
-\c@Annahme=\count111
+\c@Satz=\count117
+\c@Annahme=\count118
 
 (./bachelorarbeit.aux)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 54.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 45.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 45.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2016/03/04 v1.1 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 54.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 45.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
+\scratchcounter=\count119
 \scratchdimen=\dimen133
 \scratchbox=\box31
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\nofMPsegments=\count120
+\nofMParguments=\count121
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count115
+\MPscratchCnt=\count122
 \MPscratchDim=\dimen134
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
 \everyMPtoPDFconversion=\toks35
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -1211,60 +1244,32 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
-nput line 54.
+nput line 45.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 69.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <29.86> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 69.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 98--99
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 89--90
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--107
+Underfull \hbox (badness 10000) in paragraph at lines 91--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--112
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 [2] [3]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 124.
- (./bachelorarbeit.toc
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 7.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 7.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for LGR+phv on input line 7.
-LaTeX Font Info:    No file LGRphv.fd. on input line 7.
-
-
-LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
-(Font)              using `LGR/cmr/m/n' instead on input line 7.
-
-)
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 115.
+ (./bachelorarbeit.toc)
 \tf@toc=\write3
 \openout3 = `bachelorarbeit.toc'.
 
@@ -1272,40 +1277,123 @@ LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
 \tf@lof=\write4
 \openout4 = `bachelorarbeit.lof'.
 
- [6] [7] (./Einfuehrung/einfuehrung.tex)
-[1] [2]
+ [6] [7]
+(./Einfuehrung/einfuehrung.tex) [1] [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 186.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 177.
  (./Theorie/schwach.tex
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 4.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 4.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for LGR+phv on input line 4.
+LaTeX Font Info:    No file LGRphv.fd. on input line 4.
+
+
+LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
+(Font)              using `LGR/cmr/m/n' instead on input line 4.
+
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 43.
- [3]) [4] (./Theorie/galerkin.tex) [5]
-(./Theorie/fem.tex) [6] (./Theorie/dgfem.tex) [7] (./Theorie/tensor.tex)
-[8] (./bachelorarbeit.bbl) [9] (./bachelorarbeit.aux)
+[3]
+
+LaTeX Warning: Reference `eq:sf1' on page 4 undefined on input line 49.
+
+
+LaTeX Warning: Reference `eq:sf2' on page 4 undefined on input line 56.
+
+
+LaTeX Warning: Reference `eq:dg' on page 4 undefined on input line 56.
+
+
+LaTeX Warning: Reference `eq:dg' on page 4 undefined on input line 57.
+
+
+LaTeX Warning: Reference `eq:sf2' on page 4 undefined on input line 58.
+
+
+LaTeX Warning: Citation `Johnson' on page 4 undefined on input line 70.
+
+) [4] (./Theorie/galerkin.tex) [5] (./Theorie/fem.tex) [6] (./Theorie/dgfem.tex
+) [7] (./Theorie/tensor.tex) [8] (./Theorie/sumfac.tex
+
+LaTeX Warning: Citation `Teachlet' on page 9 undefined on input line 1.
+
+
+LaTeX Warning: Reference `eq:pinv' on page 9 undefined on input line 10.
+
+
+LaTeX Warning: Citation `Kolda' on page 9 undefined on input line 10.
+
+
+LaTeX Warning: Reference `eq:pinvv' on page 9 undefined on input line 27.
+
+[9]
+Overfull \hbox (26.21883pt too wide) detected at line 78
+[] []
+ []
+
+LaTeX Font Info:    Try loading font information for U+yswab on input line 81.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
+File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
+) [10]
+
+LaTeX Warning: Reference `eq:matrix' on page 11 undefined on input line 121.
+
+) [11] [12] (./bachelorarbeit.bbl) (./bachelorarbeit.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.0pt have occurred.
+
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 8283 strings out of 493014
- 123483 string characters out of 6133351
- 278507 words of memory out of 5000000
- 11637 multiletter control sequences out of 15000+600000
- 35113 words of font info for 55 fonts, out of 8000000 for 9000
+ 8912 strings out of 493014
+ 132942 string characters out of 6133351
+ 300733 words of memory out of 5000000
+ 12240 multiletter control sequences out of 15000+600000
+ 36939 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,15n,51p,8493b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,15n,51p,8493b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on bachelorarbeit.pdf (16 pages, 72796 bytes).
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/yfonts-t1/yswab.pfb>
+Output written on bachelorarbeit.pdf (19 pages, 97981 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -9,6 +9,7 @@
 \contentsline {subsection}{\numberline {2.3}Methode der finiten Elemente}{6}
 \contentsline {subsection}{\numberline {2.4}Diskontinuierliche Galerkin-Methode}{7}
 \contentsline {subsection}{\numberline {2.5}Tensor Dekomposition}{8}
-\contentsline {section}{\numberline {3}Pr\IeC {\"a}konditionierer f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{8}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{8}
-\contentsline {section}{\numberline {5}Resultate}{8}
+\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{9}
+\contentsline {section}{\numberline {3}Pr\IeC {\"a}konditionierer f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{12}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{12}
+\contentsline {section}{\numberline {5}Resultate}{12}
