@@ -1,1 +1,1 @@
-function y = eval_lagrange_deriv(i,x,vertex)    y = eval_lagrange(i,x,vertex);    val = 0;    for k=1:size(vertex)        if(k~=i)            val = val + 1/(x-vertex(k));        end        end        y = y * val;    end
+function sum = eval_lagrange_deriv(i,x,knots)sum = 0;for m=1:size(knots)    product = 1;    if(m~=i)        for j=1:size(knots)            if(j~=i && j~=m)                product = product * (x-knots(j))/(knots(i)-knots(j));            end        end        sum = sum + product/(knots(i)-knots(m)) ;    endendend
