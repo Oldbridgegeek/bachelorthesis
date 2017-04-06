@@ -7,7 +7,7 @@ function TENSOR_inverse = hosvd_inverse(S,U,order)
     
     % Compute core tensor S
     for k=1:4
-        S_TENSOR_INVERSE = nmodeproduct(S_TENSOR_INVERSE,transpose(U(:,:,k)),k);
+        S_TENSOR_INVERSE = nmodeproduct(S_TENSOR_INVERSE,U(:,:,k),k);
     end
     
     TENSOR_inverse = S_TENSOR_INVERSE;

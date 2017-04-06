@@ -36,6 +36,8 @@ function fulfilled = moore_penrose_prop(A,A_moore)
     else
         fulfilled=0;
     end
-
+  else 
+      fulfilled=0;
+  end
 
 end
