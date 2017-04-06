@@ -1,13 +1,15 @@
-function fulfilled = check_inverse
-
-    % Compute quadrature nodes and weights
+function structure
+   for order=1:15
+   % Compute quadrature nodes and weights
     [nodes,weights] = int_gauss_weights(order+1,0,1);
 
     % Compute Mass Matrix as Tensor
-    MASS_TENSOR = laplace_tensor(order,weights,nodes,nodes);
-    
+    MASS_TENSOR = mass_tensor(order,weights,nodes,nodes);
+        
     % HOSVD
     [U,S,V] = hosvd_(MASS_TENSOR);
+    
+    % Set Entry 0 if to small.
     n = size(S);
     for i1=1:n(1)
         for i2=1:n(2)
@@ -21,13 +23,16 @@ function fulfilled = check_inverse
         end
     end
     
-    % Compute Pseudoinverse
-    MASS_INV = hosvd_inverse(S,U,order);
     
-    MASS_INVERSE = tensor_to_matrix(MASS_INV,order);
-    MASS_MATRIX = tensor_to_matrix(MASS_TENSOR,order);
-    % Check correctness
-    fulfilled = moore_penrose_prop(MASS_MATRIX,MASS_INVERSE);
+    % Compute Pseudoinverse
+    MASS_INV = hosvd_inverse_eff(S,U,order);
+    
+    
+    
+    % Check if it is still an inverse
+    fulfilled(order) = moore_properties_tensor(MASS_TENSOR,MASS_INV,order)
+   end
 
 
 end
+
