@@ -1,11 +1,11 @@
-function [fulfilled,order] = structure
-   for order=4:15
-   % Compute quadrature nodes and weights
+function [correct] = structure
+for order=4:15
+    % Compute quadrature nodes and weights
     [nodes,weights] = int_gauss_weights(order+1,0,1);
-
+    
     % Compute Mass Matrix as Tensor
     MASS_TENSOR = laplace_tensor(order,weights,nodes,nodes);
-        
+    
     % HOSVD
     [U,S,V] = hosvd_(MASS_TENSOR);
     
@@ -27,11 +27,6 @@ function [fulfilled,order] = structure
     % Compute Pseudoinverse
     MASS_INV = hosvd_inverse_eff(S,U,order);
     
-    
-    
-    % Check if it is still an inverse
-    moore(order) = moore_properties_tensor(MASS_TENSOR,MASS_INV,order);
-    
     % Check if computed inverse through HOSVD is equal to the pseudo inverse of mass
     % matrix with SVD
     MASS_MATRIX = tensor_to_matrix(MASS_TENSOR,order);
@@ -39,14 +34,22 @@ function [fulfilled,order] = structure
     MASS_MATRIX_PINV_2 = pinv(MASS_MATRIX);
     
     fulfilled = (abs( MASS_MATRIX_PINV_1 - MASS_MATRIX_PINV_2 ) < 0.00000000001);
-    if(moore(order) == 0 )
-        break
+    n = size(fulfilled);
+    for i1=1:n(1)
+        for i2=1:n(2)
+            if(fulfilled(i1,i2) == 0 )
+                correct = 0;
+                break;
+            end
+        end
     end
+    correct = 1;
+    fprintf('Finished iteration #%d and V(%d) = %f\n',...
+        counter, counter, V(counter));
     
-   end
-   
-   
+end
+
+
 
 
 end
-
