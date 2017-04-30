@@ -35,11 +35,11 @@ int main() {
 	constexpr_array < constexpr_array < long double, order + 1 >, order + 1 > y_mass = create_array < long double, order + 1 > ();
 	vmult.mass(y_mass, u_1);
 
-	for (unsigned int i = 0; i < order + 1; i++) {
+	/*for (unsigned int i = 0; i < order + 1; i++) {
 		for (unsigned int j = 0; j < order + 1; j++) {
 			std::cout << y_mass[i][j] << std::endl;
 		}
-	}
+	}*/
 
 	return 0;
 }

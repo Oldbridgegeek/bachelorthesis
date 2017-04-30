@@ -1,5 +1,5 @@
 function [fulfilled,order] = structure
-   for order=4:15
+   for order=2:15
    % Compute quadrature nodes and weights
     [nodes,weights] = int_gauss_weights(order+1,0,1);
 
@@ -40,7 +40,7 @@ function [fulfilled,order] = structure
     
     fulfilled = (abs( MASS_MATRIX_PINV_1 - MASS_MATRIX_PINV_2 ) < 0.00000000001);
     if(moore(order) == 0 )
-        break
+        %break
     end
     
    end

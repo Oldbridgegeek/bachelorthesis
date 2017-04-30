@@ -1,5 +1,5 @@
 function [MASS_MATRIX_PINV_1,MASS_MATRIX_PINV_2,correct] = structure
-for order=11:15
+for order=3:15
     % Compute quadrature nodes and weights
     [nodes,weights] = int_gauss_weights(order+1,0,1);
     
@@ -18,7 +18,7 @@ for order=11:15
                     if( abs(S(i1,i2,i3,i4)) < 0.00000001 )
                         S(i1,i2,i3,i4) = 0;
                     end
-                end
+               end
             end
         end
     end

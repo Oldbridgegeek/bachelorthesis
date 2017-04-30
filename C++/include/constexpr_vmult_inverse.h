@@ -3,9 +3,9 @@
 
 #include "constexpr_matrix.h"
 #include "constexpr_quadrature.h"
-#include "Eigen/LU"
-#include "Eigen/Dense"
-using namespace Eigen;
+//#include "Eigen/LU"
+//#include "Eigen/Dense"
+//using namespace Eigen;
 
 /**
  * The methods used in this class are further explained in the document "Sumfactorization". The general principle is to exploit the tensor-product structure.
@@ -17,14 +17,14 @@ using namespace Eigen;
 
 
 template <typename Number, size_t order, size_t q_order, template<typename, size_t> class Quadrature, template<typename, size_t, template<typename, size_t> class Quadrature_ > class Polynomial>
-class VMULT_INVESE {
+class VMULT_INVERSE {
 public:
 
     const Quadrature < Number, q_order > quad;
     const Polynomial <Number, order, Quadrature> poly;
 
     const constexpr_array < constexpr_array < Number, order + 1 >, q_order + 1 > NT_;
-    Matrix3d NT__;
+    //Matrix3d NT__;
     const constexpr_array < constexpr_array < Number, q_order + 1 >, order + 1 > NW_;
     const constexpr_array < constexpr_array < Number, order + 1 >, order + 1 > NP_;
 
@@ -35,11 +35,11 @@ public:
     const constexpr_array < constexpr_array < Number, order + 1 >, q_order + 1 > NDXDXT_;
     const constexpr_array < constexpr_array < Number, order + 1 >, order + 1 > NDXDXP_;
 
-    constexpr VMULT() :
+    constexpr VMULT_INVERSE() :
         quad(),
         poly(),
         NT_(compute_basis_matrix_NT()),
-        NT__(compute_basis_matrix_NT_()),
+        //NT__(compute_basis_matrix_NT_()),
         NW_(compute_basis_matrix_NW()),
         NP_(compute_basis_matrix_NP()),
         NDXT_(compute_gradient_NDXT()),
@@ -62,7 +62,7 @@ public:
 
     }
 
-    Matrix3d compute_basis_matrix_NT_() {
+    /*Matrix3d compute_basis_matrix_NT_() {
         Matrix3d NT;
         for (unsigned int i = 0; i < q_order + 1 ; i++) {
             for (unsigned int j = 0; j < order + 1; j++) {
@@ -71,7 +71,7 @@ public:
         }
         return NT.inverse();
 
-    }
+    }*/
 
 
     constexpr constexpr_array < constexpr_array < Number, q_order + 1 >, order + 1 > compute_basis_matrix_NW() {
