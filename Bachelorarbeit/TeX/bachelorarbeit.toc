@@ -7,11 +7,11 @@
 \contentsline {subsection}{\numberline {2.1}Schwache L\IeC {\"o}sungen}{3}
 \contentsline {subsection}{\numberline {2.2}Galerkin Verfahren}{6}
 \contentsline {subsection}{\numberline {2.3}Methode der finiten Elemente}{8}
-\contentsline {subsection}{\numberline {2.4}Diskontinuierliche Galerkin-Methode}{9}
-\contentsline {subsection}{\numberline {2.5}Tensor Dekomposition}{10}
-\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{11}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{14}
-\contentsline {subsection}{\numberline {3.1}Tensorprodukt Struktur}{14}
-\contentsline {subsection}{\numberline {3.2}HOSVD}{14}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{14}
-\contentsline {section}{\numberline {5}Resultate}{14}
+\contentsline {subsection}{\numberline {2.4}Diskontinuierliche Galerkin-Methode}{10}
+\contentsline {subsection}{\numberline {2.5}Tensor Dekomposition}{11}
+\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{12}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{15}
+\contentsline {subsection}{\numberline {3.1}Tensorprodukt Struktur}{15}
+\contentsline {subsection}{\numberline {3.2}HOSVD}{15}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{15}
+\contentsline {section}{\numberline {5}Resultate}{15}
