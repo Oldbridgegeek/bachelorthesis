@@ -1,6 +1,58 @@
+(Numerik 2 Skript Kanschat)
 Unser Ausgangspunkt ist nun
 \begin{equation}
-\text{Finde } u \in \Omega \text{ : } a(u,v) = f(v) \forall u \in \Omega
+\text{Finde } u \in \Omega \text{ : } a(u,v) = f(v) \forall u \in \Omega \text{ und } v \in V
 \end{equation}
 Da die Sobolev Räume unendlich dimensional sind, ist es schwer sich mit der Konstruktion einer Lösung vertraut. Daher ist die Kernidee des Galerkin Verfahrens unseren Banachraum zu diskretisieren. 
-Dazu wählen wir 
+Dazu führen wir eine sogenannte konforme Approximation durch.
+Wir wählen $V_{n} \subset V$, sodass $dim V_{n} = n < \infty $. Nun gilt für die Minimierung in (\ref{eq:mini})
+\begin{equation*}
+\begin{aligned}
+u &= \argmin_{v \in V} J(v)  \text{ (stetig)}\\
+u_n &= \argmin_{v_n \in V_n} J(v_n) \text{ (diskret)}
+\end{aligned}
+\end{equation*}
+Daraus folgt
+\begin{equation*}
+J(u_n) \geq J(u)
+\end{equation*}
+Dies folgt direkt aus der Wahl des Raumes als Teilraum des ursprünglichen Raumes. Man nennt diese Methode konforme Ritz-Galerkin Methode aus dem Grund, dass der diskrete Raum ein Teilraum von dem ursprüngichen Raum is und die Funktion J gleich bleibt. 
+Was hat uns das Ganze gebracht? Nun da, $dim V_n = n < \infty$ können wir eine Basis für $V_n$. Das bringt uns den Vorteil, dass wir $u_n$ als Linear Kombination der Basiselemente in $V_n$ approximieren können.
+
+Die schwache Formulierung sieht nun wie folgt aus
+\begin{Lemma} \label{eq:weakgalerkin} Schwache Formulierung (Galerkin) \\
+Finde $u_n \in V_n$, sodass $a(u_n,v_n)=f(v_n)$ $\forall v_n \in V_n$.
+\end{Lemma}
+
+Sei nun $e_1, \dots , e_n$ eine Basis von $V_n$. Es ist nun ausreichend nur die Basis zum Testen zu nutzen.
+Die obere Gleichung in Lemma \ref{eq:weakgalerkin} reduziert sich auf
+\begin{equation} \label{eq:weak1}
+a(u_n,e_i) = f(e_i) \forall i \in \{1,\dots,n\}
+\end{equation}
+
+Im nächsten Schritt erweitern wir $u_n$ als Linearkombination wie folgt
+\begin{equation}
+u_n = \sum_{j=1}^{n} u_j e_j
+\end{equation}
+
+und setzen dies in \ref{eq:weak1} ein und erhalten.
+\begin{equation}
+\begin{aligned}
+a( \sum_{j=1}^{n} u_j e_j, e_i ) &= f(e_i) \Longleftrightarrow \\
+\sum_{j=1}^{n} u_j a( e_j, e_i ) &= f(e_i)
+\end{aligned}
+\end{equation}
+Das können wir zusammenfassen in einem Linearen Gleichungssystem mit $A_{ij}=a(e_j,e_i)$ und $u=(u_1,\dots,u_n)^{T}$. Insgesamt erhalten wir
+\begin{equation}
+Au=f
+\end{equation}
+
+\begin{Bemerkung} Eigenschaften Galerkin \\
+\begin{enumerate} 
+\item Galerking Orthogonalität \\
+Eine Kerneigenschaft der Galerkin Methode ist, dass der Fehler orthogonal zu dem Teilraum von V liegt.
+\item Symmetrie \\
+Die Matrix A ist genau dann symmetrisch, wenn die Bilinearform symmetrisch ist.
+\end{enumerate}
+\end{Bemerkung}
+

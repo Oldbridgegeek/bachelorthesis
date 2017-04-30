@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  13 APR 2017 00:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  30 APR 2017 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,26 +1128,26 @@ Package: cite 2015/02/27  v 5.5
 (./bachelorarbeit.aux)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 45.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 48.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 48.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2016/03/04 v1.1 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 45.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 48.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -1244,31 +1244,31 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
-nput line 45.
+nput line 48.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <29.86> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 63.
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 89--90
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 92--93
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--98
+Underfull \hbox (badness 10000) in paragraph at lines 94--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 
  []
 
 [2] [3]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 115.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 118.
  (./bachelorarbeit.toc)
 \tf@toc=\write3
 \openout3 = `bachelorarbeit.toc'.
@@ -1280,7 +1280,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
  [6] [7]
 (./Einfuehrung/einfuehrung.tex) [1] [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 180.
  (./Theorie/schwach.tex
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 4.
 
@@ -1330,21 +1330,43 @@ LaTeX Warning: Reference `eq:sf2' on page 4 undefined on input line 58.
 
 LaTeX Warning: Citation `Johnson' on page 4 undefined on input line 70.
 
-) [4] (./Theorie/galerkin.tex) [5] (./Theorie/fem.tex) [6] (./Theorie/dgfem.tex
-) [7] (./Theorie/tensor.tex) [8] (./Theorie/sumfac.tex
+[4]) [5] (./Theorie/galerkin.tex
 
-LaTeX Warning: Citation `Teachlet' on page 9 undefined on input line 1.
-
-
-LaTeX Warning: Reference `eq:pinv' on page 9 undefined on input line 10.
+LaTeX Warning: Reference `eq:mini' on page 6 undefined on input line 7.
 
 
-LaTeX Warning: Citation `Kolda' on page 9 undefined on input line 10.
+Overfull \hbox (1.43689pt too wide) in paragraph at lines 17--20
+\T1/phv/m/n/12 Dies folgt di-rekt aus der Wahl des Raum-es als Teil-raum des ur
+-sprüng-li-chen Raum-
+ []
 
 
-LaTeX Warning: Reference `eq:pinvv' on page 9 undefined on input line 27.
+LaTeX Warning: Reference `eq:weakgalerkin' on page 6 undefined on input line 27
+.
 
-[9]
+
+LaTeX Warning: Reference `eq:weak1' on page 6 undefined on input line 37.
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+
+ []
+
+) [7] (./Theorie/fem.tex) [8] (./Theorie/dgfem.tex) [9] (./Theorie/tensor.tex)
+[10] (./Theorie/sumfac.tex
+
+LaTeX Warning: Citation `Teachlet' on page 11 undefined on input line 1.
+
+
+LaTeX Warning: Reference `eq:pinv' on page 11 undefined on input line 10.
+
+
+LaTeX Warning: Citation `Kolda' on page 11 undefined on input line 10.
+
+
+LaTeX Warning: Reference `eq:pinvv' on page 11 undefined on input line 27.
+
+[11]
 Overfull \hbox (26.21883pt too wide) detected at line 78
 [] []
  []
@@ -1352,11 +1374,11 @@ Overfull \hbox (26.21883pt too wide) detected at line 78
 LaTeX Font Info:    Try loading font information for U+yswab on input line 81.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [10]
+) [12]
 
-LaTeX Warning: Reference `eq:matrix' on page 11 undefined on input line 121.
+LaTeX Warning: Reference `eq:matrix' on page 13 undefined on input line 121.
 
-) [11] [12] (./bachelorarbeit.bbl) [13] (./bachelorarbeit.aux)
+) [13] [14] (./bachelorarbeit.bbl) [15] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.0pt have occurred.
@@ -1372,10 +1394,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 8912 strings out of 493014
- 132942 string characters out of 6133351
- 300733 words of memory out of 5000000
- 12240 multiletter control sequences out of 15000+600000
+ 8923 strings out of 493014
+ 133079 string characters out of 6133351
+ 300751 words of memory out of 5000000
+ 12251 multiletter control sequences out of 15000+600000
  36939 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,15n,51p,8493b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1390,10 +1412,10 @@ e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-d
 ist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (20 pages, 100525 bytes).
+Output written on bachelorarbeit.pdf (22 pages, 106600 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
