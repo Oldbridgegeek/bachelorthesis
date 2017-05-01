@@ -9,9 +9,10 @@
 \contentsline {subsection}{\numberline {2.3}Methode der finiten Elemente}{8}
 \contentsline {subsection}{\numberline {2.4}Diskontinuierliche Galerkin-Methode}{10}
 \contentsline {subsection}{\numberline {2.5}Tensor Dekomposition}{11}
-\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{12}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{15}
-\contentsline {subsection}{\numberline {3.1}Tensorprodukt Struktur}{15}
-\contentsline {subsection}{\numberline {3.2}HOSVD}{15}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{15}
-\contentsline {section}{\numberline {5}Resultate}{15}
+\contentsline {subsubsection}{\numberline {2.5.1}HOSVD}{13}
+\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{14}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{17}
+\contentsline {subsection}{\numberline {3.1}Tensorprodukt Struktur}{17}
+\contentsline {subsection}{\numberline {3.2}HOSVD}{17}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{17}
+\contentsline {section}{\numberline {5}Resultate}{17}

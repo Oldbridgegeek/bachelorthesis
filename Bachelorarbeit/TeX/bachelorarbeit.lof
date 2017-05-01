@@ -1,2 +1,5 @@
 \select@language {ngerman}
 \contentsline {figure}{\numberline {1}{\ignorespaces Ansatzfunktionen $\phi _i$}}{9}
+\contentsline {figure}{\numberline {2}{\ignorespaces Tensor 3.Ordnung ${\cal X} \in \mathbb {R}^{I \times J \times K}$}}{11}
+\contentsline {figure}{\numberline {3}{\ignorespaces Rang Eins Tensor 3.Ordnung ${\cal X} = a \circ b \circ c$}}{11}
+\contentsline {figure}{\numberline {4}{\ignorespaces HOSVD eines Tensors 3.Ordnung}}{13}

@@ -1,3 +1,15 @@
+\begin{Definition} Tensor \\
+Unter einem Tensor verstehen wir eine multidimensionale Matrix ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$
+Die Ordnung ist die Anzahl der Dimensionen, in diesem Fall also N.
+\end{Definition}
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.4\textwidth]{tensorOrdnung3.png}
+	\caption{Tensor 3.Ordnung ${\cal X}  \in \mathbb{R}^{I \times J \times K}$}
+	\label{fig:tensorOrdnung3}
+\end{figure}
+
 \begin{Definition} Rang Eins Tensor \\
 Ein Tensor ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ ist von Rang Eins wenn es als äußeres Produkt von N Vektoren
 \begin{equation*}
@@ -5,6 +17,13 @@ Ein Tensor ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ i
 \end{equation*}
 geschrieben werden kann.
 \end{Definition}
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.5\textwidth]{rang1Tensor.png}
+	\caption{Rang Eins Tensor 3.Ordnung ${\cal X}  = a \circ b \circ c$}
+	\label{fig:rang1Tensor}
+\end{figure}
 
 \begin{Bemerkung} Symmetrie \\
 \begin{itemize}
@@ -19,9 +38,60 @@ Einen Tensor ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$
 $x_{i_1,\dots,i_N} \neq 0$ genau dann wenn $i_1 = \dots = i_N$.
 \end{Definition}
 
-\begin{Bemerkung} Entfaltung \\
-Einen Tenspr kann man entfalten. Dies impliziert eine Neu Ordnung der Tensorelemnte in eine Matrix.
-Wir betrachten nur die sogenannte mode-n Entfaltung, da dies die einzig relevante Form der Entfaltung ist.
-Eine mode-n Entfaltung eines Tensors ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ wird mit $\bold{X}_{(n)}$ geschrieben und ordnet die mode-n fibers in die Spalten der Ergebnismatrix.
+\begin{Definition} Faser \\
+Eine Faser ist das multidimensionale Analog zu Matrixspalten und Matrixzeilen. Wir definieren eine Faser, indem wir jeden Index abgesehen von einem festhalten.
+\end{Definition}
 
+\begin{Bemerkung} Entfaltung \\
+Einen Tensor kann man entfalten. Dies impliziert eine neu ordnung der Tensorelemente in eine Matrix.
+Wir betrachten nur die sogenannte Ordnung-n Entfaltung, da dies die einzig relevante Form der Entfaltung ist.
+Eine Ordnung-n Entfaltung eines Tensors ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ wird mit $\bold{X}_{(n)}$ geschrieben und ordnet die Ordnung-n Fasern in die Spalten der Ergebnismatrix.
+Formal ist es eine Abbildung des Indize N-tupels $(i_1,\dots,i_N)$ auf Matrixindizes $(i_n,j) $
+\begin{equation}
+j=1+\sum_{\substack{k=1 \\ k \neq n}}^{N} (i_k-1)J_k \text{ mit } J_k = \prod_{\substack{m=1 \\ m \neq n}}^{k-1} I_m
+\end{equation}
+\end{Bemerkung}
+
+Nun fehlt uns noch eine Tensor Multiplikation um mit der Dekomposition von Tensoren anzufangen. 
+
+\begin{Definition} n-Ordnung Produkt \\
+Das n-Ordnung Produkt eiens Tensors  ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ mit einer Matrix $U \in \mathbb{R}^{J \times I_n}$ wird geschrieben als ${\cal X} \times_n U$ und die Ergebnis Matrix hat die Größe $I_1 \times \dots I_{n-1} \times J \times I_{n+1} \times \dots I_N$
+\begin{equation}
+	({\cal X} \times_n U)_{i_1 \dots i_{n-1} j i_{n+1} \dots i_N} = \sum_{i_n = 1}^{I_n} x_{i_1 \dots i_N} u_{j i_n}
+\end{equation}
+\end{Definition}
+
+\begin{Bemerkung}
+Jedes n-Ordnung Produkt kann mit Hilfe von entfaltenen Tensoren äquivalent ausgedrückt werden.
+\begin{equation}
+{\cal Y} = {\cal X} \times_n U \Longleftrightarrow Y_{(n)} = UX_{(n)}
+\end{equation}
+\end{Bemerkung}
+
+\subsubsection{HOSVD}
+
+Die Higher Order Singular Value Decomposition oder auch bekannt unter Tucker Decomposition ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse. Man versucht durch Hauptachsentransformationen die Korrelation zwischen den verschiedenen Merkmalen durch Überführung in eine neue Basis zu minimieren. Die Hauptachsentransformation lässt sich durch eine orthogonale Matrix angeben, die aus den Eigenvektoren der Kovarianzmatrix gebildet wird. (Wikipedia: Hauptkomponentenanalyse).
+
+Die HOSVD zerlegt den Tensor in einen Kern-Tensor (Core Tensor) multipliziert mit einer Matrix in jeder Ordnung. 
+
+\begin{Beispiel} HOSVD Tensor 3.Ordnung
+${\cal X}  \in \mathbb{R}^{I \times J \times K}$
+\begin{equation}
+{\cal X} \approx {\cal G} \times_1 A \times_2 B \times_3 C 
+\end{equation}
+Wobei $A \in \mathbb{R}^{I \times P}$, $B \in \mathbb{R}^{J \times Q}$ und $C \in \mathbb{R}^{K \times R}$ die Faktormatrizen sind, welche orthogonal sind.
+${\cal G}$ bezeichnet den Kern-Tensor und zeigt wie hoch die Korrelation zwischen den verschiedenen Komponenten ist.
+\end{Beispiel}
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.6\textwidth]{hosvdTensor.png}
+	\caption{HOSVD eines Tensors 3.Ordnung}
+	\label{fig:hosvdTensor}
+\end{figure}
+
+\begin{Bemerkung} Entfaltete HOSVD \\
+\begin{equation}
+X_{(n)} = A^{(n)} G_{(n)} ( A^{(N)} \otimes \dots \otimes A^{(n+1)} \otimes A^{(n-1)} \otimes \dots \otimes A^{(1)} )^{T}
+\end{equation}
 \end{Bemerkung}
