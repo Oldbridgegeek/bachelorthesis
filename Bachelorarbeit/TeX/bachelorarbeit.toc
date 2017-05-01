@@ -12,9 +12,8 @@
 \contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{11}
 \contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{11}
 \contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{13}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{15}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{15}
 \contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{15}
-\contentsline {subsection}{\numberline {3.2}Tensorprodukt Struktur}{18}
-\contentsline {subsection}{\numberline {3.3}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{19}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{19}
-\contentsline {section}{\numberline {5}Resultate}{19}
+\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{22}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{22}
+\contentsline {section}{\numberline {5}Resultate}{22}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  1 MAY 2017 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  1 MAY 2017 22:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1125,32 +1125,102 @@ Package: cite 2015/02/27  v 5.5
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fundus-calligra/calligra.sty
 Package: calligra 2012/04/10 v1.9 LaTeX package calligra
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2016/02/27 v1.2a Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup12
+\symboldletters=\mathgroup13
+\symboldsymbols=\mathgroup14
+\symboldlasy=\mathgroup15
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 142.
+LaTeX Info: Redefining \bm on input line 208.
+)
+
+Class scrartcl Warning: Usage of package `titlesec' together
+(scrartcl)              with a KOMA-Script class is not recommended.
+(scrartcl)              I'd suggest to use the package only
+(scrartcl)              if you really need it, because it breaks several
+(scrartcl)              KOMA-Script features, i.e., option `headings' and
+(scrartcl)              the extended optional argument of the section
+(scrartcl)              commands.
+(scrartcl)              Nevertheless, using requested
+(scrartcl)              package `titlesec' on input line 30.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box31
+\beforetitleunit=\skip69
+\aftertitleunit=\skip70
+\ttl@plus=\dimen133
+\ttl@minus=\dimen134
+\ttl@toksa=\toks34
+\titlewidth=\dimen135
+\titlewidthlast=\dimen136
+\titlewidthfirst=\dimen137
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+
+Package titlesec Warning: Non standard sectioning command detected
+(titlesec)                Using default spacing and no format.
+
+)
+
+Package scrartcl Warning: Activating an ugly workaround for a missing
+(scrartcl)                feature of package `titlesec` on input line 30.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip71
+\fb@frw=\dimen138
+\fb@frh=\dimen139
+\FrameRule=\dimen140
+\FrameSep=\dimen141
+)
 \c@Satz=\count117
 \c@Annahme=\count118
 
 (./bachelorarbeit.aux)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 49.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 53.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 53.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2016/03/04 v1.1 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 49.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 53.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -1158,16 +1228,16 @@ File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
-\scratchdimen=\dimen133
-\scratchbox=\box31
+\scratchdimen=\dimen142
+\scratchbox=\box32
 \nofMPsegments=\count120
 \nofMParguments=\count121
-\everyMPshowfont=\toks34
+\everyMPshowfont=\toks35
 \MPscratchCnt=\count122
-\MPscratchDim=\dimen134
+\MPscratchDim=\dimen143
 \MPnumerator=\count123
 \makeMPintoPDFobject=\count124
-\everyMPtoPDFconversion=\toks35
+\everyMPtoPDFconversion=\toks36
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -1247,31 +1317,31 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
-nput line 49.
+nput line 53.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 64.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <29.86> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 64.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 68.
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 93--94
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 97--98
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--102
+Underfull \hbox (badness 10000) in paragraph at lines 99--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
 
  []
 
 [2] [3]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 119.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 123.
  (./bachelorarbeit.toc
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 7.
 
@@ -1300,6 +1370,8 @@ LaTeX Font Info:    No file LGRphv.fd. on input line 7.
 LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
 (Font)              using `LGR/cmr/m/n' instead on input line 7.
 
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 7.
 )
 \tf@toc=\write3
 \openout3 = `bachelorarbeit.toc'.
@@ -1378,11 +1450,7 @@ LaTeX Font Info:    Font shape `OMS/phv/m/it' in size <12> not available
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 48.
 
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 48.
-[12] <hosvdTensor.png, id=82, 1317.92375pt x 562.1pt>
+[12] <hosvdTensor.png, id=83, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 88.
@@ -1392,16 +1460,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[13 <./hosvdTensor.png>]) [14] (./Theorie/sumfac.tex [15]
-Overfull \hbox (26.21883pt too wide) detected at line 78
+[13 <./hosvdTensor.png>]) [14] (./Praekonditionierer/sumfac.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 15.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 15.
+
+
+LaTeX Font Warning: Font shape `LGR/phv/bx/n' undefined
+(Font)              using `LGR/phv/m/n' instead on input line 15.
+
+
+Overfull \hbox (15.07574pt too wide) in paragraph at lines 14--17
+\T1/phv/m/n/12 gel er-hal-ten in-dem wir wie-der das Ten-sor-pro-dukt aus-nut-z
+en und er-hal-ten $([][], ... , [][])$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+
+ []
+
+[15] [16] [17] [18] [19]
+Overfull \hbox (26.21883pt too wide) detected at line 198
 [] []
  []
 
-LaTeX Font Info:    Try loading font information for U+yswab on input line 81.
+LaTeX Font Info:    Try loading font information for U+yswab on input line 201.
+
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [16]) [17]
-[18] [19] (./bachelorarbeit.bbl) [20] (./bachelorarbeit.aux)
+) [20]) [21]
+(./Praekonditionierer/hosvd.tex) [22] (./bachelorarbeit.bbl) [23]
+(./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.0pt have occurred.
@@ -1409,33 +1500,37 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 9006 strings out of 493014
- 134660 string characters out of 6133351
- 301148 words of memory out of 5000000
- 12321 multiletter control sequences out of 15000+600000
- 44237 words of font info for 63 fonts, out of 8000000 for 9000
+ 9448 strings out of 493014
+ 140649 string characters out of 6133351
+ 307867 words of memory out of 5000000
+ 12737 multiletter control sequences out of 15000+600000
+ 47214 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,16n,51p,8493b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,16n,51p,8493b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/calligra-type1/callig15.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (27 pages, 337234 bytes).
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/public/yfonts-t1/yswab.pfb>
+Output written on bachelorarbeit.pdf (30 pages, 353413 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 167 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

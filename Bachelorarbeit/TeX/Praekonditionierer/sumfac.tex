@@ -1,0 +1,246 @@
+Das Ziel ist es die Tensorprodukt Struktur für die Massematrix und den Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
+
+Angenommen wir hätten eine Lösung $u \in V$ der Form
+\begin{equation}
+u(x,y)=\sum_{h=1}^{n^2} \psi_h (x,y) u_h,\ u_h \in \mathbb{R} \ \forall h =1,...\ ,n^2=:N
+\end{equation}
+mit $\psi_h$ ist eine globale Ansatzfunktion. Diese Anstazfunktionen können als das Tensorprodukt von zwei ein dimensionalen Polynomen ausgedrückt werden. Die Überführung ist definiert mit
+\begin{equation}
+h=j(n-1)+i,\ i<n \leftrightarrow (i,j)
+\end{equation}
+was uns eine alternative Representation von u gibt
+\begin{equation}
+u(x,y)=\sum_{i=1}^n \sum_{j=1}^n \varphi_i(x) \varphi_j(y) u_{ij}, \ i,j =1,...\ n
+\end{equation}
+Seien $q=(q_1,...\ ,q_n)^T$ Quadraturpunkte einer 1-dimensionalen Quadraturegel mit zugehörigen Gewichten $w=(w_1,...\ ,w_n)^T$. Wir können die 2-dimensionale Regel erhalten indem wir wieder das Tensorprodukt ausnutzen und erhalten  $(\bm{q}_1,...\ ,\bm{q}_N)$ und Gewichten $(\bm{w}_1,...\ ,\bm{w}_N)$ mit $\bm{q}_h=(q_i,q_j)$ and $\bm{w}_h=w_i w_j$.\\ \\
+Erstmals wollen wir $u$ in jedem Quadraturpunkt evaluieren. Das können wir mit einem Matrix Vektor Produkt ausdrücken:
+\begin{equation}
+\begin{pmatrix}
+\psi_1(\bm{q}_1) & \hdots & \psi_N(\bm{q}_1) \\
+\vdots & \ddots & \vdots \\
+\psi_1(\bm{q}_N) & \hdots & \psi_N(\bm{q}_N)
+\end{pmatrix}
+\begin{pmatrix}
+u_1 \\
+\vdots \\
+u_N
+\end{pmatrix}
+=
+\begin{pmatrix}
+u(\bm{q}_1) \\
+\vdots \\
+u(\bm{q}_N)
+\end{pmatrix}
+\end{equation}
+Die Matrix kann als Tensorprodukt zweier, in diesem Fall sogar identischer, Matrizen:
+\begin{equation}
+\mathcal{N}^T \otimes \mathcal{N}^T =
+\begin{pmatrix}
+\varphi_1(q_1) & \hdots & \varphi_n(q_1) \\
+\vdots & \ddots & \vdots \\
+\varphi_1(q_n) & \hdots & \varphi_n(q_n)
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+\varphi_1(q_1) & \hdots & \varphi_n(q_1) \\
+\vdots & \ddots & \vdots \\
+\varphi_1(q_n) & \hdots & \varphi_n(q_n)
+\end{pmatrix}
+\end{equation}
+Sei $(\mathcal{U}_{ij}) \in \mathbb{R}^{n \times n}$ die Matrix mit den Koeffizienten $u_{ij}$ als Elemente.
+Durch die Nutzung der Summenfaktorisierung können wir diese Matrizen multiplizieren anstatt der Formel in (4). Wir erhalten: 
+\begin{equation}
+\mathcal{N}^T \mathcal{U} \mathcal{N} = \bar{\mathcal{U}}, \ \ \ \ \bar{\mathcal{U}}_{ij} = u(q_i,q_j)
+\end{equation}
+Die Quadraturgewichte und die Summe über die Elemente kann in einer effiziente Weise vollzogen werden, wenn wir die Tensorprodukt Struktur ausnutzen. Die Multiplizierung $\bar{\mathcal{U}}$ mit den Quadraturgewichten $w$ von der rechten Seite wird uns die gewichteten Spalten aufsummieren, , multipliziert mit $w^T$ wird den Rest erledigen. Die ganze Operation sieht wie folgt aus: 
+\begin{equation}
+\int \int u(x,y) dx \ dy \approx w^T \mathcal{N}^T \mathcal{U} \mathcal{N} w
+\end{equation} 
+
+Wir haben nun $u$ integriert. Jedoch können wir nun mit Ansatzfunktionen testen ohne viel zu verändern.
+Wir schauen uns $f(x,y)=g(x)h(y)$ an. Also ist $f$ seperabal und somit müssen wir nur den letzten Schritt ändern. Anstatt nur den Gewichten zu multiplizieren, werden wir auch mit den Ansatzfunktionen, an den bestimmten Quadraturpunkten evaluiert, multiplizieren:
+
+\[\bar{w}^x=(w_1 g(q_1), ... \ ,w_n g(q_n))^T \ \ \ \ \ \ \ \bar{w}^y=(w_1 h(q_1), ... \ ,w_n h(q_n))^T\]
+\begin{equation}
+\int \int u(x,y) f(x,y) dx \ dy \approx (\bar{w}^x)^T \mathcal{N}^T \mathcal{U} \mathcal{N} \bar{w}^y
+\end{equation}
+
+Wenn wir einen Menge von Ansatzfunktionen haben, welche hergeleitet sind von dem Tensorprodukt von identischen 1-dimensionalen Ansatzfunktionen, können wir die Matrizen multiplizieren anstatt die Vektoren im letzten Schritt, was nun die Operation vollständig macht. Wir definieren:
+
+\[W=
+\begin{pmatrix}
+w1 \varphi_1(q_1) & \hdots & w_n \varphi_1(q_n) \\
+\vdots & \ddots & \vdots \\
+w1 \varphi_n(q_1) & \hdots & w_n \varphi_n(q_n)
+\end{pmatrix}
+\]
+
+Da  $\mathcal{W} \mathcal{N}^T$ auf Beiden Seiten auftaucht, können wir diese Operationr mit 3 Matrixmultiplikationen ausdrücken. Finale Form der Gleichung:
+\begin{equation}
+\mathcal{V} = \mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T
+\end{equation}
+Die Formel leicht geändert kann benutzt werden um andere Bilinearformen auszudrücken:
+
+$(\nabla u, \nabla v)$.
+\begin{align}
+(\nabla u, \nabla v) &=(\partial_x u,\partial_x v) + (\partial_y u,\partial_y v) \\
+					   &=\sum_{i,j} u_{ij} (\varphi_i'(x)\varphi_j(y),\phi'(x)\phi(y)) \\
+					   & \ + \sum_{i,j} u_{ij} (\varphi_i(x)\varphi_j'(y),\phi(x)\phi'(y))
+\end{align}
+
+Nun werden wir 2 Matrizen  $\mathcal{W}'$ und $\mathcal{N}'$ vorstellen.
+Diese Matrizen sind ähnlich zu den oben, aber anstatt die Ansatzfunktionen zu evaluieren, evaluieren sie die Ableitung der Ansatzfunktionen. Die resultierende Form ergibt sich aus:
+\[\mathcal{V}=\mathcal{W}' \mathcal{N}'^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T +\mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W}' \mathcal{N}'^T)^T\]
+Sei $(-\Delta u, v)=-(\partial_{xx} u,v) + -(\partial_{yy} u,v)$.\\
+Wir führen $\mathcal{N}''$ ein, was die Werte der 2.Ableitung der Ansatzfunktionen in den Quadraturgewichten speichert. Bemerke, dass die Matrix $\mathcal{W}$ nicht modifziert wurde. Als Resultat erhalten wir
+\[\mathcal{V}=-\mathcal{W} \mathcal{N}''^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T -\mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W} \mathcal{N}''^T)^T\]
+
+
+Zusammengefasst erhalten wir für die Masse Matrix die Form
+\begin{equation}
+M*u = (\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T})*u
+\end{equation}
+
+und für die Laplace Bilinearform
+
+\begin{equation}
+\mathcal{V}*u = -((\mathcal{W} \mathcal{N''}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}))*u - ((\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N''}^{T}))*u
+\end{equation}
+
+DIe Berechnung der Pseudoinversen passiert mit diesem Ansatz quasi on the fly, da wir hier gleich als Ergebnis nicht die Pseudoinverse bekommen, sondern das Matrix Vektor Produkt mit der Pseudoinversen als Matrix.
+
+Für die Berechnung der Inversen brauchen wir folgendes Ergebnis:
+\begin{Bemerkung}
+\begin{equation}
+(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}
+\end{equation}
+\end{Bemerkung}
+
+\newpage
+% ------------------------------- OLD -------------------------------
+Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Nun geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Summenfaktorisierung zu nutze machen, wie sie auch in \cite[9-11]{Teachlet} vorgeschlagen wird.
+Sei $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ .
+Die Formel für die Pseudoinverse lautet:
+
+\begin{equation} \label{eq:pinv}
+\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
+\end{equation}
+
+Wobei $\mathcal{S} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ und $U^{(n)} \in \mathbb{R}^{J_{n} \times I_{n}}$
+Man kann \ref{eq:pinv} nach \cite[462]{Kolda} äquivalent umformen zu
+
+\begin{equation}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}  &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
+\mathcal{A}^{\dagger}_{(n)} &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
+\end{aligned}
+\end{equation}
+
+Nun betrachten wir uns das Matrix-Vektor Produkt und überlegen uns wie wir uns die Strukturen dort zu nutze machen.
+
+\begin{equation} \label{eq:pinvv}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) v
+\end{aligned}
+\end{equation}
+
+Wir schauen uns die Struktur mal für den Fall, dass $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$. Das heißt \ref{eq:pinvv} reduziert sich auf:
+
+\begin{equation} \label{eq:pinvcase}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) v
+\end{aligned}
+\end{equation}
+mit $N_{i} \neq n$.
+
+Zu Zwecken der Veranschaulichung nehmen wir eine Umdefinierung vor:
+$A := U^{(N_3)}, B:= U^{(N_2)}, C:=U^{(N_1)}$.
+Wenn wir uns die Struktur in der Klammer anschauen sieht diese wie folgt aus
+
+\begin{equation} z:=
+\begin{pmatrix}
+c_{11} b_{11} A & \dots  & c_{11} b_{1n} A & \dots & \dots & c_{1n}b_{11}A & \dots & c_{1n}b_{1n}A  \\
+
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{11} b_{n1} A & \dots  & c_{11} b_{nn} A & \dots & \dots & c_{1n}b_{n1}A & \dots & c_{1n}b_{nn}A  \\
+c_{21} b_{n1} A & \dots  & c_{21} b_{nn} A & \dots & \dots & c_{2n}b_{n1}A & \dots & c_{2n}b_{nn}A  \\
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{n1} b_{n1} A & \dots  & c_{n1} b_{nn} A & \dots & \dots & c_{nn}b_{n1}A & \dots & c_{nn}b_{nn}A  \\
+\end{pmatrix} * v
+\end{equation}
+
+Wir sehen hier sich zwei wiederholende Strukturen die wir ausnutzen können um bei einem Matrix-Vektor Produkt operationen zu sparen.
+
+\begin{equation} \label{eq:matrix} z=
+\begin{pmatrix}
+c_{11} \textcolor{green}{b_{11}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{1n}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{11}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{1n}}\textcolor{red}{A}  \\
+
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{11} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+c_{21} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{21} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{2n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{2n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{n1} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{n1} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{nn}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{nn}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+\end{pmatrix} * v
+\end{equation}
+
+Nun wollen wir uns dies zu nutze machen. Wir schauen uns erstmal die einzelnen Einträge von z an und bekommen. Vorher definieren wir unser v um zu einem Tensor $\mathcal{V} \in \mathbb{R}^{I_1 \times I_2 \times I_3} $. Der erste Index repräsentiert in welcher Spalteneintrag von C wir uns befinden, der zweite in welchem Spalteneintrag von B und der Dritte in welchem Spalteneintrag von A. 
+\begin{equation} \label{eq:zold}
+\begin{aligned}
+z_{1} = \mathcal{V}(1,1,1) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}}+ \dots +  \mathcal{V}(1,1,n) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{1n}} + \dots  +  \mathcal{V}(1,n,1)c_{11} 
+\textcolor{green}{b_{1n}} \textcolor{red}{a_{11}} \\ + \dots +  \mathcal{V}(n,1,1) c_{1n} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}} + \dots +  \mathcal{V}(n,n,n) c_{1n} \textcolor{green}{b_{1n}} \textcolor{red}{a_{1n}}
+\end{aligned}
+\end{equation}
+Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,n) a_{\textcolor{red}{1}n}$. Dann erhalten wir:
+\begin{equation*}
+\begin{aligned}
+z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,n) c_{11} b_{1n} + \dots + w_1(n,1) c_{1n} b_{11}  + \dots +  w_1(n,n) c_{1n} b_{1n} 
+\end{aligned}
+\end{equation*}
+
+Damit haben wir uns die sich wiederholende Struktur von der Matrix \textcolor{red}{A} zu nutze gemacht. Im nächsten Schritt machen wir uns die sich wiederholende Struktur von $\textcolor{green}{b_{ij}}$ zu nutze.
+Definiere hierfür $\textswab{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,n) b_{\textcolor{red}{1}n}$. Damit erhalten wir:
+
+\begin{equation} \label{eq:znew}
+\begin{aligned}
+z_{1}= \textswab{W}_{1,1}(1) c_{11}  + \dots +  \textswab{W}_{1,1}(n) c_{1n} 
+\end{aligned}
+\end{equation}
+
+Wir wollen nun $z$ genau so umformen wie wir das auch für v gemacht haben. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel:
+\begin{equation}
+\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in} 
+\end{equation}
+Wobei j und k den Zeilen jeweils in den Matrizen B und C entsprechen. 
+
+Der komplette Algorithmus würde nun wie folgt aussehen:
+\begin{algorithmic}
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $w_{k}(i,j) = \mathcal{V}(i,j,1)a_{k1} + \dots + \mathcal{V}(i,j,n)a_{kn}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $\textswab{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,n) b_{1n}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in}$ 
+		\EndFor
+	\EndFor
+\EndFor
+\end{algorithmic}
+
+ 
+Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{4}$ Multiplikationen und genau so viele Additionen.
+Ein enorme Reduktion, vor allem für großes n.
+
+
+
+

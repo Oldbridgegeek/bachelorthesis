@@ -25,6 +25,10 @@
 \usepackage{algpseudocode}
 \usepackage{cite}
 \usepackage{calligra}
+\usepackage{bm}
+\usepackage{titlesec}
+\usepackage[mathscr]{euscript}
+\usepackage{framed}
 
 
 
@@ -182,10 +186,6 @@ Dann kommen wir zu einem ganz anderen Thema nämlich dem der Tensor Dekompositio
 Erstmal schauen wir uns grundlegende Definition an um mit diesem Basiswissen die Singulärwertzerlegung höherer Ordnung einzuführen. Mit dieser werden wir uns gewissen finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 4 durchführen. In Hoffnung natürlich, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
 
 
-
-
-
-
 \newpage
 \subsection{Numerische Behandlung partieller Differentialgleichungen}
 \subsubsection{Schwache Lösungen}
@@ -215,15 +215,14 @@ Erstmal schauen wir uns grundlegende Definition an um mit diesem Basiswissen die
 \newpage
 \section{Pseudoinverse für zell-basierte finiten Elemente Operatoren }
 
+% Summenfaktorisierung
 \subsection{Summenfaktorisierung}
-\input{Theorie/sumfac.tex}
+\input{Praekonditionierer/sumfac.tex}
 
-\newpage
-\subsection{Tensorprodukt Struktur}
-
+% HOSVD
 \newpage
 \subsection{Singulärwertzerlegung höherer Ordnung}
-
+\input{Praekonditionierer/hosvd.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
