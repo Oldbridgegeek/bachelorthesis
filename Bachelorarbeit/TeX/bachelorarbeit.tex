@@ -166,10 +166,6 @@ Zusammenfassung
 
 
 
-%\input{./Einleitung/motivation.tex}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -177,30 +173,40 @@ Zusammenfassung
 \newpage
 
 \section{Theorie}
+Das Ziel dieses Kapitels ist es die Verständigung über Notation zu klären und eine theoretische Grundlage für Kapitel 3 zu schaffen, um die dortigen Resultate gekonnt nachzuvollziehen. 
+Zu erst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie schwache Lösung, klassische Lösung, Variationsgleichung und Sobolev Raum werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode, welche im 2. Unterkapitel besprochen wird. 
+Im 3. Unterkapitel Methode der finiten Elemente ist das Ziel die Gleichung $Au=f$ herzuleiten mit A als globale Steifigkeitsmatrix.
+Im darauffolgenden Kapitel wollen wir uns eine flexiblere Methode anschauen, als die Methode der Finiten Elemente und die Wichtigkeit zu dieser Arbeit soll besonders hervorgehoben werden.
+
+Dann kommen wir zu einem ganz anderen Thema nämlich dem der Tensor Dekomposition. 
+Erstmal schauen wir uns grundlegende Definition an um mit diesem Basiswissen die Singulärwertzerlegung höherer Ordnung einzuführen. Mit dieser werden wir uns gewissen finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 4 durchführen. In Hoffnung natürlich, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
+
+
+
+
+
+
 \newpage
-\subsection{Schwache Lösungen}
+\subsection{Numerische Behandlung partieller Differentialgleichungen}
+\subsubsection{Schwache Lösungen}
 \input{Theorie/schwach.tex}
 
 \newpage
-\subsection{Galerkin Verfahren}
+\subsubsection{Galerkin Verfahren}
 \input{Theorie/galerkin.tex}
 
 \newpage
-\subsection{Methode der finiten Elemente}
+\subsubsection{Methode der finiten Elemente}
 \input{Theorie/fem.tex}
 
 \newpage
-\subsection{Diskontinuierliche Galerkin-Methode}
+\subsubsection{Diskontinuierliche Galerkin-Methode}
 \input{Theorie/dgfem.tex}
 
 \newpage
 \subsection{Tensor Dekomposition}
+\subsubsection{Einführung in die Tensor Architektur}
 \input{Theorie/tensor.tex}
-
-\newpage
-\subsection{Summenfaktorisierung}
-\input{Theorie/sumfac.tex}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,8 +214,15 @@ Zusammenfassung
 % Chapter 2
 \newpage
 \section{Pseudoinverse für zell-basierte finiten Elemente Operatoren }
+
+\subsection{Summenfaktorisierung}
+\input{Theorie/sumfac.tex}
+
+\newpage
 \subsection{Tensorprodukt Struktur}
-\subsection{HOSVD}
+
+\newpage
+\subsection{Singulärwertzerlegung höherer Ordnung}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

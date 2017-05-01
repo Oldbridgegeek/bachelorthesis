@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  1 MAY 2017 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  1 MAY 2017 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,7 +1272,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--107
 [2] [3]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 119.
- (./bachelorarbeit.toc)
+ (./bachelorarbeit.toc
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 7.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 7.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for LGR+phv on input line 7.
+LaTeX Font Info:    No file LGRphv.fd. on input line 7.
+
+
+LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
+(Font)              using `LGR/cmr/m/n' instead on input line 7.
+
+)
 \tf@toc=\write3
 \openout3 = `bachelorarbeit.toc'.
 
@@ -1280,75 +1308,18 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
 \tf@lof=\write4
 \openout4 = `bachelorarbeit.lof'.
 
- [6] [7]
-(./Einfuehrung/einfuehrung.tex) [1] [2]
+ [6] [7] (./Einfuehrung/einfuehrung.tex)
+[1] [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 181.
- (./Theorie/schwach.tex
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 4.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Try loading font information for U+lasy on input line 4.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for LGR+phv on input line 4.
-LaTeX Font Info:    No file LGRphv.fd. on input line 4.
-
-
-LaTeX Font Warning: Font shape `LGR/phv/m/n' undefined
-(Font)              using `LGR/cmr/m/n' instead on input line 4.
-
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 190.
+ (./Theorie/schwach.tex [3]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 43.
-[3]
-
-LaTeX Warning: Reference `eq:sf1' on page 4 undefined on input line 49.
-
-
-LaTeX Warning: Reference `eq:sf2' on page 4 undefined on input line 56.
-
-
-LaTeX Warning: Reference `eq:dg' on page 4 undefined on input line 56.
-
-
-LaTeX Warning: Reference `eq:dg' on page 4 undefined on input line 57.
-
-
-LaTeX Warning: Reference `eq:sf2' on page 4 undefined on input line 58.
-
-
-LaTeX Warning: Citation `Johnson' on page 4 undefined on input line 70.
-
-[4]) [5] (./Theorie/galerkin.tex
-
-LaTeX Warning: Reference `eq:mini' on page 6 undefined on input line 8.
-
-
+ [4]) [5] (./Theorie/galerkin.tex
 Overfull \hbox (1.43689pt too wide) in paragraph at lines 18--21
 \T1/phv/m/n/12 Dies folgt di-rekt aus der Wahl des Raum-es als Teil-raum des ur
 -sprüng-li-chen Raum-
  []
-
-
-LaTeX Warning: Reference `eq:weakgalerkin' on page 6 undefined on input line 28
-.
-
-
-LaTeX Warning: Reference `eq:weak1' on page 6 undefined on input line 38.
 
 [6]
 Underfull \hbox (badness 10000) in paragraph at lines 50--52
@@ -1368,7 +1339,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 14.
 LaTeX Font Info:    Font shape `T1/calligra/m/it' will be
 (Font)              scaled to size 17.28003pt on input line 25.
-[8] <hatfunction.png, id=61, 740.7675pt x 623.32875pt>
+[8] <hatfunction.png, id=62, 740.7675pt x 623.32875pt>
 File: hatfunction.png Graphic file (type png)
  <use hatfunction.png>
 Package pdftex.def Info: hatfunction.png used on input line 44.
@@ -1380,13 +1351,13 @@ Overfull \hbox (0.94942pt too wide) in paragraph at lines 1--4
 -le Ma-trix $\OMS/cmsy/m/n/12 X 2 \U/msb/m/n/12 R[]$
  []
 
-<tensorOrdnung3.png, id=70, 697.60625pt x 588.1975pt>
+<tensorOrdnung3.png, id=71, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
  <use tensorOrdnung3.png>
 Package pdftex.def Info: tensorOrdnung3.png used on input line 8.
 (pdftex.def)             Requested size: 170.71393pt x 143.93463pt.
 
-<rang1Tensor.png, id=71, 1127.21124pt x 592.2125pt>
+<rang1Tensor.png, id=72, 1127.21124pt x 592.2125pt>
 File: rang1Tensor.png Graphic file (type png)
  <use rang1Tensor.png>
 Package pdftex.def Info: rang1Tensor.png used on input line 23.
@@ -1421,20 +1392,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-) [13 <./hosvdTensor.png>] (./Theorie/sumfac.tex
-
-LaTeX Warning: Citation `Teachlet' on page 14 undefined on input line 1.
-
-
-LaTeX Warning: Reference `eq:pinv' on page 14 undefined on input line 10.
-
-
-LaTeX Warning: Citation `Kolda' on page 14 undefined on input line 10.
-
-
-LaTeX Warning: Reference `eq:pinvv' on page 14 undefined on input line 27.
-
-[14]
+[13 <./hosvdTensor.png>]) [14] (./Theorie/sumfac.tex [15]
 Overfull \hbox (26.21883pt too wide) detected at line 78
 [] []
  []
@@ -1442,11 +1400,8 @@ Overfull \hbox (26.21883pt too wide) detected at line 78
 LaTeX Font Info:    Try loading font information for U+yswab on input line 81.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [15]
-
-LaTeX Warning: Reference `eq:matrix' on page 16 undefined on input line 121.
-
-) [16] [17] (./bachelorarbeit.bbl) [18] (./bachelorarbeit.aux)
+) [16]) [17]
+[18] [19] (./bachelorarbeit.bbl) [20] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.0pt have occurred.
@@ -1454,18 +1409,12 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 9003 strings out of 493014
- 134558 string characters out of 6133351
- 300933 words of memory out of 5000000
- 12318 multiletter control sequences out of 15000+600000
+ 9006 strings out of 493014
+ 134660 string characters out of 6133351
+ 301148 words of memory out of 5000000
+ 12321 multiletter control sequences out of 15000+600000
  44237 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,16n,51p,8493b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1483,10 +1432,10 @@ ve/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016
 /texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/f
 onts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (25 pages, 331209 bytes).
+Output written on bachelorarbeit.pdf (27 pages, 337234 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

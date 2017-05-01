@@ -4,15 +4,17 @@
 \contentsline {section}{Tabellenverzeichnis}{VII}
 \contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
 \contentsline {section}{\numberline {2}Theorie}{2}
-\contentsline {subsection}{\numberline {2.1}Schwache L\IeC {\"o}sungen}{3}
-\contentsline {subsection}{\numberline {2.2}Galerkin Verfahren}{6}
-\contentsline {subsection}{\numberline {2.3}Methode der finiten Elemente}{8}
-\contentsline {subsection}{\numberline {2.4}Diskontinuierliche Galerkin-Methode}{10}
-\contentsline {subsection}{\numberline {2.5}Tensor Dekomposition}{11}
-\contentsline {subsubsection}{\numberline {2.5.1}HOSVD}{13}
-\contentsline {subsection}{\numberline {2.6}Summenfaktorisierung}{14}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{17}
-\contentsline {subsection}{\numberline {3.1}Tensorprodukt Struktur}{17}
-\contentsline {subsection}{\numberline {3.2}HOSVD}{17}
-\contentsline {section}{\numberline {4}Numerische Untersuchungen}{17}
-\contentsline {section}{\numberline {5}Resultate}{17}
+\contentsline {subsection}{\numberline {2.1}Numerische Behandlung partieller Differentialgleichungen}{3}
+\contentsline {subsubsection}{\numberline {2.1.1}Schwache L\IeC {\"o}sungen}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{6}
+\contentsline {subsubsection}{\numberline {2.1.3}Methode der finiten Elemente}{8}
+\contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{10}
+\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{11}
+\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{11}
+\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{13}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren}{15}
+\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{15}
+\contentsline {subsection}{\numberline {3.2}Tensorprodukt Struktur}{18}
+\contentsline {subsection}{\numberline {3.3}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{19}
+\contentsline {section}{\numberline {4}Numerische Untersuchungen}{19}
+\contentsline {section}{\numberline {5}Resultate}{19}

@@ -68,7 +68,7 @@ Jedes n-Ordnung Produkt kann mit Hilfe von entfaltenen Tensoren äquivalent ausg
 \end{equation}
 \end{Bemerkung}
 
-\subsubsection{HOSVD}
+\subsubsection{Singulärwertzerlegung höherer Ordnung}
 
 Die Higher Order Singular Value Decomposition oder auch bekannt unter Tucker Decomposition ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse. Man versucht durch Hauptachsentransformationen die Korrelation zwischen den verschiedenen Merkmalen durch Überführung in eine neue Basis zu minimieren. Die Hauptachsentransformation lässt sich durch eine orthogonale Matrix angeben, die aus den Eigenvektoren der Kovarianzmatrix gebildet wird. (Wikipedia: Hauptkomponentenanalyse).
 
@@ -95,3 +95,32 @@ ${\cal G}$ bezeichnet den Kern-Tensor und zeigt wie hoch die Korrelation zwische
 X_{(n)} = A^{(n)} G_{(n)} ( A^{(N)} \otimes \dots \otimes A^{(n+1)} \otimes A^{(n-1)} \otimes \dots \otimes A^{(1)} )^{T}
 \end{equation}
 \end{Bemerkung}
+
+\begin{Definition} n-Rang \\
+ ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$. Der n-Rang eines Tensor wird geschrieben mit $rang_n({\cal X})$ und ist der Spaltenrang des entfalteten Tensors $X_{(n)}$.
+\end{Definition}
+
+\begin{Bemerkung}
+Sei $R_n = rang_n({\cal X})$ für $n=1, \dots, N$. Dann können wir sagen, dass ${\cal X}$ ein $rang-(R_1,\dots,R_N)$ Tensor ist.
+\end{Bemerkung}
+
+\begin{Bemerkung} Berechnung der HOSVD (Wikipedia) \\
+Die Berechnung der HOSVD von ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ geht wie folgt
+\begin{enumerate}
+\item Berechne die Ordnung-k Entfaltungen ${\cal X}_{(k)}$ für alle k
+\item Berechne die SVD ${\cal X}_{(k)}=U_k \Sigma_k V_k^T$ und speichere $U_k$
+\item Der Kerntensor ${\cal S}$ ergibt sich aus der Projektion des Tensors auf die Tensorbasis geformt von den Faktormatrizen  $\{ U_k\}_{k=1}^{N}$  also ${\cal S}={\cal X} \times_{n=1}^{N} U_n^T$
+\end{enumerate}
+\end{Bemerkung}
+
+\begin{Bemerkung} Eindeutigkeit der HOSVD \\
+Die HOSVD ist keine eindeutige Zerlegung. Dies führen wir an einem Tensor 3.Ordnung an. Sei $U \in \mathbb{R}^{P \times P}$, $V \in \mathbb{R}^{Q \times Q}$  und $W \in \mathbb{R}^{R \times R}$ . Dann folgt
+\begin{equation}
+{\cal X} = {\cal G} \times_1 A \times_2 B \times_3 C = ({\cal G} \times_1 U \times_2 V \times_3 W) \times_1 AU^{-1} \times_2 BV^{-1} \times_3 CW^{-1}
+\end{equation}
+In anderen Worten: Wir können den Kerntensor ${\cal G}$ modifizieren ohne die Gleichung zu ändern, solange wir das Inverse der Modifizierung auf den zugehörigen Faktormatrizen multiplizieren.
+\end{Bemerkung}
+
+Mit diesen Kenntnissen können wir nun zum Beispiel versuchen soviele Elemente des Kerntensor wie möglich auf 0 zu bekommen oder so klein wie möglich zu machen.
+Weiterführende Liteartur S.479 TENSOR DECOMPOSITIONS AND APPLICATIONS.
+
