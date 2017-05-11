@@ -1,0 +1,176 @@
+In Kapitel 3 haben wir uns zwei Möglichkeiten angeschaut, das Matrix-Vektor Produt zu berechnen mit der Pseudoinversen. Beide Alternativen bargen eine Tensorprodukt Struktur, in Form des Matrix-Kronecker Produkt.
+
+Das heißt um dies effizient zu implementieren sollten wir uns Gedanken dadrüber machen wie wir diese Struktur ausnutzen können.
+
+Im Exa-dg-teachlet wird eine Strategie vorgestellt ein Matrix-vektor Produkt mit Kronecker Matrizen also $z=(\mathcal{B} \otimes \mathcal{A})y$ berechnet werden kann.
+
+Sei $\mathcal{A} \in \mathbb{R}^{m \times n}$ und $\mathcal{B} \in \mathbb{R}^{p \times q}$. Das Kronecker Produkt dieser Matrizen kann man schreiben als, 
+\begin{equation*}
+\mathcal{B} \times \mathcal{A} =
+\begin{pmatrix}
+b_{11}\mathcal{A} & \dots  & b_{1q}\mathcal{A} \\
+\vdots & \ddots & \vdots \\
+b_{p1}\mathcal{A} & \dots & b_{pq}\mathcal{A} \\
+\end{pmatrix}
+\end{equation*}
+
+Nun wir sehen also die sich wiederholende Struktur von $\mathcal{A}$. Genau diese wollen wir uns nun zu nutze machen. Nehmen wir an y sei geordnet in der Indexierung.
+\begin{equation*}
+y = (y_1,y_2,\dots,y_n,\dots,\dots,y_{(q-1)n+1},y_{(q-1)n+2},\dots,y_{qn})^T
+\end{equation*}
+
+Wir denken uns nun die Faktoren $b_{ij}$ die mit $\mathcal{A}$ multipliziert werden erstmal weg. Definiere $y^{(1)}=(y_1,y_2,\dots,y_n)^T$.
+
+\begin{equation*}
+w^{(1)}=
+\begin{pmatrix}
+w_1 \\ \vdots \\ w_m 
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \dots & \vdots \\
+a_{m1} & \dots & a_{mn} \\
+\end{pmatrix}
+\begin{pmatrix}
+y_1 \\ \vdots \\ y_n
+\end{pmatrix}
+= \mathcal{A}y^{(1)}
+\end{equation*}
+
+Auf ähnliche Weise können wir uns $y^{(2)}=(y_{n+1},\dots,y_{2n})^{T}$ definieren und dann
+\begin{equation*}
+w^{(2)} = \mathcal{A}y^{(2)}
+\end{equation*}
+
+Wir führen dies so weiter und erhalten
+
+\begin{equation*}
+w=( (w^{(1)})^T , \dots, (w^{(q)})^T) \in \mathbb{R}^{mq}
+\end{equation*}
+
+Nun müssen wir die Informationen der Matrix B noch mit reinbringen.
+%%%%%%%%%%%%%%%%%%%
+
+Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Nun geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Summenfaktorisierung zu nutze machen, wie sie auch in \cite[9-11]{Teachlet} vorgeschlagen wird.
+Sei $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ .
+Die Formel für die Pseudoinverse lautet:
+
+\begin{equation} \label{eq:pinv}
+\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
+\end{equation}
+
+Wobei $\mathcal{S} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ und $U^{(n)} \in \mathbb{R}^{J_{n} \times I_{n}}$
+Man kann \ref{eq:pinv} nach \cite[462]{Kolda} äquivalent umformen zu
+
+\begin{equation}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}  &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
+\mathcal{A}^{\dagger}_{(n)} &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
+\end{aligned}
+\end{equation}
+
+Nun betrachten wir uns das Matrix-Vektor Produkt und überlegen uns wie wir uns die Strukturen dort zu nutze machen.
+
+\begin{equation} \label{eq:pinvv}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) v
+\end{aligned}
+\end{equation}
+
+Wir schauen uns die Struktur mal für den Fall, dass $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$. Das heißt \ref{eq:pinvv} reduziert sich auf:
+
+\begin{equation} \label{eq:pinvcase}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) v
+\end{aligned}
+\end{equation}
+mit $N_{i} \neq n$.
+
+Zu Zwecken der Veranschaulichung nehmen wir eine Umdefinierung vor:
+$A := U^{(N_3)}, B:= U^{(N_2)}, C:=U^{(N_1)}$.
+Wenn wir uns die Struktur in der Klammer anschauen sieht diese wie folgt aus
+
+\begin{equation} z:=
+\begin{pmatrix}
+c_{11} b_{11} A & \dots  & c_{11} b_{1n} A & \dots & \dots & c_{1n}b_{11}A & \dots & c_{1n}b_{1n}A  \\
+
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{11} b_{n1} A & \dots  & c_{11} b_{nn} A & \dots & \dots & c_{1n}b_{n1}A & \dots & c_{1n}b_{nn}A  \\
+c_{21} b_{n1} A & \dots  & c_{21} b_{nn} A & \dots & \dots & c_{2n}b_{n1}A & \dots & c_{2n}b_{nn}A  \\
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{n1} b_{n1} A & \dots  & c_{n1} b_{nn} A & \dots & \dots & c_{nn}b_{n1}A & \dots & c_{nn}b_{nn}A  \\
+\end{pmatrix} * v
+\end{equation}
+
+Wir sehen hier sich zwei wiederholende Strukturen die wir ausnutzen können um bei einem Matrix-Vektor Produkt operationen zu sparen.
+
+\begin{equation} \label{eq:matrix} z=
+\begin{pmatrix}
+c_{11} \textcolor{green}{b_{11}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{1n}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{11}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{1n}}\textcolor{red}{A}  \\
+
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{11} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+c_{21} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{21} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{2n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{2n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{n1} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{n1} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{nn}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{nn}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+\end{pmatrix} * v
+\end{equation}
+
+Nun wollen wir uns dies zu nutze machen. Wir schauen uns erstmal die einzelnen Einträge von z an und bekommen. Vorher definieren wir unser v um zu einem Tensor $\mathcal{V} \in \mathbb{R}^{I_1 \times I_2 \times I_3} $. Der erste Index repräsentiert in welcher Spalteneintrag von C wir uns befinden, der zweite in welchem Spalteneintrag von B und der Dritte in welchem Spalteneintrag von A. 
+\begin{equation} \label{eq:zold}
+\begin{aligned}
+z_{1} = \mathcal{V}(1,1,1) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}}+ \dots +  \mathcal{V}(1,1,n) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{1n}} + \dots  +  \mathcal{V}(1,n,1)c_{11} 
+\textcolor{green}{b_{1n}} \textcolor{red}{a_{11}} \\ + \dots +  \mathcal{V}(n,1,1) c_{1n} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}} + \dots +  \mathcal{V}(n,n,n) c_{1n} \textcolor{green}{b_{1n}} \textcolor{red}{a_{1n}}
+\end{aligned}
+\end{equation}
+Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,n) a_{\textcolor{red}{1}n}$. Dann erhalten wir:
+\begin{equation*}
+\begin{aligned}
+z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,n) c_{11} b_{1n} + \dots + w_1(n,1) c_{1n} b_{11}  + \dots +  w_1(n,n) c_{1n} b_{1n} 
+\end{aligned}
+\end{equation*}
+
+Damit haben wir uns die sich wiederholende Struktur von der Matrix \textcolor{red}{A} zu nutze gemacht. Im nächsten Schritt machen wir uns die sich wiederholende Struktur von $\textcolor{green}{b_{ij}}$ zu nutze.
+Definiere hierfür $\textswab{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,n) b_{\textcolor{red}{1}n}$. Damit erhalten wir:
+
+\begin{equation} \label{eq:znew}
+\begin{aligned}
+z_{1}= \textswab{W}_{1,1}(1) c_{11}  + \dots +  \textswab{W}_{1,1}(n) c_{1n} 
+\end{aligned}
+\end{equation}
+
+Wir wollen nun $z$ genau so umformen wie wir das auch für v gemacht haben. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel:
+\begin{equation}
+\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in} 
+\end{equation}
+Wobei j und k den Zeilen jeweils in den Matrizen B und C entsprechen. 
+
+Der komplette Algorithmus würde nun wie folgt aussehen:
+\begin{algorithmic}
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $w_{k}(i,j) = \mathcal{V}(i,j,1)a_{k1} + \dots + \mathcal{V}(i,j,n)a_{kn}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $\textswab{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,n) b_{1n}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < n }
+	\For {i= 1 < n }
+		\For {j= 1 < n }
+			\State $\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in}$ 
+		\EndFor
+	\EndFor
+\EndFor
+\end{algorithmic}
+
+ 
+Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{4}$ Multiplikationen und genau so viele Additionen.
+Ein enorme Reduktion, vor allem für großes n.

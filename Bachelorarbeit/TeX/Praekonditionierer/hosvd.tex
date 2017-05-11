@@ -1,0 +1,55 @@
+Wir wollen nun mit Hilfe von der Theorie zur Singulärwertzerlegung höherer Ordnung eine Theorie entwickeln, wie wir die Pseudoinverse zur Masse Matrix und zur globalen Steifigkeitsmatrix der Laplace Bilinearform effiizient berechnen können.
+
+Allgemein wissen wir:
+\begin{equation}
+\mathcal{A} = \mathcal{S} \times_{n=1}^{N} U^{ (n) }
+\end{equation}
+D.h. wir können einen Tensor $\mathcal{A}$ in einen Kerntensor $\mathcal{S}$ und zugehörige Faktormatrizen U zerlegen. Wie bekommen wir nun die Pseudoinverse zu A? Was bedeutet in dem Kontext eines Tensors überhaupt Pseudoinverse?
+
+Wir kennen noch die Eigenschaften der Moore Penrose Pseudoinverse für Matrizen:
+\begin{Lemma} Moore Penrose Pseudoinverse (Wikipedia) 
+\begin{itemize}
+\item $AA^{+}A=A$
+\item $A^{+}AA^{+}=A^{+}$ ($A^{+}$ ist eine schwache Inverse der multiplikativen Halbgruppe)
+\item $(AA^{+})^{*}=AA^{+}$ ($AA^{+}$ ist hermitisch)
+\item $(A^{+}A)^{*}=A^{+}A$ ($A^{+}A$ ist hermitisch)
+\end{itemize}
+\end{Lemma}
+
+Jetzt gilt es diese Eigenschaften für Tensoren zu übertragen. Da wir erstmal keine intuitive Tensor Tensor Multiplikation haben, gilt es diese zu definieren. Diese Tensor-Tensor Multiplikation macht dann nur für unsere Anwendung einen Sinn und ist sonst zweckfrei.
+\begin{Definition} Tensor-Tensor Multiplikation $ttp(\dot,\dot)$
+\end{Definition}
+
+Nun ist kommt auch ein weiterer Trick den wir nutzen können. Trick kann nur mit Vorsicht genossen werden. Die Gleichheit ist mit einem Rechner nicht zu erzielen, daher wird die Bemerkung abgeschwächt und für Tensoren. Wir erhalten:
+\begin{Lemma} Moore Penrose Pseudoinverse für Tensoren 
+\begin{itemize}
+\item $ttp(A,ttp(A^{+},A))-A < \epsilon$
+\item $ttp(A^{+},ttp(A,A^{+}))-(A^{+}< \epsilon $ ($A^{+}$ ist eine schwache Inverse der multiplikativen Halbgruppe)
+\item $(ttp(A,A^{+}))^{*}-ttp(A,A^{+}) < \epsilon $ ($AA^{+}$ ist hermitisch)
+\item $(ttp(A^{+},A))^{*}-ttp(A^{+},A) < \epsilon $ ($A^{+}A$ ist hermitisch)
+\end{itemize}
+\end{Lemma}
+
+Die Wahl des Epsilons ist hier entscheidend. Man könnte Maschinengenauigkeit wählen, doch ist für unser Zweck vielleicht zu Hoch gezielt. Letztlich wollen wir mit unserer Pseudoinversen einen Präkonditionierer bauen. Wenn wir durch die Wahl eines etwas größeren Epsilons erheblichen Aufwand sparen, sollten wir dies in Erwägunge ziehen.
+Nun wissen wir, wie wir einen Tensor als Pseudoinverse klassifizieren können. Doch wie bekommen wir die Pseudoinverse?
+
+Die Pseudoinverse setzt sich zusammen aus:
+\begin{equation} \label{eq:pinv}
+\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
+\end{equation}
+
+Da die Faktormatrizen orthogonal sind, reicht es also einfach die Transponierte zu nehmen. Das Invertieren des Kerntensors erweist sich nun aber als problematisch.
+Hier ist es nützlich die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fälle vollbesetzt. Doch genaueres Hinsehen zeigt 2 Arten von Zahlen. Ziemlich große Zahlen von größer als 1 und ziemlich kleine Zahlen von kleiner als $10^{-10}$. 
+Die kleinen Zahlen sind in diesem Fall unbrauchbar und beinhalten wenig Informationen. Doch das Auslöschen vieler kleiner Zahlen nimmt uns in der Summe vielleicht relevante Informationen.
+Wir können also kleine Zahlen einfach ausradieren und erhalten plötzlich einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf einfach jedes Diagonalelement zu Invertieren.
+
+\textbf{Als nächstes wollen wir klären wie wir überhaupt von Massen Matrix Form und Laplace Bilinearform zu einer Tensorform kommen.}
+Die Masse Matrix M besteht aus Einträgen $M_{ij}= (\phi_i,\phi_j)$, wobei $( \dot )$ die zugehörige Bilinearform ist und $\phi_k$ eine 2 dimensionale Ansatzfunktion. Dies kann man vereinfachen mit
+$M_{ij}=(\phi_i,\phi_j)=(\phi_{i_1} \phi_{i_2},\phi_{j_1} \phi{j_2})=M^{*}_{i_1 i_2 j_1 j_2}$, wobei wir nun 1 dimensionale Ansatzfunktionen haben. $M^{*}$ ist ein Tensor 4.Ordnung, den wir nun mit Hilfe der Singulärwertzerlegung höherer Ordnung zerlegen können.
+Für die Laplace Bilinearform ist es ähnlich, denn wir haben in schwacher Form $L_{ij}= ( \nabla \phi_i, \nabla \phi_j)=(\nabla \phi_{i_1} \nabla \phi_{i_2}, \nabla \phi_{j_1}  \nabla \phi{j_2})=L^{*}_{i1i2j1j2}$
+
+Wir wissen nun wie wir unsere Tensoren berechnen können und wissen auch wie die Pseudoinverse sich gewinnen lässt mittles der Singulärwertzerlegung höherer Ordnung.
+Der nächste Punkt ist die effiziente Berechnung der Pseudoinversen.
+
+
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  1 MAY 2017 22:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  11 MAY 2017 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1198,7 +1198,11 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \c@Satz=\count117
 \c@Annahme=\count118
 
-(./bachelorarbeit.aux)
+(./bachelorarbeit.aux
+
+LaTeX Warning: Label `eq:pinv' multiply defined.
+
+)
 \openout1 = `bachelorarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -1215,8 +1219,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 53.
 LaTeX Font Info:    Try loading font information for LGR+cmr on input line 53.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2016/03/04 v1.1 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 53.
@@ -1462,37 +1465,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
 [13 <./hosvdTensor.png>]) [14] (./Praekonditionierer/sumfac.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 15.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 16.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 15.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 16.
 
 
 LaTeX Font Warning: Font shape `LGR/phv/bx/n' undefined
-(Font)              using `LGR/phv/m/n' instead on input line 15.
+(Font)              using `LGR/phv/m/n' instead on input line 16.
 
 
-Overfull \hbox (15.07574pt too wide) in paragraph at lines 14--17
+Overfull \hbox (15.07574pt too wide) in paragraph at lines 15--18
 \T1/phv/m/n/12 gel er-hal-ten in-dem wir wie-der das Ten-sor-pro-dukt aus-nut-z
 en und er-hal-ten $([][], ... , [][])$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+Underfull \hbox (badness 10000) in paragraph at lines 15--18
 
  []
 
-[15] [16] [17] [18] [19]
-Overfull \hbox (26.21883pt too wide) detected at line 198
+[15] [16] [17]
+Overfull \hbox (134.19789pt too wide) detected at line 132
+\OMS/cmsy/m/n/12 V[] ^^C [] \T1/phv/m/n/12 = ^^U((\OMS/cmsy/m/n/12 W[][]\T1/phv
+/m/n/12 ) \OMS/cmsy/m/n/12 
+ \T1/phv/m/n/12 (\OMS/cmsy/m/n/12 WN[]\T1/phv/m/n/12 ) ^^U (\OMS/cmsy/m/n/12 WN
+[]\T1/phv/m/n/12 ) \OMS/cmsy/m/n/12 
+ \T1/phv/m/n/12 (\OMS/cmsy/m/n/12 W[][]\T1/phv/m/n/12 ))[] \OMS/cmsy/m/n/12 ^^C
+ [] \T1/phv/m/n/12 = ^^U((\OMS/cmsy/m/n/12 W[][]\T1/phv/m/n/12 )[] \OMS/cmsy/m/
+n/12 
+ \T1/phv/m/n/12 (\OMS/cmsy/m/n/12 WN[]\T1/phv/m/n/12 )[] ^^U (\OMS/cmsy/m/n/12 
+WN[]\T1/phv/m/n/12 )[] \OMS/cmsy/m/n/12 
+ \T1/phv/m/n/12 (\OMS/cmsy/m/n/12 W[][]\T1/phv/m/n/12 )[]) \OMS/cmsy/m/n/12 ^^C
+ []
+ []
+
+) [18] (./Praekonditionierer/hosvd.tex [19]) [20] [21]
+(./Praekonditionierer/komplexitaet.tex) [22]
+(./Implementierung/implementierung.tex [23] [24]
+Overfull \hbox (26.21883pt too wide) detected at line 132
 [] []
  []
 
-LaTeX Font Info:    Try loading font information for U+yswab on input line 201.
+LaTeX Font Info:    Try loading font information for U+yswab on input line 135.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [20]) [21]
-(./Praekonditionierer/hosvd.tex) [22] (./bachelorarbeit.bbl) [23]
-(./bachelorarbeit.aux)
+) [25]) [26]
+[27] [28] (./bachelorarbeit.bbl) [29] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.0pt have occurred.
@@ -1501,14 +1520,14 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9448 strings out of 493014
- 140649 string characters out of 6133351
- 307867 words of memory out of 5000000
- 12737 multiletter control sequences out of 15000+600000
+ 9461 strings out of 493014
+ 141090 string characters out of 6133351
+ 308864 words of memory out of 5000000
+ 12743 multiletter control sequences out of 15000+600000
  47214 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,16n,51p,8493b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1527,10 +1546,10 @@ e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-d
 ist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (30 pages, 353413 bytes).
+Output written on bachelorarbeit.pdf (36 pages, 364379 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 186 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
