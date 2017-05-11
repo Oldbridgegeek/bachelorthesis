@@ -49,47 +49,15 @@ Wir führen dies so weiter und erhalten
 w=( (w^{(1)})^T , \dots, (w^{(q)})^T) \in \mathbb{R}^{mq}
 \end{equation*}
 
-Nun müssen wir die Informationen der Matrix B noch mit reinbringen.
-%%%%%%%%%%%%%%%%%%%
+Nun müssen wir die Informationen der Matrix B noch mit reinbringen. Dazu berechnen wir wie im Teachlet auch vorgeschlagen $z_i$ mit
 
-Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Nun geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Summenfaktorisierung zu nutze machen, wie sie auch in \cite[9-11]{Teachlet} vorgeschlagen wird.
-Sei $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ .
-Die Formel für die Pseudoinverse lautet:
+\begin{equation*}
+z_i = \sum_{i=1}^{q} b_{1i} w_m^{(i)}
+\end{equation*}
 
-\begin{equation} \label{eq:pinv}
-\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
-\end{equation}
+Mit Hilfe diesen Algorithmus haben wir die Komplexität von $2m^4$ auf $4m^3$ reduziert.
+Nun wollen wir dies erweitern auf $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$.
 
-Wobei $\mathcal{S} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ und $U^{(n)} \in \mathbb{R}^{J_{n} \times I_{n}}$
-Man kann \ref{eq:pinv} nach \cite[462]{Kolda} äquivalent umformen zu
-
-\begin{equation}
-\begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}  &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
-\mathcal{A}^{\dagger}_{(n)} &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
-\end{aligned}
-\end{equation}
-
-Nun betrachten wir uns das Matrix-Vektor Produkt und überlegen uns wie wir uns die Strukturen dort zu nutze machen.
-
-\begin{equation} \label{eq:pinvv}
-\begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) v
-\end{aligned}
-\end{equation}
-
-Wir schauen uns die Struktur mal für den Fall, dass $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$. Das heißt \ref{eq:pinvv} reduziert sich auf:
-
-\begin{equation} \label{eq:pinvcase}
-\begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) v
-\end{aligned}
-\end{equation}
-mit $N_{i} \neq n$.
-
-Zu Zwecken der Veranschaulichung nehmen wir eine Umdefinierung vor:
-$A := U^{(N_3)}, B:= U^{(N_2)}, C:=U^{(N_1)}$.
-Wenn wir uns die Struktur in der Klammer anschauen sieht diese wie folgt aus
 
 \begin{equation} z:=
 \begin{pmatrix}
@@ -172,5 +140,103 @@ Der komplette Algorithmus würde nun wie folgt aussehen:
 \end{algorithmic}
 
  
-Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{4}$ Multiplikationen und genau so viele Additionen.
+Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{3}$ Multiplikationen und genau so viele Additionen.
 Ein enorme Reduktion, vor allem für großes n.
+
+\textbf{Wie können wir uns nun diese Algorithmen zu nutze machen für die in Kapitel 3 besprochenen Strategien?} \\
+
+\textbf{Summenfaktorisierung}
+
+Rekapituliere die Formeln für die Masse Matrix und für die Laplace Bilinearform \\
+\textbf{Masse Matrix} 
+\begin{equation*}
+M^{-1}*u = ((\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}))^{-1}*u
+= ((\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1})*u
+\end{equation*}
+
+\textbf{Laplace Bilinearform}
+\begin{equation*}
+\mathcal{V}^{-1}*u =  -((\mathcal{W} \mathcal{N''}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1} - (\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N''}^{T})^{-1})*u
+\end{equation*}
+
+Um dies effizient zu berechnen nutzen wir einfach die Formeln aus dem Teachlet und erhalten eine Komplexität von:
+Matrizenmultiplikation ist kubisch also $n^3$. Das Kroneckerprodukt von 2 Matrizen ist wie wir bereits wissen $4n^3$. Nun müssen wir uns um die Invertierung und deren Komplexität kümmern. Nach einer normalen Singulärwertzerlegung bekommen wir $O(min(mn^2,m^2 n))$. Nun müssen wir wieder die Inverse daraus herleiten. 
+Oder wir können den Gauß Algorithmus oder mit der Neumann Reihe arbeiten. Gauß Algorithmus gibt uns eine Komplexität von $O(n^3)$. Neumann Reihe macht keinen Sinn, da die Komplexität mindestens genau so hoch ist wie bei Gauß.
+Insgesamt haben wir eine Komplexität mit Gauß: $O(n^3)+O(n^3)+O(4n^3)=O(6n^3) \in O(n^3)$. Das heißt wir sind immer noch kubisch, was ein großer Vorteil ist.
+Die Singulärwertzerlegung bringt uns erst einen Vorteil, wenn wir eine trunkierte Zerlegung wählen. Die mögliche Ersparnis ist aber nicht so hoch. \textbf{BEGRÜNDUNG}.
+
+\textbf{Singulärwertzerlegung höherer Ordnung}
+Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Nun geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Summenfaktorisierung zu nutze machen, wie sie auch in \cite[9-11]{Teachlet} vorgeschlagen wird.
+Sei $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ .
+Die Formel für die Pseudoinverse lautet:
+
+\begin{equation} \label{eq:pinv}
+\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
+\end{equation}
+
+Wobei $\mathcal{S} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ und $U^{(n)} \in \mathbb{R}^{J_{n} \times I_{n}}$
+Man kann \ref{eq:pinv} nach \cite[462]{Kolda} äquivalent umformen zu
+
+\begin{equation}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}  &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
+\mathcal{A}^{\dagger}_{(n)} &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
+\end{aligned}
+\end{equation}
+
+Nun betrachten wir uns das Matrix-Vektor Produkt und überlegen uns wie wir uns die Strukturen dort zu nutze machen.
+
+\begin{equation} \label{eq:pinvv}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) v
+\end{aligned}
+\end{equation}
+
+Wir schauen uns die Struktur mal für den Fall, dass $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$. Das heißt \ref{eq:pinvv} reduziert sich auf:
+
+\begin{equation} \label{eq:pinvcase}
+\begin{aligned}
+\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) v
+\end{aligned}
+\end{equation}
+mit $N_{i} \neq n$.
+
+Wir erkennen auf der Rechten seite können wir unsere Methodik, die wir entwickelt haben, um dieses doppelte Kronecker Produkt mit dem Vektor effizient zu berechnen. 
+Wir können dies mit einer Komplexität von $O(6n^3)$ machen. Nun geht es darum den Kerntensor zu invertieren. Wie wir wissen müssen wir dazu erstmal kleine Zahlen, die wir Rauschen nennen, auf 0 setzen und die Diagonalelemente invertieren. Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Tensors durchiterieren! Das heißt wir haben eine Komplexität von $O(n^4)$, da unser Tensor Ordnung 4 hat. Nun folgt eine letzte Matrix Matrix Multiplikation, aber von Matrizen der Größe $n^2 \times n^2$. Das heißt eine Komplexität von $O(n^6)$ was uns die ganze Komplexität mit raketengeschwindigkeit zerbombt. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(n^4)$. 
+Insgesamt haben wir eine Komplexität von $O(6n^3)+2O(n^4)=O(6n^3+2n^4)$. Dies ist aber nicht annähernd so gut wie Option 1. Wie können wir unsere effizienz weiter steigern?
+Wir können uns an die trunkierte HOSVD ranmachen oder eine andere Alternative finden.
+Nun anstatt den Kerntensor zu modifizieren, können wir bei der Matrix-Matrix Multiplikation einfach nur die Diagonalelemente für die Multiplikation in Erwägung ziehen. Damit sparen wir uns schon $O(n^4)$ Operationen. Was wir tun könnten ist den Kerntensor in das Kronecker Produkt reinmultiplizieren bevor wir dieses ausrechnen. Selbst wenn wir das hinkriegen würden wir es nicht hinbekommen die Komplexität von Option 1 zu übertreffen. Außerdem ist das Problem, dass wir nicht mit der Pseudoinverse eine Matrix-Vektor Multiplikation durchführen, sondern mit dem entfalteten Tensor, der die Pseudoinverse darstellt. Doch wie dieser Tensor entfaltet wird, ist für die korrekte Berechnung von enormer Wichtigkeit.
+D.h. selbst wenn wir es schaffen dies effizient zu berechnen, ist das Ergebnis das was wir wollen?
+Die Antwort ist: Es kommt drauf an. Worauf? Wie wir unser v aufsetzen. Unser v könnte so aufgebaut werden, dass dies in Übereinstimmung mit den Elementen des entfalteten Tensors übereinstimmt. Dadurch würden wir genau das erreichen was wir erreichen wollten. Doch wie gesagt, macht uns die Komplexität einen gewaltigen Schnitt durch die Rechnung.
+
+Eine letzte Alternative zeigt wäre eben die trunkierte HOSVD.
+Wir hauen eine Dimension raus und die korrespondierenden Singulärwerte raus. Am Meisten macht es Sinn natürlich die kleinsten Singulärwerte rauszuhauen. 
+
+Wir erhalten:
+
+\begin{equation}
+\begin{aligned}
+\mathcal{\textbf{A}}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})} ) v
+\end{aligned}
+\end{equation}
+
+DIe Komplexität dies auszurechnen beträgt für das Kronecker-Matrix Vektor Produkt $O(4n^3)$. Nun folgt ein weiterer Trick. Wir nutzen folgende Bemerkung:
+
+\begin{Bemerkung}
+Sei A eine Diagonalmatrix mit $A \in \mathbb{R}^{n^3 \times n^3}$ und $y \in \mathbb{R}^{n^3}$. Dann gilt:
+\begin{equation*}
+A(\mathcal{B} \otimes \mathcal{C})y = (\mathcal{B} \otimes \mathcal{C}) 
+\begin{pmatrix}
+a_{11} y_1 \\ \vdots \\ a_{n^3 n^3} y_n \\
+\end{pmatrix}
+\end{equation*}
+\end{Bemerkung}
+
+Um diese Transformation zu berechnen brauchen wir $O(n^3)$ Operationen. Insgesamt erhalten wir$ O(5n^3)$. Nun müssen wir noch das letzte Matrix-Matrix Produkt berechnen, was uns wieder alles kaputt macht.
+
+Wenn wir noch eine Dimension rausstreichen enden wir bei:
+\begin{equation}
+\begin{aligned}
+\mathcal{\textbf{A}}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{\dagger}_{(n)} ( U^{ (N_{1})  } ) v
+\end{aligned}
+\end{equation}

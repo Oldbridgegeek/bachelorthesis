@@ -7,6 +7,7 @@ function fulfilled = check_hosvd(TENSOR,S,U)
     for k=1:size_
         TENSOR_RECREATED = nmodeproduct(TENSOR_RECREATED,U(:,:,k),k);
     end
+    TENSOR_RECREATED = nmodeproduct(TENSOR_RECREATED,eye(4),4);
 
     if ( abs(TENSOR_RECREATED-TENSOR) < 0.0000001 ) 
         fulfilled=1;

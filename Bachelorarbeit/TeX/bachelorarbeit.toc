@@ -8,14 +8,13 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Schwache L\IeC {\"o}sungen}{3}
 \contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{6}
 \contentsline {subsubsection}{\numberline {2.1.3}Methode der finiten Elemente}{8}
-\contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{10}
-\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{11}
-\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{11}
-\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{13}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{15}
-\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{15}
-\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{19}
-\contentsline {subsection}{\numberline {3.3}Komplexit\IeC {\"a}tsanalyse}{22}
+\contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{11}
+\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{12}
+\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{12}
+\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{14}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{16}
+\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{16}
+\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{20}
 \contentsline {section}{\numberline {4}Effiziente Implementierung}{23}
-\contentsline {section}{\numberline {5}Numerische Untersuchungen}{27}
-\contentsline {section}{\numberline {6}Resultate}{28}
+\contentsline {section}{\numberline {5}Numerische Untersuchungen}{29}
+\contentsline {section}{\numberline {6}Resultate}{30}
