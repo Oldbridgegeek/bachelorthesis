@@ -1,0 +1,22 @@
+Hochleistungsrechnen ist eine neue Disziplin, die mit dem Drang entstand immer komplexere Probleme lösen zu wollen. Diese Art an Probleme ranzugehen, löst sie nicht. Doch sie eröffnet uns eine neue Sichtweise auf dasselbe Probleme und gibt uns am Ende womöglich neue Lösungsansätze.
+Parallelisierung ist ein großer Zweig des Hochleistungsrechnens. Das Grundgerüst dieser Methodik besteht darin komplexe Probeme modular zu lösen, d.h. sie in viele wenig komplexere Subprobleme zu unterteilen, die unabhängig voneinander berechenbar sind. Am Ende fasst man die Ergebnisse der Subprobleme zu einem Ergebnis zusammen, welches die Lösung des komplexen Problems darstellt.
+\begin{equation*}
+v=A(u)
+\end{equation*}
+ist die Gleichung, welche wir mit Hilfe der finite Elemente Methode lösen wollen. A ist ein möglicherweise nichtlinearer Operator, der Vektor u als Input nimmt und das Integral vom Operator multipliziert mit  Testfunktionen $\phi_i$ with $i=1,\dots,n$. (Kronbichler p.1) 
+Der Sinn dieser Arbeit ist einen effiziente Ansatz herzuleiten, der uns 
+\begin{equation*}
+A^{+}v
+\end{equation*}
+berechnet, wobei $A^{+}$ eine Pseudoinverse darstellt. Dies kann als Präkonditionierer genutzt werden, um die erste Gleichung zu lösen.
+
+Im 2.Kapitel werden wir erstmal en theoretisches Grundgerüst schaffen, um die beiden Gleichungen besser zu durchleuchten und nachvollziehen zu können. Wir werden uns die Grundlagen der numerischen Behandlung von partiellen Differentialgleichungen anschauen und versuchen die oberen Gleichungen herzuleiten.
+Im zweiten Teil des 2.Kapitels werden wir uns mit Tensor Dekomposition beschäftigen. Dies liegt daran, dass wir uns den Operator A als Tensor umdefinieren können und die Pseudoinverse mit Hilfe der sogenannten Singulärwertzerlegung höherer Ordnung berechnen können.
+
+Im 3.Kapitel werden wir uns zwei Methoden anschauen die Pseudoinverse zu berechnen. Einerseits machen wir uns in der 1.Methode die Struktur des Operators A zu nutze und leiten eine Repräsentation von A her die uns die Pseudoinverse mit wenig Aufwand gibt. In der zweiten Methode werden wir uns wie bereits erwähnt, A als Tensor umdefinieren und versuchen die SIngulärwertzerlegung höherer Ordnung effizient zu berechnen und uns dort auch Strukturen von dem Tensor zu nutze zu machen.
+
+Im 4.Kapitel sprechen wir über die effiziente Implementierung beider Algorithmen und im 5.Kapitel fassen wir alle Resultate zusammen und schließen mit einem Fazit ab.
+
+
+
+
