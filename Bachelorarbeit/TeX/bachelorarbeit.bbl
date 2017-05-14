@@ -1,0 +1,23 @@
+\begin{thebibliography}{MK12}
+
+\bibitem[Joh08]{Johnson}
+Claes Johnson.
+\newblock {\em Numerical Solution of Partial Differential Equations by the
+  Finite Element Method}.
+\newblock Dover Publications, 2008.
+
+\bibitem[MK12]{Kronbichler}
+Katharina~Kormann Martin~Kronbichler.
+\newblock {\em A generic interface for parallel cell-based finite element
+  operator application}.
+\newblock Elsevier, 2012.
+
+\bibitem[Tea]{Teachlet}
+{\em Efficient evaluation of weak forms in discontinuous Galerkin methods}.
+
+\bibitem[TK09]{Kolda}
+Brett~Bader Tamara~Kolda.
+\newblock {\em Tensor Decompositions and Applications}.
+\newblock SIAM, 2009.
+
+\end{thebibliography}

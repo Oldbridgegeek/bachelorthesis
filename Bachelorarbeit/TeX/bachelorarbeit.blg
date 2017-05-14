@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bachelorarbeit.aux
+The style file: alpha.bst
+Database file #1: literatur.bib
+Warning--to sort, need author, editor, or key in Teachlet
+Warning--empty author and editor in Teachlet
+Warning--empty publisher in Teachlet
+Warning--empty year in Teachlet
+You've used 4 entries,
+            2543 wiz_defined-function locations,
+            579 strings with 4901 characters,
+and the built_in function-call counts, 1049 in all, are:
+= -- 85
+> -- 25
+< -- 3
++ -- 7
+- -- 6
+* -- 62
+:= -- 173
+add.period$ -- 10
+call.type$ -- 4
+change.case$ -- 15
+chr.to.int$ -- 4
+cite$ -- 9
+duplicate$ -- 64
+empty$ -- 105
+format.name$ -- 10
+if$ -- 214
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 21
+num.names$ -- 9
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 0
+skip$ -- 39
+stack$ -- 0
+substring$ -- 30
+swap$ -- 4
+text.length$ -- 3
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 16
+warning$ -- 4
+while$ -- 6
+width$ -- 6
+write$ -- 45
+(There were 4 warnings)

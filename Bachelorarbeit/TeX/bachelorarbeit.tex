@@ -1,8 +1,10 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{scrartcl}
 
 %Schriftart
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\rmdefault}
+%\usepackage{bookman}
 
 %Zeilenabstand
 \usepackage{setspace}
@@ -33,21 +35,6 @@
 \usepackage[mathscr]{euscript}
 
 
-% FONTS Linux Libertinus 
-%--------------------------------------------------------------------------- 
-\usepackage{fontspec} 
-\usepackage{metalogo} % Für die Logos von \LaTeX \XeTeX usw. 
-\usepackage{amsfonts} 
-\usepackage{trace} 
-\usepackage{unicode-math} 
-\setmainfont[Mapping=tex-text,Numbers={OldStyle,Proportional},Ligatures={TeX, Common%, Historic, Contextual, Rare, Discretionary 
-}]{Libertinus Serif} 
-\setmonofont[Mapping=tex-text,Scale=0.8]{Libertinus Mono} 
-\setsansfont[Mapping=tex-text]{Libertinus Sans} 
-\setmathfont[AutoFakeBold]{Libertinus Math}
-
-
-
 
 %Geometrie der Blätter
 \geometry{a4paper, top=40mm, left=30mm, right=30mm, bottom=30mm,
@@ -65,6 +52,12 @@ headsep=10mm, footskip=12mm}
 
 % Mathematische Kommandos
 \DeclareMathOperator*{\argmin}{arg\,min}
+
+
+%\usepackage{kpfonts}%  for math    
+%\usepackage{libertine}%  serif and sans serif
+\usepackage[scaled=0.85]{beramono}%% mono
+
 
 
 \begin{document}
@@ -114,7 +107,7 @@ Universität Heidelberg}
 
 \noindent\rule{16cm}{0.4pt}
 
-Hiermit versichere ich, dass ich die vorliegende Bachelorarbeit selbständig
+Hiermit versichere ich, Enes Witwit, dass ich die vorliegende Bachelorarbeit selbständig
 verfasst habe.
 Ich versichere, dass ich keine anderen als die angegebenen Quellen benutzt und
 alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als
@@ -123,6 +116,7 @@ noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahren
 gewesen ist. \\[2ex] 
 
 \noindent
+
 
 \today \hspace*{1cm}  Heidelberg \hspace*{5cm} Unterschrift\\[5ex]
 % Unterschrift (handgeschrieben)
@@ -237,13 +231,14 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 \newpage
 
 \section{Theorie}
-Das Ziel dieses Kapitels ist es die Verständigung über Notation zu klären und eine theoretische Grundlage für Kapitel 3 zu schaffen, um die dortigen Resultate gekonnt nachzuvollziehen. 
-Zu erst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie schwache Lösung, klassische Lösung, Variationsgleichung und Sobolev Raum werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode, welche im 2. Unterkapitel besprochen wird. 
-Im 3. Unterkapitel Methode der finiten Elemente ist das Ziel die Gleichung $Au=f$ herzuleiten mit A als globale Steifigkeitsmatrix.
+Das Ziel dieses Kapitels ist es die Verständigung über Notation zu klären und eine theoretische Grundlage für das dritte Kapitel, das Herz dieser Arbeit, zu schaffen.
+
+Zu erst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie schwache Lösung, klassische Lösung, Variationsgleichung und Sobolev Raum werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode. 
+Im dritten Unterkapitel \textit{Methode der Finiten Elemente} ist das Ziel die Gleichung $Au=f$ herzuleiten mit A als globale Steifigkeitsmatrix.
 Im darauffolgenden Kapitel wollen wir uns eine flexiblere Methode anschauen, als die Methode der Finiten Elemente und die Wichtigkeit zu dieser Arbeit soll besonders hervorgehoben werden.
 
-Dann kommen wir zu einem ganz anderen Thema nämlich dem der Tensor Dekomposition. 
-Erstmal schauen wir uns grundlegende Definition an um mit diesem Basiswissen die Singulärwertzerlegung höherer Ordnung einzuführen. Mit dieser werden wir uns gewissen finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 4 durchführen. In Hoffnung natürlich, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
+Dann kommen wir zu einem ganz anderen Thema, nämlich dem der Tensor Dekomposition. 
+Erstmal schauen wir uns grundlegende Definition an um mit diesem Basiswissen die Singulärwertzerlegung höherer Ordnung einzuführen. Mit dieser werden wir uns gewisse Finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel drei und vier durchführen. In Hoffnung natürlich, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
 
 
 %\newpage

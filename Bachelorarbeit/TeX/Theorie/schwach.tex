@@ -1,6 +1,4 @@
-Es ist naheliegend, dass wir uns zu erst mit notwendigen Funktionenräumen beschäftigen und uns auf analytischer Ebene eine Umformulierung der Differentialgleichung zu nutze machen, welche uns letztlich die Grundlage für die finiten Elementen Methode liefert.
-
-Dazu schauen wir uns folgendes Randwert Problem an:
+Gegeben sei folgendes Randwertproblem
 \begin{equation} \label{eq:dg}
 \begin{aligned}
 	- \Delta u &= f \text{ in } \Omega \\
@@ -8,17 +6,19 @@ Dazu schauen wir uns folgendes Randwert Problem an:
 \end{aligned}
 \end{equation}
 
+Der funktionalanalytische Ansatz schlägt vor, dass wir uns zu erst mit notwendigen Funktionenräumen beschäftigen und uns auf analytischer Ebene eine Umformulierung der Differentialgleichung zu nutze machen, welche uns letztlich die Grundlage für die finiten Elementen Methode liefert.
+
 Wir sehen von der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal stetig differenzierbar sein sollte.
 Dementsprechend legen die Differenzierbarkeitsanforderungen den Raum $u \in C_{0}^{2}$ nahe.
 
-Nun kann es aber sein, dass eine Lösung für dieses Problem garnicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion anschauen.
+Nun kann es aber sein, dass eine Lösung für dieses Problem nicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion anschauen.
 \begin{equation}
 \begin{aligned}
 f(x) &= | x |
 \end{aligned}
 \end{equation}
 
-Offensichtlich ist diese Funktion in 0 nicht stetig differenzierbar. Trotzdem können wir eine Ableitung finden, die wir schwache Ableitung nennen. 
+Offensichtlich ist diese Funktion in Null nicht stetig differenzierbar. Trotzdem können wir eine Ableitung finden, die wir \textit{schwache Ableitung} nennen. 
 \begin{equation}
 \begin{aligned}
 f'(x) &= 

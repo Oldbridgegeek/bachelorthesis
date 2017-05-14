@@ -1,0 +1,19 @@
+\select@language {ngerman}
+\contentsline {section}{Notation}{I}
+\contentsline {section}{Abbildungsverzeichnis}{II}
+\contentsline {section}{Tabellenverzeichnis}{III}
+\contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
+\contentsline {section}{\numberline {2}Theorie}{3}
+\contentsline {subsection}{\numberline {2.1}Numerische Behandlung partieller Differentialgleichungen}{3}
+\contentsline {subsubsection}{\numberline {2.1.1}Schwache L\IeC {\"o}sungen}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{5}
+\contentsline {subsubsection}{\numberline {2.1.3}Methode der finiten Elemente}{7}
+\contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{9}
+\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{10}
+\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{10}
+\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{12}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{14}
+\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{14}
+\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{17}
+\contentsline {section}{\numberline {4}Effiziente Implementierung}{20}
+\contentsline {section}{\numberline {5}Resultate}{26}
