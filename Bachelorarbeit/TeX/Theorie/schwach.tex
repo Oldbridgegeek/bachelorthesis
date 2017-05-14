@@ -57,7 +57,7 @@ Für unsere Differentialgleichung (\ref{eq:sf1}) nutzen wir die partielle Integr
 Dies ist die so genannte \textit{Variationsgleichung}. Sie ist ein erster Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie. 
 Die Lösung $u$ von (\ref{eq:sf2}) nennt man \textit{schwache Lösung} für das Problem (\ref{eq:dg}).
 Die Lösung $u \in C_{0}^{2}$ von (\ref{eq:dg}) nennt man \textit{klassische Lösung}. Nun wissen wir in welchem Raum die klassische Lösung liegt, aber welche Topologie ist für die schwache Lösung sinnvoll? 
-Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ für (\ref{eq:sf2}) liegt. In unserem Fall wäre folgender Raum ergiebig:
+Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ für (\ref{eq:sf2}) liegt. In unserem Fall wäre folgender Raum ergiebig
 
 \begin{equation*}
 	H_{0}^{1}(\, \Omega\, ) = \{ \, v \, \in \, L_{2}(\Omega) \, : \, \dfrac{\delta \, v}{\delta \, x_{i}}  \, \in \, L_{2}(\Omega) \, , \, \, v=0 \, \text{ in } \, \delta \Omega \text{ , } \,  i=1,2 \}
@@ -134,14 +134,16 @@ Wir definieren uns $a( \cdot , \cdot )$ : $H^1_0 (\Omega) \times H^1_0(\Omega) \
 a(u,v) := \int\limits_{\Omega} \nabla u \, \nabla v \, dx
 \end{equation*}
 
-Wir können zeigen, dass die Lösung des Problems (\ref{eq:vary}) unter gewissen Bedingungen äquivalent ist, zum Lösen des folgenden Minimierungsproblems.
+Wir können zeigen, dass die Lösung des Problems (\ref{eq:vary}) unter gewissen Bedingungen äquivalent ist, zum Lösen des folgenden Minimierungsproblems. Das Minimierungsproblem nennen wir auch Variationsaufgabe oder Variationsproblem.
 
-\begin{Lemma}
-Falls die Bilinearform symmetrisch ist $u \in V$ ein Minimierer der Gleichung
+\begin{Satz} (Verbindung zwischen Variationsaufgabe und Variationsgleichung) \\
+Es sei $a( \cdot , \cdot )$ : $ V \times V \rightarrow \mathbb{R} $ eine Bilinearform. Sei ferner $f \in V^{*}$.
+Falls die Bilinearform $a(\, \cdot \, , \, \cdot \, )$ symmetrisch ist, ist $u \in V$ ein Minimierer der Gleichung
 \begin{equation} \label{eq:mini}
 J(u) = \min_{v \in V} J(v) = \dfrac{1}{2} a(u,v) - f(v)
 \end{equation}
 genau dann wenn u die schwache Formulierung löst.
-\end{Lemma}
+\end{Satz}
+
 
 

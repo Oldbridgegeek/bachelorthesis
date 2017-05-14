@@ -3,6 +3,10 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bachelorarbeit.aux
 The style file: alpha.bst
 Database file #1: literatur.bib
+I was expecting a `,' or a `}'---line 29 of file literatur.bib
+ : author = "Prof. Dr. Kanschat"
+ :                              .
+I'm skipping whatever remains of this entry
 Warning--to sort, need author, editor, or key in Teachlet
 Warning--empty author and editor in Teachlet
 Warning--empty publisher in Teachlet
@@ -48,4 +52,4 @@ warning$ -- 4
 while$ -- 8
 width$ -- 7
 write$ -- 57
-(There were 4 warnings)
+(There was 1 error message)

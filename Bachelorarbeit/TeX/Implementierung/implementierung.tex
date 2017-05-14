@@ -115,6 +115,7 @@ Wir wollen nun $z$ genau so umformen wie wir das auch für v gemacht haben. Dami
 Wobei j und k den Zeilen jeweils in den Matrizen B und C entsprechen. 
 
 Der komplette Algorithmus würde nun wie folgt aussehen:
+\begin{framed}
 \begin{algorithmic}
 \For {k=1 < n }
 	\For {i= 1 < n }
@@ -138,6 +139,7 @@ Der komplette Algorithmus würde nun wie folgt aussehen:
 	\EndFor
 \EndFor
 \end{algorithmic}
+\end{framed}
 
  
 Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{3}$ Multiplikationen und genau so viele Additionen.
