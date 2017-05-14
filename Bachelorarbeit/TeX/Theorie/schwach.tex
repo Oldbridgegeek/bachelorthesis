@@ -2,80 +2,139 @@ Gegeben sei folgendes Randwertproblem
 \begin{equation} \label{eq:dg}
 \begin{aligned}
 	- \Delta u &= f \text{ in } \Omega \\
-	u &= 0 \text{ in } \delta \Omega	
+	u &= 0 \, \text{ in } \delta \Omega	
 \end{aligned}
 \end{equation}
-
+mit $\Omega = [ \, 0 \, ,1 \, ]^{2}$ und $f$ : $\bar{\Omega} \rightarrow \mathbb{R}$ zwei mal stetig partiell differenzierbar.
 Der funktionalanalytische Ansatz schlägt vor, dass wir uns zu erst mit notwendigen Funktionenräumen beschäftigen und uns auf analytischer Ebene eine Umformulierung der Differentialgleichung zu nutze machen, welche uns letztlich die Grundlage für die finiten Elementen Methode liefert.
 
-Wir sehen von der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal stetig differenzierbar sein sollte.
-Dementsprechend legen die Differenzierbarkeitsanforderungen den Raum $u \in C_{0}^{2}$ nahe.
+Wir sehen von der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal partiell stetig differenzierbar sein sollte. Die Lösung sollte also in dem Raum der zweimal partiell stetig differenzierbaren Funktionen liegen.
 
-Nun kann es aber sein, dass eine Lösung für dieses Problem nicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion anschauen.
+Nun kann es aber sein, dass eine Lösung für dieses Problem nicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion $b$ : $\mathbb{R} \rightarrow \mathbb{R}$ anschauen.
 \begin{equation}
 \begin{aligned}
-f(x) &= | x |
+b(x) &= | \, x \, |
 \end{aligned}
 \end{equation}
 
 Offensichtlich ist diese Funktion in Null nicht stetig differenzierbar. Trotzdem können wir eine Ableitung finden, die wir \textit{schwache Ableitung} nennen. 
 \begin{equation}
 \begin{aligned}
-f'(x) &= 
+b'(x) &= 
 \begin{cases}
 -1 \text{ für } x < 0 \\
-0 \text{ für } x = 0  \\
-1 \text{ für } x > 0 
+\, \, \text{  }0 \, \text{ für } x = 0  \\
+\, \, \text{  }1 \, \text{ für } x > 0 
 \end{cases}
 \end{aligned}
 \end{equation}
 
-Nun um das was wir jetzt für die Betragsfunktion gemacht haben, für unser Randwertproblem zu machen nutzen wir eine funktionalanalytische Idee die aus der Distributionstheorie stammt.
-Wir multiplizieren mit einer Testfunktion $\psi$  und integrieren über das Gebiet.
+Dies zeigt uns, dass wir potentiell auch Lösungen finden können, in Räumen die nicht alle notwendigen Regularitätsbedingungen erfüllen. Diese Lösungen nennen wir dann \textit{schwache Lösungen}. Doch wie finden wir schwache Lösungen?
+Dafür nutzen wir eine funktionalanalytische Idee, die aus der Distributionstheorie stammt.
+Wir multiplizieren mit einer Testfunktion $v \in C(\bar{\Omega})$  und integrieren über das Gebiet.
 
 \begin{equation}
 \label{eq:sf1}
-\int_{\Omega} - \Delta u \psi dx = \int_{\Omega} f \psi dx
+\int\limits_{\Omega} - \Delta u \, v  \, dx = \int\limits_{\Omega} f \, v  \, dx
 \end{equation}
 
-Der nächste Schritt, welcher durchwegs fundamental für die Herleitung ist, ist die intuitive Nutzung der Struktur und Integrationswerkzeuge um zu erreichen, dass an u weniger Differenzierbarkeitsanforderungen gebunden sind. Für diesen Schritt ist der Satz von Green und die partielle Integration von Wichtigkeit.
+Der nächste Schritt, welcher durchwegs fundamental für die Herleitung ist, ist die intuitive Nutzung der Struktur und Integrationswerkzeuge um zu erreichen, dass an $u$ weniger Differenzierbarkeitsanforderungen gebunden sind. Für diesen Schritt ist der Satz von Green und die partielle Integration von Wichtigkeit.
 
-\begin{Lemma} Satz von Green
-\end{Lemma}
-
-\begin{Lemma} Partielle Integration
+\begin{Lemma} (Partielle Integration) \label{lemma:part} \\
+Es sei $\Omega \, \subset \, \mathbb{R}^{n}$ , $n=2,3$ ein beschränktes Lipschitz-Gebiet. Dann gilt
+\begin{equation*}
+\int\limits_{\Omega} \dfrac{\delta \, u}{\delta \, x_i} \, v \, dx = \int\limits_{\delta \, \Omega} u \, v \, cos(n,e^i) \, ds \, - \, \int\limits_{\Omega} u \, \dfrac{\delta \, v}{\delta \, x_i} \, dx
+\end{equation*}
+für beliebige $u$ , $v$ $\in \, C^1(\bar{\Omega})$ und n bezeichne die äußere Normale im jeweiligen Randpunkt ~\cite[139]{Numerik}.
 \end{Lemma}
 
 Für unsere Differentialgleichung (\ref{eq:sf1}) nutzen wir die partielle Integration und erhalten.
 
 \begin{equation} \label{eq:sf2}
-\int_{\Omega} - \nabla u \nabla \psi dx = \int_{\Omega} f \psi dx
+\int\limits_{\Omega} - \nabla u \, \nabla v \, dx = \int\limits_{\Omega} f \, v \, dx
 \end{equation}
   
-Dies ist die so genannte Variationsgleichung. Sie ist ein erster Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie.
+Dies ist die so genannte \textit{Variationsgleichung}. Sie ist ein erster Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie. 
 Die Lösung $u$ von (\ref{eq:sf2}) nennt man \textit{schwache Lösung} für das Problem (\ref{eq:dg}).
 Die Lösung $u \in C_{0}^{2}$ von (\ref{eq:dg}) nennt man \textit{klassische Lösung}. Nun wissen wir in welchem Raum die klassische Lösung liegt, aber welche Topologie ist für die schwache Lösung sinnvoll? 
 Ein funktionalanalytischer Ansatz versucht nun die Räume zu definieren, in der die Lösung $u$ für (\ref{eq:sf2}) liegt. In unserem Fall wäre folgender Raum ergiebig:
 
 \begin{equation*}
-	H_{0}^{1}(\Omega) = \{ v \in L_{2}(\Omega) : \dfrac{\delta v}{\delta x_{i}} \in L_{2}(\Omega), v=0 \text{ in } \delta \Omega \text{ , } i=1,...,d \}
+	H_{0}^{1}(\, \Omega\, ) = \{ \, v \, \in \, L_{2}(\Omega) \, : \, \dfrac{\delta \, v}{\delta \, x_{i}}  \, \in \, L_{2}(\Omega) \, , \, \, v=0 \, \text{ in } \, \delta \Omega \text{ , } \,  i=1,2 \}
 \end{equation*}
 
-Diese Räume nennt man Sobolev Räume. Allgemein sind sie definiert durch:
+Diesen Raum nennt man Sobolev Raum. Allgemein sind Sobolov Räume definiert durch
 
-\begin{Definition} Sobolev Raum
+\begin{Definition} (Sobolev Raum) \\
+Es sei $\alpha \, = \, ( \, \alpha_1 \, , \, \dots  \, , \, \alpha_n \, )$ mit $\alpha_i \, \geq \, 0$ ganzzahlig. Weiterhin sei $|\, \alpha \, |= \sum_i \alpha_i$ und
+\begin{equation*}
+D^{\alpha} \, u := \dfrac{ \delta^{| \, \alpha \,|} } {\delta \, x_1^{\alpha_1} \, \dots \, \delta \, x_n^{\alpha_n}} \, u
+\end{equation*}
+Für $k=1,2,\dots$ definieren wir nun den Sobolev Raum 
+\begin{equation*}
+W^{k,p} (\Omega) = \{ v \, \in  \, L_p (\Omega) \, : \, D^{\alpha} \, v \, \in \, L_p (\Omega) \, , \, | \alpha | \, \leq \, k \}
+\end{equation*}
 \end{Definition}
 
-Das heißt Sobolev Räume sind eine Teilmenge von den $L_{2}$ Räumen.
-Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der finiten Elementen Methode ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit sprengen, daher verweis ich an gegebenen Stellen an weiterführende Literatur.
+Das heißt Sobolev Räume sind eine Teilmenge von den $L_{p}$ Räumen.
+Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der finiten Elementen Methode ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit sprengen, daher verweise ich an gegebenen Stellen an weiterführende Literatur.
 
 Die Sobolev Räume wurden mit Skalarprodukten ausgestattet, sodass unsere Variationsgleichung intuitiv als Skalarprodukt der zugrundeliegenden Sobolev Räume geschrieben werden kann.
 
-\begin{Lemma} Sobolev Norm
-\end{Lemma}
+\begin{Definition} (Sobolev Norm) \\
+\begin{equation*}
+|| \, v \, ||_{W^{k,p}(\Omega)} =
+\begin{cases}
+( \sum\limits_{|\alpha| \, \leq k \, } \, \, || D^{\alpha}v ||_{L^p(\Omega)}^{1/p} \, \, dx \, )^{1/2} \text{ für } \, p < \infty \\
+ \, \, \, \max\limits_{|\alpha| \, \leq k \, } \, \, || D^{\alpha}v ||_{L^{\infty}(\Omega)} \, \, dx \,  \, \text{ für } \, p = \infty 
+\end{cases}
+\end{equation*}
+\end{Definition}
 
-\begin{Lemma} Sobolev Skalarprodukt
-\end{Lemma}
+$W^{{k,p}}(\Omega )$ ist mit der Norm $ \|{\cdot }\|_{{W^{{k,p}}(\Omega )}}$ ein vollständiger Vektorraum, somit also ein Banachraum.
+Für $p=2$ wird die Norm durch das Skalarprodukt induziert.
+
+\begin{Definition} (Sobolev Skalarprodukt) \\
+\begin{equation*}
+(u,v)_{{W^{{k,2}}(\Omega )}}:=\sum _{{|\alpha |\leq k}}(\partial ^{\alpha }u,\partial ^{\alpha }v)_{{L^{2}(\Omega )}}
+\end{equation*}
+\end{Definition}
+
+$W^{{k,2}}(\Omega )$ ist daher ein Hilbertraum, und wir schreiben $H^{k}(\Omega ):=W^{{k,2}}(\Omega )$.
+Für die Untersuchung ellptischer Randwertaufaben zweiter bzw. vierter Ordnung sind vor allem Sobolev-Räume $H^1(\Omega)$ bzw. $H^2(\Omega)$ und deren Unterräume von Bedeutung ~\cite[134]{Numerik}. 
+
+Wir wollen noch ein wichtiges Resultat erwähnen, das Relevanz für die Herleitung der Variationsgleichung hat.
+Durch wiederholte Anwendung und Beachtung von Grenzübergängen von Lemma (\ref{lemma:part}) erhält man folgendes Resultat
+
+\begin{Satz} (Green) \\
+Es sei $\Omega \, \subset \, \mathbb{R}^{n}$ , $n=2,3$ beschränktes Lipschitz-Gebiet. Dann gilt
+\begin{equation*}
+\int\limits_{\Omega} \nabla u \, v \, dx = \int\limits_{\delta \, \Omega} \dfrac{\delta \, u}{\delta \, n} \, v \, ds \, - \,
+\int\limits_{\Omega} \Delta u \, \Delta v \, dx
+\end{equation*}
+für beliebige $u$ , $v$ $\in \, C^1(\bar{\Omega})$ und n bezeichne die äußere Normale im jeweiligen Randpunkt ~\cite[140]{Numerik}.
+\end{Satz}
+Der Satz von Green liefert uns ein mächtiges Werkzeug zur Herleitung der Variationsgleichung.
+
+Nun kommen wir wieder zurück zu unserem ursprünglichen Problem.
+\begin{equation*} 
+\begin{aligned}
+	- \Delta u &= f \text{ in } \Omega \\
+	u &= 0 \, \text{ in } \delta \Omega	
+\end{aligned}
+\end{equation*}
+
+Wir wissen jede Lösung dieses Problems erfüllt die Variationsgleichung
+\begin{equation}  \label{eq:vary}
+\int\limits_{\Omega} - \nabla u \, \nabla v \, dx = \int\limits_{\Omega} f \, v \, dx \, \, \text{ für alle } v \in H^1_0(\Omega)
+\end{equation}
+
+Wir definieren uns $a( \cdot , \cdot )$ : $H^1_0 (\Omega) \times H^1_0(\Omega) \rightarrow \mathbb{R}$ mit
+\begin{equation*}
+a(u,v) := \int\limits_{\Omega} \nabla u \, \nabla v \, dx
+\end{equation*}
+
+Wir können zeigen, dass die Lösung des Problems (\ref{eq:vary}) unter gewissen Bedingungen äquivalent ist, zum Lösen des folgenden Minimierungsproblems.
 
 \begin{Lemma}
 Falls die Bilinearform symmetrisch ist $u \in V$ ein Minimierer der Gleichung

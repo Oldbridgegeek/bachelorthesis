@@ -1,5 +1,10 @@
 \begin{thebibliography}{MK12}
 
+\bibitem[CG05]{Numerik}
+Hans-Görg~Roos Christian~Großmann.
+\newblock {\em Numerische Behandlung partieller Differentialgleichungen}.
+\newblock Teubner, 2005.
+
 \bibitem[Joh08]{Johnson}
 Claes Johnson.
 \newblock {\em Numerical Solution of Partial Differential Equations by the
