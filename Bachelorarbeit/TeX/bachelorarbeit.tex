@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{scrartcl}
+\documentclass[12pt,a4paper]{article}
 
 %Schriftart
 \usepackage{helvet}
@@ -13,13 +13,14 @@
 \usepackage[T1]{fontenc}
 \usepackage[english,ngerman]{babel}
 \usepackage{mathrsfs}
-\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{graphicx}
+
 \usepackage{latexsym}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,amsbsy}
 \usepackage{geometry}
 \usepackage{color}
 \usepackage{enumitem}   
-\usepackage[LGRgreek]{mathastext}
+%\usepackage[LGRgreek]{mathastext}
 \usepackage{mathtools}
 \usepackage{oldgerm}
 \usepackage{algpseudocode}
@@ -27,9 +28,23 @@
 \usepackage{calligra}
 \usepackage{bm}
 \usepackage{titlesec}
-\usepackage[mathscr]{euscript}
-\usepackage{framed}
 
+\usepackage{framed}
+\usepackage[mathscr]{euscript}
+
+
+% FONTS Linux Libertinus 
+%--------------------------------------------------------------------------- 
+\usepackage{fontspec} 
+\usepackage{metalogo} % Für die Logos von \LaTeX \XeTeX usw. 
+\usepackage{amsfonts} 
+\usepackage{trace} 
+\usepackage{unicode-math} 
+\setmainfont[Mapping=tex-text,Numbers={OldStyle,Proportional},Ligatures={TeX, Common%, Historic, Contextual, Rare, Discretionary 
+}]{Libertinus Serif} 
+\setmonofont[Mapping=tex-text,Scale=0.8]{Libertinus Mono} 
+\setsansfont[Mapping=tex-text]{Libertinus Sans} 
+\setmathfont[AutoFakeBold]{Libertinus Math}
 
 
 
@@ -137,19 +152,20 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 
 
 \newpage
+\setcounter{page}{1}
 \section*{Notation}
 \addcontentsline{toc}{section}{Notation}
 
-\begin{labeling}{alligator}
+\begin{labeling}{alligatorsss \quad \quad }
 \item [$a(\cdot,\cdot)$] Bilinearform
 \item [$D^{\alpha}$] Ableitung $|\alpha|$-ter Ordnung zum Multiindex $\alpha$
-\item [I] Identität
+\item [$I$] Identität
 \item [$J(\cdot)$] Funktional
 \item [$O(\cdot)$, $o(\cdot)$] Landau Symbole
 \item [$P_l$] Menge aller Polynome vom Höchstgrad l
 \item [$\mathbb{R},\mathbb{N}$] reelle Zahlen, natürliche Zahlen
-\item [V] Banachraum
-\item [$dim V$] Dimension von V
+\item [$V$] Banachraum
+\item [$dim(V)$] Dimension von V
 \item [$V_h$] endlichdimensionaler Finite-Elemente-Raum
 \item [$||\cdot||_V$] Norm von V
 \item [$(\cdot,\cdot)$] Skalarprodukt in V, wenn V Hilbertraum
@@ -161,14 +177,14 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 \item [$L_p(\Omega)$] Räume zur p-ten Potenz integrabler Funktionen $(1 \leq p \leq \infty)$
 \item [$W_p^l(\Omega)$] Sobolev-Raum
 \item [$H^l(\Omega),H_0^l(\Omega)$] Sobolev-Räume für p=2
-\item [supp v] Träger der Funktion v
+\item [$supp(v)$] Träger der Funktion v
 \item [$\Delta$] Gradient
-\item [div] Divergenz
+\item [$div$] Divergenz
 \item [$\nabla$] Laplace-Operator
 \item [$\nabla_h$] Diskreter Laplace-Operator
-\item [$h_i,h$] Diskretierungsparamter bezüglich der räumlichen Veränderlichen
-\item [$\mathcal{X}$] Höher-dimensionaler Tensor werden mit Skript Buchstaben beschriftet
-\item [$\textbf{A}$] Matrizen mit großen fetten Buchstaben
+\item [$h_i$ , $h$] Diskretierungsparamter bezüglich der räumlichen Veränderlichen
+\item [$\pmb{\mathscr{X}}$] Skript Buchstaben für Höher-dimensionale Tensoren
+\item [$\textbf{A}$] Große fette Buchstaben für Matrizen
 \item [$\textbf{A}^{(n)}$] bezeichnet die n-te Matrix einer Matrixfolge
 \end{labeling}
 
@@ -178,9 +194,8 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
 \newpage
+\setcounter{page}{2}
 \renewcommand{\listfigurename}{}
 \section*{Abbildungsverzeichnis}
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
@@ -193,6 +208,7 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 
 
 \newpage
+\setcounter{page}{3}
 \section*{Tabellenverzeichnis}
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
 
