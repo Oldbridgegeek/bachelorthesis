@@ -1,54 +1,86 @@
 % Einführing in die FEM mit Hilfe von Grossman S.175
-Im Vorherigen Kapitel haben wir das Ritz-Galerkin Verfahren kennengelernt. Der Kernaspekt dieser konformer Approximation war eine diskretisierung des Raumes und mit einhergehend global einheitlich definierte Funktionen. Nun öffnen wir die letzt genannte Einschränkung und fordern nur noch stückweise definierte Funktionen, in der Regel Polynome. Wo genau eine Funktion definiert ist, hängt von unsererer Gebietszerlegung ab.
-Das heißt für die Finite Elemente Methode (FEM) ist es zu erst notwendig das Grundgebiet in geometrisch einfache Teilgebiete $\Omega_h = \{\Omega_k \}_{k=1 \dots N}$ z.B. Dreiecke und Rechtecke bei Problemen in der Ebene oder Tetraeder und Quader bei Problemen im dreidimensionalen Raum.
-Dann folgt eine Definition von Ansatz- und Testfunktionen über Teilgebieten. Da wir zwischen den Teilgebieten eine Stetigkeit fordern, definiert man Übergangsbedigungen die dann die Sicherung der Stetigkeit global sichert. (Grossmann Seite 175).
-Die Stetigkeit wird gefordert damit wir $V_n \subset V$ bekommen, da beispielsweise gelten kann $V \subset H^1 (\Omega)$. 
-
-\begin{Bemerkung} Natürliche Voraussetzungen an Zerlegung (Grossman S.176) \\
-Die Voraussetzungen an die Zerlegung {\calligra{Z}}=$\{ \Omega_j \}_{j=1}^{m}$ sind 
+Im vorherigen Kapitel haben wir das Ritz-Galerkin Verfahren kennengelernt. Der Kernaspekt dieser konformen Approximation war eine diskretisierung des Raumes und damit einhergehend global einheitlich definierte Basisfunktionen des diskreten Raumes. Nun öffnen wir die zuletzt genannte Einschränkung und fordern nur noch stückweise definierte Funktionen. Wo genau eine Funktion, in der Regel ein Polynom, definiert ist, hängt von unsererer Gebietszerlegung ab.
+Das heißt für die \textit{Finite Elemente Methode} (FEM) ist es zu erst notwendig 
 \begin{enumerate}
-\item \begin{equation*}
-\bar{\Omega} = \bigcup\limits_{j=1}^{m} \bar{\Omega_j} 
-\end{equation*}
-\item \begin{equation*}
- int \Omega_i \cap int \Omega_j = \emptyset \text{ , falls } i \neq j.
-\end{equation*}
+\item Das Grundgebiet in geometrisch einfache Teilgebiete $ \, \Omega_h = \, \{ \, \Omega_k \, \}_{k=1 \, , \dots, \, N} \, $ z.B. Dreiecke und Rechtecke bei Problemen in der Ebene oder Tetraeder und Quader bei Problemen im dreidimensionalen Raum.
+\item Definition von Ansatz- und Testfunktionen über Teilgebieten 
+\item Da wir zwischen den Teilgebieten eine Stetigkeit fordern, definiert man Übergangsbedigungen, die uns globale Stetigkeit sichern
+\end{enumerate}
+Die Stetigkeit der globale Lösung wird gefordert, damit wir $V_n \subset V$ bekommen mit V ein Sobolev Raum.\cite[175]{Numerik}. 
+
+% Voraussetzungen an die Gebietszerlegung
+
+\begin{Bemerkung} (Voraussetzungen an Zerlegung) \cite[176]{Numerik} \\
+Die Voraussetzungen an die Zerlegung $Z \, = \, \{  \, \Omega_j  \, \}_{j=1}^{m} \, $ sind 
+\begin{enumerate}
+\item \, \, $\bar{\Omega} \, = \,  \bigcup\limits_{j=1}^{m} \, \bar{\Omega_j}  $
+\item  \, \, $int \Omega_i \, \cap \, int \Omega_j \, = \,  \emptyset  \, \, \, \text{ , falls } i \neq j $
 \end{enumerate}
 \end{Bemerkung}
 
-
-\begin{Beispiel} $\Omega = [a,b]$ (Grossmann S.184) \\
-Wir definieren Gitterpunkte $\{x_i\}_{i=0}^{N}$ über $\bar\Omega$  beschrieben wie folgt:
+\newpage
+% Beispiel
+\begin{Beispiel} 
+E sei $\Omega = [a,b]$. Wir definieren Gitterpunkte $\, \{ \, x_i \, \}_{i=0}^{N} \, $ über $\, \bar\Omega \, $  beschrieben wie folgt
 \begin{equation*}
 a = x_0 < x_1 < x_2 < \dots < x_{N-1} < x_N = b
 \end{equation*}
-und eine Zerlegung  {\calligra{Z}}=$\{ \Omega_j \}_{j=1}^{m}$ mit $\Omega_i := (x_{i-1},x_i)$ $i=1,\dots,N$. 
-\end{Beispiel}
-Ferner sei $h_i := x_i - x_{i-1}, i=1,\dots,N$. Wir wählen lineare Ansatzfunktionen damit gilt $V_h=lin\{\phi_i\}_{i=0}^{N}$ wobei die Ansatzfunktionen definiert sind durch
-\begin{equation}
+und eine Zerlegung  $\, Z= \, \{ \, \Omega_j  \, \}_{j=1}^{m} \, $ mit $ \, \Omega_i \, := \,  ( \, x_{i-1} \, , \, x_i \,)$ für $\, \, \, i \, = \,1 \, , \, \dots \, , \, N$. 
+Ferner sei $\, h_i := x_i - x_{i-1} \, \, , \, \,  i=1,\dots,N$. Wir wählen lineare Ansatzfunktionen $ \, V_h=lin \, \{ \, \phi_i \, \}_{i=0}^{N} \,$, wobei die Ansatzfunktionen sind durch
+\begin{equation*}
 \begin{aligned}
-\phi_i(x) &= 
+\phi_i(x) \, \, &= \, 
 \begin{cases}
-\dfrac{1}{h_i}(x-x_{i-1}) \text{, für } x \in \Omega_i \\
-\dfrac{1}{h_{i+1}}(x_{i+1}-x) \text{ für } x \in \Omega_{i+1}  \\
-0 \text{, sonst }
+\, \, \, \, \dfrac{1}{h_i} \, \, \, \, (x-x_{i-1})   \, \, \, \, \, \,  \text{ für } x \in \Omega_i \\
+\, \, \dfrac{1}{h_{i+1}} \, (x_{i+1}-x) \, \, \, \, \, \text{ für } x \in \Omega_{i+1}  \\
+\, \, \, \, \, \,  0 \, \, \, \, \, \, \, \, \,  \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \, \text{ sonst }
 \end{cases}
 \end{aligned}
-\end{equation}
+\end{equation*}
 
-Es gilt nach Konstruktion $\phi \in C(\bar{\Omega})$ sowie $\phi_{i} \Big|_{\Omega_{j}} \in C^{1}(\bar{\Omega_{j}})$, somit hat man insgesamt $\phi_i \in H^{1}(\Omega)$.
+definiert. Es gilt nach Konstruktion $\, \phi \in C(\, \bar{\Omega} \, )$ sowie $\, \phi_{i}\mid_{\Omega_{j}} \in C^{1}(\bar{\Omega_{j}})$, somit hat man insgesamt $\phi_i \in H^{1}(\Omega)$ \cite[184]{Numerik}.
 Die folgende Abbildung stellt die Graphen von Ansatzfunktionen $\phi_i$ dar.
 
 \begin{figure}[ht]
 	\centering
-  \includegraphics[width=0.7\textwidth]{hatfunction.png}
-	\caption{Ansatzfunktionen $\phi_i$}
+  \includegraphics[width=0.6\textwidth]{hatfunction.png}
+	\caption{Ansatzfunktionen $\phi_i$ \cite[184]{Numerik}}
 	\label{fig:hat}
 \end{figure}
 
-Es gilt demnach $\phi_i (x_k) = \delta_{ik}, i,k =0,1,\dots,N$.
+Es gilt demnach $\, \, \phi_i (x_k) = \delta_{ik}$ mit  $\, i  ,  k = \, 0 \, , \, 1 \, , \, \dots \,, \,N \,$.
+\end{Beispiel}
 
-\begin{Bemerkung} Referenzzelle
+Nun haben wir eine Idee davon, wie man ein Gebiet zerlegt und wie Ansatzfunktionen aussehen könnten und welche Eigenschaften sie zu erfüllen haben, doch wie genau sieht nun das diskrete Problem bei der \textit{Finite Elemente Methode} nun aus? Dazu müssen wir uns die sogenannte \textit{Assemblierung} der \textit{Steifigkeitsmatrix} $A_n$ anschauen. Wir werden uns die Teilelemente der Zerlegung dazu einzeln anschauen und sogenannte \textit{Elementsteifigkeitsmatrizen} ausrechnen. Im \textit{Assemblierungsschritt} werden wir dann die  \textit{Elementsteifigkeitsmatrizen} zu der \textit{globalen Steifigkeitsmatrix} zusammen setzen.
+Wir werden hier nodale Basisfunktionen benutzten. Diese sind durch $\, \varphi_k \, ( \, x_l \, ) = \delta_{kl} \,$ definiert. Weiterhin sei $\hat{N}$ die Zahl der Freiheitsgrade. Rekapituliere das zu lösende Problem
+
+\begin{framed}
+\begin{enumerate}
+\item $
+\text{ Finde ein } u_n \in V_n \text{ : } a(u_n,v_n) = f(v_n) \text{ für alle } v_n \in V_n
+$
+\item ~Sei $\, \{ \, \varphi_i \, \}_{i=1}^{\hat{N}}$ die Basis  von $V_n$
+\item ~Definiere $A_n=( \, a(\varphi_k,\varphi_i) \, )_{i,k=1}^{\hat{N}} \, $ und $ \, f_n=( \, f(\varphi_i) \, )_{i=1}^{\hat{N}}$
+\item ~Löse lineares Gleichungssystem $A_n u_n=f_n$ zur Bestimmung der Koeffizienten $u_i$ der Darstellung $u_n(x)=\sum_{i=1}^{\hat{N}} u_i \varphi_i(x)$
+\end{enumerate}
+\end{framed}
+
+In unserem Fall war $a(u,v)=\int\limits_{\Omega} \Delta u \, \Delta v \, dx \, $ bzw. $\, \, f(v)=\int\limits_{\Omega} f \, v \, dx$. Die zu $\Omega_j$ gehörige Elementsteifigkeitsmatrix besitzt die Form
+
+\begin{equation*}
+\begin{aligned}
+A_h^j &= (a_{ik}^j)_{i,k \in I_j} \\
+a_{ik}^j &= \int\limits_{\Omega_j} \Delta \varphi_i \, \Delta \varphi_k \, dx \, \, \text{ mit } \, \, 
+I_j =\{ i \, : \, supp \, \varphi_i \cap \, \Omega_j \, \neq \emptyset \, \}
+\end{aligned}
+\end{equation*}
+
+Analog dazu die elementweise rechte Seite
+\begin{equation*}
+f^j = (\, f_i^j \, )_{i \in I_j} \, \, \text{ mit } \, \, f_i^j = \int\limits_{\Omega} \, f \, \varphi_i \, dx 
+\end{equation*}
+
+\begin{Bemerkung} Referenzelement
 
 \end{Bemerkung}
 
