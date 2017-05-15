@@ -52,7 +52,7 @@ Es gilt demnach $\, \, \phi_i (x_k) = \delta_{ik}$ mit  $\, i  ,  k = \, 0 \, , 
 \end{Beispiel}
 
 Nun haben wir eine Idee davon, wie man ein Gebiet zerlegt und wie Ansatzfunktionen aussehen könnten und welche Eigenschaften sie zu erfüllen haben, doch wie genau sieht nun das diskrete Problem bei der \textit{Finite Elemente Methode} nun aus? Dazu müssen wir uns die sogenannte \textit{Assemblierung} der \textit{Steifigkeitsmatrix} $A_n$ anschauen. Wir werden uns die Teilelemente der Zerlegung dazu einzeln anschauen und sogenannte \textit{Elementsteifigkeitsmatrizen} ausrechnen. Im \textit{Assemblierungsschritt} werden wir dann die  \textit{Elementsteifigkeitsmatrizen} zu der \textit{globalen Steifigkeitsmatrix} zusammen setzen.
-Wir werden hier nodale Basisfunktionen benutzten. Diese sind durch $\, \varphi_k \, ( \, x_l \, ) = \delta_{kl} \,$ definiert. Weiterhin sei $\hat{N}$ die Zahl der Freiheitsgrade. Rekapituliere das zu lösende Problem
+Wir werden hier nodale Basisfunktionen benutzten. Diese sind durch $\, \varphi_k \, ( \, x_l \, ) = \delta_{kl} \,$ definiert. Weiterhin sei $\hat{N}$ die Zahl der Freiheitsgrade. Rekapitulieren wir das zu lösende Problem
 
 \begin{framed}
 \begin{enumerate}
@@ -67,39 +67,59 @@ $
 
 In unserem Fall war $a(u,v)=\int\limits_{\Omega} \Delta u \, \Delta v \, dx \, $ bzw. $\, \, f(v)=\int\limits_{\Omega} f \, v \, dx$. Die zu $\Omega_j$ gehörige Elementsteifigkeitsmatrix besitzt die Form
 
-\begin{equation*}
+\begin{equation} \label{eq:element}
 \begin{aligned}
 A_h^j &= (a_{ik}^j)_{i,k \in I_j} \\
 a_{ik}^j &= \int\limits_{\Omega_j} \Delta \varphi_i \, \Delta \varphi_k \, dx \, \, \text{ mit } \, \, 
 I_j =\{ i \, : \, supp \, \varphi_i \cap \, \Omega_j \, \neq \emptyset \, \}
 \end{aligned}
-\end{equation*}
+\end{equation}
 
 Analog dazu die elementweise rechte Seite
 \begin{equation*}
 f^j = (\, f_i^j \, )_{i \in I_j} \, \, \text{ mit } \, \, f_i^j = \int\limits_{\Omega} \, f \, \varphi_i \, dx 
 \end{equation*}
 
-\begin{Bemerkung} Referenzelement
+Die globale Steifigkeitstmatrix $A_n$ und die rechte Seite $f_n$ ergeben sich dann wegen der Addivität des Integrals als Summen
 
-\end{Bemerkung}
+\begin{equation*}
+A_n = (a_{ik})_{i,k=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, a_{ik} = \sum_{j=1 \, , \, i \in I_j \, , \, k \in I_j }^M a_{ik}^j 
+\end{equation*}
 
-\begin{Satz} Referenzzelle Transformation
+und
 
-\end{Satz}
+\begin{equation*}
+f_h = (f_i)_{i=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, f_i = \sum_{j=1 \, , \, i \in I_j}^M f_i^j
+\end{equation*}
 
-\begin{Definition} Masse Matrix \\
+$I_j$ ist gerade die List der Eckpunkte der Elemente.
+Wir sehen für die Elemente der Elementsteifigkeitsmatrix in (\ref{eq:element}) ein Integral über ein Teilgebiet $\Omega_j$. Hier liegt eine gute Chance viele Operationen zu sparen, indem wir uns die Struktur vom Integral zu nutze machen und mit Hilfe vom Transformationssatz für Integrale eine einheitlichere Form herleiten.
 
-\end{Definition}
+Dazu definieren uns sogenannten \textit{Referenzelemente}. Beispielsweise wenn wir eine Zerlegung in Rechtecken wählen, würden wir uns ein Referenzrechteck definieren oder im Falle von Dreieicken ein Referenzdreieck. Weiterhin definieren wir uns eine lineare Transformation die gerade die Ecken unseres Teilgebiets auf die Ecken des korrespondierenden Referenzelements abbildet. Mit Hilfe vom Transformationssatz formen wir das Integral um und erhalten plötzlich für alle Elementsteifigkeitsmatrizen dieselben Integrale bloß mit verschiedenen Konstanten multipliziert. Die Konstanten sind gerade die Beträge der Determinanten der linearen Transformationen.
 
-\begin{Definition} Laplace Bilinearform \\
+Um dann die die Elemente der Elementsteifigkeitsmatrizen in die globale Steifigkeitsmatrix einzubetten, ist dies eine Frage des Umdenkens von einer lokalen Struktur in die globale Struktur.
+Dieses Umdenken ist ausschlaggebend für das Verstehen vom Finite Elemente Ansatz und auch der späteren Arbeit zur Herleitung der Pseudoinversen.
 
-\end{Definition}
+Wir rekapitulieren die erste Gleichung dieser Arbeit
+\begin{equation} \label{eq:main2}
+v=A(u)=\sum_{k=1}^{n_{cells}} C^T P_k^T A_k (P_k Cu)
+\end{equation}
 
-\begin{Satz} Quadratur \\
+Die Variable $n_{cells}$ ist somit die Anzahl der Teilgebiete $\Omega_j$. Die Matrix $A_k$ ist der Operator A aber elementspezifisch. Die Matrix $P_k$ ist genau diese Transformation von der wir gerade sprachen, nämlich die Transformation von den lokalen Freiheitsgraden in die globalen Freiheitsgrade. Es gilt nur noch zu klären, welche Aufgabe die Matrix $C$ in unserer Gleichung besitzt. Diese Frage klären wir im Rahmen des nächsten Unterkapitels zum \textit{Diskontinuierlichen Galerkin-Verfahren}.
 
-\end{Satz}
+Vorher definieren wir uns die Strukturen, die diese Arbeit untersucht. Das ist einerseits die Masse Matrix mit folgender Bilinearform
+\begin{equation} \label{eq:mass}
+a_M(u,v)= \int\limits_{\Omega} u \, v \, dx
+\end{equation}
+
+Eine einfache Struktur, die dazu dient sich an die Thematik ranzutasten und ein Gefühl dafür zu bekommen. Desweiteren wollen wir die Bilinearform des bereits erwähnten elliptischen Problems untersuchen mit
+
+\begin{equation} \label{eq:laplace}
+a_L(u,v) = \int\limits_{\Omega} \Delta v \, \Delta v \, dx
+\end{equation}
+
+Außerdem brauchen wir etwas Hintergrundwissen, wie wir die Integrale in (\ref{eq:mass}) und in (\ref{eq:laplace}) berechnen können.
 
 
-Um nochmal auf die Gleichung von der Einleitung zurück zu kommen.
+
 

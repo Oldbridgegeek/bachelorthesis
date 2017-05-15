@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -745,6 +745,9 @@ Package: beramono 2004/01/31 (WaS)
 )
 (./bachelorarbeit.aux
 
+LaTeX Warning: Label `eq:main2' multiply defined.
+
+
 LaTeX Warning: Label `eq:pinv' multiply defined.
 
 )
@@ -951,31 +954,17 @@ File: hatfunction.png Graphic file (type png)
 Package pdftex.def Info: hatfunction.png used on input line 46.
 (pdftex.def)             Requested size: 256.07741pt x 215.47665pt.
 
-[10 <./hatfunction.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
-
- []
-
-[11]) (./Theorie/dgfem.tex) [12] (./Theorie/tensor.tex
-<tensorOrdnung3.png, id=89, 697.60625pt x 588.1975pt>
+[10 <./hatfunction.png>] [11] [12]) (./Theorie/dgfem.tex) [13]
+(./Theorie/tensor.tex <tensorOrdnung3.png, id=92, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
- <use tensorOrdnung3.png>
+
+<use tensorOrdnung3.png>
 Package pdftex.def Info: tensorOrdnung3.png used on input line 8.
 (pdftex.def)             Requested size: 170.71393pt x 143.93463pt.
-
-<rang1Tensor.png, id=90, 1127.21124pt x 592.2125pt>
+ <rang1Tensor.png, id=93, 1127.21124pt x 592.2125pt>
 File: rang1Tensor.png Graphic file (type png)
- <use rang1Tensor.png>
+
+<use rang1Tensor.png>
 Package pdftex.def Info: rang1Tensor.png used on input line 23.
 (pdftex.def)             Requested size: 213.39568pt x 112.10587pt.
 
@@ -989,12 +978,12 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
- [13 <./tensorOrdnung3.png> <./rang1Tensor.png>]
+ [14 <./tensorOrdnung3.png> <./rang1Tensor.png>]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 48.
 
-[14] <hosvdTensor.png, id=100, 1317.92375pt x 562.1pt>
+[15] <hosvdTensor.png, id=103, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 88.
@@ -1004,8 +993,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[15 <./hosvdTensor.png>]) [16] (./Praekonditionierer/sumfac.tex [17] [18]
-[19]
+[16 <./hosvdTensor.png>]) [17] (./Praekonditionierer/sumfac.tex [18] [19]
+[20]
 Overfull \hbox (154.55669pt too wide) detected at line 132
 \OMS/cmsy/m/n/12 V[] ^^C \OML/cmm/m/it/12 u \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 
 ^^@\OT1/cmr/m/n/12 ((\OMS/cmsy/m/n/12 W[][]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 
@@ -1020,8 +1009,8 @@ OMS/cmsy/m/n/12 W[][]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12
 ^C \OML/cmm/m/it/12 u
  []
 
-) (./Praekonditionierer/hosvd.tex [20] [21]) [22]
-(./Implementierung/implementierung.tex [23]
+) (./Praekonditionierer/hosvd.tex [21] [22]) [23]
+(./Implementierung/implementierung.tex [24]
 Overfull \hbox (7.6582pt too wide) detected at line 100
 [] []
  []
@@ -1030,12 +1019,12 @@ LaTeX Font Info:    Try loading font information for U+yswab on input line 103.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [24] [25]
+) [25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
-[26] [27]) [28] [29] (./bachelorarbeit.bbl) [30] (./bachelorarbeit.aux)
+[27] [28]) [29] [30] (./bachelorarbeit.bbl) [31] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
@@ -1045,10 +1034,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8138 strings out of 493014
- 125354 string characters out of 6133351
- 292835 words of memory out of 5000000
- 11424 multiletter control sequences out of 15000+600000
+ 8141 strings out of 493014
+ 125387 string characters out of 6133351
+ 292873 words of memory out of 5000000
+ 11427 multiletter control sequences out of 15000+600000
  24544 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,15n,51p,8493b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1076,10 +1065,10 @@ e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (38 pages, 575980 bytes).
+Output written on bachelorarbeit.pdf (39 pages, 579654 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 234 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
