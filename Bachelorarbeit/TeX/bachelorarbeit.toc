@@ -9,12 +9,12 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{7}
 \contentsline {subsubsection}{\numberline {2.1.3}Methode der Finiten Elemente}{9}
 \contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{13}
-\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{14}
-\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{14}
-\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{16}
-\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{18}
-\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{18}
-\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{21}
-\contentsline {section}{\numberline {4}Effiziente Implementierung}{24}
-\contentsline {section}{\numberline {5}Resultate}{30}
-\contentsline {section}{Literatur}{31}
+\contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{15}
+\contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{15}
+\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{17}
+\contentsline {section}{\numberline {3}Pseudoinverse f\IeC {\"u}r zell-basierte finiten Elemente Operatoren }{19}
+\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{19}
+\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{22}
+\contentsline {section}{\numberline {4}Effiziente Implementierung}{25}
+\contentsline {section}{\numberline {5}Resultate}{31}
+\contentsline {section}{Literatur}{32}

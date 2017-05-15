@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -748,6 +748,9 @@ Package: beramono 2004/01/31 (WaS)
 LaTeX Warning: Label `eq:main2' multiply defined.
 
 
+LaTeX Warning: Label `eq:integral' multiply defined.
+
+
 LaTeX Warning: Label `eq:pinv' multiply defined.
 
 )
@@ -877,46 +880,46 @@ e
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 108--109
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 111--112
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--117
+Underfull \hbox (badness 10000) in paragraph at lines 113--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 131.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 134.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 131.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 134.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 131.
+LaTeX Font Info:    Try loading font information for U+msa on input line 134.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 131.
+LaTeX Font Info:    Try loading font information for U+msb on input line 134.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 131.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 134.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 131.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 134.
  [3]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 141.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 144.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmss.fd
@@ -927,7 +930,7 @@ File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 \openout3 = `bachelorarbeit.toc'.
 
  [4] [1]
-LaTeX Font Info:    Try loading font information for U+eus on input line 180.
+LaTeX Font Info:    Try loading font information for U+eus on input line 183.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
@@ -954,14 +957,14 @@ File: hatfunction.png Graphic file (type png)
 Package pdftex.def Info: hatfunction.png used on input line 46.
 (pdftex.def)             Requested size: 256.07741pt x 215.47665pt.
 
-[10 <./hatfunction.png>] [11] [12]) (./Theorie/dgfem.tex) [13]
-(./Theorie/tensor.tex <tensorOrdnung3.png, id=92, 697.60625pt x 588.1975pt>
+[10 <./hatfunction.png>] [11] [12]) (./Theorie/dgfem.tex) [13] [14]
+(./Theorie/tensor.tex <tensorOrdnung3.png, id=95, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
 
 <use tensorOrdnung3.png>
 Package pdftex.def Info: tensorOrdnung3.png used on input line 8.
 (pdftex.def)             Requested size: 170.71393pt x 143.93463pt.
- <rang1Tensor.png, id=93, 1127.21124pt x 592.2125pt>
+ <rang1Tensor.png, id=96, 1127.21124pt x 592.2125pt>
 File: rang1Tensor.png Graphic file (type png)
 
 <use rang1Tensor.png>
@@ -978,12 +981,12 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
- [14 <./tensorOrdnung3.png> <./rang1Tensor.png>]
+ [15 <./tensorOrdnung3.png> <./rang1Tensor.png>]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 48.
 
-[15] <hosvdTensor.png, id=103, 1317.92375pt x 562.1pt>
+[16] <hosvdTensor.png, id=106, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 88.
@@ -993,8 +996,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[16 <./hosvdTensor.png>]) [17] (./Praekonditionierer/sumfac.tex [18] [19]
-[20]
+[17 <./hosvdTensor.png>]) [18] (./Praekonditionierer/sumfac.tex [19] [20]
+[21]
 Overfull \hbox (154.55669pt too wide) detected at line 132
 \OMS/cmsy/m/n/12 V[] ^^C \OML/cmm/m/it/12 u \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 
 ^^@\OT1/cmr/m/n/12 ((\OMS/cmsy/m/n/12 W[][]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 
@@ -1009,8 +1012,8 @@ OMS/cmsy/m/n/12 W[][]\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12
 ^C \OML/cmm/m/it/12 u
  []
 
-) (./Praekonditionierer/hosvd.tex [21] [22]) [23]
-(./Implementierung/implementierung.tex [24]
+) (./Praekonditionierer/hosvd.tex [22] [23]) [24]
+(./Implementierung/implementierung.tex [25]
 Overfull \hbox (7.6582pt too wide) detected at line 100
 [] []
  []
@@ -1019,12 +1022,12 @@ LaTeX Font Info:    Try loading font information for U+yswab on input line 103.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mfnfss/uyswab.fd
 File: Uyswab.fd 1998/06/07 v2.1j YH Schwabacher font definitions
-) [25] [26]
+) [26] [27]
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
-[27] [28]) [29] [30] (./bachelorarbeit.bbl) [31] (./bachelorarbeit.aux)
+[28] [29]) [30] [31] (./bachelorarbeit.bbl) [32] (./bachelorarbeit.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
@@ -1034,10 +1037,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8141 strings out of 493014
- 125387 string characters out of 6133351
- 292873 words of memory out of 5000000
- 11427 multiletter control sequences out of 15000+600000
+ 8143 strings out of 493014
+ 125411 string characters out of 6133351
+ 292892 words of memory out of 5000000
+ 11429 multiletter control sequences out of 15000+600000
  24544 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,15n,51p,8493b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1065,10 +1068,10 @@ e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (39 pages, 579654 bytes).
+Output written on bachelorarbeit.pdf (40 pages, 580973 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

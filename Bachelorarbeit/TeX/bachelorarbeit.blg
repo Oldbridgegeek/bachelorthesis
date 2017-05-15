@@ -3,53 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bachelorarbeit.aux
 The style file: alpha.bst
 Database file #1: literatur.bib
-I was expecting a `,' or a `}'---line 29 of file literatur.bib
- : author = "Prof. Dr. Kanschat"
- :                              .
-I'm skipping whatever remains of this entry
 Warning--to sort, need author, editor, or key in Teachlet
+Warning--empty publisher in Rannacher
 Warning--empty author and editor in Teachlet
 Warning--empty publisher in Teachlet
 Warning--empty year in Teachlet
-You've used 5 entries,
+You've used 6 entries,
             2543 wiz_defined-function locations,
-            585 strings with 5018 characters,
-and the built_in function-call counts, 1315 in all, are:
-= -- 108
-> -- 33
-< -- 4
-+ -- 9
-- -- 8
-* -- 75
-:= -- 218
-add.period$ -- 13
-call.type$ -- 5
-change.case$ -- 19
-chr.to.int$ -- 5
-cite$ -- 10
-duplicate$ -- 80
-empty$ -- 130
-format.name$ -- 13
-if$ -- 269
+            589 strings with 5114 characters,
+and the built_in function-call counts, 1584 in all, are:
+= -- 130
+> -- 41
+< -- 5
++ -- 11
+- -- 10
+* -- 90
+:= -- 262
+add.period$ -- 16
+call.type$ -- 6
+change.case$ -- 23
+chr.to.int$ -- 6
+cite$ -- 12
+duplicate$ -- 96
+empty$ -- 155
+format.name$ -- 17
+if$ -- 323
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 26
-num.names$ -- 12
-pop$ -- 45
+missing$ -- 11
+newline$ -- 31
+num.names$ -- 15
+pop$ -- 55
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 35
 quote$ -- 0
-skip$ -- 50
+skip$ -- 60
 stack$ -- 0
-substring$ -- 37
-swap$ -- 5
-text.length$ -- 4
-text.prefix$ -- 1
+substring$ -- 44
+swap$ -- 6
+text.length$ -- 5
+text.prefix$ -- 2
 top$ -- 0
-type$ -- 20
-warning$ -- 4
-while$ -- 8
-width$ -- 7
-write$ -- 57
-(There was 1 error message)
+type$ -- 24
+warning$ -- 5
+while$ -- 10
+width$ -- 8
+write$ -- 68
+(There were 5 warnings)

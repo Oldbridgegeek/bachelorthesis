@@ -118,7 +118,28 @@ Eine einfache Struktur, die dazu dient sich an die Thematik ranzutasten und ein 
 a_L(u,v) = \int\limits_{\Omega} \Delta v \, \Delta v \, dx
 \end{equation}
 
-Außerdem brauchen wir etwas Hintergrundwissen, wie wir die Integrale in (\ref{eq:mass}) und in (\ref{eq:laplace}) berechnen können.
+Außerdem brauchen wir etwas Hintergrundwissen, wie wir die Integrale in (\ref{eq:mass}) und in (\ref{eq:laplace}) berechnen können. In der Praxis erfolgt die Berechnung von Integralen über sogenannte \textit{Quadraturformeln}.
+
+Allgemein beschäftigt uns das Integrationsproblem
+\begin{equation} \label{eq:integral}
+I(f) \, = \, \int\limits_{a}^{b} f(x) \, dx
+\end{equation}
+
+mit $a,b \in \mathbb{R}$, $\, a < b \, $ und $\, f \in \, C[ \, a,b \, ] $.
+Wir werden von interpolatorischen Quadraturformeln gebrauch machen. Intuitiv machen wir eine Polynominterpolation für die zu integrierende Funktion $f$ und summieren über Stützstellen.
+
+Es seien $\, x_i \, \in \, \mathbb{R} \,$, $\, a \, \leq \, x_0 \, < \, \dots \, < \, x_n \, \leq \, b$ Stützstellen mit Gewichten $\, \alpha_i \, \in \, \mathbb{R}$. Dann können wir das Integral (\ref{eq:integral}) approximieren durch
+
+\begin{equation} \label{eq:integral}
+I(f) \, = \, \int\limits_{a}^{b} f(x) \, dx \, \approx \, \sum\limits_{i=0}^{n} \, \alpha_i \, f(x_i) \, = I^{(n)}(f)
+\end{equation}
+
+Doch wie genau ist diese Approximation? Interpolatorische Quadraturformeln $I^{(n)}(\cdot)$ zu $n \, + \, 1$ Stützstellen sind mindestens von Ordnung $\, n \, + \,1$. Das heißt sie integrieren alle Polynome von maximalen Grad $n$ exakt.
+
+Einer Quadraturformel wollen wir besondere Beachtung schenken, da diese für unsere Anwendung besondere praktikabilität gezeigt hat. 
+
+
+
 
 
 
