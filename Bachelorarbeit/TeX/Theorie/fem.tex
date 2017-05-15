@@ -120,6 +120,8 @@ a_L(u,v) = \int\limits_{\Omega} \Delta v \, \Delta v \, dx
 
 Außerdem brauchen wir etwas Hintergrundwissen, wie wir die Integrale in (\ref{eq:mass}) und in (\ref{eq:laplace}) berechnen können. In der Praxis erfolgt die Berechnung von Integralen über sogenannte \textit{Quadraturformeln}.
 
+\subsubsection{Quadratur}
+
 Allgemein beschäftigt uns das Integrationsproblem
 \begin{equation} \label{eq:integral}
 I(f) \, = \, \int\limits_{a}^{b} f(x) \, dx
@@ -138,7 +140,18 @@ Doch wie genau ist diese Approximation? Interpolatorische Quadraturformeln $I^{(
 
 Einer Quadraturformel wollen wir besondere Beachtung schenken, da diese für unsere Anwendung besondere praktikabilität gezeigt hat. 
 
+\begin{Definition} (Gauss Lobatto) \\
+Es sei $\, x_i \, $ die $\, (i-1) \,$te Nullstelle des Legendre Polynoms $P^{`}_{n-1}(x)$ und $n$ die Anzahl der Stützstellen, bzw. $n-1$ der Grad unseres Legendre Polynoms. Dann können wir das Integral auf dem Gebiet $[-1,1]$ der Funktion f approximieren durch
+\begin{equation*}
+\int _{-1}^{1}{f(x)\,dx} \approx {\frac {2}{n(n-1)}}[f(1)+f(-1)]+\sum _{i=2}^{n-1}{w_{i}f(x_{i})}.
+\end{equation*}
+mit Gewichten
+\begin{equation*}
+w_{i}={\frac {2}{n(n-1)[P_{n-1}(x_{i})]^{2}}},\qquad x_{i}\neq \pm 1
+\end{equation*}
+\end{Definition}
 
+Gauss Lobatto liefert uns eine exakte Approximation von Polynomen bis zu Grad $2n-3$. Eine ausführliche  Ausarbeitung der Thematik finden Sie in \cite[79]{Rannacher}.
 
 
 

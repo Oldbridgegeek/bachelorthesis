@@ -8,7 +8,8 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Schwache L\IeC {\"o}sungen}{3}
 \contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{7}
 \contentsline {subsubsection}{\numberline {2.1.3}Methode der Finiten Elemente}{9}
-\contentsline {subsubsection}{\numberline {2.1.4}Diskontinuierliche Galerkin-Methode}{13}
+\contentsline {subsubsection}{\numberline {2.1.4}Quadratur}{13}
+\contentsline {subsubsection}{\numberline {2.1.5}Diskontinuierliche Galerkin-Methode}{14}
 \contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{15}
 \contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{15}
 \contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{17}

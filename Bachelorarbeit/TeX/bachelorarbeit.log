@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  15 MAY 2017 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,7 +957,7 @@ File: hatfunction.png Graphic file (type png)
 Package pdftex.def Info: hatfunction.png used on input line 46.
 (pdftex.def)             Requested size: 256.07741pt x 215.47665pt.
 
-[10 <./hatfunction.png>] [11] [12]) (./Theorie/dgfem.tex) [13] [14]
+[10 <./hatfunction.png>] [11] [12] [13]) (./Theorie/dgfem.tex) [14]
 (./Theorie/tensor.tex <tensorOrdnung3.png, id=95, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
 
@@ -1068,7 +1068,7 @@ e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/yfonts-t1/yswab.pfb>
-Output written on bachelorarbeit.pdf (40 pages, 580973 bytes).
+Output written on bachelorarbeit.pdf (40 pages, 583016 bytes).
 PDF statistics:
  237 PDF objects out of 1000 (max. 8388607)
  162 compressed objects within 2 object streams
