@@ -1,14 +1,19 @@
-\begin{Definition} Tensor \\
-Unter einem Tensor verstehen wir eine multidimensionale Matrix ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$
-Die Ordnung ist die Anzahl der Dimensionen, in diesem Fall also N.
+In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als einen Tensor umzudefinieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieses Tensors untersuchen, mit Hinblick einen einfachen Weg zu finden, die Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analyisieren, wird in diesem Unterkapitel beantwortet.
+
+
+\begin{Definition} (Tensor) \\
+Ein Tensor ist eine multidimensionale Matrix $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$.
+Die Ordnung ist die Anzahl der Dimensionen, in diesem Fall $N$.
 \end{Definition}
 
 \begin{figure}[ht]
 	\centering
-  \includegraphics[width=0.4\textwidth]{tensorOrdnung3.png}
-	\caption{Tensor 3.Ordnung ${\cal X}  \in \mathbb{R}^{I \times J \times K}$}
+  \includegraphics[width=0.3\textwidth]{tensorOrdnung3.png}
+	\caption{Tensor 3.Ordnung $\pmb{\mathscr{X}}  \in \mathbb{R}^{I \times J \times K}$} \cite[456]{Kolda}
 	\label{fig:tensorOrdnung3}
 \end{figure}
+
+Vorsicht zu haben, gilt es bei den Begriffen Ordnung und Rang bei Tensoren. Außerdem sollte man nicht den Begriff des Rangs einer Matrix, mit dem Begriff des Ranges eines Tensors verwechseln. 
 
 \begin{Definition} Rang Eins Tensor \\
 Ein Tensor ${\cal X}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ ist von Rang Eins wenn es als äußeres Produkt von N Vektoren

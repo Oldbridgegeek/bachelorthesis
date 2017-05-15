@@ -1,4 +1,25 @@
 Die diskontinuierliche Galerkin-Methode wurde 1973 erstmals von Reed und Hill eingeführt für hyperbolische Gleichung erster Ordnung. Es gab eine Reihe von Untersuchungen seither bezüglich hyperbolische Probleme erster Ordnung als auch für die Diskretisierung instationärer Probleme.
 Unabhängig davon wurde die diskontinuierliche Galerkin-Methode für elliptische Gleichungen vorgeschlagen. Man wollte mehr Flexibilität bezüglich der Stetigkeitsvoraussetzungen an unsere lokalen Funktionen und mehr Freiraum bei der Gitter Generierung, insbesondere bei adaptiven h-p-Methoden. 
 Die Art von dGFEM-Code erleichtert Parallelisierbarkeit was in Zeiten von GPU Programmierung eine große Effizienzsteigerung erlaubt. 
-Die Idee von dGFEM ist maßgeblich Strafterme einzuführen, welche Unstetigkeit zwar erlauben aber in ihrem Ausmaß einschränkt. Diese Freiheit erlaubt uns aber zum Beispiel lokal Polynome höherer Ordnung zu benutzen und Singularitäten damit gekonnt zu beseitigen, ohne von Vorne zu beginnen zu müssen. Zu mal pro Element ein hängender Knoten erlaubt ist. D.h. eine Verfeinerung des Gitters ist lokal erlaubt, ohne direkt Probleme zu bekommen. (S.292 Grossmann)
+Die Idee von dGFEM ist maßgeblich Strafterme einzuführen, welche Unstetigkeit zwar erlauben aber in ihrem Ausmaß einschränkt. Diese Freiheit erlaubt uns aber zum Beispiel lokal Polynome höherer Ordnung zu benutzen und Singularitäten damit gekonnt zu beseitigen, ohne von Vorne zu beginnen zu müssen. Zu mal pro Element ein hängender Knoten erlaubt ist. Das heißt eine Verfeinerung des Gitters ist lokal möglich, ohne direkt Probleme zu bekommen \cite[292]{Numerik}.
+
+\begin{equation} \label{eq:main3}
+v=A(u)=\sum_{k=1}^{n_{cells}} C^T P_k^T A_k (P_k Cu)
+\end{equation}
+
+Die Matrix C kommt aus der Diskontinuierlichen Galerkin Methode und kümmert sich um \textit{hängende Knoten} und sorgt dafür, das wir keine Probleme mit der Stetigkeit der Lösung bekommen.
+
+Nun können wir diese Gleichung besser fassen und haben eine Idee davon, was sie aussagt.
+In dieser Arbeit werden wir uns nur mit dem Term 
+
+\begin{equation} \label{eq:local}
+v_k = A_k u
+\end{equation}
+
+beschäftigen, für $A_k$ Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform für Referenzzellen im zweidimensionalen. Die Verallgemeinerung auf die dritte Dimension ist mit wendig Mehraufwand verbunden und wird an gegebener Stelle erläutert. Außerdem wir machen uns keine Gedanken um $P_k$ noch um $C$. 
+
+Das Ziel des nächsten Kapitels ist die Untersuchung der Transformation von (\ref{eq:local}) zu 
+\begin{equation}
+A_k^{+} v_k = u  
+\end{equation}
+Vorher sollten wir uns jedoch mit der Tensor Dekomposition beschäftigen und dafür eine theoretische Grundlage schaffen.
