@@ -102,97 +102,59 @@ Genauer
 
 Damit können wir folgende Umformulierung bereits vornehmen
 \begin{equation}
-v=Mu= \mathcal{N} \mathcal{W} \mathcal{N}^T= \mathcal{W}_N \mathcal{N}^T =  [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}_{1D} \otimes \mathcal{N}_{1D})^T]u
+v=Mu= \mathcal{N} \mathcal{W} \mathcal{N}^T= \mathcal{W}_N \mathcal{N}^T =  [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T]u.
 \end{equation}
 
-Mit Lemma (\ref{lemma:prod}) folgt
+Mit Lemma (\ref{lemma:transpose}) können wir das Transponieren, wie folgt, reinziehen
 \begin{equation}
-v= [(\mathcal{N}_{1D} \otimes \mathcal{N}_{1D}) \mathcal{W} (\mathcal{N}_{1D} \otimes \mathcal{N}_{1D})^T]u = [(\mathcal{N}_{1D} \mathcal{N}_{1D}) \otimes (\mathcal{N}_{1D}\mathcal{N}_{1D})^T]u
+[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T]u=
+[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}^{1D})^T)]u.
 \end{equation}
+
+Dann nutzen wir Lemma (\ref{lemma:prod}) und erhalten
+\begin{equation}
+ [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}_{1D})^T)]u= [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)]u.
+\end{equation}
+
 \newpage
+\subsubsection{Tensorstruktur der Laplace Bilinearform}
+Die Formel, leicht geändert, kann benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform.  Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
 
+\begin{equation}
+V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \delta_x  \varphi_i(\bold{x}) + \delta_y \varphi_i(\bold{x})) ( \delta_x \varphi_j(\bold{x}) + \delta_y \varphi_j(\bold{x})) \, dx.
+\end{equation}
 
-Angenommen wir hätten eine Lösung $u \in V$ der Form
+Wir nutzen nun die Tensorstruktur der Ansatzfunktionen
+\begin{equation*}
+\begin{aligned}
+V_{ij}&=\int\limits_{T}( \delta_x  \varphi_i(\bold{x}) + \delta_y \varphi_i(\bold{x})) ( \delta_x \varphi_j(\bold{x}) + \delta_y \varphi_j(\bold{x})) dx \\ &= \int\limits_{T}( \delta_x  (\varphi_{i1}(x) \varphi_{i2}(y)) + \delta_y (\varphi_{i1}(x) \varphi_{i2}(y)) ( \delta_x ( \varphi_{j1}(x) \varphi_{j2}(y)) + \delta_y  (\varphi_{j1}(x) \varphi_{j2}(y))) dx \\ &= \int\limits_{T}( (\delta_x  \varphi_{i1}(x)) \varphi_{i2}(y) + \varphi_{i1}(x) (\delta_y \varphi_{i2}(y))) ( (\delta_x  \varphi_{j1}(x)) \varphi_{j2}(y) +  \varphi_{j1}(x) (\delta_y \varphi_{j2}(y))) \, dx. \\
+\end{aligned}
+\end{equation*}
+
+Nun nutzen wir eine Quadratur für das Integral. Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte, dann folgt für die obere Gleichung
+
+\begin{equation*}
+\begin{aligned}
+&\int\limits_{T}( (\delta_x  \varphi_{i1}(x)) \varphi_{i2}(y) + \varphi_{i1}(x) (\delta_y \varphi_{i2}(y))) ( (\delta_x  \varphi_{j1}(x)) \varphi_{j2}(y) +  \varphi_{j1}(x) (\delta_y \varphi_{j2}(y))) \, dx \\ &= \sum\limits_{q_1=1}^{Q_{1D}} \sum\limits_{q_2=1}^{Q_{1D}} ( (\delta_x  \varphi_{i1}(x_{q1})) \varphi_{i2}(x_{q2}) + \varphi_{i1}(x_{q1}) (\delta_y \varphi_{i2}(x_{q2}))) ( (\delta_x  \varphi_{j1}(x_{q1})) \varphi_{j2}(x_{q2}) +  \varphi_{j1}(x_{q1}) \\ &(\delta_y \varphi_{j2}(x_{q2}))) w_{q1}w_{q2}
+\end{aligned}
+\end{equation*}
+
+Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind wie $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren sondern deren Ableitung.
+
 \begin{equation}
-u(x,y)=\sum_{h=1}^{n^2} \psi_h (x,y) u_h,\ u_h \in \mathbb{R} \ \forall h =1,...\ ,n^2=:N
-\end{equation}
-mit $\psi_h$ ist eine globale Ansatzfunktion. Diese Anstazfunktionen können als das Tensorprodukt von zwei ein dimensionalen Polynomen ausgedrückt werden. Die Überführung ist definiert mit
-\begin{equation}
-h=j(n-1)+i,\ i<n \leftrightarrow (i,j)
-\end{equation}
-was uns eine alternative Representation von u gibt
-\begin{equation}
-u(x,y)=\sum_{i=1}^n \sum_{j=1}^n \varphi_i(x) \varphi_j(y) u_{ij}, \ i,j =1,...\ n
-\end{equation}
-Seien $q=(q_1,...\ ,q_n)^T$ Quadraturpunkte einer 1-dimensionalen Quadraturegel mit zugehörigen Gewichten $w=(w_1,...\ ,w_n)^T$. Wir können die 2-dimensionale Regel erhalten indem wir wieder das Tensorprodukt ausnutzen und erhalten  $(\bm{q}_1,...\ ,\bm{q}_N)$ und Gewichten $(\bm{w}_1,...\ ,\bm{w}_N)$ mit $\bm{q}_h=(q_i,q_j)$ and $\bm{w}_h=w_i w_j$.\\
-Erstmals wollen wir $u$ in jedem Quadraturpunkt evaluieren. Das können wir mit einem Matrix Vektor Produkt ausdrücken:
-\begin{equation}
-\begin{pmatrix}
-\psi_1(\bm{q}_1) & \hdots & \psi_N(\bm{q}_1) \\
+\widehat{\mathcal{N}}^{1D} = 
+\begin{bmatrix}
+\dfrac{\delta \varphi^{1D}_1(x_1)}{\delta x} & \hdots & \dfrac{ \delta \varphi^{1D}_n(x_1)}{\delta x} \\
 \vdots & \ddots & \vdots \\
-\psi_1(\bm{q}_N) & \hdots & \psi_N(\bm{q}_N)
-\end{pmatrix}
-\begin{pmatrix}
-u_1 \\
-\vdots \\
-u_N
-\end{pmatrix}
-=
-\begin{pmatrix}
-u(\bm{q}_1) \\
-\vdots \\
-u(\bm{q}_N)
-\end{pmatrix}
-\end{equation}
-Die Matrix kann als Tensorprodukt zweier, in diesem Fall sogar identischer, Matrizen:
-\begin{equation}
-\mathcal{N}^T \otimes \mathcal{N}^T =
-\begin{pmatrix}
-\varphi_1(q_1) & \hdots & \varphi_n(q_1) \\
-\vdots & \ddots & \vdots \\
-\varphi_1(q_n) & \hdots & \varphi_n(q_n)
-\end{pmatrix}
-\otimes
-\begin{pmatrix}
-\varphi_1(q_1) & \hdots & \varphi_n(q_1) \\
-\vdots & \ddots & \vdots \\
-\varphi_1(q_n) & \hdots & \varphi_n(q_n)
-\end{pmatrix}
-\end{equation}
-Sei $(\mathcal{U}_{ij}) \in \mathbb{R}^{n \times n}$ die Matrix mit den Koeffizienten $u_{ij}$ als Elemente.
-Durch die Nutzung der Summenfaktorisierung können wir diese Matrizen multiplizieren anstatt der Formel in (4). Wir erhalten: 
-\begin{equation}
-\mathcal{N}^T \mathcal{U} \mathcal{N} = \bar{\mathcal{U}}, \ \ \ \ \bar{\mathcal{U}}_{ij} = u(q_i,q_j)
-\end{equation}
-Die Quadraturgewichte und die Summe über die Elemente kann in einer effiziente Weise vollzogen werden, wenn wir die Tensorprodukt Struktur ausnutzen. Die Multiplizierung $\bar{\mathcal{U}}$ mit den Quadraturgewichten $w$ von der rechten Seite wird uns die gewichteten Spalten aufsummieren, , multipliziert mit $w^T$ wird den Rest erledigen. Die ganze Operation sieht wie folgt aus: 
-\begin{equation}
-\int \int u(x,y) dx \ dy \approx w^T \mathcal{N}^T \mathcal{U} \mathcal{N} w
-\end{equation} 
-
-Wir haben nun $u$ integriert. Jedoch können wir nun mit Ansatzfunktionen testen ohne viel zu verändern.
-Wir schauen uns $f(x,y)=g(x)h(y)$ an. Also ist $f$ seperabal und somit müssen wir nur den letzten Schritt ändern. Anstatt nur den Gewichten zu multiplizieren, werden wir auch mit den Ansatzfunktionen, an den bestimmten Quadraturpunkten evaluiert, multiplizieren:
-
-\[\bar{w}^x=(w_1 g(q_1), ... \ ,w_n g(q_n))^T \ \ \ \ \ \ \ \bar{w}^y=(w_1 h(q_1), ... \ ,w_n h(q_n))^T\]
-\begin{equation}
-\int \int u(x,y) f(x,y) dx \ dy \approx (\bar{w}^x)^T \mathcal{N}^T \mathcal{U} \mathcal{N} \bar{w}^y
+\dfrac{\delta \varphi^{1D}_1(x_{N})}{\delta x} & \hdots & \dfrac{ \delta \varphi^{1D}_n(x_{N})}{\delta x}
+\end{bmatrix}
 \end{equation}
 
-Wenn wir einen Menge von Ansatzfunktionen haben, welche hergeleitet sind von dem Tensorprodukt von identischen 1-dimensionalen Ansatzfunktionen, können wir die Matrizen multiplizieren anstatt die Vektoren im letzten Schritt, was nun die Operation vollständig macht. Wir definieren:
+Analog definieren uns $\widehat{\mathcal{W}}^{1D}_N$.
 
-\[W=
-\begin{pmatrix}
-w1 \varphi_1(q_1) & \hdots & w_n \varphi_1(q_n) \\
-\vdots & \ddots & \vdots \\
-w1 \varphi_n(q_1) & \hdots & w_n \varphi_n(q_n)
-\end{pmatrix}
-\]
 
-Da  $\mathcal{W} \mathcal{N}^T$ auf Beiden Seiten auftaucht, können wir diese Operationr mit 3 Matrixmultiplikationen ausdrücken. Finale Form der Gleichung:
-\begin{equation}
-\mathcal{V} = \mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T
-\end{equation}
-Die Formel leicht geändert kann benutzt werden um andere Bilinearformen auszudrücken:
 
+\newpage
 $(\nabla u, \nabla v)$.
 \begin{align}
 (\nabla u, \nabla v) &=(\partial_x u,\partial_x v) + (\partial_y u,\partial_y v) \\
