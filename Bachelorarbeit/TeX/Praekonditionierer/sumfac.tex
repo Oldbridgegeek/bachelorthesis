@@ -1,5 +1,83 @@
-Im Exa-dg Teachlet wird die effektive Berechnung der Masse Matrix mit einem Vektor vorgestellt. Diese Methodik sollten wir uns kurz vor Augen führen und daraufaufbauend um einige eigene Gedanken erweitern um diese Methodik für unsere Anwendung zugänglich zu machen.
-Das Ziel ist es die Tensorprodukt Struktur für die Massematrix und den Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
+In \cite{Teachlet} wird die effektive Berechnung der Masse Matrix mit einem Vektor vorgestellt. Diese Methodik sollten wir uns kurz vor Augen führen und daraufaufbauend um einige eigene Gedanken erweitern um diese Methodik für unsere Anwendung zugänglich zu machen.
+Das Ziel dieses Unterkapitels ist die Tensorstruktur für die Massematrix und der Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
+
+\subsubsection{Berechnung der Elementmassenmatrix}
+Es sei $T$ die Referenzzelle für Rechtecke und $\varphi_i(\bold{x})$ Basisfunktion des diskreten Raumes $V_n$ mit $\bold{x}=(x,y)$ .
+\begin{equation} \label{eq:mass}
+M_{ik} = \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold{x}
+\end{equation}
+
+Die Basisfunktionen haben eine Tensorstruktur, die wie folgt aussieht
+\begin{equation} \label{eq:tensor}
+\varphi_i(\bold{x})=\varphi_{i_1+(N+1)i_2}(x,y)=\varphi_{i_1}(x)\varphi_{i_2}(y)
+\end{equation}
+
+Wir werden eine lexikographische Ordnung der Freiheitsgrade benutzen. Die Reichweite von $\, \, i_1 $ und $ i_2 \, $ reicht von $0$ bis $N$. Das heißt der Index $i$ geht von $0$ bis $N_p=(N+1)^2$. In Abbildung (\ref{fig:lexi}) sehen Sie ein Beispiel für $N=3$.
+
+\begin{figure}[ht] 
+	\centering
+  \includegraphics[width=0.3\textwidth]{lexi.png}
+	\caption{ \cite[3]{Teachlet}}
+	\label{fig:lexi}
+\end{figure}
+
+Wir wollen für die Berechnung der Integrale in (\ref{eq:mass}) die Gauss Quadratur benutzen.
+Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte. Dann können wir (\ref{eq:mass}) approximieren wie folgt
+
+\begin{equation} \label{eq:massapprox}
+\begin{aligned}
+M_{ij} &= \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold{x} \\
+&\approx  \sum\limits_{q=1}^Q \bold{w}_q \, \, \varphi_i (\bold{x}_q) \, \varphi_j (\bold{x}_q) \\
+&= \sum\limits_{q_1=1}^{Q_{1D}} \sum\limits_{q_2=1}^{Q_{1D}} \varphi_{i_1}(x_{q1}) \varphi_{i_2}(x_{q2}) \varphi_{j_1}(x_{q1}) \varphi_{j_2}(x_{q2}) \, w_{q1} w_{q2}
+\end{aligned}
+\end{equation}
+
+Wir wählen die Anzahl der Quadraturpunkte $Q_{1D}$ per Dimension so, dass wir exakt integrieren. Wir wählen $Q_{1D}$ gleich der Anzahl der Basisfunktionen $N+1$, da wir mit der Gauss Quadratur mit $N+1$ Stützstellen bis $2N+1$ exakt integrieren und der höchste Grad bei uns $2N$ ist.
+
+Wir definieren uns $\mathcal{N}_{iq}=\varphi_i(x_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massematrix schreiben als
+\begin{equation}
+M = \mathcal{N} \mathcal{W} \mathcal{N}^T
+\end{equation}
+
+Dies ist auch die Form mit in $\mathcal{N}$ zweidimensionale Basisfunktionen. Wir können dies aber weiter aufspalten in eindimensionale Basisfunktionen und dadurch eine Effizienzsteigerung erzielen bei der Berechnung des Matrix-Vektor Produkts mit der Elementmassenmatrix.
+\subsubsection{Berechnung der Elementmassenmatrix-Vektor Produkt}
+
+Das Ziel dieses Unterkapitels ist die effiziente Berechnung des Matrix-Vektor Produkts $Mu=v$ mit $M$ als Massematrix.
+
+Wir fangen damit an, die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
+\begin{equation} \label{eq:onedim}
+\mathcal{N} = N_{1D} \otimes N_{1D}
+\end{equation}
+
+Die Matrix $\mathcal{N}_{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bloß mit eindimensionalen Basisfunktionen. Äquivalent ausgeschrieben sieht die Gleichung (\ref{eq:onedim}) wie folgt aus
+
+\begin{equation*}
+\begin{pmatrix}
+\varphi^{2D}_1(\bm{x}_1) & \hdots & \varphi^{2D}_N(\bm{x}_1) \\
+\vdots & \ddots & \vdots \\
+\varphi^{2D}_1(\bm{x}_Q) & \hdots & \varphi^{2D}_N(\bm{x}_Q)
+\end{pmatrix}
+=
+\begin{pmatrix}
+\varphi^{1D}_1(x_1) & \hdots & \varphi^{1D}_n(x_1) \\
+\vdots & \ddots & \vdots \\
+\varphi^{1D}_1(x_{Q_{1D}}) & \hdots & \varphi^{1D}_n(x_{Q_{1D}})
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+\varphi^{1D}_1(x_1) & \hdots & \varphi^{1D}_n(x_1) \\
+\vdots & \ddots & \vdots \\
+\varphi^{1D}_1(x_{Q_{1D}}) & \hdots & \varphi^{1D}_n(x_{Q_{1D}})
+\end{pmatrix}
+\end{equation*}
+
+Im dreidimensionalen Fall wäre die Aufspaltung analog
+\begin{equation}
+\mathcal{N}^{3D} = N_{1D} \otimes N_{1D} \otimes N_{1D}
+\end{equation}
+
+\newpage
+
 
 Angenommen wir hätten eine Lösung $u \in V$ der Form
 \begin{equation}
