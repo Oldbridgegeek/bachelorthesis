@@ -11,6 +11,11 @@ Claes Johnson.
   Finite Element Method}.
 \newblock Dover Publications, 2008.
 
+\bibitem[Kol06]{Multilinear}
+Tamara Kolda.
+\newblock {\em Multilinear operators for higher-order decompositions}.
+\newblock 2006.
+
 \bibitem[MK12]{Kronbichler}
 Katharina~Kormann Martin~Kronbichler.
 \newblock {\em A generic interface for parallel cell-based finite element

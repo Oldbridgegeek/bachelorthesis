@@ -1,8 +1,9 @@
 In Kapitel 3 haben wir uns zwei Möglichkeiten angeschaut, das Matrix-Vektor Produt zu berechnen mit der Pseudoinversen. Beide Alternativen bargen eine Tensorprodukt Struktur, in Form des Matrix-Kronecker Produkt.
 
-Das heißt um dies effizient zu implementieren sollten wir uns Gedanken dadrüber machen wie wir diese Struktur ausnutzen können.
+Das heißt um dies effizient zu implementieren sollten wir uns Gedanken dadrüber machen, wie wir diese Struktur ausnutzen können.
 
-Im Exa-dg-teachlet wird eine Strategie vorgestellt ein Matrix-vektor Produkt mit Kronecker Matrizen also $z=(\mathcal{B} \otimes \mathcal{A})y$ berechnet werden kann.
+\subsection{ Effizientes Matrix-Vektor Produkt }
+In \cite{Teachlet} wird eine Strategie vorgestellt ein Matrix-Vektor Produkt mit Kronecker Produkt Matrizen $z=(\mathcal{B} \otimes \mathcal{A})y$ effektiv zu berechnen.
 
 Sei $\mathcal{A} \in \mathbb{R}^{m \times n}$ und $\mathcal{B} \in \mathbb{R}^{p \times q}$. Das Kronecker Produkt dieser Matrizen kann man schreiben als, 
 \begin{equation*}
@@ -14,7 +15,7 @@ b_{p1}\mathcal{A} & \dots & b_{pq}\mathcal{A} \\
 \end{pmatrix}
 \end{equation*}
 
-Nun wir sehen also die sich wiederholende Struktur von $\mathcal{A}$. Genau diese wollen wir uns nun zu nutze machen. Nehmen wir an y sei geordnet in der Indexierung.
+Wir sehen, die sich wiederholende Struktur von $\mathcal{A}$. Genau diese wollen wir uns zu nutze machen. Nehmen wir an $y$ sei geordnet in der Indexierung.
 \begin{equation*}
 y = (y_1,y_2,\dots,y_n,\dots,\dots,y_{(q-1)n+1},y_{(q-1)n+2},\dots,y_{qn})^T
 \end{equation*}
@@ -49,73 +50,77 @@ Wir führen dies so weiter und erhalten
 w=( (w^{(1)})^T , \dots, (w^{(q)})^T) \in \mathbb{R}^{mq}
 \end{equation*}
 
-Nun müssen wir die Informationen der Matrix B noch mit reinbringen. Dazu berechnen wir wie im Teachlet auch vorgeschlagen $z_i$ mit
+Nun müssen wir die Informationen der Matrix B noch mit reinbringen. Dazu berechnen wir wie in \cite{Teachlet} vorgeschlagen $z_i$ mit
 
 \begin{equation*}
 z_i = \sum_{i=1}^{q} b_{1i} w_m^{(i)}
 \end{equation*}
 
-Mit Hilfe diesen Algorithmus haben wir die Komplexität von $2m^4$ auf $4m^3$ reduziert.
-Nun wollen wir dies erweitern auf $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$.
+Mit Hilfe diesen Algorithmus haben wir die Komplexität von des Auswertens der Gleichung von $2m^4$ auf $4m^3$ reduziert.
+
+\subsubsection{Erweiterung}
+Dieser Algorithmus ist optimal um für die erste Alternative mit der Pseudoinversen Berechnung durch Ausnutzung der Tensorstruktur, effektiv das Matrix-Vektor Produkt auszurechnen. Doch für die zweite Alternative mit der HOSVD, werden wir eine erweiterte Form des Algorithmuses brauchen, da wir mehrere Kronecker Produkte bekommen werden. Wir wollen den Algorithmus erweitern für die effektive Berechnung von $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$ mit $\mathcal{A} \in \mathbb{R}^{n_1 \times m_1}$, $\mathcal{B} \in \mathbb{R}^{n_2 \times m_2}$,$\mathcal{C} \in \mathbb{R}^{n_3 \times m_3}$ und $v \in \mathbb{R}^{m_1 m_2 m_3}$.
 
 
-\begin{equation} z:=
+\begin{equation} z=
 \begin{pmatrix}
-c_{11} b_{11} A & \dots  & c_{11} b_{1n} A & \dots & \dots & c_{1n}b_{11}A & \dots & c_{1n}b_{1n}A  \\
+c_{11} b_{11} \mathcal{A} & \dots  & c_{11} b_{1m_2} \mathcal{A} & \dots & \dots & c_{1m_3}b_{11}\mathcal{A} & \dots & c_{1m_3}b_{1m_2}\mathcal{A}  \\
 
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{11} b_{n1} A & \dots  & c_{11} b_{nn} A & \dots & \dots & c_{1n}b_{n1}A & \dots & c_{1n}b_{nn}A  \\
-c_{21} b_{n1} A & \dots  & c_{21} b_{nn} A & \dots & \dots & c_{2n}b_{n1}A & \dots & c_{2n}b_{nn}A  \\
+c_{11} b_{n_2 1} \mathcal{A} & \dots  & c_{11} b_{n_2 m_2} \mathcal{A} & \dots & \dots & c_{1 m_3}b_{n_2 1}\mathcal{A} & \dots & c_{1 m_3}b_{n_2 m_2}\mathcal{A}  \\
+c_{21} b_{n1} \mathcal{A} & \dots  & c_{21} b_{nn} \mathcal{A} & \dots & \dots & c_{2n}b_{n1}\mathcal{A} & \dots & c_{2 m_3}b_{n_2 m_2}\mathcal{A}  \\
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{n1} b_{n1} A & \dots  & c_{n1} b_{nn} A & \dots & \dots & c_{nn}b_{n1}A & \dots & c_{nn}b_{nn}A  \\
-\end{pmatrix} * v
+c_{n_3 1} b_{n_2 1} \mathcal{A} & \dots  & c_{n_3 1} b_{n_2 m_3} \mathcal{A} & \dots & \dots & c_{n_3 m_3}b_{n_2 1}\mathcal{A} & \dots & c_{n_3 m_3}b_{n_2 m_2}\mathcal{A}  \\
+\end{pmatrix} \, \, v
 \end{equation}
 
-Wir sehen hier sich zwei wiederholende Strukturen die wir ausnutzen können um bei einem Matrix-Vektor Produkt operationen zu sparen.
+Wir sehen hier sich zwei wiederholende Strukturen, die wir ausnutzen wollen um Operationen zu sparen.
 
 \begin{equation} \label{eq:matrix} z=
 \begin{pmatrix}
-c_{11} \textcolor{green}{b_{11}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{1n}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{11}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{1n}}\textcolor{red}{A}  \\
+c_{11} \textcolor{green}{b_{11}} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b_{1n}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1n}\textcolor{green}{b_{11}}\textcolor{red}{\mathcal{A}} & \dots & c_{1n}\textcolor{green}{b_{1n}}\textcolor{red}{\mathcal{A}}  \\
 
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{11} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{11} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{1n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{1n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
-c_{21} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{21} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{2n}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{2n}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
+c_{11} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1n}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{1n}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
+c_{21} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{21} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{2n}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{2n}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{n1} \textcolor{green}{b_{n1}} \textcolor{red}{A} & \dots  & c_{n1} \textcolor{green}{b_{nn}} \textcolor{red}{A} & \dots & \dots & c_{nn}\textcolor{green}{b_{n1}}\textcolor{red}{A} & \dots & c_{nn}\textcolor{green}{b_{nn}}\textcolor{red}{A}  \\
-\end{pmatrix} * v
+c_{n1} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{n1} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{nn}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{nn}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
+\end{pmatrix} \, \, v
 \end{equation}
 
-Nun wollen wir uns dies zu nutze machen. Wir schauen uns erstmal die einzelnen Einträge von z an und bekommen. Vorher definieren wir unser v um zu einem Tensor $\mathcal{V} \in \mathbb{R}^{I_1 \times I_2 \times I_3} $. Der erste Index repräsentiert in welcher Spalteneintrag von C wir uns befinden, der zweite in welchem Spalteneintrag von B und der Dritte in welchem Spalteneintrag von A. 
+
+Unser $v$ können wir zu einem Tensor $\mathcal{V} \in \mathbb{R}^{m_1 \times m_2 \times m_3} $ umdefinieren, damit dieser handlicher wird. Der erste Index repräsentiert in welcher Spalteneintrag von $C$, der Zweite in welchem Spalteneintrag von $B$ und der Dritte in welchem Spalteneintrag von $A$ wir uns befinden. Dies kann man wieder als eine Index Transformation ansehen, die bestimmte Einträge von $v$ in bestimmte Tensorelemente abbildet. 
+Wir schauen uns erstmal die einzelnen Einträge von $z$ an. 
+
 \begin{equation} \label{eq:zold}
 \begin{aligned}
 z_{1} = \mathcal{V}(1,1,1) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}}+ \dots +  \mathcal{V}(1,1,n) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{1n}} + \dots  +  \mathcal{V}(1,n,1)c_{11} 
 \textcolor{green}{b_{1n}} \textcolor{red}{a_{11}} \\ + \dots +  \mathcal{V}(n,1,1) c_{1n} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}} + \dots +  \mathcal{V}(n,n,n) c_{1n} \textcolor{green}{b_{1n}} \textcolor{red}{a_{1n}}
 \end{aligned}
 \end{equation}
-Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,n) a_{\textcolor{red}{1}n}$. Dann erhalten wir:
+Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,n) a_{\textcolor{red}{1}n}$. Dann erhalten wir
 \begin{equation*}
 \begin{aligned}
-z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,n) c_{11} b_{1n} + \dots + w_1(n,1) c_{1n} b_{11}  + \dots +  w_1(n,n) c_{1n} b_{1n} 
+z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,n) c_{11} b_{1n} + \dots + w_1(n,1) c_{1n} b_{11}  + \dots +  w_1(n,n) c_{1n} b_{1n}.
 \end{aligned}
 \end{equation*}
 
-Damit haben wir uns die sich wiederholende Struktur von der Matrix \textcolor{red}{A} zu nutze gemacht. Im nächsten Schritt machen wir uns die sich wiederholende Struktur von $\textcolor{green}{b_{ij}}$ zu nutze.
-Definiere hierfür $\textswab{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,n) b_{\textcolor{red}{1}n}$. Damit erhalten wir:
-
+Damit haben wir uns die sich wiederholende Struktur von der Matrix $\textcolor{red}{\mathcal{A}}$ zu nutze gemacht. Im nächsten Schritt machen wir uns die sich wiederholende Struktur von $\textcolor{green}{b_{ij}}$ zu nutze.
+Wir definieren hierfür $\mathcal{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,n) b_{\textcolor{red}{1}n}$. Damit erhalten wir
 \begin{equation} \label{eq:znew}
 \begin{aligned}
-z_{1}= \textswab{W}_{1,1}(1) c_{11}  + \dots +  \textswab{W}_{1,1}(n) c_{1n} 
+z_{1}= \mathcal{W}_{1,1}(1) c_{11}  + \dots +  \mathcal{W}_{1,1}(n) c_{1n}.
 \end{aligned}
 \end{equation}
 
-Wir wollen nun $z$ genau so umformen wie wir das auch für v gemacht haben. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel:
+Wir wollen nun $z$ genau so umformen wie wir das auch für $v$ gemacht haben. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel
 \begin{equation}
-\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in} 
+\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(n) c_{in} 
 \end{equation}
-Wobei j und k den Zeilen jeweils in den Matrizen B und C entsprechen. 
-
-Der komplette Algorithmus würde nun wie folgt aussehen:
-\begin{framed}
+Wobei j und k den Zeilen jeweils in den Matrizen $B$ und $C$ entsprechen. 
+\newpage
+Der komplette Algorithmus sieht wie folgt aus.
+\begin{mdframed}[backgroundcolor=blue!3] 
 \begin{algorithmic}
 \For {k=1 < n }
 	\For {i= 1 < n }
@@ -127,22 +132,22 @@ Der komplette Algorithmus würde nun wie folgt aussehen:
 \For {k=1 < n }
 	\For {i= 1 < n }
 		\For {j= 1 < n }
-			\State $\textswab{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,n) b_{1n}$
+			\State $\mathcal{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,n) b_{1n}$
 		\EndFor
 	\EndFor
 \EndFor
 \For {k=1 < n }
 	\For {i= 1 < n }
 		\For {j= 1 < n }
-			\State $\mathcal{Z}(i,j,k) = \textswab{W}_{j,k}(1) c_{i1}  + \dots +  \textswab{W}_{j,k}(n) c_{in}$ 
+			\State $\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(n) c_{in}$ 
 		\EndFor
 	\EndFor
 \EndFor
 \end{algorithmic}
-\end{framed}
+\end{mdframed}
 
  
-Wenn wir annehmen, dass die Matrizen $A,B,C \in \mathbb{R}^{n \times n}$. Dann haben wir bei \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n^{3} \times n^{3}$. Dementsprechend hätten wir $n^{6}$ Multiplikationen und $n^{6}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert sich auf $3n^{3}$ Multiplikationen und genau so viele Additionen.
+Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n_1 n_2 n_3 \times m_1 m_2 m_3$. Dementsprechend hätten wir $(n_1 n_2 n_3)^{2}$ Multiplikationen und $(m_1 m_2 m_3)^{2}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3n^{3}$ Multiplikationen und genau so viele Additionen.
 Ein enorme Reduktion, vor allem für großes n.
 
 \textbf{Wie können wir uns nun diese Algorithmen zu nutze machen für die in Kapitel 3 besprochenen Strategien?} \\
