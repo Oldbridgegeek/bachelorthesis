@@ -1,13 +1,12 @@
-Wir wollen nun mit Hilfe von der Theorie zur Singulärwertzerlegung höherer Ordnung eine Theorie entwickeln, wie wir die Pseudoinverse zur Masse Matrix und zur globalen Steifigkeitsmatrix der Laplace Bilinearform effiizient berechnen können.
-
-Allgemein wissen wir:
+Wir wollen nun mit Hilfe von der Theorie zur Singulärwertzerlegung höherer Ordnung eine Theorie entwickeln, wie wir die Pseudoinverse zur Masse Matrix und zur Steifigkeitsmatrix der Laplace Bilinearform effiizient berechnen können. 
+Es sei $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ ein Tensor. Dann können wir mit der HOSVD diesen Tensor zerlegen
 \begin{equation}
-\mathcal{A} = \mathcal{S} \times_{n=1}^{N} U^{ (n) }
+\pmb{\mathscr{X}} = \pmb{\mathscr{G}} \times_{n=1}^{N} U^{ (n) }
 \end{equation}
-D.h. wir können einen Tensor $\mathcal{A}$ in einen Kerntensor $\mathcal{S}$ und zugehörige Faktormatrizen U zerlegen. Wie bekommen wir nun die Pseudoinverse zu A? Was bedeutet in dem Kontext eines Tensors überhaupt Pseudoinverse?
+Wir können einen Tensor $\pmb{\mathscr{X}}$ in einen Kerntensor $\pmb{\mathscr{G}}$ und zugehörige Faktormatrizen $U$ zerlegen. Wie bekommen wir nun die Pseudoinverse zu $\pmb{\mathscr{X}}$? Was bedeutet in dem Kontext eines Tensors überhaupt Pseudoinverse?
 
-Wir kennen noch die Eigenschaften der Moore Penrose Pseudoinverse für Matrizen:
-\begin{Lemma} Moore Penrose Pseudoinverse (Wikipedia) 
+Die Eigenschaften der Moore Penrose Pseudoinverse für Matrizen lautet
+\begin{Lemma} (Moore Penrose Pseudoinverse) 
 \begin{itemize}
 \item $AA^{+}A=A$
 \item $A^{+}AA^{+}=A^{+}$ ($A^{+}$ ist eine schwache Inverse der multiplikativen Halbgruppe)
@@ -16,8 +15,30 @@ Wir kennen noch die Eigenschaften der Moore Penrose Pseudoinverse für Matrizen:
 \end{itemize}
 \end{Lemma}
 
-Jetzt gilt es diese Eigenschaften für Tensoren zu übertragen. Da wir erstmal keine intuitive Tensor Tensor Multiplikation haben, gilt es diese zu definieren. Diese Tensor-Tensor Multiplikation macht dann nur für unsere Anwendung einen Sinn und ist sonst zweckfrei.
-\begin{Definition} Tensor-Tensor Multiplikation $ttp(\dot,\dot)$
+Jetzt gilt es diese Eigenschaften für Tensoren zu übertragen. Da wir erstmal keine intuitive Tensor-Tensor Multiplikation haben, gilt es diese zu definieren. Diese Tensor-Tensor Multiplikation macht dann nur für unsere Anwendung einen Sinn und ist sonst zweckfrei.
+
+Dafür sollten wir erstmal unsere Tensoren herleiten. Dies geschieht mit Hilfe der Tensorstruktur der Ansatzfunktionen.
+Wir definieren den \textit{Massetensor} elementweise durch
+\begin{equation} 
+M_{i1,i2,j1,j2} = \int\limits_{T} \varphi_{i1} (x_1) \varphi_{i2}(x_2) \varphi_{j1} (x_1) \varphi_{j2} (x_2) \, d(x_1,x_2)
+\end{equation}
+und unseren \textit{lokalen Laplace Tensor}, welcher das pendant zu der Elementsteifigkeitsmatrix der Laplace Bilinearform ist, wie folgt
+\begin{equation} 
+V_{i1,i2,j1,j2} = \int\limits_{T} \varphi'_{i1} (x_1) \varphi_{i2}(x_2) \varphi'_{j1} (x_1) \varphi_{j2} (x_2) +
+\varphi_{i1} (x_1) \varphi'_{i2}(x_2) \varphi_{j1} (x_1) \varphi'_{j2} (x_2) \, d(x_1,x_2)
+\end{equation}
+
+Diese Transformation von Matrix zu Tensor ist also eigentlich eine Abbildung die ein Indextupel $(i,j)$ eines Matrixelements auf den Indextupel eines Tensorelements $(i_1,i_2,j_1,j_2)$ abbildet. Damit wir uns eine Tensor-Tensor Multiplikation definieren, sollte uns diese Transformation klar sein.
+In dieser Transformation stecken implizit zwei Transformationen. Nämlich
+\begin{equation*}
+\begin{aligned}
+i &\rightarrow (i_1,i_2) \\
+j &\rightarrow (j_1,j_2) \\
+\end{aligned}
+\end{equation*}
+
+\begin{Definition} Tensor-Tensor Multiplikation $ttp(\cdot,\cdot)$
+
 \end{Definition}
 
 Nun ist kommt auch ein weiterer Trick den wir nutzen können. Trick kann nur mit Vorsicht genossen werden. Die Gleichheit ist mit einem Rechner nicht zu erzielen, daher wird die Bemerkung abgeschwächt und für Tensoren. Wir erhalten:

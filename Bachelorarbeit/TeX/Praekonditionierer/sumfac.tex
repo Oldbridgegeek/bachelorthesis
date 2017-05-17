@@ -28,7 +28,8 @@ Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_
 \begin{aligned}
 M_{ij} &= \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold{x} \\
 &\approx  \sum\limits_{q=1}^Q \bold{w}_q \, \, \varphi_i (\bold{x}_q) \, \varphi_j (\bold{x}_q) \\
-&= \sum\limits_{q_1=1}^{Q_{1D}} \sum\limits_{q_2=1}^{Q_{1D}} \varphi_{i_1}(x_{q1}) \varphi_{i_2}(x_{q2}) \varphi_{j_1}(x_{q1}) \varphi_{j_2}(x_{q2}) \, w_{q1} w_{q2}
+&= \sum\limits_{q_1=1}^{Q_{1D}} \sum\limits_{q_2=1}^{Q_{1D}} \varphi_{i_1}(x_{q1}) \varphi_{i_2}(x_{q2}) \varphi_{j_1}(x_{q1}) \varphi_{j_2}(x_{q2}) \, w_{q1} w_{q2} \\ 
+&= \sum\limits_{q_1=1}^{Q_{1D}} w_{q1} \varphi_{i_1}(x_{q1}) \varphi_{j_1}(x_{q1}) \sum\limits_{q_2=1}^{Q_{1D}} w_{q2} \varphi_{i_2}(x_{q2}) \varphi_{j_2}(x_{q2}) \, . 
 \end{aligned}
 \end{equation}
 
@@ -121,13 +122,13 @@ Dann nutzen wir Lemma (\ref{lemma:prod}) und erhalten
 Die Formel, leicht geändert, kann benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform.  Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
 
 \begin{equation}
-V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x})) + ( \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x})) \, d\bold{x}.
+V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x})) + ( \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x})) \, d\bold{x}.
 \end{equation}
 
 Wir führen elementare Umformungen durch und nutzen die Linearität des Integrals
 \begin{equation}
 \begin{aligned}
-V_{ij} &= \int\limits_{T}( \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x})) + ( \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x})) \, d\bold{x} \\ &= \int\limits_{T} \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x}) d\bold{x} + \int\limits_{T}  \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x}) \, d\bold{x}.
+V_{ij} &= \int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x})) + ( \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x})) \, d\bold{x} \\ &= \int\limits_{T} \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x}) d\bold{x} + \int\limits_{T}  \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x}) \, d\bold{x}.
 \end{aligned}
 \end{equation}
 
@@ -135,98 +136,77 @@ Nun nutzen wir eine Quadratur für das Integral. Es seien $\bold{x}_q=(x_{q1},x_
 
 \begin{equation}
 \begin{aligned}
-V_{ij}  = \sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \delta_x  \varphi_i(\bold{x}_q)  \delta_x \varphi_j (\bold{x}_q) + \sum\limits_{q=1}^{(N+1)^2} \bold{w}_q  \delta_y \varphi_i(\bold{x}_q)  \delta_y \varphi_j(\bold{x}_q) \, .
+V_{ij}  = \underbrace{\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bold{x}_q)  \partial_{x_1} \varphi_j (\bold{x}_q)}_{K_1} + \underbrace{\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q  \partial_{x_2} \varphi_i(\bold{x}_q)  \partial_{x_2} \varphi_j(\bold{x}_q)}_{K_2} \, .
 \end{aligned}
 \end{equation}
 
-Wir nutzen nun die Tensorstruktur der Ansatzfunktionen
-\begin{equation*}
+Wir können eine große Ähnlichkeit mit der Struktur der Massematrix in (\ref{eq:massapprox}), wenn wir uns jeweils nur $K_1$ und $K_2$ seperat anschauen. Jetzt gilt es die Tensorstruktur der Ansatzfunktionen auszunutzen. Dafür betrachten wir $K_1$.
+\begin{equation}
 \begin{aligned}
-V_{ij}&=\int\limits_{T}( \delta_x  \varphi_i(\bold{x}) + \delta_y \varphi_i(\bold{x})) ( \delta_x \varphi_j(\bold{x}) + \delta_y \varphi_j(\bold{x})) dx \\ &= \int\limits_{T}( \delta_x  (\varphi_{i1}(x) \varphi_{i2}(y)) + \delta_y (\varphi_{i1}(x) \varphi_{i2}(y)) ( \delta_x ( \varphi_{j1}(x) \varphi_{j2}(y)) + \delta_y  (\varphi_{j1}(x) \varphi_{j2}(y))) dx \\ &= \int\limits_{T}( (\delta_x  \varphi_{i1}(x)) \varphi_{i2}(y) + \varphi_{i1}(x) (\delta_y \varphi_{i2}(y))) ( (\delta_x  \varphi_{j1}(x)) \varphi_{j2}(y) +  \varphi_{j1}(x) (\delta_y \varphi_{j2}(y))) \, dx. \\
+K_1 &=\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bold{x}_q)  \partial_{x_1} \varphi_j (\bold{x}_q) \\ &= \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \partial_{x_1}  \varphi_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \partial_{x_1} \varphi_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\
+&=  \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \varphi'_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \varphi'_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\ 
+&= \sum\limits_{q_1=1}^{N} w_{q1} \varphi'_{i1}(x_{q1}) \varphi'_{j1} (x_{q1}) \sum\limits_{q_2=1}^{N} w_{q2} \varphi_{i2}(x_{q2})  \varphi_{j2} (x_{q2}) 
 \end{aligned}
-\end{equation*}
+\end{equation}
 
-Nun nutzen wir eine Quadratur für das Integral. Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte, dann folgt für die obere Gleichung
-
-\begin{equation*}
-\begin{aligned}
-&\int\limits_{T}( (\delta_x  \varphi_{i1}(x)) \varphi_{i2}(y) + \varphi_{i1}(x) (\delta_y \varphi_{i2}(y))) ( (\delta_x  \varphi_{j1}(x)) \varphi_{j2}(y) +  \varphi_{j1}(x) (\delta_y \varphi_{j2}(y))) \, dx \\ &= \sum\limits_{q_1=1}^{Q_{1D}} \sum\limits_{q_2=1}^{Q_{1D}} ( (\delta_x  \varphi_{i1}(x_{q1})) \varphi_{i2}(x_{q2}) + \varphi_{i1}(x_{q1}) (\delta_y \varphi_{i2}(x_{q2}))) ( (\delta_x  \varphi_{j1}(x_{q1})) \varphi_{j2}(x_{q2}) +  \varphi_{j1}(x_{q1}) \\ &(\delta_y \varphi_{j2}(x_{q2}))) w_{q1}w_{q2}
-\end{aligned}
-\end{equation*}
-
-Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind wie $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren sondern deren Ableitung.
+Man kann die Ähnlichkeit mit der Gleichung (\ref{eq:massapprox}) erkennen. Wir sehen, dass wir in einer Dimension nun aber die evaluierten Ableitungen der Basisfunktionen und in die andere Dimension die evaluierten Basisfunktionen haben.
+Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind zu $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren sondern deren Ableitung.
 
 \begin{equation}
 \widehat{\mathcal{N}}^{1D} = 
 \begin{bmatrix}
-\dfrac{\delta \varphi^{1D}_1(x_1)}{\delta x} & \hdots & \dfrac{ \delta \varphi^{1D}_n(x_1)}{\delta x} \\
+\dfrac{\partial \varphi^{1D}_1(x_1)}{\partial x} & \hdots & \dfrac{ \partial \varphi^{1D}_n(x_1)}{\partial x} \\
 \vdots & \ddots & \vdots \\
-\dfrac{\delta \varphi^{1D}_1(x_{N})}{\delta x} & \hdots & \dfrac{ \delta \varphi^{1D}_n(x_{N})}{\delta x}
+\dfrac{\partial \varphi^{1D}_1(x_{N})}{\partial x} & \hdots & \dfrac{ \partial \varphi^{1D}_n(x_{N})}{\partial x}
 \end{bmatrix}
 \end{equation}
 
 Analog definieren uns $\widehat{\mathcal{W}}^{1D}_N$.
-
-
-
-\newpage
-$(\nabla u, \nabla v)$.
-\begin{align}
-(\nabla u, \nabla v) &=(\partial_x u,\partial_x v) + (\partial_y u,\partial_y v) \\
-					   &=\sum_{i,j} u_{ij} (\varphi_i'(x)\varphi_j(y),\phi'(x)\phi(y)) \\
-					   & \ + \sum_{i,j} u_{ij} (\varphi_i(x)\varphi_j'(y),\phi(x)\phi'(y))
-\end{align}
-
-Nun werden wir 2 Matrizen  $\mathcal{W}'$ und $\mathcal{N}'$ vorstellen.
-Diese Matrizen sind ähnlich zu den oben, aber anstatt die Ansatzfunktionen zu evaluieren, evaluieren sie die Ableitung der Ansatzfunktionen. Die resultierende Form ergibt sich aus:
-\[\mathcal{V}=\mathcal{W}' \mathcal{N}'^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T +\mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W}' \mathcal{N}'^T)^T\]
-Sei $(-\Delta u, v)=-(\partial_{xx} u,v) + -(\partial_{yy} u,v)$.\\
-Wir führen $\mathcal{N}''$ ein, was die Werte der 2.Ableitung der Ansatzfunktionen in den Quadraturgewichten speichert. Bemerke, dass die Matrix $\mathcal{W}$ nicht modifziert wurde. Als Resultat erhalten wir
-\[\mathcal{V}=-\mathcal{W} \mathcal{N}''^T \mathcal{U} (\mathcal{W} \mathcal{N}^T)^T -\mathcal{W} \mathcal{N}^T \mathcal{U} (\mathcal{W} \mathcal{N}''^T)^T\]
-
-
-Zusammengefasst erhalten wir für die Masse Matrix die Form
-\begin{equation}
-M*u = (\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T})*u
-\end{equation}
-
-und für die Laplace Bilinearform
+Dann folgt mit analoger Umformung wie bei der Massematrix
 
 \begin{equation}
-\mathcal{V}*u = -((\mathcal{W} \mathcal{N''}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}) - (\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N''}^{T}))*u
+K_1 = K_2 = (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T).
 \end{equation}
 
-DIe Berechnung der Pseudoinversen passiert mit diesem Ansatz quasi on the fly, da wir hier gleich als Ergebnis nicht die Pseudoinverse bekommen, sondern das Matrix Vektor Produkt mit der Pseudoinversen als Matrix.
 
-Für die effiziente Berechnung der Inversen brauchen wir folgendes Ergebnis:
-\begin{Bemerkung}
+Insgesamt kann man also die Elemensteifigkeitsmatrix für die Laplace Bilinearform darstellen als
 \begin{equation}
-(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}
+V =(\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) + (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T).
 \end{equation}
-\end{Bemerkung}
 
-Nun erhalten wir fast direkt unser gewünschtes Ergebnis
+Nun können wir das zusammenfassen zu 
 \begin{equation}
-M^{-1}*u = ((\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}))^{-1}*u
-= ((\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1})*u
+V = 2 ((\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)).
 \end{equation}
 
-$\mathcal{W} \mathcal{N}^{T} \in \mathbb{R}^{n \times n}$ somit also quadratisch. Das heißt um das Pseudoinverse-Vektor Produkt zu berechnen müssen wir nur eine SVD von einer $n \times n$ Matrix berechnen. Falls uns das zu teuer wird können wir auch eine truncated SVD benutzen. In welchem Komplexitätsbereich wir uns befinden, wird im nächsten Subkapitel angeführt.
 
-Für die Laplace Bilinearform ähnlich:
+\subsubsection{Pseudoinverse}
+
+Nun wollen wir die Pseudoinversen für die Elementsteifigkeitsmatrix der Massematrix $M$ und der Laplace Bilinearform $V$ herleiten. Dank unserer Vorarbeit und unserem Vorwissen zum Kronecker Produkt, ist es möglich, dies sehr effizient zu machen.
+
+Rekapituliere die Tensorstruktur für die Massematrix
 \begin{equation}
-\mathcal{V}^{-1}*u = -((\mathcal{W} \mathcal{N''}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}) - (\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N''}^{T}))^{-1}*u
-= -((\mathcal{W} \mathcal{N''}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1} - (\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N''}^{T})^{-1})*u
+M =  (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T).
+\end{equation}
+Nun wollen wir die Pseudoinverse herleiten
+\begin{equation}
+M^+=  ((\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T))^+
 \end{equation}
 
-Praktisch müssen wir also nur die Inversen von $(\mathcal{W} \mathcal{N''}^{T})$ und von $(\mathcal{W} \mathcal{N}^{T})$ berechnen.
+Wir nutzen Lemma (\ref{lemma:inverse}) und erhalten
+\begin{equation}
+((\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T))^+ =  (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)^+
+\end{equation}
 
-Nun war dies der 2 Dimensionale Fall. Die Erweiterung auf den 3 Dimensionalen Fall ist analog und kann im ``Efficient Evaluation ..... Teachlet'' angeschaut werden.
+Analog für die Laplace Bilinearform
+\begin{equation}
+\begin{aligned}
+V^+ &= (2 ((\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)))^+ \\
+&= \dfrac{1}{2} ((\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+)
+\end{aligned}
+\end{equation}
 
-Zu der Implementierungsstrategie kann man in Kapitel 4 mehr erfahren.
+Das heißt anstatt, dass wir die Pseudoinverse einer Matrix der Größe $N^2 \times N^2$ berechnen, berechnen wir nur die Pseudoinversen einer Matrix der Größe $N \times N$.
 
-
-
-
-
+Was uns letztlich interessiert ist die Auswertung der Pseudoinversen an einem Vektor $u$ also $M^+ u$ und $V^+ u$. Wie wir dies effizient ausrechnen und welche Komplexität uns erwartet, sehen wir in Kapitel 4.
 
