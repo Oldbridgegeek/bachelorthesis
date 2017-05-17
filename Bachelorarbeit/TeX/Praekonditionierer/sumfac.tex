@@ -121,7 +121,22 @@ Dann nutzen wir Lemma (\ref{lemma:prod}) und erhalten
 Die Formel, leicht geändert, kann benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform.  Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
 
 \begin{equation}
-V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \delta_x  \varphi_i(\bold{x}) + \delta_y \varphi_i(\bold{x})) ( \delta_x \varphi_j(\bold{x}) + \delta_y \varphi_j(\bold{x})) \, dx.
+V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x})) + ( \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x})) \, d\bold{x}.
+\end{equation}
+
+Wir führen elementare Umformungen durch und nutzen die Linearität des Integrals
+\begin{equation}
+\begin{aligned}
+V_{ij} &= \int\limits_{T}( \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x})) + ( \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x})) \, d\bold{x} \\ &= \int\limits_{T} \delta_x  \varphi_i(\bold{x})  \delta_x \varphi_j(\bold{x}) d\bold{x} + \int\limits_{T}  \delta_y \varphi_i(\bold{x})  \delta_y \varphi_j(\bold{x}) \, d\bold{x}.
+\end{aligned}
+\end{equation}
+
+Nun nutzen wir eine Quadratur für das Integral. Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte, dann folgt für die obere Gleichung
+
+\begin{equation}
+\begin{aligned}
+V_{ij}  = \sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \delta_x  \varphi_i(\bold{x}_q)  \delta_x \varphi_j (\bold{x}_q) + \sum\limits_{q=1}^{(N+1)^2} \bold{w}_q  \delta_y \varphi_i(\bold{x}_q)  \delta_y \varphi_j(\bold{x}_q) \, .
+\end{aligned}
 \end{equation}
 
 Wir nutzen nun die Tensorstruktur der Ansatzfunktionen
