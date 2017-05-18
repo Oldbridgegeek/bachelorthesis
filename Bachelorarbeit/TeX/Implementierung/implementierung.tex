@@ -147,69 +147,108 @@ Der komplette Algorithmus sieht wie folgt aus.
 \end{mdframed}
 
  
-Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n_1 n_2 n_3 \times m_1 m_2 m_3$. Dementsprechend hätten wir $(n_1 n_2 n_3)^{2}$ Multiplikationen und $(m_1 m_2 m_3)^{2}$ Additionen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3n^{3}$ Multiplikationen und genau so viele Additionen.
-Ein enorme Reduktion, vor allem für großes n.
+Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n_1 n_2 n_3 \times m_1 m_2 m_3$. Dementsprechend hätten wir $(n_1 n_2 n_3)^{2}$ Multiplikationen und $(m_1 m_2 m_3)^{2}$ Additionen. Sei $n_M = max(n_1,n_2,n_3)$ und $m_M=max(m_1,m_2,m_3)$. Die Komplexitätsklasse ist dann $O(n_M^6+m_M^6)$. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3n^{4}$ Multiplikationen und genau so viele Additionen.
+Ein enorme Reduktion, vor allem für großes $n$.
+\newline
 
-\textbf{Wie können wir uns nun diese Algorithmen zu nutze machen für die in Kapitel 3 besprochenen Strategien?} \\
+\newpage
+\subsection{Anwendung}
 
-\textbf{Summenfaktorisierung}
+Wie können wir uns nun diese Algorithmen zu nutze machen für die in Kapitel 3 besprochenen Strategien?
 
-Rekapituliere die Formeln für die Masse Matrix und für die Laplace Bilinearform \\
+\subsubsection{Summenfaktorisierung}
+
+Aus der Tensorsturktur aus Kapitel 3 für die lokale Massematrix und die Elementsteifigkeitsmatrix der Laplace Bilinearform, haben wir die Pseudoinversen hergeleitet. Nun schauen wir uns das Matrix-Vektor Produkt mit den Pseudoinversen als Matrix und einen beliebigen Vektor $u$.
+
+
 \textbf{Masse Matrix} 
 \begin{equation*}
-M^{-1}*u = ((\mathcal{W} \mathcal{N}^{T}) \otimes (\mathcal{W} \mathcal{N}^{T}))^{-1}*u
-= ((\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1})*u
+M^{+}u =  [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)^+]u.
 \end{equation*}
 
 \textbf{Laplace Bilinearform}
 \begin{equation*}
-\mathcal{V}^{-1}*u =  -((\mathcal{W} \mathcal{N''}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N}^{T})^{-1} - (\mathcal{W} \mathcal{N}^{T})^{-1} \otimes (\mathcal{W} \mathcal{N''}^{T})^{-1})*u
+V^{+}u =  [\dfrac{1}{2} ((\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+)]u
 \end{equation*}
 
-Um dies effizient zu berechnen nutzen wir einfach die Formeln aus dem Teachlet und erhalten eine Komplexität von:
-Matrizenmultiplikation ist kubisch also $n^3$. Das Kroneckerprodukt von 2 Matrizen ist wie wir bereits wissen $4n^3$. Nun müssen wir uns um die Invertierung und deren Komplexität kümmern. Nach einer normalen Singulärwertzerlegung bekommen wir $O(min(mn^2,m^2 n))$. Nun müssen wir wieder die Inverse daraus herleiten. 
-Oder wir können den Gauß Algorithmus oder mit der Neumann Reihe arbeiten. Gauß Algorithmus gibt uns eine Komplexität von $O(n^3)$. Neumann Reihe macht keinen Sinn, da die Komplexität mindestens genau so hoch ist wie bei Gauß.
-Insgesamt haben wir eine Komplexität mit Gauß: $O(n^3)+O(n^3)+O(4n^3)=O(6n^3) \in O(n^3)$. Das heißt wir sind immer noch kubisch, was ein großer Vorteil ist.
-Die Singulärwertzerlegung bringt uns erst einen Vorteil, wenn wir eine trunkierte Zerlegung wählen. Die mögliche Ersparnis ist aber nicht so hoch. \textbf{BEGRÜNDUNG}.
+Wie komplex ist es die Pseudoinversen der Matrizen $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)$ und $(\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)$ zu berechnen?
 
-\textbf{Singulärwertzerlegung höherer Ordnung}
-Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Nun geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Summenfaktorisierung zu nutze machen, wie sie auch in \cite[9-11]{Teachlet} vorgeschlagen wird.
-Sei $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ .
-Die Formel für die Pseudoinverse lautet:
+Wir können als Ansatz eine Singulärwertzerlegung wählen. Aus der Singulärwertzerlegung müssen wir noch die Pseudoinverse erst herleiten.
+Allgemein gilt
+\begin{equation*}
+M\,=\,U\Sigma V^{T}
+\end{equation*}
+für eine eine $m \times n$-Matrix $M$ mit Rang $r$, wobei
+$U$ eine orthogonale $m\times m$-Matrix ist, $V^{T}$ die Transponierte einer orthogonalen $n\times n$-Matrix $V$ und
+$\Sigma$  eine reelle  $m\times n$-Matrix mit den $r$ Singulärwerten in der Diagonalen und sonst Nullen.
+
+Die Pseudoinverse daraus hergeleitet ergibt
+\begin{equation*}
+M^{+}=V\Sigma ^{+}U^{T}.
+\end{equation*}
+
+Die Komplexität für die Herleitung der Pseudoinversen aus der Singulärwertzerlegung ist vernachlässigbar. Für die Berechnung von $\Sigma^+$ haben wir $r$ Operationen, da in $\Sigma$ in der Diagonalen $r$ Einträge stehen, die wir einfach nur invertieren müssen. Die Berechnung von $U^{T}$ ist vernachlässigbar, da man bei der Berechnung der Singulärwertzerlegung direkt $U^{T}$ speichern kann anstatt $U$.
+Also bekommen wir mit der Singulärwertzerlegung einer Matrix $M \in \mathbb{R}^{m \times n}$ die Pseudoinverse mit einer Komplexität von $O(min(mn^2,m^2 n))$ \cite[2]{SVD}. Man könnte natürlich hier auch approximative Verfahren wählen und versuchen an Operationen zu sparen. Ich verweise hier auf \cite{SVD} für die nähere Betrachtung von schnelleren Singulärwertzerlegungen.
+
+
+Wir können stattdessen mit dem Gauß Algorithmus oder mit der Neumann Reihe arbeiten. Gauß Algorithmus gibt uns eine Komplexität von $O(n^3)$. Das Problem ist jedoch, dass die Matrizen allgemein nicht invertierbar sind. 
+Neumann Reihe macht keinen Sinn, da die Komplexität mindestens genau so hoch ist wie bei Gauß.
+
+\begin{itemize}
+\item Um das Matrix-Vektor Produkt effizient zu berechnen nutzen wir einfach den Algorithmus für die Berechnung von $z=(\mathcal{B} \otimes \mathcal{A})y$ aus Kapitel 4.1. und erhalten eine Komplexität von $4n^3$.
+
+\item Matrizenmultiplikation ist kubisch also $n^3$. 
+
+\item Berechnung der Pseudoinversen des Kronecker Produkts liegt in der Komplexitätsklasse $O(n^3)$
+
+\end{itemize}
+
+Insgesamt haben wir eine Komplexität von $O(4n^3)+O(n^3)+O(n^3)=O(6n^3)$.
+Wie wir noch weiter an Komplexität sparen können und wo wir anknüpfen können um effizienter zu werden, wird in Kapitel 5 diskutiert.
+
+\subsubsection{Singulärwertzerlegung höherer Ordnung}
+Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Jetzt geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Strategie zu nutze machen, die wir in Kapitel 4.1.1. hergeleitet haben für die effektive Berechnung von zwei Kronecker Produkten mit einem Vektor.
+Es sei $\mathscr{X} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ ein Tensor. Der Tensor $\mathscr{X}$ könnte der Massetensor sein oder der Laplace Bilinearform Tensor.
+Die Formel für die Pseudoinverse lautet
 
 \begin{equation} \label{eq:pinv}
-\mathcal{A}^{\dagger} = \mathcal{S}^{\dagger} \times_{n=1}^{N} U^{ (n) ^{T} }
+\mathscr{X}^{+} = \mathscr{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }
 \end{equation}
 
-Wobei $\mathcal{S} \in \mathbb{R}^{I_{1} \times \dots \times I_{n}}$ und $U^{(n)} \in \mathbb{R}^{J_{n} \times I_{n}}$
-Man kann \ref{eq:pinv} nach \cite[462]{Kolda} äquivalent umformen zu
+Wobei $\mathscr{G} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ und $U^{(n)} \in \mathbb{R}^{I_{n} \times I_{n}}$
+Man kann (\ref{eq:pinv}) wie in (\ref{eq:tensortensor}) äquivalent umformen zu
 
 \begin{equation}
 \begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}  &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
-\mathcal{A}^{\dagger}_{(n)} &= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
+\mathscr{X}^{+}_{(n)}  &= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
+\mathscr{X}^{+}_{(n)} &= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
 \end{aligned}
 \end{equation}
 
-Nun betrachten wir uns das Matrix-Vektor Produkt und überlegen uns wie wir uns die Strukturen dort zu nutze machen.
+Die Äquivalenz folgt mit Lemma (\ref{lemma:transpose}).
+Im nächsten Schritt betrachten wir das Matrix-Vektor Produkt mit einem beliebigen Vektor $u_n \in \mathbb{R}^{I^N \cdots I^{n-1} \, I^{n+1} \cdots I^1}$ und überlegen wie wir uns die Strukturen dort zu nutze machen.
 
 \begin{equation} \label{eq:pinvv}
 \begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) v
+\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) u_n
 \end{aligned}
 \end{equation}
 
-Wir schauen uns die Struktur mal für den Fall, dass $\mathcal{A} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$. Das heißt \ref{eq:pinvv} reduziert sich auf:
+Wir führen die Variablen $N_i$ ein mit $N_i \neq n$. Damit können wir (\ref{eq:pinv}) reduzieren auf
 
 \begin{equation} \label{eq:pinvcase}
 \begin{aligned}
-\mathcal{A}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{S}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) v
+\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) u_n \,.
 \end{aligned}
 \end{equation}
-mit $N_{i} \neq n$.
+ 
 
-Wir erkennen auf der Rechten seite können wir unsere Methodik, die wir entwickelt haben, um dieses doppelte Kronecker Produkt mit dem Vektor effizient zu berechnen. 
-Wir können dies mit einer Komplexität von $O(6n^3)$ machen. Nun geht es darum den Kerntensor zu invertieren. Wie wir wissen müssen wir dazu erstmal kleine Zahlen, die wir Rauschen nennen, auf 0 setzen und die Diagonalelemente invertieren. Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Tensors durchiterieren! Das heißt wir haben eine Komplexität von $O(n^4)$, da unser Tensor Ordnung 4 hat. Nun folgt eine letzte Matrix Matrix Multiplikation, aber von Matrizen der Größe $n^2 \times n^2$. Das heißt eine Komplexität von $O(n^6)$ was uns die ganze Komplexität mit raketengeschwindigkeit zerbombt. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(n^4)$. 
+Wir erkennen, dass wir unsere Methodik nutzen können, die wir entwickelt haben um das doppelte Kronecker Produkt mit dem Vektor effizient zu berechnen. 
+Dies ist möglich mit einer Komplexität von $O(6n^4)$.
+
+Wie schaffe wir es den vollbesetzten Kerntensor zu invertieren bzw. die Pseudoinverse herzuleiten? Wie wir wissen müssen wir dazu erstmal Zahlen deren Betrag kleiner ist als $\epsilon > 0$ auf Null setzen und die restlichen Elemente einzeln invertieren. 
+Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Tensors durchiterieren. Das heißt, wir haben eine Komplexität von $O(n^4)$, da unser Tensor Ordnung 4 hat.
+Es folgt eine letzte Matrix-Matrix Multiplikation, aber von Matrizen der Größe $n^2 \times n^2$. Die Komplexität dieser Operation liegt in der Klasse $O(n^6)$, was dazu führt, dass die Anzahl der Operationen mit raketengeschwindigkeit steigt. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(n^4)$.  
 Insgesamt haben wir eine Komplexität von $O(6n^3)+2O(n^4)=O(6n^3+2n^4)$. Dies ist aber nicht annähernd so gut wie Option 1. Wie können wir unsere effizienz weiter steigern?
 Wir können uns an die trunkierte HOSVD ranmachen oder eine andere Alternative finden.
 Nun anstatt den Kerntensor zu modifizieren, können wir bei der Matrix-Matrix Multiplikation einfach nur die Diagonalelemente für die Multiplikation in Erwägung ziehen. Damit sparen wir uns schon $O(n^4)$ Operationen. Was wir tun könnten ist den Kerntensor in das Kronecker Produkt reinmultiplizieren bevor wir dieses ausrechnen. Selbst wenn wir das hinkriegen würden wir es nicht hinbekommen die Komplexität von Option 1 zu übertreffen. Außerdem ist das Problem, dass wir nicht mit der Pseudoinverse eine Matrix-Vektor Multiplikation durchführen, sondern mit dem entfalteten Tensor, der die Pseudoinverse darstellt. Doch wie dieser Tensor entfaltet wird, ist für die korrekte Berechnung von enormer Wichtigkeit.
@@ -223,7 +262,7 @@ Wir erhalten:
 
 \begin{equation}
 \begin{aligned}
-\mathcal{\textbf{A}}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{\dagger}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})} ) v
+\mathscr{\textbf{A}}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{\textbf{S}}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})} ) v
 \end{aligned}
 \end{equation}
 
@@ -244,6 +283,6 @@ Um diese Transformation zu berechnen brauchen wir $O(n^3)$ Operationen. Insgesam
 Wenn wir noch eine Dimension rausstreichen enden wir bei:
 \begin{equation}
 \begin{aligned}
-\mathcal{\textbf{A}}^{\dagger}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{\dagger}_{(n)} ( U^{ (N_{1})  } ) v
+\mathcal{\textbf{A}}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{+}_{(n)} ( U^{ (N_{1})  } ) v
 \end{aligned}
 \end{equation}
