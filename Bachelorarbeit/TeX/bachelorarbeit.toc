@@ -26,5 +26,5 @@
 \contentsline {subsection}{\numberline {4.2}Anwendung}{36}
 \contentsline {subsubsection}{\numberline {4.2.1}Summenfaktorisierung}{36}
 \contentsline {subsubsection}{\numberline {4.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{37}
-\contentsline {section}{\numberline {5}Resultate}{40}
-\contentsline {section}{Literatur}{41}
+\contentsline {section}{\numberline {5}Resultate}{42}
+\contentsline {section}{Literatur}{43}

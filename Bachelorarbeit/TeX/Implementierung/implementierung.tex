@@ -208,14 +208,58 @@ Wie wir noch weiter an Komplexität sparen können und wo wir anknüpfen können
 
 \subsubsection{Singulärwertzerlegung höherer Ordnung}
 Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Jetzt geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Strategie zu nutze machen, die wir in Kapitel 4.1.1. hergeleitet haben für die effektive Berechnung von zwei Kronecker Produkten mit einem Vektor.
-Es sei $\mathscr{X} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ ein Tensor. Der Tensor $\mathscr{X}$ könnte der Massetensor sein oder der Laplace Bilinearform Tensor.
+Es sei $\mathscr{X} \in \mathbb{R}^{I_1 \times \dots \times I_{4}}$ ein Tensor. Der Tensor $\mathscr{X}$ könnte der Massetensor sein oder der Laplace Bilinearform Tensor. Da die Massematrix und die Elementsteifigkeitsmatrix quadratisch sind, gilt $N_{size}:= I_1 = \dots = I_4$.
 Die Formel für die Pseudoinverse lautet
 
 \begin{equation} \label{eq:pinv}
 \mathscr{X}^{+} = \mathscr{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }
 \end{equation}
 
-Wobei $\mathscr{G} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ und $U^{(n)} \in \mathbb{R}^{I_{n} \times I_{n}}$
+Wobei $\mathscr{G} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ und $U^{(n)} \in \mathbb{R}^{I_{n} \times I_{n}}$.
+
+Wie aufwändig ist es die HOSVD zu berechnen?
+In Bemerkung (\ref{hosvd}) haben wir den Algorithmus für die Berechnung der HOSVD. 
+\begin{enumerate}
+\item Für den ersten Schritt des Algorithmuses müssen wir alle $mode-k$ Entfaltungen berechnen. Dies impliziert eine Ordnung jedes Element des Tensors in ein Element der Ergebnismatrix. Damit haben wir genau so viele Zuweisungen, wie Anzahl der Elemente des Tensors. In unserem Fall wären das $4N^4$ Operationen für alle modes. 
+
+\item Die Singulärwertzerlegung für die Entfaltungen gilt es im zweiten Schritt zu berechnen. Für jede SVD haben wir die Komplexitätsklasse $O(N^4)$. Insgesamt $O(4N^4)$.
+
+\item Im dritten Schritt wollen wir den Kerntensor berechnen. Dazu müssen wir n-mode Produkte berechnen. Ein n-mode Produkt hat  $N^5$ Additionen und genau so viele Multiplikationen. Davon müssen wir vier berechnen. Insgesamt haben wir eine Komplexität von $O(8N^5)$.
+
+\end{enumerate}
+
+Insgesamt ergibt sich eine Komplexität von $O(8N^4  + 8N^5)$. 
+Die Berechnung der orthogonal Matrizen für die HOSVD zeigt, dass alle Matrizen gleich sind. Dementsprechend müssen wir im zweiten Schritt die SVD nur einmal berechnen. Damit reduziert sich die Komplexität zu $O(5N^4  + 8N^5)$. \\
+
+Im nächsten Schritt betrachten wir das Matrix-Vektor Produkt mit einem beliebigen Vektor $u \in \mathbb{R}^{N^3}$ und überlegen wie wir uns die Strukturen dort zu nutze machen.
+
+Wir schauen uns zu erst einen naiven Ansatz an. Dafür benötigen wir jedoch noch ein geeigntes Tensor-Vektor Produkt. 
+Dazu schauen wir uns das Matrix-Vektor Produkt an. Sei $A \in \mathbb{R}^{m \times n}$ und $x \in \mathbb{R}^{n}$. Dann ist $y=Ax \in \mathbb{R}^{m}$ definiert durch
+\begin{equation*}
+y_i = \sum\limits_{j=1}^{n} a_{ij} x_j
+\end{equation*}
+Durch die Index-Transformation $p(\cdot)$ können wir uns das Ganze nun für Tensoren herleiten.
+
+\begin{Definition} (Tensor-Vektor Produkt) \\
+Es sei $\mathcal{A} \in \mathbb{R}^{N \times N \times N \times N}$ und $U \in \mathbb{R}^{N \times N}$.
+Dann ist $Y=tvp(\mathcal{A},U)$ gegeben durch
+
+\begin{equation*}
+Y_{i_1 \, i_2} = \sum\limits_{j_1=1}^{N} \sum\limits_{j_2=1}^{N} \mathcal{A}_{i_1 i_2 j_1 j_2} U_{j_1 j_2}
+\end{equation*}
+
+\end{Definition}
+
+Nun können wir uns den naiven Ansatz anschauen, der wie folgt gegeben ist
+\begin{equation} \label{eq:pinv}
+tvp(\mathscr{X}^{+},U) = tvp(\mathscr{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U) ,
+\end{equation} 
+mit $U \in \mathbb{R}^{N \times N}$. Das ist das Matrix-Vektor Produkt in Tensorform. 
+
+Die Komplexität für die Berechnung ist gegeben durch $N^4$. Denn wir haben für die Berechnung eines einzelnen Elementes $Y_{i_1 i_2}$ zwei Schleifen die bis $N$ durchlaufen. Insgesamt haben wir $N^2$ Elemente. Dies ergibt $N^4$. 
+Mit der Berechnung der HOSVD ergibt dieser Ansatz eine Komplexität von $O(6N^4 + 8N^5)$. \\
+
+Wir wollen nun einen anderen Ansatz wählen und es auszunutzen, dass wir die HOSVD in entfalteter Form betrachten können.
 Man kann (\ref{eq:pinv}) wie in (\ref{eq:tensortensor}) äquivalent umformen zu
 
 \begin{equation}
@@ -226,11 +270,10 @@ Man kann (\ref{eq:pinv}) wie in (\ref{eq:tensortensor}) äquivalent umformen zu
 \end{equation}
 
 Die Äquivalenz folgt mit Lemma (\ref{lemma:transpose}).
-Im nächsten Schritt betrachten wir das Matrix-Vektor Produkt mit einem beliebigen Vektor $u_n \in \mathbb{R}^{I^N \cdots I^{n-1} \, I^{n+1} \cdots I^1}$ und überlegen wie wir uns die Strukturen dort zu nutze machen.
 
 \begin{equation} \label{eq:pinvv}
 \begin{aligned}
-\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) u_n
+\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) u
 \end{aligned}
 \end{equation}
 
@@ -238,53 +281,58 @@ Wir führen die Variablen $N_i$ ein mit $N_i \neq n$. Damit können wir (\ref{eq
 
 \begin{equation} \label{eq:pinvcase}
 \begin{aligned}
-\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) u_n \,.
+\mathscr{X}^{+}_{(n)} u&= \underbrace{\underbrace{U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)}}_{K_1} \underbrace{( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) u}_{K_2}}_{K_3} \,.
 \end{aligned}
 \end{equation}
  
 
-Wir erkennen, dass wir unsere Methodik nutzen können, die wir entwickelt haben um das doppelte Kronecker Produkt mit dem Vektor effizient zu berechnen. 
-Dies ist möglich mit einer Komplexität von $O(6n^4)$.
+Wir erkennen, dass wir unsere Methodik nutzen können, die wir entwickelt haben um $K_2$ effizient zu berechnen. Dies ist möglich mit einer Komplexität von $O(6N^4)$.
 
-Wie schaffe wir es den vollbesetzten Kerntensor zu invertieren bzw. die Pseudoinverse herzuleiten? Wie wir wissen müssen wir dazu erstmal Zahlen deren Betrag kleiner ist als $\epsilon > 0$ auf Null setzen und die restlichen Elemente einzeln invertieren. 
-Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Tensors durchiterieren. Das heißt, wir haben eine Komplexität von $O(n^4)$ mit $n=max(I_1,\dots,I_N)$, da unser Tensor Ordnung 4 hat.
-Es folgt eine letzte Matrix-Matrix Multiplikation $U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)}$. Wie groß sind diese Matrizen? Die Matrix $ \mathscr{G}^{+}_{(n)}$ hat die Größe $I^n \times (I^N \cdots I^{n-1} \, I^{n+1} \cdots I^1)$. Die Matrix  $U^{ (n) ^{T} }$ hat die Größe $I_n \times I_n$.  Wir haben bei der Multiplikation dieser beiden Matrizen $(I_n)^3 (I^N \cdots I^{n-1} \, I^{n+1} \cdots I^1)$ Multiplikationen und genau so viele Additionen. Es sei $n=max(I_1,\dots,I_N)$. Dann können wir die Komplexitätsklassen durch $O(n^6)$ angeben. Die Anzahl der Operationen steigt mit raketengeschwindigkeit durch diese Matrix-Matrix Multiplikation. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(n^4)$. Das liegt daran, dass der Tensor $ \mathscr{G}^{+}$ super-diagonal ist. Damit müssen wir also pro Element der Ergebnismatrix nicht die Spalte mal Zeile rechnen, sondern einfach nur das Diagonalelement mal ein Element der Matrix. 
+Wie schaffen wir es den vollbesetzten Kerntensor zu invertieren bzw. die Pseudoinverse herzuleiten? Wie wir wissen, müssen wir dazu erstmal Zahlen deren Betrag kleiner ist als $\epsilon > 0$ auf Null setzen und die restlichen Elemente einzeln invertieren. 
+Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Tensors durch-iterieren. Das heißt, wir haben eine Komplexität von $O(N^4)$, da unser Tensor Ordnung 4 hat.
+Es folgt eine letzte Matrix-Matrix Multiplikation $U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)}$. Wie groß sind diese Matrizen? Die Matrix $ \mathscr{G}^{+}_{(n)}$ hat die Größe $N \times N^3$. Die Matrix  $U^{ (n) ^{T} }$ hat die Größe $N \times N$.  Wir haben bei der Multiplikation dieser beiden Matrizen $N^6$ Multiplikationen und genau so viele Additionen. Dann können wir die Komplexitätsklassen durch $O(N^6)$ angeben. Die Anzahl der Operationen steigt mit raketengeschwindigkeit durch diese Matrix-Matrix Multiplikation. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(N^4)$. Das liegt daran, dass der Tensor $ \mathscr{G}^{+}$ super-diagonal ist. Damit müssen wir also pro Element der Ergebnismatrix nicht die Spalte mal Zeile rechnen, sondern einfach nur das Diagonalelement mal ein Element der Matrix. 
 
+Nun gilt es das Ergebnis von $K_1$ und das Ergebnis von $K_2$ zusammen zu rechnen durch ein Matrix-Matrix Produkt. Die Matrix $K_1$ hat die Größe $N \times N^3$ und $K_2$ ist $N^3 \times N^3$ groß. 
+Die Anzahl der Operationen für die Berechnung von $K_3$ ist $N^3 N^3 N^3 N= N^{10}$.
 
-Insgesamt haben wir eine Komplexität von $O(6n^3)+2O(n^4)=O(6n^3+2n^4)$. Dies ist aber nicht annähernd so gut wie Option 1. Wie können wir unsere effizienz weiter steigern?
-Wir können uns an die trunkierte HOSVD ranmachen oder eine andere Alternative finden.
-Nun anstatt den Kerntensor zu modifizieren, können wir bei der Matrix-Matrix Multiplikation einfach nur die Diagonalelemente für die Multiplikation in Erwägung ziehen. Damit sparen wir uns schon $O(n^4)$ Operationen. Was wir tun könnten ist den Kerntensor in das Kronecker Produkt reinmultiplizieren bevor wir dieses ausrechnen. Selbst wenn wir das hinkriegen würden wir es nicht hinbekommen die Komplexität von Option 1 zu übertreffen. Außerdem ist das Problem, dass wir nicht mit der Pseudoinverse eine Matrix-Vektor Multiplikation durchführen, sondern mit dem entfalteten Tensor, der die Pseudoinverse darstellt. Doch wie dieser Tensor entfaltet wird, ist für die korrekte Berechnung von enormer Wichtigkeit.
-D.h. selbst wenn wir es schaffen dies effizient zu berechnen, ist das Ergebnis das was wir wollen?
-Die Antwort ist: Es kommt drauf an. Worauf? Wie wir unser v aufsetzen. Unser v könnte so aufgebaut werden, dass dies in Übereinstimmung mit den Elementen des entfalteten Tensors übereinstimmt. Dadurch würden wir genau das erreichen was wir erreichen wollten. Doch wie gesagt, macht uns die Komplexität einen gewaltigen Schnitt durch die Rechnung.
+Insgesamt haben wir
+\begin{itemize}
+\item $O(N^4)$ für die Berechnung von $K_1$,
+\item $O(6N^4)$ für die Berechnung von $K_2$.
+\item $O(N^{10})$ für die Berechnung von $K_3$.
+\end{itemize}
 
-Eine letzte Alternative zeigt wäre eben die trunkierte HOSVD.
-Wir hauen eine Dimension raus und die korrespondierenden Singulärwerte raus. Am Meisten macht es Sinn natürlich die kleinsten Singulärwerte rauszuhauen. 
+Zusammengefasst $O(7N^4+N^{10})$. \\ Dies ist aber nicht annähernd so gut wie Option 1. Man bemerke, dass wir die Komplexität von der Berechnung der HOSVD noch nicht dazu addiert haben. Wie können wir unsere effizienz weiter steigern?
 
-Wir erhalten:
+Wir können uns eine trunkierte Singulärwertzerlegung höherer Ordnung  wagen oder eine andere Alternative finden. Folgende Möglichkeiten zeigen sich
 
-\begin{equation}
-\begin{aligned}
-\mathscr{\textbf{A}}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{\textbf{S}}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2})} ) v
-\end{aligned}
-\end{equation}
+\begin{enumerate}
+\item Anstatt den Kerntensor zu modifizieren, können wir bei der Matrix-Matrix Multiplikation einfach nur die Diagonalelemente für die Multiplikation in Erwägung ziehen. Damit sparen wir uns $O(N^4)$ Operationen.
 
-DIe Komplexität dies auszurechnen beträgt für das Kronecker-Matrix Vektor Produkt $O(4n^3)$. Nun folgt ein weiterer Trick. Wir nutzen folgende Bemerkung:
+\item Was wir tun könnten ist den Kerntensor in $K_2$ reinmultiplizieren bevor wir das Kronecker Produkt ausrechnen (siehe dazu die Bemerkung (\ref{bem:diagonal})). Selbst wenn wir das hinkriegen, würden wir es nicht hinbekommen die Komplexität von Option 1 zu übertreffen, denn die Berechnung von $K_3$ würde uns immer noch einen gewaltigen Strich durch die Rechnung machen.
 
-\begin{Bemerkung}
-Sei A eine Diagonalmatrix mit $A \in \mathbb{R}^{n^3 \times n^3}$ und $y \in \mathbb{R}^{n^3}$. Dann gilt:
+\item Eine letzte Alternative ist die trunkierte HOSVD.
+
+\end{enumerate} 
+
+Wir wollen für eine Effizienzsteigerung folgende Bemerkung nutzen.
+
+\begin{Bemerkung} \label{bem:diagonal}
+Sei A eine Diagonalmatrix mit $A \in \mathbb{R}^{n^2 \times n^2}$, $\mathcal{C},\mathcal{B} \in \mathbb{R}^{n \times n}$ und $y \in \mathbb{R}^{n^2}$. Dann gilt:
 \begin{equation*}
 A(\mathcal{B} \otimes \mathcal{C})y = (\mathcal{B} \otimes \mathcal{C}) 
 \begin{pmatrix}
-a_{11} y_1 \\ \vdots \\ a_{n^3 n^3} y_n \\
+a_{11} y_1 \\ \vdots \\ a_{n^2 n^2} y_{n^2} \\
 \end{pmatrix}
 \end{equation*}
+\begin{proof}
+Folgt aus der Kommutativität der Matrixmultiplikation für Diagonalmatrizen.
+\end{proof}
 \end{Bemerkung}
 
-Um diese Transformation zu berechnen brauchen wir $O(n^3)$ Operationen. Insgesamt erhalten wir$ O(5n^3)$. Nun müssen wir noch das letzte Matrix-Matrix Produkt berechnen, was uns wieder alles kaputt macht.
 
-Wenn wir noch eine Dimension rausstreichen enden wir bei:
-\begin{equation}
-\begin{aligned}
-\mathcal{\textbf{A}}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathcal{\textbf{S}}^{+}_{(n)} ( U^{ (N_{1})  } ) v
-\end{aligned}
-\end{equation}
+Das Problem ist, dass unser entfalteter Kerntensor keine Diagonalmatrix ist. Der Kerntensor ist an sich zwar super-diagonal, bloß hängt es von der Entfaltung ab, ob der entfaltete Tensor eine Diagonalmatrix ist. 
+Der entfaltete Kerntensor ist genau dann eine Diagonalmatrix, wenn wir die natürliche Entfaltung wählen. Mit dieser Entfaltung ist die Entfaltung gemeint mit Hilfe der Index Transformation $p(\cdot)$.
+
+Selbst wenn wir es schaffen dies effizient zu berechnen und sogar noch eine trunkierte HOSVD wählen. Ist das Ergebnis das was wir wollen? Durch die trunkierte HOSVD geben wir wertvolle Informationen auf, bei der Entfaltung der Tensoren treten Schwierigkeiten auf und die Komplexität ist nicht annähernd so gut wie mit der Ausnutzung der Tensorstruktur.
+
