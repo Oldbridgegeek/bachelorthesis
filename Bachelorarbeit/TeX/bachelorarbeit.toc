@@ -1,7 +1,6 @@
 \select@language {ngerman}
 \contentsline {section}{Notation}{I}
 \contentsline {section}{Abbildungsverzeichnis}{II}
-\contentsline {section}{Tabellenverzeichnis}{III}
 \contentsline {section}{\numberline {1}Einf\IeC {\"u}hrung}{1}
 \contentsline {section}{\numberline {2}Theorie}{3}
 \contentsline {subsection}{\numberline {2.1}Numerische Behandlung partieller Differentialgleichungen}{3}
@@ -13,12 +12,11 @@
 \contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{16}
 \contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{16}
 \contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{18}
-\contentsline {section}{\numberline {3}Tensorstruktur und Pseudoinverse der Zellmatrizen }{21}
+\contentsline {section}{\numberline {3}Pseudoinversen der Zellmatrizen}{21}
 \contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{21}
-\contentsline {subsubsection}{\numberline {3.1.1}Berechnung der Elementmassenmatrix}{21}
-\contentsline {subsubsection}{\numberline {3.1.2}Berechnung der Elementmassenmatrix-Vektor Produkt}{22}
-\contentsline {subsubsection}{\numberline {3.1.3}Tensorstruktur der Laplace Bilinearform}{24}
-\contentsline {subsubsection}{\numberline {3.1.4}Pseudoinverse}{25}
+\contentsline {subsubsection}{\numberline {3.1.1}Tensorstruktur der Elementmassenmatrix}{21}
+\contentsline {subsubsection}{\numberline {3.1.2}Tensorstruktur der Elementsteifigkeitsmatrix der Laplace Bilinearform}{24}
+\contentsline {subsubsection}{\numberline {3.1.3}Pseudoinverse}{25}
 \contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{26}
 \contentsline {section}{\numberline {4}Effiziente Implementierung}{32}
 \contentsline {subsection}{\numberline {4.1} Effizientes Matrix-Vektor Produkt }{32}

@@ -1,10 +1,10 @@
 Unser Ausgangspunkt ist nun die Lösung des Problems
 \begin{equation} \label{eq:cont}
-\text{Finde } u \in V \text{ : } \, a(u,v) = f(v) \, \, \, \forall \, v \in V
+\text{Finde } u \in V \text{ : } \, a(u,v) = f(v) \, \, \, \forall \, v \in V \, ,
 \end{equation}
-wobei V ein Banachraum, $a(\cdot,\cdot)$ eine Bilinearform und $f$ ein Funktional auf $V$. $V$ ist in unserem Fall ein Sobolev Raum.
+wobei V ein Banachraum, $a(\cdot,\cdot)$ eine Bilinearform und $f$ ein Funktional auf $V$. Der Raum $V$ ist in unserem Fall ein Sobolev Raum.
 Da Sobolev Räume unendlich dimensional sind, ist es schwer sich mit der Konstruktion einer Lösung vertraut zu machen. Daher ist die Kernidee des Galerkin Verfahrens unseren Banachraum zu diskretisieren. 
-Dazu führen wir eine sogenannte konforme Approximation durch.
+Dazu führen wir eine sogenannte \textit{konforme Approximation} durch.
 Wir wählen $V_{n} \, \subset \,V \, $ mit $dim(V_{n}) = n < \infty $. Wir erhalten ein neues diskretes Problem und haben mit (\ref{eq:mini}) nun zwei Probleme.
 \begin{equation*}
 \begin{aligned}
@@ -20,15 +20,15 @@ J(u_n) \geq J(u)
 Dies folgt direkt aus der Wahl des Raumes als Teilraum des ursprünglichen Raumes. Man nennt diese Methode \textit{konform}, da der diskrete Raum ein Teilraum von dem ursprüngichen Raum ist und das Funktional $J$ gleich bleibt. 
 Was hat uns das Ganze gebracht? Da $dim(V_n) = n < \infty$ können wir eine Basis für $V_n$, welche wir später Ansatzfunktionen nennen, bestimmen. Das bringt uns den Vorteil, dass wir $u_n$ als lineare Kombination der Basiselemente von $V_n$ approximieren können mit endlich vielen Parametern. 
 
-Die diskrete schwache Formulierung sieht jetzt wie folgt aus
+Die diskrete schwache Formulierung sieht jetzt wie folgt aus:
 \begin{equation}
-\text{ Finde } u_n \in V_n  \, :  \, a(u_n,v_n)=f(v_n)  \, \, \,  \, \, \forall \, v_n \, \in \, V_n \, \label{eq:weakgalerkin} 
+\text{ Finde } u_n \in V_n  \, :  \, a(u_n,v_n)=f(v_n)  \, \, \,  \, \, \forall \, v_n \, \in \, V_n \, . \label{eq:weakgalerkin} 
 \end{equation}
 
 Sei nun $e_1, \dots , e_n$ eine Basis von $V_n$. Es ist ausreichend nur die Basis zum Testen zu nutzen.
-Das obere Problem (\ref{eq:weakgalerkin}) reduziert sich auf
+Das obere Problem (\ref{eq:weakgalerkin}) reduziert sich auf:
 \begin{equation} \label{eq:weak1}
-\text{ Finde } u_n \in V_n  \, :  \, a(u_n,e_i)=f(e_i)  \, \, \,  \, \, \forall \, i \, \in \, \{1,\dots,n\} \,
+\text{ Finde } u_n \in V_n  \, :  \, a(u_n,e_i)=f(e_i)  \, \, \,  \, \, \forall \, i \, \in \, \{1,\dots,n\} \, .
 \end{equation}
 
 Da $u_n \, \in \, V_n$ können wir $u_n$ als Linearkombination der Basiselemente von $V_n$ schreiben.
@@ -45,7 +45,7 @@ Das können wir in einem linearen Gleichungssystem mit $A_{ij}=a(e_j,e_i)$ und $
 \begin{equation}
 Au=f
 \end{equation}
-Das heißt, es gilt einen Vektor $u$ zu finden, der diese Gleichheit erfüllt um das diskrete Variationsproblem (\ref{eq:weakgalerkin}) zu lösen und damit eine Approximation für unser stetiges Problem (\ref{eq:cont}) zu erhalten. Man kann allgemein davon ausgehen, dass für größeres $n$ die Approximation besser wird. Das Verhalten des Fehlers im Bezug zum Diskretierisierungsparameters $n$ wird in \cite[154]{Numerik} ausgiebig untersucht.
+Das heißt, es gilt einen Vektor $u$ zu finden, der diese Gleichheit erfüllt, um das diskrete Variationsproblem (\ref{eq:weakgalerkin}) zu lösen und damit eine Approximation für unser stetiges Problem (\ref{eq:cont}) zu erhalten. Man kann allgemein davon ausgehen, dass für größeres $n$ die Approximation besser wird. Das Verhalten des Fehlers im Bezug zum Diskretierisierungsparameters $n$ wird in \cite[154]{Numerik} ausgiebig untersucht.
 
 \newpage
 

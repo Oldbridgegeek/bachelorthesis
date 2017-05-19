@@ -1,5 +1,5 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Ansatzfunktionen $\phi _i$ \cite [184]{Numerik}}}{10}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ansatzfunktionen $\varphi _i$ \cite [184]{Numerik}}}{10}
 \contentsline {figure}{\numberline {2}{\ignorespaces Tensor dritter Ordnung $\pmb {\EuScript {X}} \in \mathbb {R}^{I \times J \times K}$ \cite [456]{Kolda}}}{16}
 \contentsline {figure}{\numberline {3}{\ignorespaces HOSVD eines Tensors dritter Ordnung \cite [475]{Kolda}}}{19}
 \contentsline {figure}{\numberline {4}{\ignorespaces \cite [3]{Teachlet}}}{21}

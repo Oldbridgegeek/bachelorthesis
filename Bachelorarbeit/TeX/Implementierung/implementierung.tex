@@ -56,21 +56,40 @@ Nun müssen wir die Informationen der Matrix B noch mit reinbringen. Dazu berech
 z_i = \sum_{i=1}^{q} b_{1i} w_m^{(i)}
 \end{equation*}
 
+Der komplette Algorithmus sieht wie folgt aus.
+\begin{mdframed}[backgroundcolor=blue!3] 
+\begin{algorithmic}
+\For {k=1 < N }
+	\For {i= 1 < N }
+			\State $w^{(i)}_{j} = y^{(i)}_1 a_{j1} + \dots + y^{(i)}_N a_{jN}$
+	\EndFor
+\EndFor
+\For {k=1 < N }
+	\For {i= 1 < N }
+			\State $z_i := w^{(1)}_m b_{11} + \dots + w^{(N)}_m b_{1N}$
+		\EndFor
+\EndFor
+
+\end{algorithmic}
+\end{mdframed}
+
+
+
 Mit Hilfe diesen Algorithmus haben wir die Komplexität von des Auswertens der Gleichung von $2m^4$ auf $4m^3$ reduziert.
 
 \subsubsection{Erweiterung}
-Dieser Algorithmus ist optimal um für die erste Alternative mit der Pseudoinversen Berechnung durch Ausnutzung der Tensorstruktur, effektiv das Matrix-Vektor Produkt auszurechnen. Doch für die zweite Alternative mit der HOSVD, werden wir eine erweiterte Form des Algorithmuses brauchen, da wir mehrere Kronecker Produkte bekommen werden. Wir wollen den Algorithmus erweitern für die effektive Berechnung von $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$ mit $\mathcal{A} \in \mathbb{R}^{n_1 \times m_1}$, $\mathcal{B} \in \mathbb{R}^{n_2 \times m_2}$,$\mathcal{C} \in \mathbb{R}^{n_3 \times m_3}$ und $v \in \mathbb{R}^{m_1 m_2 m_3}$.
+Dieser Algorithmus ist optimal um für die erste Alternative mit der Pseudoinversen Berechnung durch Ausnutzung der Tensorstruktur, effektiv das Matrix-Vektor Produkt auszurechnen. Doch für die zweite Alternative mit der HOSVD, werden wir eine erweiterte Form des Algorithmuses brauchen, da wir mehrere Kronecker Produkte bekommen werden. Wir wollen den Algorithmus erweitern für die effektive Berechnung von $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$ mit $\mathcal{A} \in \mathbb{R}^{N \times N}$, $\mathcal{B} \in \mathbb{R}^{N \times N}$,$\mathcal{C} \in \mathbb{R}^{N \times N}$ und $v \in \mathbb{R}^{N^3}$.
 
 
 \begin{equation} z=
 \begin{pmatrix}
-c_{11} b_{11} \mathcal{A} & \dots  & c_{11} b_{1m_2} \mathcal{A} & \dots & \dots & c_{1m_3}b_{11}\mathcal{A} & \dots & c_{1m_3}b_{1m_2}\mathcal{A}  \\
+c_{11} b_{11} \mathcal{A} & \dots  & c_{11} b_{1N} \mathcal{A} & \dots & \dots & c_{1N}b_{11}\mathcal{A} & \dots & c_{1N}b_{1N}\mathcal{A}  \\
 
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{11} b_{n_2 1} \mathcal{A} & \dots  & c_{11} b_{n_2 m_2} \mathcal{A} & \dots & \dots & c_{1 m_3}b_{n_2 1}\mathcal{A} & \dots & c_{1 m_3}b_{n_2 m_2}\mathcal{A}  \\
-c_{21} b_{n1} \mathcal{A} & \dots  & c_{21} b_{nn} \mathcal{A} & \dots & \dots & c_{2n}b_{n1}\mathcal{A} & \dots & c_{2 m_3}b_{n_2 m_2}\mathcal{A}  \\
+c_{11} b_{N 1} \mathcal{A} & \dots  & c_{11} b_{N N} \mathcal{A} & \dots & \dots & c_{1 N}b_{N 1}\mathcal{A} & \dots & c_{1 N}b_{N N}\mathcal{A}  \\
+c_{21} b_{11} \mathcal{A} & \dots  & c_{21} b_{1N} \mathcal{A} & \dots & \dots & c_{2N}b_{11}\mathcal{A} & \dots & c_{2 N}b_{1 N}\mathcal{A}  \\
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{n_3 1} b_{n_2 1} \mathcal{A} & \dots  & c_{n_3 1} b_{n_2 m_3} \mathcal{A} & \dots & \dots & c_{n_3 m_3}b_{n_2 1}\mathcal{A} & \dots & c_{n_3 m_3}b_{n_2 m_2}\mathcal{A}  \\
+c_{N 1} b_{N 1} \mathcal{A} & \dots  & c_{N 1} b_{N N} \mathcal{A} & \dots & \dots & c_{N N}b_{N 1}\mathcal{A} & \dots & c_{N N}b_{N N}\mathcal{A}  \\
 \end{pmatrix} \, \, v
 \end{equation}
 
@@ -78,68 +97,67 @@ Wir sehen hier sich zwei wiederholende Strukturen, die wir ausnutzen wollen um O
 
 \begin{equation} \label{eq:matrix} z=
 \begin{pmatrix}
-c_{11} \textcolor{green}{b_{11}} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b_{1n}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1n}\textcolor{green}{b_{11}}\textcolor{red}{\mathcal{A}} & \dots & c_{1n}\textcolor{green}{b_{1n}}\textcolor{red}{\mathcal{A}}  \\
+c_{11} \textcolor{green}{b}_{11} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b}_{1N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1N}\textcolor{green}{b}_{11}\textcolor{red}{\mathcal{A}} & \dots & c_{1N}\textcolor{green}{b}_{1N}\textcolor{red}{\mathcal{A}}  \\
 
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{11} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1n}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{1n}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
-c_{21} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{21} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{2n}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{2n}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
+c_{11} \textcolor{green}{b}_{N 1} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b}_{N N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1 N}\textcolor{green}{b}_{N 1}\textcolor{red}{\mathcal{A}} & \dots & c_{1 N}\textcolor{green}{b}_{N N}\textcolor{red}{\mathcal{A}}  \\
+c_{21} \textcolor{green}{b}_{11} \textcolor{red}{\mathcal{A}} & \dots  & c_{21} \textcolor{green}{b}_{1N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{2N}\textcolor{green}{b}_{11}\textcolor{red}{\mathcal{A}} & \dots & c_{2 N}\textcolor{green}{b}_{1 N}\textcolor{red}{\mathcal{A}}  \\
 \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
-c_{n1} \textcolor{green}{b_{n1}} \textcolor{red}{\mathcal{A}} & \dots  & c_{n1} \textcolor{green}{b_{nn}} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{nn}\textcolor{green}{b_{n1}}\textcolor{red}{\mathcal{A}} & \dots & c_{nn}\textcolor{green}{b_{nn}}\textcolor{red}{\mathcal{A}}  \\
+c_{N 1} \textcolor{green}{b}_{N 1} \textcolor{red}{\mathcal{A}} & \dots  & c_{N 1} \textcolor{green}{b}_{N N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{N N}\textcolor{green}{b}_{N 1}\textcolor{red}{\mathcal{A}} & \dots & c_{N N}\textcolor{green}{b}_{N N}\textcolor{red}{\mathcal{A}}  \\
 \end{pmatrix} \, \, v
 \end{equation}
 
-
-Unser $v$ können wir zu einem Tensor $\mathcal{V} \in \mathbb{R}^{m_1 \times m_2 \times m_3} $ umdefinieren, damit dieser handlicher wird. Der erste Index repräsentiert in welcher Spalteneintrag von $C$, der Zweite in welchem Spalteneintrag von $B$ und der Dritte in welchem Spalteneintrag von $A$ wir uns befinden. Dies kann man wieder als eine Index Transformation ansehen, die bestimmte Einträge von $v$ in bestimmte Tensorelemente abbildet. 
+Den Vektor $v$ können wir zu einem Tensor $\mathcal{V} \in \mathbb{R}^{N \times N \times N} $ umdefinieren, damit dieser handlicher für unsere Anwendung wird. Der erste Index repräsentiert in welchen Spalteneintrag von $C$, der Zweite in welchen Spalteneintrag von $B$ und der Dritte in welchen Spalteneintrag von $A$ wir uns befinden. Dies kann man wieder als eine Index-Transformation ansehen, die bestimmte Einträge von $v$ eindeutig auf Tensorelemente abbildet. 
 Wir schauen uns erstmal die einzelnen Einträge von $z$ an. 
 
-\begin{equation} \label{eq:zold}
+\begin{equation*} \label{eq:zold}
 \begin{aligned}
-z_{1} = \mathcal{V}(1,1,1) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}}+ \dots +  \mathcal{V}(1,1,n) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{1n}} + \dots  +  \mathcal{V}(1,n,1)c_{11} 
-\textcolor{green}{b_{1n}} \textcolor{red}{a_{11}} \\ + \dots +  \mathcal{V}(n,1,1) c_{1n} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}} + \dots +  \mathcal{V}(n,n,n) c_{1n} \textcolor{green}{b_{1n}} \textcolor{red}{a_{1n}}
+z_{1} = \mathcal{V}(1,1,1) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}}+ \dots +  \mathcal{V}(1,1,N) c_{11} \textcolor{green}{b_{11}} \textcolor{red}{a_{1N}} + \dots  +  \mathcal{V}(1,N,1)c_{11} 
+\textcolor{green}{b_{1N}} \textcolor{red}{a_{11}} \\ + \dots +  \mathcal{V}(N,1,1) c_{1N} \textcolor{green}{b_{11}} \textcolor{red}{a_{11}} + \dots +  \mathcal{V}(N,N,N) c_{1N} \textcolor{green}{b_{1N}} \textcolor{red}{a_{1N}}
 \end{aligned}
-\end{equation}
-Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,n) a_{\textcolor{red}{1}n}$. Dann erhalten wir
+\end{equation*}
+Definiere $w_{\textcolor{red}{1}}(i,j) :=\mathcal{V}(i,j,1) a_{\textcolor{red}{1}1}+\dots+\mathcal{V}(i,j,N) a_{\textcolor{red}{1}N}$. Dann erhalten wir
 \begin{equation*}
 \begin{aligned}
-z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,n) c_{11} b_{1n} + \dots + w_1(n,1) c_{1n} b_{11}  + \dots +  w_1(n,n) c_{1n} b_{1n}.
+z_{1}= w_1(1,1) c_{11} b_{11} + \dots +   w_1(1,N) c_{11} b_{1N} + \dots + w_1(n,1) c_{1N} b_{11}  + \dots +  w_1(N,N) c_{1N} b_{1N}.
 \end{aligned}
 \end{equation*}
 
 Damit haben wir uns die sich wiederholende Struktur von der Matrix $\textcolor{red}{\mathcal{A}}$ zu nutze gemacht. Im nächsten Schritt machen wir uns die sich wiederholende Struktur von $\textcolor{green}{b_{ij}}$ zu nutze.
-Wir definieren hierfür $\mathcal{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,n) b_{\textcolor{red}{1}n}$. Damit erhalten wir
+Wir definieren hierfür $\mathcal{W}_{\textcolor{red}{1},k} (i):= w_k(i,1) b_{\textcolor{red}{1}1} + \dots + w_k(i,N) b_{\textcolor{red}{1}N}$. Damit erhalten wir
 \begin{equation} \label{eq:znew}
 \begin{aligned}
-z_{1}= \mathcal{W}_{1,1}(1) c_{11}  + \dots +  \mathcal{W}_{1,1}(n) c_{1n}.
+z_{1}= \mathcal{W}_{1,1}(1) c_{11}  + \dots +  \mathcal{W}_{1,1}(N) c_{1N}.
 \end{aligned}
 \end{equation}
 
-Wir wollen nun $z$ genau so umformen wie wir das auch für $v$ gemacht haben. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel
+Wir formen $z$ genau so wie wir das auch für $v$ gemacht haben und erhalten dafür den Tensor $\mathcal{Z}$. Damit erhalten wir für allgemeines $z_{i}$ folgende Formel
 \begin{equation}
-\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(n) c_{in} 
+\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(N) c_{iN} \, ,
 \end{equation}
-Wobei j und k den Zeilen jeweils in den Matrizen $B$ und $C$ entsprechen. 
+wobei j und k den Zeilen jeweils in den Matrizen $\mathcal{B}$ und $\mathcal{C}$ entsprechen. 
 \newpage
 Der komplette Algorithmus sieht wie folgt aus.
 \begin{mdframed}[backgroundcolor=blue!3] 
 \begin{algorithmic}
-\For {k=1 < n }
-	\For {i= 1 < n }
-		\For {j= 1 < n }
-			\State $w_{k}(i,j) = \mathcal{V}(i,j,1)a_{k1} + \dots + \mathcal{V}(i,j,n)a_{kn}$
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $w_{k}(i,j) = \mathcal{V}(i,j,1)a_{k1} + \dots + \mathcal{V}(i,j,N)a_{kN}$
 		\EndFor
 	\EndFor
 \EndFor
-\For {k=1 < n }
-	\For {i= 1 < n }
-		\For {j= 1 < n }
-			\State $\mathcal{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,n) b_{1n}$
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $\mathcal{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,N) b_{1N}$
 		\EndFor
 	\EndFor
 \EndFor
-\For {k=1 < n }
-	\For {i= 1 < n }
-		\For {j= 1 < n }
-			\State $\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(n) c_{in}$ 
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(N) c_{iN}$ 
 		\EndFor
 	\EndFor
 \EndFor
@@ -147,8 +165,7 @@ Der komplette Algorithmus sieht wie folgt aus.
 \end{mdframed}
 
  
-Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $n_1 n_2 n_3 \times m_1 m_2 m_3$. Dementsprechend hätten wir $(n_1 n_2 n_3)^{2}$ Multiplikationen und $(m_1 m_2 m_3)^{2}$ Additionen. Sei $n_M = max(n_1,n_2,n_3)$ und $m_M=max(m_1,m_2,m_3)$. Die Komplexitätsklasse ist dann $O(n_M^6+m_M^6)$. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3n^{4}$ Multiplikationen und genau so viele Additionen.
-Ein enorme Reduktion, vor allem für großes $n$.
+Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $N^3 \times N^3$. Dementsprechend hätten wir $N^{6}$ Multiplikationen und $N^6$ Additionen. Die Komplexitätsklasse entspricht dann $O(2N^6)$. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3N^{4}$ Multiplikationen und genau so viele Additionen. Somit haben wir die Komplexitätsklasse $O(6N^4)$. Das ist eine beträchltiche Reduktion, vor allem für großes $N$.
 \newline
 
 \newpage

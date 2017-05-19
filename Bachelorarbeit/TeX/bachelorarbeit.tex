@@ -133,7 +133,7 @@ gewesen ist. \\[2ex]
 {\center{
 \begin{framed}
 \textbf{Zusammenfassung} \\
-Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Struktur der genannten Matrizen um eine einfache Berechnung der Pseudoinversen über eine einfache Singulärwertzerlegung. Mit der zweiten Methode erreichen wir insgesamt für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine Komplexität von $O(n^3)$, was erstaunlich ist. Hingegen stoßen wir beim ersten Ansatz auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der Komplexität.
+Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität.
 \end{framed}
 }}
 
@@ -161,18 +161,18 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 \item [$I$] Identität
 \item [$J(\cdot)$] Funktional
 \item [$O(\cdot)$, $o(\cdot)$] Landau Symbole
-\item [$P_l$] Menge aller Polynome vom Höchstgrad l
+\item [$P_l$] Menge aller Polynome vom Höchstgrad $l$
 \item [$\mathbb{R},\mathbb{N}$] reelle Zahlen, natürliche Zahlen
 \item [$V$] Banachraum
 \item [$dim(V)$] Dimension von V
 \item [$V_h$] endlichdimensionaler Finite-Elemente-Raum
 \item [$||\cdot||_V$] Norm von V
-\item [$(\cdot,\cdot)$] Skalarprodukt in V, wenn V Hilbertraum
+\item [$(\cdot,\cdot)_V$] Skalarprodukt in V, wenn V Hilbertraum
 \item [$f(v)$ oder $\langle f , v \rangle$] Wert des Funktionals $f \in V^{*}$ bei Anwendung auf $v \in V$
 \item [$\Omega$] Grundgebiet bezüglich der räumlichen Veränderlichen
-\item [$\delta \Omega$] Rand von $\Omega$
-\item [$int \Omega$] Inneres von $\Omega$
-\item [$C^{l}(\Omega), C^{l,\alpha}(\Omega)$] Räume differezierbarer bzw. Hölder-stetiger Funktionen
+\item [$\partial \Omega$] Rand von $\Omega$
+\item [$int( \Omega)$] Inneres von $\Omega$
+\item [$C^{l}(\Omega))$] Räume stetig-differenzierbarer Funktionen
 \item [$L_p(\Omega)$] Räume zur p-ten Potenz integrabler Funktionen $(1 \leq p \leq \infty)$
 \item [$W_p^l(\Omega)$] Sobolev-Raum
 \item [$H^l(\Omega),H_0^l(\Omega)$] Sobolev-Räume für p=2
@@ -206,10 +206,10 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 
 
 
-\newpage
-\setcounter{page}{3}
-\section*{Tabellenverzeichnis}
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
+%\newpage
+%\setcounter{page}{3}
+%\section*{Tabellenverzeichnis}
+%\addcontentsline{toc}{section}{Tabellenverzeichnis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -239,11 +239,11 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 Das Ziel dieses Kapitels ist es die Verständigung über Notation zu klären und eine theoretische Grundlage für das dritte Kapitel, das Herz dieser Arbeit, zu schaffen.
 
 Zu erst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie schwache Lösung, klassische Lösung, Variationsgleichung und Sobolev Raum werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode. 
-Im dritten Unterkapitel \textit{Methode der Finiten Elemente} ist das Ziel die Gleichung $Au=f$ herzuleiten mit A als globale Steifigkeitsmatrix.
+Im dritten Unterkapitel \textit{Methode der Finiten Elemente} ist das Ziel die Gleichung $Au=f$ herzuleiten mit $A$ als globale Steifigkeitsmatrix.
 Im darauffolgenden Kapitel wollen wir uns eine flexiblere Methode anschauen, als die Methode der Finiten Elemente und die Wichtigkeit zu dieser Arbeit soll besonders hervorgehoben werden.
 
 Dann kommen wir zu einem ganz anderen Thema, nämlich dem der Tensor Dekomposition. 
-Erstmal schauen wir uns grundlegende Definitionen an um mit diesem Basiswissen die Singulärwertzerlegung höherer Ordnung einzuführen. Mit dieser werden wir uns gewisse Finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel drei und vier durchführen. In Hoffnung natürlich, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
+Zuerst schauen wir uns grundlegende Definitionen an. Mit diesem Basiswissen führen wir die Singulärwertzerlegung höherer Ordnung ein. Mit dieser werden wir uns gewisse Finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 3 und 4 durchführen. In Hoffnung, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
 
 
 %\newpage
@@ -273,7 +273,7 @@ Erstmal schauen wir uns grundlegende Definitionen an um mit diesem Basiswissen d
 
 % Chapter 2
 \newpage
-\section{Tensorstruktur und Pseudoinverse der Zellmatrizen }
+\section{Pseudoinversen der Zellmatrizen}
 
 % Summenfaktorisierung
 \subsection{Summenfaktorisierung}
@@ -284,21 +284,11 @@ Erstmal schauen wir uns grundlegende Definitionen an um mit diesem Basiswissen d
 \subsection{Singulärwertzerlegung höherer Ordnung}
 \input{Praekonditionierer/hosvd.tex}
 
-% Komplexitätsanalyse
-%\newpage
-%\subsection{Komplexitätsanalyse}
-%\input{Praekonditionierer/komplexitaet.tex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 % Chapter 3
 \newpage
 \section{Effiziente Implementierung}
 \input{Implementierung/implementierung.tex}
-
-% Chapter 4
-%\newpage
-%\section{Numerische Untersuchungen}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%

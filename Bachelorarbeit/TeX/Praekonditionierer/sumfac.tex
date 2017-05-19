@@ -1,7 +1,7 @@
 In \cite{Teachlet} wird die effektive Berechnung der Masse Matrix mit einem Vektor vorgestellt. Diese Methodik sollten wir uns kurz vor Augen führen und daraufaufbauend um einige eigene Gedanken erweitern um diese Methodik für unsere Anwendung zugänglich zu machen.
 Das Ziel dieses Unterkapitels ist die Tensorstruktur für die Massematrix und der Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
 
-\subsubsection{Berechnung der Elementmassenmatrix}
+\subsubsection{Tensorstruktur der Elementmassenmatrix}
 Es sei $T$ die Referenzzelle für Rechtecke und $\varphi_i(\bold{x})$ Basisfunktion des diskreten Raumes $V_n$ mit $\bold{x}=(x,y)$ .
 \begin{equation} \label{eq:mass}
 M_{ik} = \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold{x}
@@ -41,9 +41,6 @@ M = \mathcal{N} \mathcal{W} \mathcal{N}^T
 \end{equation}
 
 Dies ist die Form mit in $\mathcal{N}$ an Stützstellen evaluierte zweidimensionale Basisfunktionen. Wir können dies aber weiter aufspalten in eindimensionale Basisfunktionen und dadurch eine Effizienzsteigerung erzielen bei der Berechnung des Matrix-Vektor Produkts mit der Elementmassenmatrix.
-\subsubsection{Berechnung der Elementmassenmatrix-Vektor Produkt}
-
-Das Ziel dieses Unterkapitels ist die effiziente Berechnung des Matrix-Vektor Produkts $Mu=v$ mit $M$ als Massematrix.
 
 Wir fangen damit an, die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
 \begin{equation} \label{eq:onedim}
@@ -73,7 +70,7 @@ Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bl
 \end{equation*}
 
 Wir nutzen absofort $Q_{1D}=N$ und $Q=(N+1)^2$, da wie wir oben bereits argumentiert haben, damit exakt integrieren können.
-Wir erinnern uns $v=Mu=\mathcal{N} \mathcal{W} \mathcal{N}^T$. Da $\mathcal{W}$ eine Diagonalmatrix ist, ist es naheliegend diese Multiplikation bereits durchzuführen. Definiere $\mathcal{W}_{N}=\mathcal{N} \mathcal{W}$ und die Spaltung von $\mathcal{W}_N$ sieht wie folgt aus
+Wir erinnern uns $=M\mathcal{N} \mathcal{W} \mathcal{N}^T$. Da $\mathcal{W}$ eine Diagonalmatrix ist, ist es naheliegend diese Multiplikation bereits durchzuführen. Definiere $\mathcal{W}_{N}=\mathcal{N} \mathcal{W}$ und die Spaltung von $\mathcal{W}_N$ sieht wie folgt aus
 
 \begin{equation}
 \mathcal{W}_N = \mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D}
@@ -103,22 +100,22 @@ Genauer
 
 Damit können wir folgende Umformulierung bereits vornehmen
 \begin{equation}
-v=Mu= \mathcal{N} \mathcal{W} \mathcal{N}^T= \mathcal{W}_N \mathcal{N}^T =  [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T]u.
+M= \mathcal{N} \mathcal{W} \mathcal{N}^T= \mathcal{W}_N \mathcal{N}^T =  [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T].
 \end{equation}
 
 Mit Lemma (\ref{lemma:transpose}) können wir das Transponieren, wie folgt, reinziehen
 \begin{equation}
-[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T]u=
-[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}^{1D})^T)]u.
+[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  (\mathcal{N}^{1D} \otimes \mathcal{N}^{1D})^T]=
+[(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}^{1D})^T)].
 \end{equation}
 
 Dann nutzen wir Lemma (\ref{lemma:prod}) und erhalten
 \begin{equation}
- [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}_{1D})^T)]u= [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)]u.
+ [(\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D})  ((\mathcal{N}^{1D})^T \otimes (\mathcal{N}_{1D})^T)]= [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)].
 \end{equation}
 
 \newpage
-\subsubsection{Tensorstruktur der Laplace Bilinearform}
+\subsubsection{Tensorstruktur der Elementsteifigkeitsmatrix der Laplace Bilinearform}
 Die Formel, leicht geändert, kann benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform.  Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
 
 \begin{equation}
