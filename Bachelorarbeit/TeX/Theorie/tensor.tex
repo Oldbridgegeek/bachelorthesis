@@ -1,4 +1,4 @@
-In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als einen Tensor umzudefinieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieses Tensors untersuchen, mit Hinblick einen einfachen Weg zu finden, die Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analyisieren, wird in diesem Unterkapitel beantwortet.
+In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als einen Tensor umzudefinieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieser Tensors untersuchen. Das Ziel dieser Untersuchungen wird sein einen einfachen Weg zu finden die korrespondierende Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analyisieren, wird in diesem Unterkapitel beantwortet.
 
 
 \begin{Definition} (Tensor) \\
@@ -39,14 +39,14 @@ Einen Tensor kann man entfalten. Dies impliziert eine Neuordnung der Tensoreleme
 Wir betrachten nur die sogenannte \textit{mode-n Entfaltung}, da dies die einzig relevante Form der Entfaltung für uns ist.
 
 \begin{Bemerkung} (Entfaltung) \\
-Eine mode-n Entfaltung des Tensors $\pmb{\mathscr{X}}$ wird mit $\bold{X}_{(n)}$ geschrieben und ordnet die mode-n Fasern in die Spalten der Ergebnismatrix.
-Formal ist es eine Abbildung des Indize N-tupels $(i_1,\dots,i_N)$ auf Matrixindizes $(i_n,j) $
+Eine mode-n Entfaltung des Tensors $\pmb{\mathscr{X}}$ wird mit $\bold{X}_{(n)}$ geschrieben und ordnet die $mode-n$ Fasern in die Spalten der Ergebnismatrix.
+Formal ist es eine Abbildung des Indize N-tupels $(i_1,\dots,i_N)$ auf das Matrixindize-Tupel $(i_n,j) $
 \begin{equation}
 j=1+\sum_{\substack{k=1 \\ k \neq n}}^{N} (i_k-1)J_k \text{ mit } J_k = \prod_{\substack{m=1 \\ m \neq n}}^{k-1} I_m
 \end{equation}
 \end{Bemerkung}
 
-Nun fehlt uns noch eine Tensor Multiplikation um mit der Dekomposition von Tensoren anzufangen. 
+Es fehlt uns noch eine Tensor Multiplikation um mit der Dekomposition von Tensoren anzufangen. 
 
 \begin{Definition} (n-mode Produkt) \\
 Das n-mode Produkt des Tensors $\pmb{\mathscr{X}}$ mit einer Matrix $\bold{U} \in \mathbb{R}^{J \times I_n}$ wird als $\pmb{\mathscr{X}} \times_n \bold{U}$ notiert. Die Ergebnismatrix hat die Größe $I_1 \times \dots I_{n-1} \times J \times I_{n+1} \times \dots I_N$
@@ -62,34 +62,29 @@ Jedes n-mode Produkt kann mit Hilfe von entfaltenen Tensoren äquivalent ausgedr
 \end{equation}
 \end{Bemerkung}
 
-Wir möchte noch eine Eigenschaft des n-mode Produkts hervorheben, die besonders wichtig ist für die Herleitung der Pseudoinversen.
-\begin{Bemerkung}
-
-\end{Bemerkung}
-
 \subsubsection{Singulärwertzerlegung höherer Ordnung}
 
-Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition} (HOSVD) oder auch bekannt unter der Tucker Dekomposition ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse. Man versucht durch Hauptachsentransformationen die Korrelation zwischen den verschiedenen Komponenten durch Überführung in eine neue Basis zu minimieren. 
-Die HOSVD zerlegt den Tensor in einen sogenannten \textit{Core Tensor} multipliziert mit einer Matrix in jeder Ordnung. 
+Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition} (HOSVD) oder auch bekannt unter Tucker Dekomposition, ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse.
+Die HOSVD zerlegt den Tensor in einen sogenannten \textit{Core Tensor} multipliziert mit einer Matrix in jeder Ordnung bzw. mode. 
 
 Allgemein ist die HOSVD des Tensors $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ gegeben durch
 \begin{equation}
-\pmb{\mathscr{X}}= \pmb{\mathscr{G}} \times_1 \, A^{(1)} \, \dots \, \times_N A^{(N)}
+\pmb{\mathscr{X}}= \pmb{\mathscr{G}} \times_1 \, A^{(1)} \, \dots \, \times_N A^{(N)} \, .
 \end{equation}
 
 Man kann äquivalent die HOSVD, wie in  \cite[462]{Kolda}, auch mit entfalteten Tensoren wie folgt angeben
 \begin{equation} \label{eq:tensortensor}
-\bold{X}_{(n)} = A^{(n)} \, \bold{G}_{(n)} \, ( \, A^{(N)} \, \otimes  \, \dots \, \otimes \, A^{(n+1)} \, \otimes A^{(n-1)} \otimes \dots \otimes \, A^{(1)} \, )^{T}
+\bold{X}_{(n)} = A^{(n)} \, \bold{G}_{(n)} \, ( \, A^{(N)} \, \otimes  \, \dots \, \otimes \, A^{(n+1)} \, \otimes A^{(n-1)} \otimes \dots \otimes \, A^{(1)} \, )^{T} \, .
 \end{equation}
 
 \begin{Beispiel} (HOSVD Tensor dritter Ordnung) \\
 Es sei $\pmb{\mathscr{X}} \in \mathbb{R}^{I \times J \times K}$.  Dann kann man den Tensor $\pmb{\mathscr{X}}$ zerlegen in 
 \begin{equation}
-{\pmb{\mathscr{X}}} \approx  \pmb{\mathscr{G}}  \times_1 A \times_2 B \times_3 C 
+{\pmb{\mathscr{X}}} \approx  \pmb{\mathscr{G}}  \times_1 A \times_2 B \times_3 C  \, ,
 \end{equation}
 
-wobei $A \in \mathbb{R}^{I \times P}$, $B \in \mathbb{R}^{J \times Q}$ und $C \in \mathbb{R}^{K \times R}$ die Faktormatrizen sind, welche orthogonal sind.
-${\cal G}$ bezeichnet den Core Tensor und zeigt wie hoch die Korrelation zwischen den verschiedenen Komponenten ist.
+wobei $A \in \mathbb{R}^{I \times P}$, $B \in \mathbb{R}^{J \times Q}$ und $C \in \mathbb{R}^{K \times R}$ die orthogonalen Faktormatrizen sind.
+Der Tensor ${\cal G}$ bezeichnet den Kerntesor und zeigt wie hoch die Korrelation zwischen den verschiedenen Komponenten ist.
 
 \end{Beispiel}
 \begin{figure}[ht]
@@ -102,11 +97,11 @@ ${\cal G}$ bezeichnet den Core Tensor und zeigt wie hoch die Korrelation zwische
 \newpage
 \begin{framed}
 \begin{Bemerkung} (Berechnung der HOSVD) \\ \label{hosvd}
-Die Berechnung der HOSVD von ${\pmb{\mathscr{X}}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ geht wie folgt
+Die Berechnung der HOSVD von ${\pmb{\mathscr{X}}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ funktioniert wie folgt:
 \begin{enumerate}
-\item Berechne die mode-k Entfaltungen $\bold{X}_{(k)}$ für alle k
-\item Berechne die Singulärwertzerlegung $\bold{X}_{(k)}=U_k \Sigma_k V_k^T$ und speichere $U_k$
-\item Der Kerntensor ${\pmb{\mathscr{G}}} $ ergibt sich aus der Projektion des Tensors auf die Tensorbasis geformt von den Faktormatrizen  $ \, \{ \, U_k \, \}_{k=1}^{N}$  also $\, \, {\pmb{\mathscr{G}}} ={\pmb{\mathscr{X}}}  \times_{n=1}^{N} \, U_n^T$
+\item Berechne die mode-k Entfaltungen $\bold{X}_{(k)}$ für alle k.
+\item Berechne die Singulärwertzerlegung $\bold{X}_{(k)}=U_k \Sigma_k V_k^T$ und speichere $U_k$.
+\item Der Kerntensor ${\pmb{\mathscr{G}}} $ ergibt sich aus der Projektion des Tensors auf die Tensorbasis geformt von den Faktormatrizen  $ \, \{ \, U_k \, \}_{k=1}^{N}$  also $\, \, {\pmb{\mathscr{G}}} ={\pmb{\mathscr{X}}}  \times_{n=1}^{N} \, U_n^T$.
 \end{enumerate}
 \end{Bemerkung}
 \end{framed}
@@ -116,39 +111,41 @@ Die HOSVD existiert für alle Tensoren. Wie sieht es aber mit der Eindeutigkeit 
 \begin{Beispiel} (Eindeutigkeit der HOSVD) \\
 Es seien $U \in \mathbb{R}^{P \times P}$, $V \in \mathbb{R}^{Q \times Q}$  und $W \in \mathbb{R}^{R \times R}$ . Es gilt
 \begin{equation}
-{\pmb{\mathscr{X}}} = {\pmb{\mathscr{G}}} \times_1 A \times_2 B \times_3 C = ({\pmb{\mathscr{G}}} \times_1 U \times_2 V \times_3 W) \times_1 AU^{-1} \times_2 BV^{-1} \times_3 CW^{-1}
+{\pmb{\mathscr{X}}} = {\pmb{\mathscr{G}}} \times_1 A \times_2 B \times_3 C = ({\pmb{\mathscr{G}}} \times_1 U \times_2 V \times_3 W) \times_1 AU^{-1} \times_2 BV^{-1} \times_3 CW^{-1} \, .
 \end{equation}
 \end{Beispiel}
 
-In anderen Worten: Wir können den Core Tensor ${\pmb{\mathscr{G}}}$ modifizieren, ohne die Gleichung zu ändern, solange wir das Inverse der Modifizierung auf den zugehörigen Faktormatrizen multiplizieren.
+In anderen Worten: Wir können den Kerntensor ${\pmb{\mathscr{G}}}$ modifizieren, ohne die Gleichung zu ändern, solange wir das Inverse der Modifizierung auf den zugehörigen Faktormatrizen multiplizieren.
 
 Mit dieser Kenntniss können wir nun zum Beispiel versuchen, soviele Elemente des Kerntensor wie möglich auf Null zu bekommen oder so klein wie möglich zu machen, damit wir bei der späteren Herleitung der Pseudoinversen weniger Probleme bekommen. 
 
-Wir brauchen noch einige Eigenschaften des Kronecker Produkts, die wir uns später für die Berechnung der Pseudoinversen zu Nutze machen wollen.
+Wir brauchen noch einige Eigenschaften des Kronecker Produkts, die wir uns später für die Berechnung der Pseudoinversen nutzen wollen.
 
 \begin{Lemma} (Invertieren des Kronecker Produkts) \\ \label{lemma:inverse}
 Es seien $A \in \mathbb{R}^{i \times i}$ und $B \in \mathbb{R}^{j \times j}$ invertierbar, so ist auch $(A \otimes B)$ invertierbar. Mit der Inversen
 \begin{equation*}
-(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}
+(A \otimes B)^{-1} = A^{-1} \otimes B^{-1} \, . 
 \end{equation*}
 Für die Moore Penrose Pseudoinversen gilt analog
 \begin{equation*}
-(A \otimes B)^{+} = A^{+} \otimes B^{+}
+(A \otimes B)^{+} = A^{+} \otimes B^{+} \, .
 \end{equation*}
 \end{Lemma}
 
 \begin{Lemma} (Matrixprodukt und Kronecker Produkt) \label{lemma:prod} \\
-Es seien $A,B,C,D$ Matrizen, deren Matrizenprodukte $AC$ und $BD$ definiert sind, dann gilt
+Es seien $A,B,C,D$ Matrizen, deren Matrizenprodukte $AC$ und $BD$ definiert sind. Dann gilt
 \begin{equation*}
 AC \otimes BD = (A \otimes B)(C \otimes D).
 \end{equation*}
 \end{Lemma}
 
 \begin{Lemma} (Transponieren) \label{lemma:transpose} \\
+Es seien $A,B$ beliebige Matrizen. Es gilt
 \begin{equation*}
-(A \otimes B)^T=A^T \otimes B^T
+(A \otimes B)^T=A^T \otimes B^T \, .
 \end{equation*}
 \end{Lemma}
 
+Ausführliche Untersuchungen des Kronecker Produkts finden Sie in \cite{Kronecker}.
 Dieses Ergebnisse sind entscheidend für die Herleitung der Pseudoinversen. Die theoretische Grundlage ist nun geschaffen. Es ist Zeit sich dem Herz dieser Arbeit zu widmen, nämlich der Tensorstruktur der Elementarsteifigkeitsmatrizen und die Herleitung der Pseudoinversen.
 

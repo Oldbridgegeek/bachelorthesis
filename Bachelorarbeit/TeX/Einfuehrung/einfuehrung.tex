@@ -2,7 +2,7 @@ Hochleistungsrechnen ist eine neue Disziplin, die mit dem Drang entstand, immer 
 Parallelisierung ist ein großer Zweig des Hochleistungsrechnens. Das Grundgerüst dieser Methodik besteht darin komplexe Probeme modular zu lösen. Das heißt sie in viele wenig komplexere Subprobleme zu unterteilen, die unabhängig voneinander berechenbar sind. Am Ende fasst man die Ergebnisse der Subprobleme zu einem Ergebnis zusammen, welches die Lösung des komplexen Problems darstellt.
 
 \begin{equation} \label{eq:main}
-v=A(u)=\sum_{k=1}^{n_{cells}} C^T P_k^T A_k (P_k Cu)
+v=A(u)=\sum_{k=1}^{n_{cells}}  P_k^T A_k (P_k u)
 \end{equation}
 
 ist die Gleichung, welche wir mit Hilfe der Finite-Elemente Methode lösen wollen. $A$ ist ein möglicherweise nichtlinearer Operator, der Vektor $u$ als Input nimmt und das Integral vom Operator multipliziert mit  Testfunktionen $\phi_i$ mit $i=1,\dots,n$, berechnet ~\cite[136]{Kronbichler}. Damit wir diese Gleichung besser nachvollziehen können, werden wir sie im nächsten Kapitel herleiten. Doch um diese Arbeit zu motivieren kann man sich diese Gleichung so vorstellen, dass man ein großes Problem in eine Summe von kleineren Problemen unterteilt. 

@@ -102,12 +102,12 @@ Dieses Umdenken ist ausschlaggebend für das Verstehen vom Finite-Elemente Ansat
 
 Wir rekapitulieren die erste Gleichung dieser Arbeit
 \begin{equation} \label{eq:main2}
-v=A(u)=\sum_{k=1}^{n_{cells}} C^T P_k^T A_k (P_k Cu).
+v=A(u)=\sum_{k=1}^{n_{cells}} P_k^T A_k (P_k u).
 \end{equation}
 
-Die Variable $n_{cells}$ ist somit die Anzahl der Teilgebiete $\Omega_j$. Die Matrix $A_k$ ist der elementspezifische Operator A. Die Matrix $P_k$ ist genau diese Transformation von der wir gerade sprachen, nämlich die Transformation von den lokalen Freiheitsgraden in die globalen Freiheitsgrade. Es gilt nur noch zu klären, welche Aufgabe die Matrix $C$ in unserer Gleichung besitzt. Diese Frage klären wir im Rahmen des nächsten Unterkapitels zum \textit{Diskontinuierlichen Galerkin-Verfahren}.
+Die Variable $n_{cells}$ ist somit die Anzahl der Teilgebiete $\Omega_j$. Die Matrix $A_k$ ist der elementspezifische Operator A. Die Matrix $P_k$ ist genau diese Transformation von der wir gerade sprachen, nämlich die Transformation von den lokalen Freiheitsgraden in die globalen Freiheitsgrade.
 
-Vorher definieren wir uns die Strukturen, die diese Arbeit untersucht. Das ist einerseits die Masse Matrix mit der Bilinearform
+Die Strukturen, die wir betrachten, sollten definiert werden. Das ist einerseits die Masse Matrix mit der Bilinearform
 \begin{equation} \label{eq:mass}
 a_M(u,v)= \int\limits_{\Omega} u \, v \, dx \, .
 \end{equation}
