@@ -1,21 +1,21 @@
-In Kapitel 3 haben wir uns zwei Möglichkeiten angeschaut, das Matrix-Vektor Produt zu berechnen mit der Pseudoinversen. Beide Alternativen bargen eine Tensorprodukt Struktur, in Form des Matrix-Kronecker Produkt.
+In Kapitel 3 haben wir uns zwei Möglichkeiten angeschaut die Pseudoinversen herzuleiten. In beiden Möglichkeiten fanden wir das Kronecker-Produkt.
 
-Das heißt um dies effizient zu implementieren sollten wir uns Gedanken dadrüber machen, wie wir diese Struktur ausnutzen können.
+Das heißt um dies effizient zu implementieren, sollten wir uns Gedanken dadrüber machen, wie wir diese Struktur ausnutzen können.
 
-\subsection{ Effizientes Matrix-Vektor Produkt }
+\subsection{Effizientes Matrix-Vektor Produkt }
 In \cite{Teachlet} wird eine Strategie vorgestellt ein Matrix-Vektor Produkt mit Kronecker Produkt Matrizen $z=(\mathcal{B} \otimes \mathcal{A})y$ effektiv zu berechnen.
 
-Sei $\mathcal{A} \in \mathbb{R}^{m \times n}$ und $\mathcal{B} \in \mathbb{R}^{p \times q}$. Das Kronecker Produkt dieser Matrizen kann man schreiben als, 
+Sei $\mathcal{A} \in \mathbb{R}^{m \times n}$ und $\mathcal{B} \in \mathbb{R}^{p \times q}$. Das Kronecker Produkt dieser Matrizen kann man schreiben als
 \begin{equation*}
 \mathcal{B} \times \mathcal{A} =
 \begin{pmatrix}
 b_{11}\mathcal{A} & \dots  & b_{1q}\mathcal{A} \\
 \vdots & \ddots & \vdots \\
 b_{p1}\mathcal{A} & \dots & b_{pq}\mathcal{A} \\
-\end{pmatrix}
+\end{pmatrix}.
 \end{equation*}
 
-Wir sehen, die sich wiederholende Struktur von $\mathcal{A}$. Genau diese wollen wir uns zu nutze machen. Nehmen wir an $y$ sei geordnet in der Indexierung.
+Wir sehen sich wiederholende Strukturen von $\mathcal{A}$. Genau diese wollen wir uns zu Nutze machen. Nehmen wir an $y$ sei geordnet in der Indexierung.
 \begin{equation*}
 y = (y_1,y_2,\dots,y_n,\dots,\dots,y_{(q-1)n+1},y_{(q-1)n+2},\dots,y_{qn})^T
 \end{equation*}
@@ -47,38 +47,51 @@ w^{(2)} = \mathcal{A}y^{(2)}
 Wir führen dies so weiter und erhalten
 
 \begin{equation*}
-w=( (w^{(1)})^T , \dots, (w^{(q)})^T) \in \mathbb{R}^{mq}
+w=( (w^{(1)})^T , \dots, (w^{(q)})^T)^T \in \mathbb{R}^{mq}
 \end{equation*}
 
 Nun müssen wir die Informationen der Matrix B noch mit reinbringen. Dazu berechnen wir wie in \cite{Teachlet} vorgeschlagen $z_i$ mit
 
 \begin{equation*}
-z_i = \sum_{i=1}^{q} b_{1i} w_m^{(i)}
+z^{(k)}_j = \sum_{i=1}^{q} b_{ki} w_j^{(i)}
 \end{equation*}
 
-Der komplette Algorithmus sieht wie folgt aus.
+Der komplette Algorithmus ist nachfolgend dargestellt.
 \begin{mdframed}[backgroundcolor=blue!3] 
 \begin{algorithmic}
-\For {k=1 < N }
-	\For {i= 1 < N }
-			\State $w^{(i)}_{j} = y^{(i)}_1 a_{j1} + \dots + y^{(i)}_N a_{jN}$
+\For {i=1 < q }
+	\For {j= 1 < m }
+			\State $w^{(i)}_{j} = y^{(i)}_1 a_{j1} + \dots + y^{(i)}_n a_{jn}$
 	\EndFor
 \EndFor
-\For {k=1 < N }
-	\For {i= 1 < N }
-			\State $z_i := w^{(1)}_m b_{11} + \dots + w^{(N)}_m b_{1N}$
-		\EndFor
+\For {k=1 < n }
+	\For {j= 1 < p }
+			\State $z^{(k)}_j := w^{(1)}_j b_{k1} + \dots + w^{(q)}_j b_{kq}$
+	\EndFor
 \EndFor
 
 \end{algorithmic}
 \end{mdframed}
 
 
+Nehmen wir für die triviale Berechnung der Komplexität an $n=m=p=q$.
+Mit Hilfe dieses Algorithmus haben wir die Komplexität des Auswertens der Gleichung von $2m^4$ Operationen auf $4m^3$ Operationen reduziert.
 
-Mit Hilfe diesen Algorithmus haben wir die Komplexität von des Auswertens der Gleichung von $2m^4$ auf $4m^3$ reduziert.
+Dieser Algorithmus ist optimal um das effektive Berechnen von
+\begin{equation*}
+Mu=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u
+\end{equation*}
+oder für die 
+\begin{equation*}
+Vu=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u
+\end{equation*}
+
+Doch für die wählen wir den Ansatz über die HOSVD,  werden wir eine erweiterte Form des Algorithmus brauchen, da wir mehrere Kronecker Produkte bekommen.
+
+
 
 \subsubsection{Erweiterung}
-Dieser Algorithmus ist optimal um für die erste Alternative mit der Pseudoinversen Berechnung durch Ausnutzung der Tensorstruktur, effektiv das Matrix-Vektor Produkt auszurechnen. Doch für die zweite Alternative mit der HOSVD, werden wir eine erweiterte Form des Algorithmuses brauchen, da wir mehrere Kronecker Produkte bekommen werden. Wir wollen den Algorithmus erweitern für die effektive Berechnung von $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$ mit $\mathcal{A} \in \mathbb{R}^{N \times N}$, $\mathcal{B} \in \mathbb{R}^{N \times N}$,$\mathcal{C} \in \mathbb{R}^{N \times N}$ und $v \in \mathbb{R}^{N^3}$.
+Wir wollen den Algorithmus erweitern für die Berechnung von $z=(\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A})v$ mit $\mathcal{A} \in \mathbb{R}^{N \times N}$, $\mathcal{B} \in \mathbb{R}^{N \times N}$, $\mathcal{C} \in \mathbb{R}^{N \times N}$ und $v \in \mathbb{R}^{N^3}$.
 
 
 \begin{equation} z=
@@ -137,7 +150,7 @@ Wir formen $z$ genau so wie wir das auch für $v$ gemacht haben und erhalten daf
 \end{equation}
 wobei j und k den Zeilen jeweils in den Matrizen $\mathcal{B}$ und $\mathcal{C}$ entsprechen. 
 \newpage
-Der komplette Algorithmus sieht wie folgt aus.
+Der komplette Algorithmus ist nachfolgend dargestellt.
 \begin{mdframed}[backgroundcolor=blue!3] 
 \begin{algorithmic}
 \For {k=1 < N }
@@ -150,7 +163,7 @@ Der komplette Algorithmus sieht wie folgt aus.
 \For {k=1 < N }
 	\For {i= 1 < N }
 		\For {j= 1 < N }
-			\State $\mathcal{W}_{i,j} (k):= w_k(i,1) b_{11} + \dots + w_k(i,N) b_{1N}$
+			\State $\mathcal{W}_{i,j} (k):= w_j(k,1) b_{i1} + \dots + w_j(k,N) b_{iN}$
 		\EndFor
 	\EndFor
 \EndFor
@@ -165,7 +178,7 @@ Der komplette Algorithmus sieht wie folgt aus.
 \end{mdframed}
 
  
-Wir haben in \ref{eq:matrix} eine Matrix-Vektor Multiplikation von einer Matrix der Größe $N^3 \times N^3$. Dementsprechend hätten wir $N^{6}$ Multiplikationen und $N^6$ Additionen. Die Komplexitätsklasse entspricht dann $O(2N^6)$. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3N^{4}$ Multiplikationen und genau so viele Additionen. Somit haben wir die Komplexitätsklasse $O(6N^4)$. Das ist eine beträchltiche Reduktion, vor allem für großes $N$.
+Wir haben in (\ref{eq:matrix}) eine Matrix-Vektor Multiplikation von einer Matrix der Größe $N^3 \times N^3$. Dementsprechend hätten wir $N^{6}$ Multiplikationen und $N^6$ Additionen. Dies entspricht $2N^6$ elementare Operationen. Die Komplexität des vorgeschlagenen Algorithmuses reduziert die Operationen auf $3N^{4}$ Multiplikationen und genau so viele Additionen. Somit haben wir insgesamt $6N^4$ Operationen. Das ist eine beträchltiche Reduktion, vor allem für großes $N$.
 \newline
 
 \newpage

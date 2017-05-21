@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  20 MAY 2017 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  21 MAY 2017 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1274,46 +1274,46 @@ Overfull \hbox (47.53642pt too wide) detected at line 72
  []
 
 [21] [22] [23] [24]) (./Praekonditionierer/hosvd.tex [25] [26] [27] [28]
-[29] [30]) [31] (./Implementierung/implementierung.tex [32]
+[29]) [30] (./Implementierung/implementierung.tex [31]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 60.
- [33]
-Overfull \hbox (30.98009pt too wide) detected at line 124
+ [32]
+Overfull \hbox (30.98009pt too wide) detected at line 137
 [] []
  []
 
-[34]
+[33] [34]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 141.
+(mdframed)              on input line 154.
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
+Underfull \hbox (badness 10000) in paragraph at lines 181--183
 
  []
 
 [35]
-Overfull \hbox (18.42969pt too wide) in paragraph at lines 191--192
+Overfull \hbox (18.42969pt too wide) in paragraph at lines 204--205
 []\T1/cmr/m/n/12 Wie kom-plex ist es die Pseu-doin-ver-sen der Ma-tri-zen $\OT1
 /cmr/m/n/12 (\OMS/cmsy/m/n/12 W[]\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 N[]\OT1/cmr/
 m/n/12 )[])$ \T1/cmr/m/n/12 und $\OT1/cmr/m/n/12 ([]([])[])$
  []
 
 [36]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 215.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 228.
 
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 215.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
  [37]
-Underfull \hbox (badness 10000) in paragraph at lines 248--250
+Underfull \hbox (badness 10000) in paragraph at lines 261--263
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
@@ -1329,7 +1329,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16721 strings out of 493014
  294003 string characters out of 6133351
- 441343 words of memory out of 5000000
+ 444343 words of memory out of 5000000
  19958 multiletter control sequences out of 15000+600000
  23872 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1358,7 +1358,7 @@ e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on bachelorarbeit.pdf (50 pages, 537479 bytes).
+Output written on bachelorarbeit.pdf (50 pages, 537587 bytes).
 PDF statistics:
  269 PDF objects out of 1000 (max. 8388607)
  184 compressed objects within 2 object streams
