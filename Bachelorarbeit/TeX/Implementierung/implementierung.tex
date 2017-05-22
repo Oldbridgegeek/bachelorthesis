@@ -81,13 +81,8 @@ Dieser Algorithmus ist optimal um das effektive Berechnen von
 \begin{equation*}
 Mu=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u
 \end{equation*}
-oder für die 
-\begin{equation*}
-Vu=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u
-\end{equation*}
 
-Doch für die wählen wir den Ansatz über die HOSVD,  werden wir eine erweiterte Form des Algorithmus brauchen, da wir mehrere Kronecker Produkte bekommen.
-
+Doch für den zweiten Ansatz über die HOSVD,  werden wir eine erweiterte Form des Algorithmus brauchen, da wir mehrere Kronecker Produkte bekommen. Außerdem kann der folgende Algorithmus dann auch für dreidimensionale Ansatzfunktionen bei dem ersten Ansatz verwendent werden.
 
 
 \subsubsection{Erweiterung}
@@ -188,20 +183,16 @@ Wie können wir uns nun diese Algorithmen zu nutze machen für die in Kapitel 3 
 
 \subsubsection{Summenfaktorisierung}
 
-Aus der Tensorsturktur aus Kapitel 3 für die lokale Massematrix und die Elementsteifigkeitsmatrix der Laplace Bilinearform, haben wir die Pseudoinversen hergeleitet. Nun schauen wir uns das Matrix-Vektor Produkt mit den Pseudoinversen als Matrix und einen beliebigen Vektor $u$.
-
+Aus der Tensorsturktur aus Kapitel 3 für die lokale Massematrix hergeleitet. Nun schauen wir uns das Matrix-Vektor Produkt mit den Pseudoinversen als Matrix und einen beliebigen Vektor $u$. 
 
 \textbf{Masse Matrix} 
 \begin{equation*}
 M^{+}u =  [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T)^+]u.
 \end{equation*}
 
-\textbf{Laplace Bilinearform}
-\begin{equation*}
-V^{+}u =  [\dfrac{1}{2} ((\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)^+ \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+)]u
-\end{equation*}
 
-Wie komplex ist es die Pseudoinversen der Matrizen $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)$ und $(\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)$ zu berechnen?
+
+Wie komplex ist es die Pseudoinversen der Matrizen $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)$  zu berechnen?
 
 Wir können als Ansatz eine Singulärwertzerlegung wählen. Aus der Singulärwertzerlegung müssen wir noch die Pseudoinverse erst herleiten.
 Allgemein gilt
@@ -209,8 +200,8 @@ Allgemein gilt
 M\,=\,U\Sigma V^{T}
 \end{equation*}
 für eine eine $m \times n$-Matrix $M$ mit Rang $r$, wobei
-$U$ eine orthogonale $m\times m$-Matrix ist, $V^{T}$ die Transponierte einer orthogonalen $n\times n$-Matrix $V$ und
-$\Sigma$  eine reelle  $m\times n$-Matrix mit den $r$ Singulärwerten in der Diagonalen und sonst Nullen.
+$U$ eine orthogonale $m\times m$-Matrix, $V^{T}$ die Transponierte einer orthogonalen $n\times n$-Matrix $V$ und
+$\Sigma$  eine reelle  $m\times n$-Diagonalmatrix ist.
 
 Die Pseudoinverse daraus hergeleitet ergibt
 \begin{equation*}
@@ -221,31 +212,96 @@ Die Komplexität für die Herleitung der Pseudoinversen aus der Singulärwertzer
 Also bekommen wir mit der Singulärwertzerlegung einer Matrix $M \in \mathbb{R}^{m \times n}$ die Pseudoinverse mit einer Komplexität von $O(min(mn^2,m^2 n))$ \cite[2]{SVD}. Man könnte natürlich hier auch approximative Verfahren wählen und versuchen an Operationen zu sparen. Ich verweise hier auf \cite{SVD} für die nähere Betrachtung von schnelleren Singulärwertzerlegungen.
 
 
-Wir können stattdessen mit dem Gauß Algorithmus oder mit der Neumann Reihe arbeiten. Gauß Algorithmus gibt uns eine Komplexität von $O(n^3)$. Das Problem ist jedoch, dass die Matrizen allgemein nicht invertierbar sind. 
+Wir können stattdessen mit dem Gauß Algorithmus oder mit der Neumann Reihe arbeiten, wenn $m=n$. Gauß Algorithmus gibt uns eine Komplexität von $O(n^3)$. 
 Neumann Reihe macht keinen Sinn, da die Komplexität mindestens genau so hoch ist wie bei Gauß.
 
+Gauß Algorithmus macht natürlich nur einen Sinn, wenn $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)$ invertierbar ist.
+
+\begin{Bemerkung} (Invertierbarkeit) \\ \label{bem:unit}
+Es seien $\mathcal{W}_N^{1D} \in \mathbb{R}^{n \times n}$ und $(\mathcal{N}^{1D})^T \in \mathbb{R}^{n \times n}$ Matrizen, die wie gewohnt definiert sind. Dann gilt, dass $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \in \mathbb{R}^{n \times n}$ invertierbar ist.
+
+\begin{proof}
+Man kann durch einfache Basistransformation erreichen, \\ dass $(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \in \mathbb{R}^{n \times n}$  die Einheitsmatrix ist. Es seien $x=\{x_1,\dots,x_n\}$ die Stützstellen und $w=\{w_1,\dots,w_n\}$ die Gewichte der Quadratur.
+
+Wir wählen 
+\begin{equation*}
+\varphi^{1D}_i (x_k) = \dfrac{1}{ \sqrt{w_i} } l_i (x_k) = 
+\begin{cases}
+\dfrac{1}{ \sqrt{w_i} } \, \text{ , wenn } i=k  \\
+0  \, \, \, \, \, \, \, \, \, \, \, \text{ , sonst }
+\end{cases}
+\end{equation*}
+
+Die Funktion $l_i(x_k)$ bezeichnet das $i-te$ Lagrange Polynom ist.
+Es folgt 
+\begin{equation*}
+\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T = \mathcal{N}^{1D} \mathcal{W}^{1D} (\mathcal{N}^{1D})^T = I_n
+\end{equation*}
+
+Da $\mathcal{N}$ eine Diagonalmatrix ist, mit den Diagonaleinträgen $\dfrac{1}{ \sqrt{w_i} }$, gilt $\mathcal{N}=(\mathcal{N})^T$. Weiterhin ist $\mathcal{W}$ auch eine Diagonalmatrix mit den Einträgen $w_i$ in der Diagonalen. In der Ergebnismatrix steht dann in der Diagonalen 
+\begin{equation*}
+(\dfrac{1}{ \sqrt{w_i} })^2  w_i = 1 \, .
+\end{equation*}
+ 
+\end{proof}
+\end{Bemerkung}
+
+Insgesamt erhalten wir für die Berechnung der Inversen bzw. der Pseudoinversen folgende Komplexität:
 \begin{itemize}
 \item Um das Matrix-Vektor Produkt effizient zu berechnen nutzen wir einfach den Algorithmus für die Berechnung von $z=(\mathcal{B} \otimes \mathcal{A})y$ aus Kapitel 4.1. und erhalten eine Komplexität von $4n^3$.
 
-\item Matrizenmultiplikation ist kubisch also $n^3$. 
+\item Matrizenmultiplikation ist kubisch.
 
-\item Berechnung der Pseudoinversen des Kronecker Produkts liegt in der Komplexitätsklasse $O(n^3)$
+\item Berechnung der Pseudoinversen/Inversen liegt in $O(n^3)$
 
 \end{itemize}
 
 Insgesamt haben wir eine Komplexität von $O(4n^3)+O(n^3)+O(n^3)=O(6n^3)$.
 Wie wir noch weiter an Komplexität sparen können und wo wir anknüpfen können um effizienter zu werden, wird in Kapitel 5 diskutiert.
 
-\subsubsection{Singulärwertzerlegung höherer Ordnung}
+Wir kommen zu dem Problem mit der Laplace Bilinearform.  \\
+\textbf{Laplace Bilinearform}
+\begin{equation*}
+V^{+}u = \big{(} [(\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]  +  [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] \otimes [\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T]  \big{)}^+ u
+\end{equation*}
+
+Wir wollen dies weiter vereinfachen. Definiere $A=[(\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T]$. Wähle Basis so, dass $\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T  = I_n$. Dies geht, wie in Beweis für Bemerkung (\ref{bem:unit}).
+
+Wir erhalten folgende vereinfachte Form.
+\begin{equation*} \label{eq:easy}
+V^{+}u =[(A \otimes I_) + (I_n \otimes A)]u.
+\end{equation*}
+
+Mit der in Kapital 4.1 besprochenen Strategie, können wir den Vektor $u$ in eine Matrix umformen, sodass wir (\ref{eq:easy}) äquivalent umformen können zu
+\begin{equation*} \label{eq:easy}
+V=V^{+}U =[(A \otimes I_n) + (I_n \otimes A)]U,
+\end{equation*}
+wobei $U$  und $V$ definiert sind durch $U_{ij}=u(q_i,q_j)$ und $V_{ij}=v(q_i,q_j)$
+
+Dies können wir weiter vereinfachen.
+\begin{equation*} \label{eq:easy}
+V=(A \otimes I_n)U + (I_n \otimes A)U = AUI_n + I_n U A^T = AU + UA^T
+\end{equation*}
+
+Dies ist gerade die Lyapunow Gleichung aus der Stabilitätstheorie. Zu der Lösung der Lyapunow Gleichung gibt es zahlreiche Untersuchungen. Die Behandlung dieser Gleichung würde den Rahmen dieser Bachelorarbeit sprengen. Ich empfehle als Literatur für diese Untersuchungen \cite{Lyapunov}.
+
+Die Lösung der Gleichung ist gegeben durch
+\begin{equation*}
+U = \int\limits_{0}^{\infty} e^{A \tau} (-V) e^{A^T \tau} d\tau.
+\end{equation*}
+
+Die naive Berechnung der Lösung dieser Gleichung erfolgt mit einer Komplexität von $O(n^6)$. Der Bartels-Stewart Algorithmus \cite{Bartels} liefert uns eine Komplexität von $O(n^3)$. 
+
+\subsection{Singulärwertzerlegung höherer Ordnung}
 Nun haben wir uns mit Hilfe der Tucker Dekomposition eine Herleitung für die Pseudoinverse erarbeitet. Jetzt geht es um die effiziente Berechnung dieser Formel. Dazu wollen wir uns die Strategie zu nutze machen, die wir in Kapitel 4.1.1. hergeleitet haben für die effektive Berechnung von zwei Kronecker Produkten mit einem Vektor.
-Es sei $\mathscr{X} \in \mathbb{R}^{I_1 \times \dots \times I_{4}}$ ein Tensor. Der Tensor $\mathscr{X}$ könnte der Massetensor sein oder der Laplace Bilinearform Tensor. Da die Massematrix und die Elementsteifigkeitsmatrix quadratisch sind, gilt $N_{size}:= I_1 = \dots = I_4$.
+Es sei $\mathscr{X} \in \mathbb{R}^{I_1 \times \dots \times I_{4}}$ ein Tensor. Der Tensor $\mathscr{X}$ könnte der Massetensor sein oder der Laplace Bilinearform Tensor. Da die Massematrix und die Elementsteifigkeitsmatrix quadratisch sind, gilt $N:= I_1 = \dots = I_4$.
 Die Formel für die Pseudoinverse lautet
 
 \begin{equation} \label{eq:pinv}
 \mathscr{X}^{+} = \mathscr{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }
 \end{equation}
 
-Wobei $\mathscr{G} \in \mathbb{R}^{I_{1} \times \dots \times I_{4}}$ und $U^{(n)} \in \mathbb{R}^{I_{n} \times I_{n}}$.
+Wobei $\mathscr{G} \in \mathbb{R}^{N \times N \times N \times N}$ und $U^{(n)} \in \mathbb{R}^{N \times N}$.
 
 Wie aufwändig ist es die HOSVD zu berechnen?
 In Bemerkung (\ref{hosvd}) haben wir den Algorithmus für die Berechnung der HOSVD. 
@@ -254,7 +310,7 @@ In Bemerkung (\ref{hosvd}) haben wir den Algorithmus für die Berechnung der HOS
 
 \item Die Singulärwertzerlegung für die Entfaltungen gilt es im zweiten Schritt zu berechnen. Für jede SVD haben wir die Komplexitätsklasse $O(N^4)$. Insgesamt $O(4N^4)$.
 
-\item Im dritten Schritt wollen wir den Kerntensor berechnen. Dazu müssen wir n-mode Produkte berechnen. Ein n-mode Produkt hat  $N^5$ Additionen und genau so viele Multiplikationen. Davon müssen wir vier berechnen. Insgesamt haben wir eine Komplexität von $O(8N^5)$.
+\item Im dritten Schritt wollen wir den Kerntensor berechnen. Dazu müssen wir n-mode Produkte berechnen. Ein n-mode Produkt hat  $N^5$ Additionen und genau so viele Multiplikationen. Davon müssen wir vier berechnen. Insgesamt haben wir eine Komplexität von $8N^5$ Rechenoperationen.
 
 \end{enumerate}
 
@@ -263,6 +319,7 @@ Die Berechnung der orthogonal Matrizen für die HOSVD zeigt, dass alle Matrizen 
 
 Im nächsten Schritt betrachten wir das Matrix-Vektor Produkt mit einem beliebigen Vektor $u \in \mathbb{R}^{N^3}$ und überlegen wie wir uns die Strukturen dort zu nutze machen.
 
+\subsubsection{Naiver Ansatz}
 Wir schauen uns zu erst einen naiven Ansatz an. Dafür benötigen wir jedoch noch ein geeigntes Tensor-Vektor Produkt. 
 Dazu schauen wir uns das Matrix-Vektor Produkt an. Sei $A \in \mathbb{R}^{m \times n}$ und $x \in \mathbb{R}^{n}$. Dann ist $y=Ax \in \mathbb{R}^{m}$ definiert durch
 \begin{equation*}
@@ -289,13 +346,14 @@ mit $U \in \mathbb{R}^{N \times N}$. Das ist das Matrix-Vektor Produkt in Tensor
 Die Komplexität für die Berechnung ist gegeben durch $N^4$. Denn wir haben für die Berechnung eines einzelnen Elementes $Y_{i_1 i_2}$ zwei Schleifen die bis $N$ durchlaufen. Insgesamt haben wir $N^2$ Elemente. Dies ergibt $N^4$. 
 Mit der Berechnung der HOSVD ergibt dieser Ansatz eine Komplexität von $O(6N^4 + 8N^5)$. \\
 
+\subsubsection{Entfaltete HOSVD}
 Wir wollen nun einen anderen Ansatz wählen und es auszunutzen, dass wir die HOSVD in entfalteter Form betrachten können.
 Man kann (\ref{eq:pinv}) wie in (\ref{eq:tensortensor}) äquivalent umformen zu
 
 \begin{equation}
 \begin{aligned}
 \mathscr{X}^{+}_{(n)}  &= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4) ^{T} } \otimes \dots \otimes U^{ (n+1) ^{T} } \otimes U^{ (n-1) ^{T} } \otimes \dots \otimes U^{ (1) ^{T} })^{T} \\ \iff
-\mathscr{X}^{+}_{(n)} &= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
+\mathscr{X}^{+}_{(n)} &= U^{ (n)  }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) })
 \end{aligned}
 \end{equation}
 
@@ -303,7 +361,7 @@ Die Äquivalenz folgt mit Lemma (\ref{lemma:transpose}).
 
 \begin{equation} \label{eq:pinvv}
 \begin{aligned}
-\mathscr{X}^{+}_{(n)}v&= U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) u
+\mathscr{X}^{+}_{(n)}v&= U^{ (n)  }  \mathscr{G}^{+}_{(n)} ( U^{ (4)  } \otimes \dots \otimes U^{ (n+1) } \otimes U^{ (n-1) } \otimes \dots \otimes U^{ (1) }) u
 \end{aligned}
 \end{equation}
 
@@ -311,7 +369,7 @@ Wir führen die Variablen $N_i$ ein mit $N_i \neq n$. Damit können wir (\ref{eq
 
 \begin{equation} \label{eq:pinvcase}
 \begin{aligned}
-\mathscr{X}^{+}_{(n)} u&= \underbrace{\underbrace{U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)}}_{K_1} \underbrace{( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) u}_{K_2}}_{K_3} \,.
+\mathscr{X}^{+}_{(n)} u&= \underbrace{\underbrace{U^{ (n) }  \mathscr{G}^{+}_{(n)}}_{K_1} \underbrace{( U^{ (N_{1})  } \otimes U^{ (N_{2})}  \otimes U^{ (N_{3}) }) u}_{K_2}}_{K_3} \,.
 \end{aligned}
 \end{equation}
  
@@ -323,7 +381,7 @@ Dazu müssen wir, da der Kerntensor vollbesetzt ist, durch alle Elemente des Ten
 Es folgt eine letzte Matrix-Matrix Multiplikation $U^{ (n) ^{T} }  \mathscr{G}^{+}_{(n)}$. Wie groß sind diese Matrizen? Die Matrix $ \mathscr{G}^{+}_{(n)}$ hat die Größe $N \times N^3$. Die Matrix  $U^{ (n) ^{T} }$ hat die Größe $N \times N$.  Wir haben bei der Multiplikation dieser beiden Matrizen $N^6$ Multiplikationen und genau so viele Additionen. Dann können wir die Komplexitätsklassen durch $O(N^6)$ angeben. Die Anzahl der Operationen steigt mit raketengeschwindigkeit durch diese Matrix-Matrix Multiplikation. Doch dank der Struktur des Kerntensors reduziert sich die Komplexität auf $O(N^4)$. Das liegt daran, dass der Tensor $ \mathscr{G}^{+}$ super-diagonal ist. Damit müssen wir also pro Element der Ergebnismatrix nicht die Spalte mal Zeile rechnen, sondern einfach nur das Diagonalelement mal ein Element der Matrix. 
 
 Nun gilt es das Ergebnis von $K_1$ und das Ergebnis von $K_2$ zusammen zu rechnen durch ein Matrix-Matrix Produkt. Die Matrix $K_1$ hat die Größe $N \times N^3$ und $K_2$ ist $N^3 \times N^3$ groß. 
-Die Anzahl der Operationen für die Berechnung von $K_3$ ist $N^3 N^3 N^3 N= N^{10}$.
+Die Anzahl der Operationen für die Berechnung von $K_3$ ist $N^{10}$.
 
 Insgesamt haben wir
 \begin{itemize}

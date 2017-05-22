@@ -140,10 +140,10 @@ Nun nehmen wir die Pseudoinverse von beiden Seiten. Das können wir machen, da u
 \end{equation}
 
 
-Sei $\mathcal{G}$ super-diagonal und $U^{(n)}=U^{(i)}$ für alle $i,n \in \{1,\dots,4\}$. Den Pseudoinversen Operator können wir reinziehen. Dies ist jedoch formal nicht bewiesen, ob dies erlaubt ist. In meiner Arbeit habe ich dies experimentell nachgewiesen. Das Problem mit dem Beweis dieser Aussage ist die fehlenden Resultate für das Kommunikationsverhalten verschiedener Operatoren. Wir arbeiten hier mit dem $n-mode$ Produkt, Entfaltungen, Matrix Produkten. 
+Sei $\mathcal{G}$ super-diagonal und $U^{(n)}=U^{(i)}$ für alle $i,n \in \{1,\dots,4\}$. Den Pseudoinversen Operator können wir reinziehen. Ob das reinziehen des Operators erlaubt ist, wurde formal nicht bewiesen. In meiner Arbeit habe ich dies experimentell nachgewiesen. Die Probleme mit dem Beweis dieser Aussage sind die fehlenden Resultate für das Kommunikationsverhalten verschiedener Operatoren. Wir arbeiten hier mit dem $n-mode$ Produkt, Entfaltungen, Matrix Produkten. 
 
 Man könnte folgenden Beweisansatz nehmen.
-Es sei $\mathscr{X} \in \mathbb{R}^{I \times I \times I \times I}$ ein Tensor der Ordnung 4 und $U \in \mathbb{R}^{I \times I}$ eine orthogonale matrix.
+Es sei $\mathscr{X} \in \mathbb{R}^{I \times I \times I \times I}$ ein Tensor der Ordnung 4 und $U \in \mathbb{R}^{I \times I}$ eine orthogonale Matrix.
 Dann gilt es für $n \in \{1,\dots,4\}$ zu zeigen:
 \begin{equation*}
 (\mathscr{X} \times_n U)^+ = \mathscr{X}^+ \times_n U^T 
@@ -157,9 +157,15 @@ Wir nutzen die Äquivalenz des $n-mode$ Produktes mit dem Matrix Produkt mit dem
 
 Den letzten Schritt können wir machen, weil $U$ orthogonal ist.
 Es fehlt noch die Vertauschung von den beiden Matrizen, das heißt wir brauchen Kommutativität.
-Das dürfen wir aber nicht, denn $\mathscr{X}_{(n)}^+ \in \mathbb{R}^{I^3 \times I}$ und $U^+ \in \mathbb{R}^{I \times I}$. Also wäre die Matrixmultiplikation gar nicht wohldefiniert.
+Das dürfen wir aber nicht, denn $\mathscr{X}_{(n)}^+ \in \mathbb{R}^{I^3 \times I}$ und $U^+ \in \mathbb{R}^{I \times I}$. Also wäre die Matrixmultiplikation gar nicht wohldefiniert. Das liefert uns aber keinen Widerspruch zu unserem Ergebnis, da gilt:
 
-Das Problem ist vielmehr, dass wenn man mit dem entfalteten Tensor rechnet, dies eher eine veranschaulichte Darstellung ist und wenig Nützlichkeit birgt.
+\begin{equation*}
+(\mathscr{X}^+)_{(n)} \neq (\mathscr{X}_{(n)})^+ \, .
+\end{equation*}
+
+Denn Links berechnen wir die Pseudoinverse des Tensors. Wie die Pseudoinverse davon definiert ist, haben wir uns für unsere Anwendung definiert und ist nur für unsere Anwendung sinnvoll. Rechts nehmen wir die Pseudoinverse einer Matrix, das heißt das sind zwei verschiedene Pseudoinversen Operatoren.
+
+Das Problem ist, dass wenn man mit dem entfalteten Tensor rechnet, dies eher eine veranschaulichte Darstellung ist und wenig Nützlichkeit birgt.
 
 Doch wenn wir nicht mit den entfalteten Tensoren rechnen würden, bräuchten wir Resultate über die Invertierung von $n-mode$ Produkten, die wir nicht haben. Daher nehmen wir es einfach an, dass das Ergebnis stimmt und rechnen weiter. Wir bekommen nun folgende Darstellung der Pseudoinversen
 

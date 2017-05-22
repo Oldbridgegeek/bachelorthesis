@@ -194,9 +194,8 @@ Wir nutzen Lemma (\ref{lemma:inverse}) und erhalten
 
 Hier können wir nun eine Singulärwertzerlegung zum berechnen der Pseudoinversen oder den Gauß Algorithmus zum berechnen der Inversen verwenden. Warum das Ganze? Wir hätten auch die Inverse von der Massematrix berechnen können. Der Unterschied ist, dass wir statt der Inversen einer Matrix der Größe $N^2 \times N^2$ berechnen, berechnen wir die Inverse einer Matrix der Größe $N \times N$.
 
-Für die Laplace Bilinearform können wir dies leider nicht so einfach machen. Das Problem ist die Addition, die uns das ganze stark erschwert. Je nach Basis, kann man das Problem vereinfachen. Man könnte beispielsweise die Lagrange Basis nehmen mit geeigneten Stützstellen und würde für $\mathcal{N}^{1D}$ und $\mathcal{W}_N^{1D}$ Diagonalmatrizen bekommen.
+Für die Laplace Bilinearform können wir dies leider nicht so einfach machen. Das Problem ist die Addition, die uns das ganze stark erschwert. Je nach Basis, kann man das Problem vereinfachen. Man könnte beispielsweise die Lagrange Basis nehmen mit geeigneten Stützstellen und würde für $\mathcal{N}^{1D}$ und $\mathcal{W}_N^{1D}$ Diagonalmatrizen bekommen. Wie wir später sehen werden, ist es sogar möglich die Einheitsmatrix für das Produkt dieser beiden Matrizen zu erhalten.
 
-Wir brauchen ein Hilfswerkzeug, dass uns mit dem Inversen von der Summe von Matrizen hilft. 
+Was uns letztlich interessiert ist die Auswertung der Pseudoinversen an einem Vektor $u$ also $M^+ u$ und $V^+ u$. Wenn wir uns später diese Strukturen betrachten, werden wir ein Ergebnis aus der Stabilitätstheorie verwenden können, um das Problem mit der Laplace Bilinearform zu lösen. Zu dem werden wir uns effiziente Algorithmen anschauen, um diese Gleichungen optimal zu berechnen.
 
-Was uns letztlich interessiert ist die Auswertung der Pseudoinversen an einem Vektor $u$ also $M^+ u$ und $V^+ u$. Wie wir dies effizient ausrechnen und welche Komplexität uns erwartet, sehen wir in Kapitel 4.
 

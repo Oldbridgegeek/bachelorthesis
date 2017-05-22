@@ -1,4 +1,4 @@
-\begin{thebibliography}{Ran05}
+\begin{thebibliography}{uYZ03}
 
 \bibitem[AF09]{SVD}
 Santosh~Vempala Alan~Frieze, Ravi~Kannan.
@@ -17,10 +17,15 @@ Claes Johnson.
   Finite Element Method}.
 \newblock Dover Publications, 2008.
 
-\bibitem[Kol06]{Multilinear}
-Tamara Kolda.
-\newblock {\em Multilinear operators for higher-order decompositions}.
-\newblock 2006.
+\bibitem[Loa99]{Kronecker}
+Charles F.~Van Loan.
+\newblock {\em The ubiquitous Kronecker product}.
+\newblock 1999.
+
+\bibitem[Mik09]{Lyapunov}
+Carl Christian~Kjelgaard Mikkelsen.
+\newblock {\em Numerical Methods for large Lyapunov Equations}.
+\newblock 2009.
 
 \bibitem[MK12]{Kronbichler}
 Katharina~Kormann Martin~Kronbichler.
@@ -40,5 +45,10 @@ Prof.~Dr. Rannacher.
 Brett~Bader Tamara~Kolda.
 \newblock {\em Tensor Decompositions and Applications}.
 \newblock SIAM, 2009.
+
+\bibitem[uYZ03]{Bartels}
+Danny~Sorensen und Yunkai~Zhou.
+\newblock {\em Direct Methods for Matrix Sylvester and Lyapunov Gleichungen}.
+\newblock 2003.
 
 \end{thebibliography}
