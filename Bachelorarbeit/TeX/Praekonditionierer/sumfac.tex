@@ -163,14 +163,17 @@ Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\m
 Analog definieren uns $\widehat{\mathcal{W}}^{1D}_N$.
 Dann folgt mit analoger Umformung wie bei der Massematrix
 
-\begin{equation}
-K_1 = K_2^T = (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T).
-\end{equation}
+
+\begin{align*}
+K_1 &= (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D}(\mathcal{N}^{1D})^T) \\
+K_2 &= (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)
+\end{align*}
+
 
 
 Insgesamt kann man die Elemensteifigkeitsmatrix für die Laplace Bilinearform darstellen als
 \begin{equation}
-V =[\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] + ([\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T])^T.
+V =[\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] + [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] \otimes [\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T].
 \end{equation}
 
 

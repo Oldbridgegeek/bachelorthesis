@@ -1,0 +1,137 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{mathtools}
+\usepackage{lmodern}
+\usepackage{graphicx} 
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{framed}
+%\usetheme{metropolis}
+%\usecolortheme[named=cyan]{structure}
+
+\definecolor{LHCblue}{RGB}{4, 114, 255}
+\usecolortheme[named=LHCblue]{structure}
+\usepackage[bars]{beamerthemetree}
+\usetheme{Ilmenau}
+\useoutertheme[subsection=true]{smoothbars}
+
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amssymb,amsthm}
+
+
+
+\title{Tensorstruktur der Zellmatrizen bei finiten Elementen }   
+\author{Enes Witwit \\ University of Heidelberg} 
+\date{\today} 
+\setbeamertemplate{navigation symbols}{}
+%\usepackage{beamerthemeCambridgeUS}
+\makeatother
+
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[ht=3.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \insertsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+    \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle\hfill\insertpagenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{footline}[frame number]{}
+
+\makeatletter
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+\setbeamercovered{invisible}
+
+
+\begin{document}
+%Titlepage
+\begin{frame}[noframenumbering, plain]
+\titlepage
+\end{frame} 
+
+
+%Contents
+\begin{frame}[noframenumbering, plain]
+\frametitle{Contents}
+\setcounter{tocdepth}{1}
+\small{ \tableofcontents}
+\end{frame}
+
+% Introduction
+\section{Introduction} 
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{introduction.tex}
+
+
+% Architecture
+\section{Architecture}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{architecture.tex}
+
+% Signal Processing and Feature Representation
+\section{Preprocessing}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{processing.tex}
+
+
+% Acoustic Models
+\section{Decoding}
+\subsection{Acoustic Model}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{acousticmodel.tex}
+
+% Language Models
+\subsection{Language Model}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{language.tex}
+
+
+%Concluding Remarks
+\section{Concluding Remarks}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+%\input{conclude.tex}
+
+\begin{frame}
+\frametitle{Bibliography}
+\begin{itemize}
+\item Example
+
+\end{itemize}
+\end{frame}
+
+
+
+
+\end{document}
