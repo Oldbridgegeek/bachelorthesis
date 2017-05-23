@@ -39,6 +39,38 @@ V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x}
 	\label{fig:lexi}
 \end{figure}
 
+\center{\textbf{Ziel} Definiere Index-Transformation $p$, sodass $p(i)=(i_1,i_2)$.}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Index-Transformation}
+Das Inverse der Transformation ist gegeben durch
+\begin{equation} \label{eq:tupel}
+p^{-1}(i_1,i_2) = i_1 + (N+1)i_2 = i \, 
+\end{equation}
+
+\textbf{Extrahiere $i_1$} durch
+
+\begin{equation*}
+\begin{aligned}
+i \, \, (mod (N+1)) &=p^{-1}(i_1,i_2) \, \, (mod (N+1)) \\ &= i_1 + \underbrace{(N+1)i_2}_{0} \, \, \, (mod (N+1)) \\ &= i_1
+\end{aligned}
+\end{equation*}
+
+\textbf{Nutze} (\ref{eq:tupel}) um $i_2$ zu erhalten
+\begin{equation*} \label{eq:tupel2}
+ i_2 = \dfrac{ i - i_1 } {N+1}.
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Index-Transformation}
+\begin{framed}
+\begin{equation*} \label{eq:p}
+p(i)= \Big{(} i \, \, (mod (N+1)),  \dfrac{ i -  (i \, \, (mod (N+1))) } {N+1} \Big{)}
+\end{equation*}
+\end{framed}
 \end{frame}
 
 \begin{frame}
@@ -158,4 +190,133 @@ Folgende Basispolynome bieten sich an:
 \end{equation*}
 Die Funktion $l_i(x_k)$ bezeichnet das $i-te$ Lagrange Polynom.
 \end{framed}
+\end{frame}
+
+\begin{frame}
+\begin{framed}
+\textbf{Zeige} 
+\begin{equation*}
+\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T = \mathcal{N}^{1D} \mathcal{W}^{1D} (\mathcal{N}^{1D})^T = I_n
+\end{equation*}
+\end{framed}
+\begin{itemize}
+\item $\mathcal{N}$ ist Diagonalmatrix mit Einträgen $\dfrac{1}{ \sqrt{w_i} }$
+\item Es gilt $\mathcal{N}=\mathcal{N}^T$. 
+\item $\mathcal{W}$ Diagonalmatrix mit Einträgen $w_i$ in der Diagonalen.
+\end{itemize}
+In der Ergebnismatrix steht dann in der Diagonalen 
+\begin{equation*}
+(\dfrac{1}{ \sqrt{w_i} })^2  w_i = 1 \, ,
+\end{equation*}
+sonst Nullen.
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Definiere $A:=\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T$.
+\item Wähle Basis so, dass $\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T  = I_n$ gilt.
+\end{itemize}
+Dann können wir das Matrix-Vektor Produkt $Vu$ darstellen durch
+\begin{equation*} \label{eq:easy}
+y=Vu =[(A \otimes I_n) + (I_n \otimes A)]u.
+\end{equation*}
+\pause
+\textbf{Transformiere} u und y zu Matrizen $U$ und $Y$ mit Hilfe der Index-Transformation $p(\cdot)$.
+\begin{equation*} \label{eq:easy}
+Y=VU =[(A \otimes I_n) + (I_n \otimes A)]U=AUI_n^T + I_nUA^T=AU+UA^T.
+\end{equation*}
+\pause
+\begin{framed}
+\center{\textbf{Lyapunow Gleichung}} \\
+\begin{equation*}
+Y=AU+UA^T.
+\end{equation*}
+\end{framed}
+\end{frame}
+
+\subsection{Pseudoinverse durch Singulärwertzerlegung höherer Ordnung}
+\begin{frame}
+
+\textbf{Lokaler Massetensor}
+\begin{equation*} 
+M_{i1,i2,j1,j2} = \int\limits_{T} \varphi_{i1} (x_1) \varphi_{i2}(x_2) \varphi_{j1} (x_1) \varphi_{j2} (x_2) \, d(x_1,x_2)
+\end{equation*}
+
+\textbf{Lokaler Laplace Tensor}
+\begin{equation*} 
+\begin{aligned}
+V_{i1,i2,j1,j2} = \int\limits_{T} \varphi'_{i1} (x_1) \varphi_{i2}(x_2) &\varphi'_{j1} (x_1) \varphi_{j2} (x_2) + \\
+&\varphi_{i1} (x_1) \varphi'_{i2}(x_2) \varphi_{j1} (x_1) \varphi'_{j2} (x_2) \, d(x_1,x_2).
+\end{aligned}
+\end{equation*} \\
+$\rightarrow$ Was ist die Pseudoinverse eines Tensors?
+\end{frame}
+
+\begin{frame}
+\frametitle{Moore Penrose Pseudoinverse}
+\begin{framed}
+\textbf{Definition} (Moore Penrose Pseudoinverse) 
+\begin{enumerate}
+\item $AA^{+}A \, \, \, \, \,  =A$
+\item $A^{+}AA^{+} \, \, =A^{+}$ 
+\item $(AA^{+})^{T} \, \,  =AA^{+}$
+\item $(A^{+}A)^{T} \, \, =A^{+}A$ 
+\end{enumerate}
+\end{framed}
+\textbf{Probleme}
+\begin{enumerate}
+\item Wir haben kein Tensor-Tensor Produkt.
+\item Wir wissen nicht was die Transponierte eines Tensors ist.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tensor Operationen}
+\begin{framed} \textbf{Definition} (Tensor-Tensor Produkt) \\
+Es seien $\pmb{\mathcal{X}}^1  \in \mathbb{R}^{I_1 \times I_2 \times I_1 \times I_2}$ und $\pmb{\mathcal{X}}^2 \in \mathbb{R}^{I_1 \times I_2 \times I_1 \times I_2}$ Tensoren.
+Dann definieren wir das Produkt dieser beiden Tensoren elementweise wie folgt
+\begin{equation}
+ttp(\pmb{\mathcal{X}}^1,\pmb{\mathcal{X}}^2)_{i_1,i_2,j_1,j_2}= \sum_{j_1=1}^{I_1} \sum_{j_2=1}^{I_2} \pmb{\mathcal{X}}^1_{i_1,i_2,j_1,j_2} \pmb{\mathcal{X}}^2_{j_1,j_2,k_1,k_2} 
+\end{equation}
+\end{framed}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tensor Operationen}
+\begin{framed} \textbf{Definition} (Transponierte eines Tensors) \\
+Es seien $\pmb{\mathcal{X}} \in \mathbb{R}^{I_1 \times I_2 \times I_1 \times I_2}$ ein Tensor.
+Dann definieren wir die Transponierte des Tensors elementweise wie folgt
+\begin{equation*}
+\mathcal{X}_{i_1 \, i_2 \, i_1 \, j_2}^T = \mathcal{X}_{p^{-1}(i_1,i_2)p^{-1}(j_1,j_2)}^T=\mathcal{X}_{p^{-1}(j_1,j_2)p^{-1}(i_1,i_2)} =\mathcal{X}_{ j_1 \, j_2 \, i_1 \, i_2}
+\end{equation*}
+\end{framed}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Moore Penrose Pseudoinverse für Tensoren}
+\begin{framed} \textbf{Definition} (Moore Penrose Pseudoinverse für Tensoren) \\
+\begin{enumerate}
+\item $ttp(A,ttp(A^{+},A))-A \, \, \, \, \, \, \, \, \, \, \, = 0$
+\item $ttp(A^{+},ttp(A,A^{+}))-A^{+} \, \,  \, \, = 0 $
+\item $(ttp(A,A^{+}))^{T}-ttp(A,A^{+}) = 0$
+\item $(ttp(A^{+},A))^{T}-ttp(A^{+},A) = 0$
+\end{enumerate}
+\end{framed}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pseudoinverse der HOSVD}
+\center{
+Die HOSVD eines Tensors $\pmb{\mathcal{X}}  \in \mathbb{R}^{I_1 \times I_2 \times I_3 \times I_4}$  ergibt
+\begin{equation*}
+\pmb{\mathcal{X}} = \pmb{\mathcal{G}} \times_{n=1}^{4} U^{ (n) }.
+\end{equation*}
+Die Pseudoinverse des Tensors $\mathcal{X}$ erhält man über}
+\begin{framed}
+\begin{equation*} 
+\pmb{\mathcal{X}}^{+} = \pmb{\mathcal{G}}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }.
+\end{equation*}
+\end{framed}
+
 \end{frame}

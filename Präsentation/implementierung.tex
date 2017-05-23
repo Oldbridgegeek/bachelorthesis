@@ -1,0 +1,151 @@
+\subsection{Effiziente Algorithmen}
+\begin{frame}
+\frametitle{Kronecker Produkt}
+
+Wir wollen folgende zwei Aufgaben effizient lösen:
+\begin{enumerate}
+\item $ z = (\mathcal{B} \otimes \mathcal{A}) y$
+\item $ z = (\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A}) v $
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{ $ z = (\mathcal{B} \otimes \mathcal{A}) y$ }
+\begin{equation*}
+\mathcal{B} \times \mathcal{A} =
+\begin{pmatrix}
+b_{11}\mathcal{A} & \dots  & b_{1q}\mathcal{A} \\
+\vdots & \ddots & \vdots \\
+b_{p1}\mathcal{A} & \dots & b_{pq}\mathcal{A} \\
+\end{pmatrix}.
+\end{equation*}
+
+\begin{enumerate}
+\item Geordnete Indexierung $y = (y_1,y_2,\dots,y_n,\dots,\dots,y_{(q-1)n+1},y_{(q-1)n+2},\dots,y_{qn})^T$ 
+\item Definiere $y^{(i)}=(y_1,y_2,\dots,y_{in})^T$
+\item Berechne $w^{(i)} = \mathcal{A}y^{(i)}$
+\item Berechne $ z^{(k)}_j = \sum_{i=1}^{q} b_{ki} w_j^{(i)}$
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{mdframed}[backgroundcolor=blue!3] 
+\begin{algorithmic}
+\For {i=1 < N }
+	\For {j= 1 < N }
+			\State $w^{(i)}_{j} = y^{(i)}_1 a_{j1} + \dots + y^{(i)}_n a_{jn}$
+	\EndFor
+\EndFor
+\For {k=1 < N }
+	\For {j= 1 < N }
+			\State $z^{(k)}_j := w^{(1)}_j b_{k1} + \dots + w^{(q)}_j b_{kq}$
+	\EndFor
+\EndFor
+
+\end{algorithmic}
+\end{mdframed}
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ $ z = (\mathcal{C} \otimes \mathcal{B} \otimes \mathcal{A}) v $ }
+\begin{equation*} 
+\begin{pmatrix}
+c_{11} \textcolor{green}{b}_{11} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b}_{1N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1N}\textcolor{green}{b}_{11}\textcolor{red}{\mathcal{A}} & \dots & c_{1N}\textcolor{green}{b}_{1N}\textcolor{red}{\mathcal{A}}  \\
+
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{11} \textcolor{green}{b}_{N 1} \textcolor{red}{\mathcal{A}} & \dots  & c_{11} \textcolor{green}{b}_{N N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{1 N}\textcolor{green}{b}_{N 1}\textcolor{red}{\mathcal{A}} & \dots & c_{1 N}\textcolor{green}{b}_{N N}\textcolor{red}{\mathcal{A}}  \\
+c_{21} \textcolor{green}{b}_{11} \textcolor{red}{\mathcal{A}} & \dots  & c_{21} \textcolor{green}{b}_{1N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{2N}\textcolor{green}{b}_{11}\textcolor{red}{\mathcal{A}} & \dots & c_{2 N}\textcolor{green}{b}_{1 N}\textcolor{red}{\mathcal{A}}  \\
+\vdots & \vdots & \ddots & \ddots  & \ddots & \vdots & \vdots & \vdots \\
+c_{N 1} \textcolor{green}{b}_{N 1} \textcolor{red}{\mathcal{A}} & \dots  & c_{N 1} \textcolor{green}{b}_{N N} \textcolor{red}{\mathcal{A}} & \dots & \dots & c_{N N}\textcolor{green}{b}_{N 1}\textcolor{red}{\mathcal{A}} & \dots & c_{N N}\textcolor{green}{b}_{N N}\textcolor{red}{\mathcal{A}}  \\
+\end{pmatrix} 
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+
+\begin{mdframed}[backgroundcolor=blue!3] 
+\begin{algorithmic}
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $w_{k}(i,j) = \mathcal{V}(i,j,1)a_{k1} + \dots + \mathcal{V}(i,j,N)a_{kN}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $\mathcal{W}_{i,j} (k):= w_j(k,1) b_{i1} + \dots + w_j(k,N) b_{iN}$
+		\EndFor
+	\EndFor
+\EndFor
+\For {k=1 < N }
+	\For {i= 1 < N }
+		\For {j= 1 < N }
+			\State $\mathcal{Z}(i,j,k) = \mathcal{W}_{j,k}(1) c_{i1}  + \dots +  \mathcal{W}_{j,k}(N) c_{iN}$ 
+		\EndFor
+	\EndFor
+\EndFor
+\end{algorithmic}
+\end{mdframed}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Kerntensor invertieren}
+\begin{framed}
+\begin{equation*}
+\pmb{\mathcal{X}}^{+} = \pmb{\mathcal{G}}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }.
+\end{equation*}
+\end{framed}
+
+Wie schwer ist es die Pseudoinversen des Kerntensor $\mathcal{G}$ zu finden?
+Kerntensor ist in der Regel vollbesetzt. \\ \textbf{Aber} der Kerntensor enthält zwei Arten von Zahlen. Sehr kleine Zahlen kleiner als $10^{-10}$ und Zahlen größer $1$. \\
+\textbf{Idee} \\
+Setzte alle kleinen Zahlen auf 0 $\rightarrow$ Der Kerntensor ist nun diagonal und sehr einfach zu invertieren.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Tensor-Vektor Produkt}
+\begin{framed}
+\textbf{Definition} Tensor-Vektor Produkt \\
+Es sei $\mathcal{A} \in \mathbb{R}^{N \times N \times N \times N}$ und $U \in \mathbb{R}^{N \times N}$.
+Dann ist $Y=tvp(\mathcal{A},U)$ gegeben durch
+
+
+\begin{equation*}
+Y_{i_1 \, i_2} = \sum\limits_{j_1=1}^{N} \sum\limits_{j_2=1}^{N} \mathcal{A}_{i_1 i_2 j_1 j_2} U_{j_1 j_2}
+\end{equation*}
+
+\end{framed}
+
+$\rightarrow$ \textbf{Komplexität} $O(N^4)$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pseudoinversen-Tensor Vektor Produkt}
+\textbf{1.Möglichkeit}
+\begin{equation*} \label{eq:pinv}
+\underbrace{tvp(\mathcal{X}^{+},U) = tvp(\mathcal{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U)}_{O(2N^4+8N^5+N^6)}
+\end{equation*} 
+
+
+\textbf{2.Möglichkeit}
+\begin{equation*} \label{eq:pinvcase}
+\begin{aligned}
+\mathcal{X}^{+}_{(n)} u&= \underbrace{U^{ (n) }  \mathcal{G}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2}) }  \otimes U^{ (N_{3}) }) u}_{O(8N^4+8N^5+N^6+N^{10})} \,.
+\end{aligned}
+\end{equation*}
+
+\end{frame}
