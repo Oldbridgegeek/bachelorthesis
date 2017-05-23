@@ -2,8 +2,10 @@
 \select@language {ngerman}
 \beamer@sectionintoc {1}{Einleitung}{3}{0}{1}
 \beamer@sectionintoc {2}{Theorie}{8}{0}{2}
-\beamer@sectionintoc {3}{Pseudoinverse}{9}{0}{3}
-\beamer@subsectionintoc {3}{1}{Tensorstruktur}{11}{0}{3}
-\beamer@sectionintoc {4}{Effiziente Berechnung}{14}{0}{4}
-\beamer@sectionintoc {5}{Resultate}{15}{0}{5}
-\beamer@subsectionintoc {5}{1}{Acoustic Model}{15}{0}{5}
+\beamer@subsectionintoc {2}{1}{Higher Order Singular Value Decomposition}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Kronecker Produkt}{22}{0}{2}
+\beamer@sectionintoc {3}{Pseudoinverse}{24}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tensorstruktur}{25}{0}{3}
+\beamer@sectionintoc {4}{Effiziente Berechnung}{34}{0}{4}
+\beamer@sectionintoc {5}{Resultate}{35}{0}{5}
+\beamer@subsectionintoc {5}{1}{Acoustic Model}{35}{0}{5}

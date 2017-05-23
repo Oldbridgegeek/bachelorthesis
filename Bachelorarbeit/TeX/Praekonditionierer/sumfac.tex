@@ -37,7 +37,7 @@ M_{ij} &= \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold
 
 Wir wählen die Anzahl der Quadraturpunkte $Q_{1D}$ per Dimension so, dass wir exakt integrieren. Wir wählen $Q_{1D}$ gleich der Anzahl der Basisfunktionen $N$, da wir mit der Gauss Quadratur mit $N+1$ Stützstellen bis $2N$ exakt integrieren und der höchste Grad bei uns $2N$ ist.
 
-Wir definieren uns eine Matrix durch $\mathcal{N}_{iq}=\varphi_i(x_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massematrix schreiben als
+Wir definieren uns eine Matrix durch $\mathcal{N}_{iq}=\varphi_i(\bold{x}_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massematrix schreiben als
 \begin{equation}
 M = \mathcal{N} \mathcal{W} \mathcal{N}^T
 \end{equation}

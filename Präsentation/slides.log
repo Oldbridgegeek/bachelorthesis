@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  22 MAY 2017 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  23 MAY 2017 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1229,6 +1229,278 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen275
 \FrameSep=\dimen276
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mdframed/mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2016/05/18 v6512 L3 programming layer (loader) 
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2016/05/18 v6512 L3 programming layer (code)
+L3 Module: l3bootstrap 2016/02/12 v6412 L3 Bootstrap code
+L3 Module: l3names 2016/03/11 v6433 L3 Namespace for primitives
+L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
+L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
+L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
+L3 Module: l3str 2016/03/24 v6441 L3 Strings
+L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
+L3 Module: l3int 2016/03/24 v6441 L3 Integers
+\c_max_int=\count174
+\l_tmpa_int=\count175
+\l_tmpb_int=\count176
+\g_tmpa_int=\count177
+\g_tmpb_int=\count178
+L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
+L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
+\g__prg_map_int=\count179
+L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
+L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
+L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
+L3 Module: l3msg 2016/03/26 v6464 L3 Messages
+L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
+\l_iow_line_count_int=\count180
+\l__iow_target_count_int=\count181
+\l__iow_current_line_int=\count182
+\l__iow_current_word_int=\count183
+\l__iow_current_indentation_int=\count184
+L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
+\c_zero_dim=\dimen277
+\c_max_dim=\dimen278
+\l_tmpa_dim=\dimen279
+\l_tmpb_dim=\dimen280
+\g_tmpa_dim=\dimen281
+\g_tmpb_dim=\dimen282
+\c_zero_skip=\skip64
+\c_max_skip=\skip65
+\l_tmpa_skip=\skip66
+\l_tmpb_skip=\skip67
+\g_tmpa_skip=\skip68
+\g_tmpb_skip=\skip69
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
+\g__keyval_level_int=\count185
+\l_keys_choice_int=\count186
+L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
+\c__fp_leading_shift_int=\count187
+\c__fp_middle_shift_int=\count188
+\c__fp_trailing_shift_int=\count189
+\c__fp_big_leading_shift_int=\count190
+\c__fp_big_middle_shift_int=\count191
+\c__fp_big_trailing_shift_int=\count192
+\c__fp_Bigg_leading_shift_int=\count193
+\c__fp_Bigg_middle_shift_int=\count194
+\c__fp_Bigg_trailing_shift_int=\count195
+L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
+\c_empty_box=\box84
+\l_tmpa_box=\box85
+\l_tmpb_box=\box86
+\g_tmpa_box=\box87
+\g_tmpb_box=\box88
+L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
+\l__coffin_internal_box=\box89
+\l__coffin_internal_dim=\dimen283
+\l__coffin_offset_x_dim=\dimen284
+\l__coffin_offset_y_dim=\dimen285
+\l__coffin_x_dim=\dimen286
+\l__coffin_y_dim=\dimen287
+\l__coffin_x_prime_dim=\dimen288
+\l__coffin_y_prime_dim=\dimen289
+\c_empty_coffin=\box90
+\l__coffin_aligned_coffin=\box91
+\l__coffin_aligned_internal_coffin=\box92
+\l_tmpa_coffin=\box93
+\l_tmpb_coffin=\box94
+\l__coffin_display_coffin=\box95
+\l__coffin_display_coord_coffin=\box96
+\l__coffin_display_pole_coffin=\box97
+\l__coffin_display_offset_dim=\dimen290
+\l__coffin_display_x_dim=\dimen291
+\l__coffin_display_y_dim=\dimen292
+L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
+L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
+L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
+\l__box_top_dim=\dimen293
+\l__box_bottom_dim=\dimen294
+\l__box_left_dim=\dimen295
+\l__box_right_dim=\dimen296
+\l__box_top_new_dim=\dimen297
+\l__box_bottom_new_dim=\dimen298
+\l__box_left_new_dim=\dimen299
+\l__box_right_new_dim=\dimen300
+\l__box_internal_box=\box98
+\l__coffin_bounding_shift_dim=\dimen301
+\l__coffin_left_corner_dim=\dimen302
+\l__coffin_right_corner_dim=\dimen303
+\l__coffin_bottom_corner_dim=\dimen304
+\l__coffin_top_corner_dim=\dimen305
+\l__coffin_scaled_total_height_dim=\dimen306
+\l__coffin_scaled_width_dim=\dimen307
+L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count196
+\l__driver_tmp_box=\box99
+))
+Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count197
+\l__xparse_m_args_int=\count198
+\l__xparse_mandatory_args_int=\count199
+\l__xparse_processor_int=\count266
+\l__xparse_v_nesting_int=\count267
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count268
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
+Package: zref-abspage 2016/05/16 v2.25 Module abspage for zref (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/zref-base.sty
+Package: zref-base 2016/05/16 v2.25 Module base for zref (HO)
+Package zref Info: New property list: main on input line 759.
+Package zref Info: New property: default on input line 760.
+Package zref Info: New property: page on input line 761.
+)
+\c@abspage=\count269
+Package zref Info: New property: abspage on input line 62.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\mdf@templength=\skip70
+\c@mdf@globalstyle@cnt=\count270
+\mdf@skipabove@length=\skip71
+\mdf@skipbelow@length=\skip72
+\mdf@leftmargin@length=\skip73
+\mdf@rightmargin@length=\skip74
+\mdf@innerleftmargin@length=\skip75
+\mdf@innerrightmargin@length=\skip76
+\mdf@innertopmargin@length=\skip77
+\mdf@innerbottommargin@length=\skip78
+\mdf@splittopskip@length=\skip79
+\mdf@splitbottomskip@length=\skip80
+\mdf@outermargin@length=\skip81
+\mdf@innermargin@length=\skip82
+\mdf@linewidth@length=\skip83
+\mdf@innerlinewidth@length=\skip84
+\mdf@middlelinewidth@length=\skip85
+\mdf@outerlinewidth@length=\skip86
+\mdf@roundcorner@length=\skip87
+\mdf@footenotedistance@length=\skip88
+\mdf@userdefinedwidth@length=\skip89
+\mdf@needspace@length=\skip90
+\mdf@frametitleaboveskip@length=\skip91
+\mdf@frametitlebelowskip@length=\skip92
+\mdf@frametitlerulewidth@length=\skip93
+\mdf@frametitleleftmargin@length=\skip94
+\mdf@frametitlerightmargin@length=\skip95
+\mdf@shadowsize@length=\skip96
+\mdf@extratopheight@length=\skip97
+\mdf@subtitleabovelinewidth@length=\skip98
+\mdf@subtitlebelowlinewidth@length=\skip99
+\mdf@subtitleaboveskip@length=\skip100
+\mdf@subtitlebelowskip@length=\skip101
+\mdf@subtitleinneraboveskip@length=\skip102
+\mdf@subtitleinnerbelowskip@length=\skip103
+\mdf@subsubtitleabovelinewidth@length=\skip104
+\mdf@subsubtitlebelowlinewidth@length=\skip105
+\mdf@subsubtitleaboveskip@length=\skip106
+\mdf@subsubtitlebelowskip@length=\skip107
+\mdf@subsubtitleinneraboveskip@length=\skip108
+\mdf@subsubtitleinnerbelowskip@length=\skip109
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
+)
+\mdf@frametitlebox=\box100
+\mdf@footnotebox=\box101
+\mdf@splitbox@one=\box102
+\mdf@splitbox@two=\box103
+\mdf@splitbox@save=\box104
+\mdfsplitboxwidth=\skip110
+\mdfsplitboxtotalwidth=\skip111
+\mdfsplitboxheight=\skip112
+\mdfsplitboxdepth=\skip113
+\mdfsplitboxtotalheight=\skip114
+\mdfframetitleboxwidth=\skip115
+\mdfframetitleboxtotalwidth=\skip116
+\mdfframetitleboxheight=\skip117
+\mdfframetitleboxdepth=\skip118
+\mdfframetitleboxtotalheight=\skip119
+\mdffootnoteboxwidth=\skip120
+\mdffootnoteboxtotalwidth=\skip121
+\mdffootnoteboxheight=\skip122
+\mdffootnoteboxdepth=\skip123
+\mdffootnoteboxtotalheight=\skip124
+\mdftotallinewidth=\skip125
+\mdfboundingboxwidth=\skip126
+\mdfboundingboxtotalwidth=\skip127
+\mdfboundingboxheight=\skip128
+\mdfboundingboxdepth=\skip129
+\mdfboundingboxtotalheight=\skip130
+\mdf@freevspace@length=\skip131
+\mdf@horizontalwidthofbox@length=\skip132
+\mdf@verticalmarginwhole@length=\skip133
+\mdf@horizontalspaceofbox=\skip134
+\mdfsubtitleheight=\skip135
+\mdfsubsubtitleheight=\skip136
+\c@mdfcountframes=\count271
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- failed******
+
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newmdtheoremenv with sig. 'O{} m o m o ' on line 601.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \mdtheorem with sig. ' O{} m o m o ' on line 701.
+.................................................
+\mdf@envdepth=\count272
+\c@mdf@env@i=\count273
+\c@mdf@env@ii=\count274
+\c@mdf@zref@counter=\count275
+Package zref Info: New property: mdf@pagevalue on input line 895.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count276
+\c@ALG@rem=\count277
+\c@ALG@nested=\count278
+\ALG@tlm=\skip137
+\ALG@thistlm=\skip138
+\c@ALG@Lnr=\count279
+\c@ALG@blocknr=\count280
+\c@ALG@storecount=\count281
+\c@ALG@tmpcounter=\count282
+\ALG@tmplength=\skip139
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
 emestructure.sty
 Package: beamercolorthemestructure 2010/06/17  (rcs-revision d02a7cf4d8ae)
@@ -1284,8 +1556,8 @@ Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count174
-\U@D=\dimen277
+\babel@savecnt=\count283
+\U@D=\dimen308
 LaTeX Info: Redefining \textlatin on input line 1448.
 )
 \l@naustrian = a dialect from \language\l@ngerman 
@@ -1294,27 +1566,27 @@ Package babel Info: Making " an active character on input line 88.
 )))
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 28.
+(hyperref)                removing `\\' on input line 34.
 
-(./slides.aux)
+No file slides.aux.
 \openout1 = `slides.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 70.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmss.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 76.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1353,16 +1625,16 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count175
-\scratchdimen=\dimen278
-\scratchbox=\box84
-\nofMPsegments=\count176
-\nofMParguments=\count177
+\scratchcounter=\count284
+\scratchdimen=\dimen309
+\scratchbox=\box105
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count178
-\MPscratchDim=\dimen279
-\MPnumerator=\count179
-\makeMPintoPDFobject=\count180
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen310
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks48
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1380,8 +1652,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box85
-Package hyperref Info: Link coloring OFF on input line 70.
+\AtBeginShipoutBox=\box106
+Package hyperref Info: Link coloring OFF on input line 76.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1389,62 +1661,60 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count181
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
-
-(./slides.out) (./slides.out)
+LaTeX Info: Redefining \ref on input line 76.
+LaTeX Info: Redefining \pageref on input line 76.
+LaTeX Info: Redefining \nameref on input line 76.
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 70.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 70.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 70.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 70.
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 76.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 70.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 70.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 70.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 70.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 70.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/bx/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 70.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 70.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 70.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 70.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 70.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 70.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 70.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 70.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 70.
+(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 70.
+(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmr/bx/n on input line 70.
+(Font)                  OT1/lmss/bx/n --> T1/lmr/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/bx/n --> T1/lmss/bx/n on input line 70.
+(Font)                  T1/lmss/bx/n --> T1/lmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 70.
+(Font)                  T1/lmss/m/n --> T1/lmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 70.
+(Font)                  T1/lmss/m/it --> T1/lmss/bx/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/bx/n on input line 70.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/bx/n on input line 76.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
 r-basic-dictionary/translator-basic-dictionary-English.dict
@@ -1470,13 +1740,16 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 70.
+LaTeX Info: Redefining \includegraphics on input line 76.
  (./slides.nav) [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./slides.toc) [2
+No file slides.toc.
+[2
 
-] (./slides.toc) [3
+]
+No file slides.toc.
+[3
 
 ] (./introduction.tex [4
 
@@ -1533,16 +1806,60 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 25.
  [5
 
-] [6
-
 ]
-[7
 
-]) (./slides.toc) [8
+LaTeX Warning: Citation `Kronbichler' on page 6 undefined on input line 40.
 
-] (./theorie.tex) (./slides.toc) [9
+[6
 
-] (./pseudoinverse.tex [10
+] [7
+
+])
+No file slides.toc.
+[8
+
+] (./theorie.tex <tensorOrdnung3.png, id=81, 697.60625pt x 588.1975pt>
+File: tensorOrdnung3.png Graphic file (type png)
+
+<use tensorOrdnung3.png>
+Package pdftex.def Info: tensorOrdnung3.png used on input line 23.
+(pdftex.def)             Requested size: 122.91406pt x 103.63615pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 23.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 23.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 23.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 23.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 23.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 23.
+
+
+LaTeX Warning: Citation `Kolda' on page 9 undefined on input line 23.
+
+
+Overfull \vbox (5.76666pt too high) detected at line 23
+ []
+
+[9
+
+ <./tensorOrdnung3.png>]
+File: tensorOrdnung3.png Graphic file (type png)
+ <use tensorOrdnung3.png>
+Package pdftex.def Info: tensorOrdnung3.png used on input line 23.
+(pdftex.def)             Requested size: 122.91406pt x 103.63615pt.
+
+
+LaTeX Warning: Citation `Kolda' on page 10 undefined on input line 23.
+
+
+Overfull \vbox (5.76666pt too high) detected at line 23
+ []
+
+[10
 
 ] [11
 
@@ -1550,14 +1867,91 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 
 ] [13
 
-]) (./slides.toc) [14
+]
 
-] (./slides.toc) [15
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 77.
+
+[14
+
+] [15
 
 ] [16
 
+] [17
+
+] [18
+
 ]
-(./slides.bbl) [17
+
+LaTeX Warning: Citation `Kolda' on page 19 undefined on input line 129.
+
+[19
+
+] <hosvdTensor.png, id=171, 1317.92375pt x 562.1pt>
+File: hosvdTensor.png Graphic file (type png)
+ <use hosvdTensor.png>
+Package pdftex.def Info: hosvdTensor.png used on input line 149.
+(pdftex.def)             Requested size: 184.3758pt x 78.63342pt.
+
+
+LaTeX Warning: Citation `Kolda' on page 20 undefined on input line 149.
+
+
+Overfull \vbox (3.15974pt too high) detected at line 149
+ []
+
+[20
+
+ <./hosvdTensor.png>] [21
+
+] [22
+
+] [23
+
+])
+No file slides.toc.
+[24
+
+] (./pseudoinverse.tex [25
+
+] <lexi.png, id=220, 683.55376pt x 614.295pt>
+File: lexi.png Graphic file (type png)
+
+<use lexi.png>
+Package pdftex.def Info: lexi.png used on input line 42.
+(pdftex.def)             Requested size: 92.1879pt x 82.84187pt.
+
+
+LaTeX Warning: Citation `Teachlet' on page 26 undefined on input line 42.
+
+[26
+
+ <./lexi.png>] [27
+
+] [28
+
+] [29
+
+] [30
+
+] [31
+
+] [32
+
+] [33
+
+])
+No file slides.toc.
+[34
+
+]
+No file slides.toc.
+[35
+
+] [36
+
+] (./slides.bbl) [37
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -1570,47 +1964,57 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
  (./slides.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 139.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
-Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 145.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+
+
+Package rerunfilecheck Warning: File `slides.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `slides.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 21571 strings out of 493014
- 422761 string characters out of 6133351
- 499695 words of memory out of 5000000
- 24498 multiletter control sequences out of 15000+600000
- 53230 words of font info for 49 fonts, out of 8000000 for 9000
+ 30153 strings out of 493014
+ 591286 string characters out of 6133351
+ 654998 words of memory out of 5000000
+ 32984 multiletter control sequences out of 15000+600000
+ 81830 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,62p,413b,776s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation19} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation18} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/loca
-l/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/
-2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dis
-t/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dv
-ips/lm/lm-mathex.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/
-lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/lm/lmsso8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm
-/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
->
-Output written on slides.pdf (17 pages, 153035 bytes).
+ 56i,15n,60p,10421b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
+cal/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texliv
+e/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-d
+ist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/
+dvips/lm/lm-mathex.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/l
+m/lmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi10.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
+/public/lm/lmsso10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/l
+m/lmsso8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on slides.pdf (37 pages, 294182 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 79 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 397 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
