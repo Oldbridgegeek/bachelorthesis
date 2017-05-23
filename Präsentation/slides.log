@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  23 MAY 2017 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  23 MAY 2017 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1568,7 +1568,7 @@ Package babel Info: Making " an active character on input line 88.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\\' on input line 34.
 
-No file slides.aux.
+(./slides.aux)
 \openout1 = `slides.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -1586,7 +1586,7 @@ LaTeX Font Info:    ... okay on input line 76.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 76.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmss.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1666,6 +1666,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 76.
 LaTeX Info: Redefining \pageref on input line 76.
 LaTeX Info: Redefining \nameref on input line 76.
+
+(./slides.out) (./slides.out)
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
@@ -1744,12 +1746,9 @@ LaTeX Info: Redefining \includegraphics on input line 76.
  (./slides.nav) [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-No file slides.toc.
-[2
+(./slides.toc) [2
 
-]
-No file slides.toc.
-[3
+] (./slides.toc) [3
 
 ] (./introduction.tex [4
 
@@ -1806,19 +1805,15 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 25.
  [5
 
+] [6
+
 ]
+[7
 
-LaTeX Warning: Citation `Kronbichler' on page 6 undefined on input line 40.
+]) (./slides.toc) [8
 
-[6
-
-] [7
-
-])
-No file slides.toc.
-[8
-
-] (./theorie.tex <tensorOrdnung3.png, id=81, 697.60625pt x 588.1975pt>
+] (./theorie.tex
+<tensorOrdnung3.png, id=101, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
 
 <use tensorOrdnung3.png>
@@ -1837,10 +1832,6 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 23.
 
-
-LaTeX Warning: Citation `Kolda' on page 9 undefined on input line 23.
-
-
 Overfull \vbox (5.76666pt too high) detected at line 23
  []
 
@@ -1851,10 +1842,6 @@ File: tensorOrdnung3.png Graphic file (type png)
  <use tensorOrdnung3.png>
 Package pdftex.def Info: tensorOrdnung3.png used on input line 23.
 (pdftex.def)             Requested size: 122.91406pt x 103.63615pt.
-
-
-LaTeX Warning: Citation `Kolda' on page 10 undefined on input line 23.
-
 
 Overfull \vbox (5.76666pt too high) detected at line 23
  []
@@ -1882,21 +1869,14 @@ d on input line 77.
 
 ] [18
 
+] [19
+
 ]
-
-LaTeX Warning: Citation `Kolda' on page 19 undefined on input line 129.
-
-[19
-
-] <hosvdTensor.png, id=171, 1317.92375pt x 562.1pt>
+<hosvdTensor.png, id=195, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 149.
 (pdftex.def)             Requested size: 184.3758pt x 78.63342pt.
-
-
-LaTeX Warning: Citation `Kolda' on page 20 undefined on input line 149.
-
 
 Overfull \vbox (3.15974pt too high) detected at line 149
  []
@@ -1909,23 +1889,18 @@ Overfull \vbox (3.15974pt too high) detected at line 149
 
 ] [23
 
-])
-No file slides.toc.
-[24
+]) (./slides.toc) [24
 
-] (./pseudoinverse.tex [25
+]
+(./pseudoinverse.tex [25
 
-] <lexi.png, id=220, 683.55376pt x 614.295pt>
+] <lexi.png, id=248, 683.55376pt x 614.295pt>
 File: lexi.png Graphic file (type png)
 
 <use lexi.png>
 Package pdftex.def Info: lexi.png used on input line 42.
 (pdftex.def)             Requested size: 92.1879pt x 82.84187pt.
-
-
-LaTeX Warning: Citation `Teachlet' on page 26 undefined on input line 42.
-
-[26
+ [26
 
  <./lexi.png>] [27
 
@@ -1941,17 +1916,25 @@ LaTeX Warning: Citation `Teachlet' on page 26 undefined on input line 42.
 
 ] [33
 
-])
-No file slides.toc.
+]
+Overfull \vbox (2.15916pt too high) detected at line 114
+ []
+
 [34
 
-]
-No file slides.toc.
-[35
+] [35
 
 ] [36
 
-] (./slides.bbl) [37
+] [37
+
+] [38
+
+]) (./slides.toc) [39
+
+] [40
+
+] (./slides.bbl) [41
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -1964,36 +1947,24 @@ No file slides.toc.
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
- (./slides.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
 
-
-Package rerunfilecheck Warning: File `slides.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `slides.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+(./slides.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package rerunfilecheck Info: File `slides.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 30153 strings out of 493014
- 591286 string characters out of 6133351
- 654998 words of memory out of 5000000
- 32984 multiletter control sequences out of 15000+600000
- 81830 words of font info for 73 fonts, out of 8000000 for 9000
+ 30215 strings out of 493014
+ 592708 string characters out of 6133351
+ 655641 words of memory out of 5000000
+ 33023 multiletter control sequences out of 15000+600000
+ 79062 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,60p,10421b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,62p,10421b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
 cal/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texliv
 e/2016/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-d
@@ -2011,10 +1982,10 @@ fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on slides.pdf (37 pages, 294182 bytes).
+Output written on slides.pdf (41 pages, 306206 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 455 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

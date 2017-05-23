@@ -86,7 +86,15 @@ M &= \mathcal{W}_N \mathcal{N}^T \\
 \end{aligned}
 \end{equation*}
 \end{framed}
+\end{frame}
 
+\begin{frame}
+\frametitle{Pseudoinverse der Massenmatrix}
+\begin{equation*}
+\begin{aligned}
+M^+ & = [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes  (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)]^+ \\ &= (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ \otimes  (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ 
+\end{aligned}
+\end{equation*}
 \end{frame}
 
 
@@ -95,5 +103,59 @@ M &= \mathcal{W}_N \mathcal{N}^T \\
 
 \begin{frame}
 \frametitle{Tensorstruktur der Laplace Bilinearform}
+\begin{equation*}
+\begin{aligned}
+V_{ij} &= \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x} \\ 
+&= \int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x})) + ( \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x})) \, d\bold{x} \\
+&= \int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x})) + ( \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x})) \, d\bold{x} \\ &= \int\limits_{T} \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x}) d\bold{x} + \int\limits_{T}  \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x}) \, d\bold{x} \\
+&= \underbrace{\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bold{x}_q)  \partial_{x_1} \varphi_j (\bold{x}_q)}_{K^1} + \underbrace{\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q  \partial_{x_2} \varphi_i(\bold{x}_q)  \partial_{x_2} \varphi_j(\bold{x}_q)}_{K^2} \, 
+\end{aligned}
+\end{equation*}
+\end{frame}
 
+\begin{frame}
+\begin{equation*}
+\begin{aligned}
+K_{ij}^1 &=\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bold{x}_q)  \partial_{x_1} \varphi_j (\bold{x}_q) \\ &= \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \partial_{x_1}  \varphi_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \partial_{x_1} \varphi_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\
+&=  \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \varphi'_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \varphi'_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\ 
+&= \sum\limits_{q_1=1}^{N} w_{q1} \varphi'_{i1}(x_{q1}) \varphi'_{j1} (x_{q1}) \sum\limits_{q_2=1}^{N} w_{q2} \varphi_{i2}(x_{q2})  \varphi_{j2} (x_{q2}) 
+\end{aligned}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\textbf{Definiere}
+\begin{itemize}
+\item Es sei $\widehat{\mathcal{N}}^{1D}$ eine Matrix mit $\widehat{\mathcal{N}}^{1D}_{ik}=\varphi'^{1D}_i(x_k)$
+\item Dementsprechend ist $\widehat{\mathcal{W}}^{1D}_N$ eine Matrix, die aufgebaut ist wie $\mathcal{W}^{1D}_N$, mit dem Unterschied, dass sie die Evaluationen der ersten Ableitungen der Ansatzfunktionen beinhaltet.
+\end{itemize}
+\pause
+\textbf{Dann} können wir $K_1,K_2$ schreiben als
+\begin{align*}
+K_1 &= (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D}(\mathcal{N}^{1D})^T) \\
+K_2 &= (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)
+\end{align*}
+\begin{framed}
+\begin{equation*}
+V =\widehat{\mathcal{W}}_N \widehat{\mathcal{N}}^T \otimes \mathcal{W}_N \mathcal{N}^{T} + \mathcal{W}_N \mathcal{N}^{T}\otimes \widehat{\mathcal{W}}_N \widehat{\mathcal{N}}^T.
+\end{equation*}
+\end{framed}
+\end{frame}
+
+\begin{frame}
+\frametitle{Problem bei Laplace}
+\textbf{Problem } Die Addition in der Tensorstruktur macht unseren ersten Ansatz hinfällig. \\
+\textbf{Idee } Vereinfache die Form durch geeignete Basiswahl und dann sehen wir weiter. Wir wählen geeignete Basis, sodass $ \, \mathcal{W}_N \mathcal{N}^{T} = I_n \, $.
+
+Folgende Basispolynome bieten sich an:
+\begin{framed}
+\begin{equation*}
+\varphi^{1D}_i (x_k) = \dfrac{1}{ \sqrt{w_i} } l_i (x_k) = 
+\begin{cases}
+\dfrac{1}{ \sqrt{w_i} } \, \text{ , wenn } i=k  \\
+0  \, \, \, \, \, \, \, \, \, \, \, \text{ , sonst. }
+\end{cases}
+\end{equation*}
+Die Funktion $l_i(x_k)$ bezeichnet das $i-te$ Lagrange Polynom.
+\end{framed}
 \end{frame}
