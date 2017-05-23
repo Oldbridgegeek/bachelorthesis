@@ -1,8 +1,9 @@
 \beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Architecture}{4}{0}{2}
-\beamer@sectionintoc {3}{Preprocessing}{5}{0}{3}
-\beamer@sectionintoc {4}{Decoding}{6}{0}{4}
-\beamer@subsectionintoc {4}{1}{Acoustic Model}{6}{0}{4}
-\beamer@subsectionintoc {4}{2}{Language Model}{7}{0}{4}
-\beamer@sectionintoc {5}{Concluding Remarks}{8}{0}{5}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Einleitung}{3}{0}{1}
+\beamer@sectionintoc {2}{Theorie}{8}{0}{2}
+\beamer@sectionintoc {3}{Pseudoinverse}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tensorstruktur}{11}{0}{3}
+\beamer@sectionintoc {4}{Effiziente Berechnung}{14}{0}{4}
+\beamer@sectionintoc {5}{Resultate}{15}{0}{5}
+\beamer@subsectionintoc {5}{1}{Acoustic Model}{15}{0}{5}

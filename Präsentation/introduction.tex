@@ -1,0 +1,49 @@
+\begin{frame}
+\frametitle{Hochleistungsrechnen}
+\begin{framed}
+\center{\textbf{Ziel} Löse ein sehr komplexes Problem.}
+\end{framed} 
+\center{ \textbf{Lösungsansatz} }
+Teile das komplexe Problem auf in Subprobleme (Parallelisierung).
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Initial-Problem}
+\begin{framed}
+\begin{equation*}
+v = A(u)
+\end{equation*}
+A, möglicherweise nichtlinearer, finite Elemente Operator, der Vektor u als Input nimmt.
+\end{framed}
+Probleme 
+\begin{itemize}
+\item $A$ wird unter Umständen sehr groß $\rightarrow$ Speicherplatz.
+\item $A$ liegt nicht mehr im Cache $\rightarrow$ Abrufen der Elemente von $A$ zeitintesiv. 
+\item Berechnung des Matrix-Vektor-Produkts komplex
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Divide and Conquer}
+Nach \cite{Kronbichler} können wir die Ursprungsgleichung umformen zu
+\begin{equation*}
+v = A(u) = \sum\limits_{k=1}^{n_{cells}} P_k^T A_k P_k u \, .
+\end{equation*}
+$P_k$ kümmert sich um die Einordnug der lokalen Freiheitsgrade in die globalen Freiheitsgrade.
+\begin{framed}
+\begin{align*}
+v_k &= A_k u_k \\
+A_k^{-1} v_k &= u_k
+\end{align*}
+\end{framed}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inverse/Pseudoinverse}
+\begin{enumerate}
+\item Tensorstruktr und Summenfaktorisierung.
+\item Singulärwertzerlegung höherer Ordnung (HOSVD).
+\end{enumerate}
+
+\end{frame}

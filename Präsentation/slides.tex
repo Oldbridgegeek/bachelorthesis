@@ -1,5 +1,8 @@
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{mathtools}
+
 \usepackage{lmodern}
 \usepackage{graphicx} 
 \usepackage{multicol}
@@ -17,11 +20,12 @@
 \usepackage{enumerate}
 \usepackage{mathrsfs}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage[ngerman]{babel}
 
 
 
 \title{Tensorstruktur der Zellmatrizen bei finiten Elementen }   
-\author{Enes Witwit \\ University of Heidelberg} 
+\author{Enes Witwit \\ Universität Heidelberg} 
 \date{\today} 
 \setbeamertemplate{navigation symbols}{}
 %\usepackage{beamerthemeCambridgeUS}
@@ -78,50 +82,44 @@
 \end{frame}
 
 % Introduction
-\section{Introduction} 
+\section{Einleitung} 
 \begin{frame}[noframenumbering, plain]
 \small{\tableofcontents[currentsection]}
 \end{frame}
-%\input{introduction.tex}
+\input{introduction.tex}
 
 
-% Architecture
-\section{Architecture}
+% Theorie
+\section{Theorie}
 \begin{frame}[noframenumbering, plain]
 \small{\tableofcontents[currentsection]}
 \end{frame}
-%\input{architecture.tex}
+\input{theorie.tex}
 
-% Signal Processing and Feature Representation
-\section{Preprocessing}
+% Pseudoinverse
+\section{Pseudoinverse}
+\begin{frame}[noframenumbering, plain]
+\small{\tableofcontents[currentsection]}
+\end{frame}
+\input{pseudoinverse.tex}
+
+% Effiziente Berechnung
+\section{Effiziente Berechnung}
 \begin{frame}[noframenumbering, plain]
 \small{\tableofcontents[currentsection]}
 \end{frame}
 %\input{processing.tex}
 
 
-% Acoustic Models
-\section{Decoding}
+% Resulate
+\section{Resultate}
 \subsection{Acoustic Model}
 \begin{frame}[noframenumbering, plain]
 \small{\tableofcontents[currentsection]}
 \end{frame}
 %\input{acousticmodel.tex}
 
-% Language Models
-\subsection{Language Model}
-\begin{frame}[noframenumbering, plain]
-\small{\tableofcontents[currentsection]}
-\end{frame}
-%\input{language.tex}
 
-
-%Concluding Remarks
-\section{Concluding Remarks}
-\begin{frame}[noframenumbering, plain]
-\small{\tableofcontents[currentsection]}
-\end{frame}
-%\input{conclude.tex}
 
 \begin{frame}
 \frametitle{Bibliography}
@@ -131,6 +129,10 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\bibliographystyle{alpha}
+\bibliography{literatur}
+\end{frame}
 
 
 
