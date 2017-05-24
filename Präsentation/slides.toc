@@ -9,3 +9,5 @@
 \beamer@subsectionintoc {3}{2}{Pseudoinverse durch Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{45}{0}{3}
 \beamer@sectionintoc {4}{Effiziente Berechnung}{51}{0}{4}
 \beamer@subsectionintoc {4}{1}{Effiziente Algorithmen}{52}{0}{4}
+\beamer@subsectionintoc {4}{2}{Tensorstruktur}{60}{0}{4}
+\beamer@sectionintoc {5}{Resultate}{63}{0}{5}

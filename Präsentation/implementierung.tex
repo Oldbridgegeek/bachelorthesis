@@ -137,7 +137,7 @@ $\rightarrow$ \textbf{Komplexität} $O(N^4)$.
 \frametitle{Pseudoinversen-Tensor Vektor Produkt}
 \textbf{1.Möglichkeit}
 \begin{equation*} \label{eq:pinv}
-\underbrace{tvp(\mathcal{X}^{+},U) = tvp(\mathcal{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U)}_{O(2N^4+8N^5+N^6)}
+tvp(\mathcal{X}^{+},U) = \underbrace{tvp(\mathcal{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U)}_{O(2N^4+8N^5+N^6)}
 \end{equation*} 
 
 
@@ -148,4 +148,46 @@ $\rightarrow$ \textbf{Komplexität} $O(N^4)$.
 \end{aligned}
 \end{equation*}
 
+\end{frame}
+
+\subsection{Tensorstruktur}
+
+\begin{frame}
+\frametitle{Massenmatrix}
+\begin{framed}
+\begin{equation*}
+M^+ u =(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+ \otimes  (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T)^+  u
+\end{equation*}
+\end{framed}
+\begin{enumerate}
+\item Berechnung des Matrix-Matrix Produkts $O(N^3)$
+\item Berechnung der Pseudoinversen/Inversen mittels SVD oder Gauß Algorithmus von $\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T \in \mathbb{R}^{N \times N}$ ist von Komplexität $O(N^3)$
+\item Matrix-Vektor Produkt dank unseres Algorithmus Komplexität von $O(4N^3)$
+\end{enumerate}
+\textbf{Insgesamt} $O(6N^3)$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Laplace Bilinearform}
+\begin{framed}
+\center{\textbf{Lyapunow Gleichung}} \\
+\begin{equation*}
+Y=AU+UA^T.
+\end{equation*}
+\end{framed}
+Lösung ist gegeben durch
+
+\begin{framed}
+\begin{equation*}
+U = \int\limits_{0}^{\infty} e^{A \tau} (-V) e^{A^T \tau} d\tau.
+\end{equation*}
+\end{framed}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lyapunow Gleichung}
+\begin{itemize}
+\item Naive Berechnung hat Komplexität von $O(N^6)$
+\item Bartels-Stewart Algorithmus \cite{Bartels} liefert uns eine Komplexität von $O(N^3)$.
+\end{itemize}
 \end{frame}

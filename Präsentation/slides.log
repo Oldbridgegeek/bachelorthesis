@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  23 MAY 2017 23:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  24 MAY 2017 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1817,7 +1817,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 ]) (./slides.toc) [8
 
 ] (./theorie.tex
-<tensorOrdnung3.png, id=101, 697.60625pt x 588.1975pt>
+<tensorOrdnung3.png, id=105, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
 
 <use tensorOrdnung3.png>
@@ -1876,7 +1876,7 @@ d on input line 77.
 ] [19
 
 ]
-<hosvdTensor.png, id=195, 1317.92375pt x 562.1pt>
+<hosvdTensor.png, id=199, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 149.
@@ -1898,7 +1898,7 @@ Overfull \vbox (3.15974pt too high) detected at line 149
 ]
 (./pseudoinverse.tex [25
 
-] <lexi.png, id=248, 683.55376pt x 614.295pt>
+] <lexi.png, id=253, 683.55376pt x 614.295pt>
 File: lexi.png Graphic file (type png)
 
 <use lexi.png>
@@ -2019,7 +2019,20 @@ Overfull \vbox (3.38956pt too high) detected at line 99
 
 ] [59
 
-]) (./slides.bbl) [60
+] [60
+
+] [61
+
+] [62
+
+]) (./slides.toc) [63
+
+] (./Resultate.tex
+[64
+
+] [65
+
+]) (./slides.bbl) [66
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -2032,24 +2045,24 @@ Overfull \vbox (3.38956pt too high) detected at line 99
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
  (./slides.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 130.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 130.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 130.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 30366 strings out of 493014
- 594430 string characters out of 6133351
- 660930 words of memory out of 5000000
- 33117 multiletter control sequences out of 15000+600000
+ 30405 strings out of 493014
+ 594826 string characters out of 6133351
+ 660959 words of memory out of 5000000
+ 33136 multiletter control sequences out of 15000+600000
  109229 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,62p,10421b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2075,10 +2088,10 @@ ublic/lm/lmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lm
 sy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on slides.pdf (60 pages, 394407 bytes).
+Output written on slides.pdf (66 pages, 404930 bytes).
 PDF statistics:
- 641 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 148 named destinations out of 1000 (max. 500000)
+ 697 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
+ 163 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

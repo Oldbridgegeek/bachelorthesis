@@ -1,0 +1,32 @@
+\begin{frame}
+\frametitle{Resultate}
+Wir haben zwei Möglichkeiten betrachtet die Pseudoinverse der zu untersuchunden Bilinearformen herzuleiten
+\begin{enumerate}
+\item Ausnutzung der Tensorstruktur und Herleitung einer einfachen Form
+\item Universellen Ansatz über die HOSVD
+\end{enumerate}
+Die beiden Methoden haben ihre Vor und Nachteile. Die erste Methode:
+\begin{itemize}
+\item nicht flexibel
+\item individueller Lösungsansatz für jede Bilinearform
+\item Komplexitätsklasse $O(N^3)$
+\end{itemize}
+Die zweite Methode über die HOSVD:
+\begin{itemize}
+\item flexibilität
+\item Komplexitätsklasse vom $O(N^6)$
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Zukunft}
+In Zukunft kann man 
+\begin{itemize}
+\item Mehr Bilinearformen auf Tensorstrukturen untersuchen
+\item Das Kommunikationsverhalten des $n-mode$ Produkt  mit anderen Operatoren näher betrachten
+\item Effizientere Matrix-Matrix Multiplikation
+\item Unsere definierte Entfaltung bezüglich der HOSVD untersuchen
+\begin{equation*}
+\mathcal{X}^{(p)} v = [(U^{(1)} \otimes U^{(2)}) \mathcal{G}^{(p)} (U^{(3)} \otimes U^{(4)})] v
+\end{equation*}
+\end{itemize}
+\end{frame}

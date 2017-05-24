@@ -1,4 +1,4 @@
-\begin{thebibliography}{MK12}
+\begin{thebibliography}{uYZ03}
 
 \bibitem[MK12]{Kronbichler}
 Katharina~Kormann Martin~Kronbichler.
@@ -13,5 +13,10 @@ Katharina~Kormann Martin~Kronbichler.
 Brett~Bader Tamara~Kolda.
 \newblock {\em Tensor Decompositions and Applications}.
 \newblock SIAM, 2009.
+
+\bibitem[uYZ03]{Bartels}
+Danny~Sorensen und Yunkai~Zhou.
+\newblock {\em Direct Methods for Matrix Sylvester and Lyapunov Gleichungen}.
+\newblock 2003.
 
 \end{thebibliography}
