@@ -116,7 +116,7 @@ A_{p(i)p(j)}^T=A_{i_1 \, i_2 \, i_1 \, j_2}^T=A_{ j_1 \, j_2 \, i_1 \, i_2}=A_{p
 
 Wir können nun die Moore Penrose Pseudoinverse Eigenschaften auch für Tensoren angeben. Vorher sollte aber das Problem mit der Maschinengenauigkeit angesprochen werden. 
 Dazu gibt es ein Trick, den wir nutzen können. Der Trick kann nur mit Vorsicht genossen werden. Die Gleichheit wie in Lemma (\ref{lemma:penrose}) ist mit einem Rechner nicht zu erzielen, daher wird das Lemma abgeschwächt und für Tensoren angegeben. 
-\begin{Lemma} (Moore Penrose Pseudoinverse für Tensoren)
+\begin{Lemma} (Moore Penrose Pseudoinverse für Tensoren) \label{lemma:tpinv}
 \begin{enumerate}
 \item $ttp(A,ttp(A^{+},A))-A \, \, \, \, \, \, \, \, \, \, \, < \epsilon$
 \item $ttp(A^{+},ttp(A,A^{+}))-A^{+} \, \,  \, \, < \epsilon $ 
@@ -179,8 +179,10 @@ Da die Faktormatrizen $U^{(n)}$ orthogonal sind, reicht es einfach die Transponi
 \end{equation}
 
 Das Invertieren des Kerntensors erweist sich nun aber als problematisch.
-Hier ist es nützlich die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fälle vollbesetzt. Doch genaueres Hinsehen zeigt zwei Arten von Zahlen. Ziemlich große Zahlen von größer als 1 und ziemlich kleine Zahlen von kleiner als $10^{-10}$. 
+Hier ist es nützlich die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fällen vollbesetzt. Doch genaueres Hinsehen zeigt zwei Arten von Zahlen. Ziemlich große Zahlen von größer als 1 und ziemlich kleine Zahlen von kleiner als $10^{-10}$. 
 Die kleinen Zahlen sind in diesem Fall unbrauchbar und beinhalten wenig Informationen. Doch das Auslöschen vieler kleiner Zahlen nimmt uns in der Summe vielleicht relevante Informationen.
+Daher sollte man Vorsichtig bei diesem Verfahren sein. Die Grenze, die entscheidet, welche Zahl klein genug ist um ausradiert zu werden sollte mit bedacht gewählt werden. Je größer die Grenze desto größer muss man dann auch das $\epsilon$ bei der Definition der Tensor-Pseudoinversen, in Lemma (\ref{lemma:tpinv}), wählen.
+
 Wir können also kleine Zahlen einfach ausradieren und erhalten plötzlich einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf einfach jedes Diagonalelement zu invertieren.
 
 Wir wissen nun wie wir unsere Tensoren berechnen können und wissen auch wie sich die Pseudoinverse gewinnen lässt mittels der Singulärwertzerlegung höherer Ordnung. \\

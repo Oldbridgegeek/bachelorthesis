@@ -2,6 +2,8 @@ In Kapitel 3 haben wir uns zwei Möglichkeiten angeschaut die Pseudoinversen her
 
 Das heißt um dies effizient zu implementieren, sollten wir uns Gedanken dadrüber machen, wie wir diese Struktur ausnutzen können.
 
+In \cite{Teachlet} wird die effektive Berechnung der Masse Matrix mit einem Vektor multipliziert, vorgestellt. Dafür wird die Tensorstruktur der Masse Matri ausgenutzt. Diese Methodik sollten wir uns kurz vor Augen führen und daraufaufbauend um einige eigene Gedanken erweitern um sie für unsere Anwendung zugänglich zu machen.
+
 \subsection{Effizientes Matrix-Vektor Produkt }
 In \cite{Teachlet} wird eine Strategie vorgestellt ein Matrix-Vektor Produkt mit Kronecker Produkt Matrizen $z=(\mathcal{B} \otimes \mathcal{A})y$ effektiv zu berechnen.
 
@@ -78,11 +80,20 @@ Nehmen wir für die triviale Berechnung der Komplexität an $n=m=p=q$.
 Mit Hilfe dieses Algorithmus haben wir die Komplexität des Auswertens der Gleichung von $2m^4$ Operationen auf $4m^3$ Operationen reduziert.
 
 Dieser Algorithmus ist optimal um das effektive Berechnen von
-\begin{equation*}
-Mu=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u
-\end{equation*}
+\begin{equation} \label{eq:vmult}
+v=M^+u=[\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+ u \,.
+\end{equation}
 
-Doch für den zweiten Ansatz über die HOSVD,  werden wir eine erweiterte Form des Algorithmus brauchen, da wir mehrere Kronecker Produkte bekommen. Außerdem kann der folgende Algorithmus dann auch für dreidimensionale Ansatzfunktionen bei dem ersten Ansatz verwendent werden.
+Den Algorithmus kann man auch als Matrix-Produkt darstellen. Dazu ist es notwendig die Vektoren $u$ und $v$ in Matrizen zu überführen. Dies erfolgt über unsere Index-Transformation $p(\cdot)$. Sei $V$ die zu $v$ und $U$ die zu $u$ korrespondierenden Matrizen. Dann kann man (\ref{eq:vmult}) darstellen als
+
+\begin{equation}
+V= [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ U ([\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+)^T
+\end{equation}
+
+Diese Überführung werden wir später für die Berechnung der Laplace Bilinearform gebrauchen.
+
+
+Für den zweiten Ansatz über die HOSVD,  werden wir eine erweiterte Form des Algorithmus brauchen, da wir mehrere Kronecker Produkte bekommen. Außerdem kann der erweiterte Algorithmus dann auch für dreidimensionale Ansatzfunktionen bei dem ersten Ansatz verwendent werden.
 
 
 \subsubsection{Erweiterung}

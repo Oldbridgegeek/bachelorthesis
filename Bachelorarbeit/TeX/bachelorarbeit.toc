@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{25}
 \contentsline {section}{\numberline {4}Effiziente Implementierung}{32}
 \contentsline {subsection}{\numberline {4.1}Effizientes Matrix-Vektor Produkt }{32}
-\contentsline {subsubsection}{\numberline {4.1.1}Erweiterung}{33}
+\contentsline {subsubsection}{\numberline {4.1.1}Erweiterung}{34}
 \contentsline {subsection}{\numberline {4.2}Anwendung}{37}
 \contentsline {subsubsection}{\numberline {4.2.1}Summenfaktorisierung}{37}
 \contentsline {subsection}{\numberline {4.3}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{40}
