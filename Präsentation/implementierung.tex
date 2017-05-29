@@ -98,7 +98,7 @@ c_{N 1} \textcolor{green}{b}_{N 1} \textcolor{red}{\mathcal{A}} & \dots  & c_{N 
 \end{mdframed}
 \end{frame}
 
-
+\subsection{HOSVD}
 
 \begin{frame}
 \frametitle{Kerntensor invertieren}
@@ -137,14 +137,14 @@ $\rightarrow$ \textbf{Komplexität} $O(N^4)$.
 \frametitle{Pseudoinversen-Tensor Vektor Produkt}
 \textbf{1.Möglichkeit}
 \begin{equation*} \label{eq:pinv}
-tvp(\mathcal{X}^{+},U) = \underbrace{tvp(\mathcal{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U)}_{O(2N^4+8N^5+N^6)}
+tvp(\mathcal{X}^{+},U) = \underbrace{tvp(\mathcal{G}^{+} \times_{n=1}^{4} U^{ (n) ^{T} },U)}_{O(3N^4+17N^5)}
 \end{equation*} 
 
 
 \textbf{2.Möglichkeit}
 \begin{equation*} \label{eq:pinvcase}
 \begin{aligned}
-\mathcal{X}^{+}_{(n)} u&= \underbrace{U^{ (n) }  \mathcal{G}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2}) }  \otimes U^{ (N_{3}) }) u}_{O(8N^4+8N^5+N^6+N^{10})} \,.
+\mathcal{X}^{+}_{(n)} u&= \underbrace{U^{ (n) }  \mathcal{G}^{+}_{(n)} ( U^{ (N_{1})  } \otimes U^{ (N_{2}) }  \otimes U^{ (N_{3}) }) u}_{O(9N^4+11N^5)} \,.
 \end{aligned}
 \end{equation*}
 

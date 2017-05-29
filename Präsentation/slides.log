@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  29 MAY 2017 10:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  29 MAY 2017 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1925,13 +1925,13 @@ Package pdftex.def Info: lexi.png used on input line 44.
 ]
 [35
 
+] [36
+
 ]
-Overfull \vbox (2.15916pt too high) detected at line 146
+Overfull \vbox (2.15916pt too high) detected at line 150
  []
 
-[36
-
-] [37
+[37
 
 ] [38
 
@@ -1943,26 +1943,26 @@ Overfull \vbox (2.15916pt too high) detected at line 146
 
 ] [42
 
+] [43
+
 pdfTeX warning (ext4): destination with the same identifier (name{eq:easy}) has
  been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.235 \end{frame}
-                 ] [43
+l.239 \end{frame}
+                 ] [44
 
-] [44
-
-]
-Overfull \hbox (7.00063pt too wide) detected at line 253
-[] []
- []
-
-[45
+] [45
 
 ] [46
 
-] [47
+]
+Overfull \hbox (7.00063pt too wide) detected at line 261
+[] []
+ []
+
+[47
 
 ] [48
 
@@ -1970,17 +1970,21 @@ Overfull \hbox (7.00063pt too wide) detected at line 253
 
 ] [50
 
-]) (./slides.toc) [51
+] [51
+
+] [52
+
+]) (./slides.toc) [53
 
 ] (./implementierung.tex
-[52
+[54
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 31.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 31.
- [53
+ [55
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
@@ -1992,14 +1996,14 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 54.
 Package mdframed Info: mdframed inside a box 
  mdframed uses option nobreak mdframed on input line 54.
- [54
+ [56
 
 ]
 Overfull \hbox (15.47267pt too wide) detected at line 70
 []
  []
 
-[55
+[57
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
@@ -2011,11 +2015,7 @@ Package mdframed Info: mdframed inside a box
 Overfull \vbox (3.38956pt too high) detected at line 99
  []
 
-[56
-
-] [57
-
-] [58
+[58
 
 ] [59
 
@@ -2025,16 +2025,20 @@ Overfull \vbox (3.38956pt too high) detected at line 99
 
 ] [62
 
-]) (./slides.toc) [63
+] [63
+
+] [64
+
+]) (./slides.toc) [65
 
 ] (./Resultate.tex
-[64
+[66
 
-] [65
+] [67
 
-]) [66
+]) [68
 
-] (./slides.bbl) [67
+] (./slides.bbl) [69
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -2061,11 +2065,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 30409 strings out of 493014
- 594863 string characters out of 6133351
- 660959 words of memory out of 5000000
- 33138 multiletter control sequences out of 15000+600000
- 109229 words of font info for 92 fonts, out of 8000000 for 9000
+ 30422 strings out of 493014
+ 594996 string characters out of 6133351
+ 660925 words of memory out of 5000000
+ 33145 multiletter control sequences out of 15000+600000
+ 112018 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,62p,10421b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
@@ -2079,21 +2083,22 @@ cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/public/lm/lmss12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/lm/lmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lms
-s9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/lm/lmsso9.pfb></usr/local/texlive/2016/texmf-dist/fon
-ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
-ublic/lm/lmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lm
-sy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on slides.pdf (67 pages, 405598 bytes).
+blic/lm/lmss17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lm
+ss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/lm/lmsso8.pfb></usr/local/texlive/2016/texmf-dist/fon
+ts/type1/public/lm/lmsso9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
+ublic/lm/lmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/l
+msy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on slides.pdf (69 pages, 424060 bytes).
 PDF statistics:
- 704 PDF objects out of 1000 (max. 8388607)
- 588 compressed objects within 6 object streams
- 165 named destinations out of 1000 (max. 500000)
+ 721 PDF objects out of 1000 (max. 8388607)
+ 601 compressed objects within 7 object streams
+ 170 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
