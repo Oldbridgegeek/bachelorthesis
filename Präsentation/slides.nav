@@ -130,13 +130,15 @@
 \headcommand {\beamer@framepages {64}{64}}
 \headcommand {\slideentry {5}{0}{3}{65/65}{}{0}}
 \headcommand {\beamer@framepages {65}{65}}
-\headcommand {\sectionentry {6}{Literatur}{66}{Literatur}{0}}
-\headcommand {\beamer@sectionpages {63}{65}}
-\headcommand {\beamer@subsectionpages {63}{65}}
-\headcommand {\slideentry {6}{0}{1}{66/66}{}{0}}
+\headcommand {\slideentry {5}{0}{4}{66/66}{}{0}}
 \headcommand {\beamer@framepages {66}{66}}
-\headcommand {\beamer@partpages {1}{66}}
-\headcommand {\beamer@subsectionpages {66}{66}}
-\headcommand {\beamer@sectionpages {66}{66}}
-\headcommand {\beamer@documentpages {66}}
-\headcommand {\def \inserttotalframenumber {49}}
+\headcommand {\sectionentry {6}{Literatur}{67}{Literatur}{0}}
+\headcommand {\beamer@sectionpages {63}{66}}
+\headcommand {\beamer@subsectionpages {63}{66}}
+\headcommand {\slideentry {6}{0}{1}{67/67}{}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\beamer@partpages {1}{67}}
+\headcommand {\beamer@subsectionpages {67}{67}}
+\headcommand {\beamer@sectionpages {67}{67}}
+\headcommand {\beamer@documentpages {67}}
+\headcommand {\def \inserttotalframenumber {50}}

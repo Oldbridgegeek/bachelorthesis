@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  25 MAY 2017 10:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  29 MAY 2017 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -113,6 +113,37 @@ Class scrartcl Info: Redefining `\numberline' on input line 5012.
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
+
+Class scrartcl Warning: Usage of package `fancyhdr' together
+(scrartcl)              with a KOMA-Script class is not recommended.
+(scrartcl)              I'd suggest to use 
+(scrartcl)              package `scrlayer-scrpage'.
+(scrartcl)              Nevertheless, using requested
+(scrartcl)              package `fancyhdr' on input line 15.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip55
+\f@ncyO@elh=\skip56
+\f@ncyO@erh=\skip57
+\f@ncyO@olh=\skip58
+\f@ncyO@orh=\skip59
+\f@ncyO@elf=\skip60
+\f@ncyO@erf=\skip61
+\f@ncyO@olf=\skip62
+\f@ncyO@orf=\skip63
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 16.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 18.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 19.
+
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks15
@@ -470,7 +501,7 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip55
+\@mathmargin=\skip64
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -520,8 +551,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \totwidth@=\dimen111
 \lineht@=\dimen112
 \@envbody=\toks20
-\multlinegap=\skip56
-\multlinetaggap=\skip57
+\multlinegap=\skip65
+\multlinetaggap=\skip66
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
@@ -543,9 +574,9 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headfont=\toks24
 \thm@notefont=\toks25
 \thm@headpunct=\toks26
-\thm@preskip=\skip58
-\thm@postskip=\skip59
-\thm@headsep=\skip60
+\thm@preskip=\skip67
+\thm@postskip=\skip68
+\thm@headsep=\skip69
 \dth@everypar=\toks27
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
@@ -595,7 +626,7 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip61
+\labelindent=\skip70
 \enit@outerparindent=\dimen121
 \enit@toks=\toks29
 \enit@inbox=\box30
@@ -610,12 +641,12 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count107
 \calc@Adimen=\dimen122
 \calc@Bdimen=\dimen123
-\calc@Askip=\skip62
-\calc@Bskip=\skip63
+\calc@Askip=\skip71
+\calc@Bskip=\skip72
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count108
-\calc@Cskip=\skip64
+\calc@Cskip=\skip73
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
@@ -626,7 +657,7 @@ LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \g_MT_multlinerow_int=\count109
 \l_MT_multwidth_dim=\dimen124
-\origjot=\skip65
+\origjot=\skip74
 \l_MT_shortvdotswithinadjustabove_dim=\dimen125
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen126
 \l_MT_above_intertext_sep=\dimen127
@@ -650,13 +681,13 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@line=\count110
 \c@ALG@rem=\count111
 \c@ALG@nested=\count112
-\ALG@tlm=\skip66
-\ALG@thistlm=\skip67
+\ALG@tlm=\skip75
+\ALG@thistlm=\skip76
 \c@ALG@Lnr=\count113
 \c@ALG@blocknr=\count114
 \c@ALG@storecount=\count115
 \c@ALG@tmpcounter=\count116
-\ALG@tmplength=\skip68
+\ALG@tmplength=\skip77
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
@@ -685,13 +716,13 @@ Class scrartcl Warning: Usage of package `titlesec' together
 (scrartcl)              the extended optional argument of the section
 (scrartcl)              commands.
 (scrartcl)              Nevertheless, using requested
-(scrartcl)              package `titlesec' on input line 33.
+(scrartcl)              package `titlesec' on input line 43.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box31
-\beforetitleunit=\skip69
-\aftertitleunit=\skip70
+\beforetitleunit=\skip78
+\aftertitleunit=\skip79
 \ttl@plus=\dimen131
 \ttl@minus=\dimen132
 \ttl@toksa=\toks30
@@ -722,11 +753,11 @@ Package titlesec Warning: Non standard sectioning command detected
 )
 
 Package scrartcl Warning: Activating an ugly workaround for a missing
-(scrartcl)                feature of package `titlesec` on input line 33.
+(scrartcl)                feature of package `titlesec` on input line 43.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip71
+\OuterFrameSep=\skip80
 \fb@frw=\dimen136
 \fb@frh=\dimen137
 \FrameRule=\dimen138
@@ -810,12 +841,12 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \l_tmpb_dim=\dimen143
 \g_tmpa_dim=\dimen144
 \g_tmpb_dim=\dimen145
-\c_zero_skip=\skip72
-\c_max_skip=\skip73
-\l_tmpa_skip=\skip74
-\l_tmpb_skip=\skip75
-\g_tmpa_skip=\skip76
-\g_tmpb_skip=\skip77
+\c_zero_skip=\skip81
+\c_max_skip=\skip82
+\l_tmpa_skip=\skip83
+\l_tmpb_skip=\skip84
+\g_tmpa_skip=\skip85
+\g_tmpb_skip=\skip86
 \c_zero_muskip=\muskip11
 \c_max_muskip=\muskip12
 \l_tmpa_muskip=\muskip13
@@ -931,47 +962,47 @@ Package zref Info: New property: abspage on input line 62.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip78
+\mdf@templength=\skip87
 \c@mdf@globalstyle@cnt=\count147
-\mdf@skipabove@length=\skip79
-\mdf@skipbelow@length=\skip80
-\mdf@leftmargin@length=\skip81
-\mdf@rightmargin@length=\skip82
-\mdf@innerleftmargin@length=\skip83
-\mdf@innerrightmargin@length=\skip84
-\mdf@innertopmargin@length=\skip85
-\mdf@innerbottommargin@length=\skip86
-\mdf@splittopskip@length=\skip87
-\mdf@splitbottomskip@length=\skip88
-\mdf@outermargin@length=\skip89
-\mdf@innermargin@length=\skip90
-\mdf@linewidth@length=\skip91
-\mdf@innerlinewidth@length=\skip92
-\mdf@middlelinewidth@length=\skip93
-\mdf@outerlinewidth@length=\skip94
-\mdf@roundcorner@length=\skip95
-\mdf@footenotedistance@length=\skip96
-\mdf@userdefinedwidth@length=\skip97
-\mdf@needspace@length=\skip98
-\mdf@frametitleaboveskip@length=\skip99
-\mdf@frametitlebelowskip@length=\skip100
-\mdf@frametitlerulewidth@length=\skip101
-\mdf@frametitleleftmargin@length=\skip102
-\mdf@frametitlerightmargin@length=\skip103
-\mdf@shadowsize@length=\skip104
-\mdf@extratopheight@length=\skip105
-\mdf@subtitleabovelinewidth@length=\skip106
-\mdf@subtitlebelowlinewidth@length=\skip107
-\mdf@subtitleaboveskip@length=\skip108
-\mdf@subtitlebelowskip@length=\skip109
-\mdf@subtitleinneraboveskip@length=\skip110
-\mdf@subtitleinnerbelowskip@length=\skip111
-\mdf@subsubtitleabovelinewidth@length=\skip112
-\mdf@subsubtitlebelowlinewidth@length=\skip113
-\mdf@subsubtitleaboveskip@length=\skip114
-\mdf@subsubtitlebelowskip@length=\skip115
-\mdf@subsubtitleinneraboveskip@length=\skip116
-\mdf@subsubtitleinnerbelowskip@length=\skip117
+\mdf@skipabove@length=\skip88
+\mdf@skipbelow@length=\skip89
+\mdf@leftmargin@length=\skip90
+\mdf@rightmargin@length=\skip91
+\mdf@innerleftmargin@length=\skip92
+\mdf@innerrightmargin@length=\skip93
+\mdf@innertopmargin@length=\skip94
+\mdf@innerbottommargin@length=\skip95
+\mdf@splittopskip@length=\skip96
+\mdf@splitbottomskip@length=\skip97
+\mdf@outermargin@length=\skip98
+\mdf@innermargin@length=\skip99
+\mdf@linewidth@length=\skip100
+\mdf@innerlinewidth@length=\skip101
+\mdf@middlelinewidth@length=\skip102
+\mdf@outerlinewidth@length=\skip103
+\mdf@roundcorner@length=\skip104
+\mdf@footenotedistance@length=\skip105
+\mdf@userdefinedwidth@length=\skip106
+\mdf@needspace@length=\skip107
+\mdf@frametitleaboveskip@length=\skip108
+\mdf@frametitlebelowskip@length=\skip109
+\mdf@frametitlerulewidth@length=\skip110
+\mdf@frametitleleftmargin@length=\skip111
+\mdf@frametitlerightmargin@length=\skip112
+\mdf@shadowsize@length=\skip113
+\mdf@extratopheight@length=\skip114
+\mdf@subtitleabovelinewidth@length=\skip115
+\mdf@subtitlebelowlinewidth@length=\skip116
+\mdf@subtitleaboveskip@length=\skip117
+\mdf@subtitlebelowskip@length=\skip118
+\mdf@subtitleinneraboveskip@length=\skip119
+\mdf@subtitleinnerbelowskip@length=\skip120
+\mdf@subsubtitleabovelinewidth@length=\skip121
+\mdf@subsubtitlebelowlinewidth@length=\skip122
+\mdf@subsubtitleaboveskip@length=\skip123
+\mdf@subsubtitlebelowskip@length=\skip124
+\mdf@subsubtitleinneraboveskip@length=\skip125
+\mdf@subsubtitleinnerbelowskip@length=\skip126
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
@@ -981,33 +1012,33 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@splitbox@one=\box50
 \mdf@splitbox@two=\box51
 \mdf@splitbox@save=\box52
-\mdfsplitboxwidth=\skip118
-\mdfsplitboxtotalwidth=\skip119
-\mdfsplitboxheight=\skip120
-\mdfsplitboxdepth=\skip121
-\mdfsplitboxtotalheight=\skip122
-\mdfframetitleboxwidth=\skip123
-\mdfframetitleboxtotalwidth=\skip124
-\mdfframetitleboxheight=\skip125
-\mdfframetitleboxdepth=\skip126
-\mdfframetitleboxtotalheight=\skip127
-\mdffootnoteboxwidth=\skip128
-\mdffootnoteboxtotalwidth=\skip129
-\mdffootnoteboxheight=\skip130
-\mdffootnoteboxdepth=\skip131
-\mdffootnoteboxtotalheight=\skip132
-\mdftotallinewidth=\skip133
-\mdfboundingboxwidth=\skip134
-\mdfboundingboxtotalwidth=\skip135
-\mdfboundingboxheight=\skip136
-\mdfboundingboxdepth=\skip137
-\mdfboundingboxtotalheight=\skip138
-\mdf@freevspace@length=\skip139
-\mdf@horizontalwidthofbox@length=\skip140
-\mdf@verticalmarginwhole@length=\skip141
-\mdf@horizontalspaceofbox=\skip142
-\mdfsubtitleheight=\skip143
-\mdfsubsubtitleheight=\skip144
+\mdfsplitboxwidth=\skip127
+\mdfsplitboxtotalwidth=\skip128
+\mdfsplitboxheight=\skip129
+\mdfsplitboxdepth=\skip130
+\mdfsplitboxtotalheight=\skip131
+\mdfframetitleboxwidth=\skip132
+\mdfframetitleboxtotalwidth=\skip133
+\mdfframetitleboxheight=\skip134
+\mdfframetitleboxdepth=\skip135
+\mdfframetitleboxtotalheight=\skip136
+\mdffootnoteboxwidth=\skip137
+\mdffootnoteboxtotalwidth=\skip138
+\mdffootnoteboxheight=\skip139
+\mdffootnoteboxdepth=\skip140
+\mdffootnoteboxtotalheight=\skip141
+\mdftotallinewidth=\skip142
+\mdfboundingboxwidth=\skip143
+\mdfboundingboxtotalwidth=\skip144
+\mdfboundingboxheight=\skip145
+\mdfboundingboxdepth=\skip146
+\mdfboundingboxtotalheight=\skip147
+\mdf@freevspace@length=\skip148
+\mdf@horizontalwidthofbox@length=\skip149
+\mdf@verticalmarginwhole@length=\skip150
+\mdf@horizontalspaceofbox=\skip151
+\mdfsubtitleheight=\skip152
+\mdfsubsubtitleheight=\skip153
 \c@mdfcountframes=\count148
 
 ****** mdframed patching \endmdf@trivlist
@@ -1066,18 +1097,18 @@ LaTeX Warning: Label `eq:pinv' multiply defined.
 )
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1163,46 +1194,47 @@ e
 [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 113--114
+[2]
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 124--125
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--122
+Underfull \hbox (badness 10000) in paragraph at lines 126--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--128
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
 
  []
 
-[2]
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 136.
+[3]
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 147.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 136.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 147.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 136.
+LaTeX Font Info:    Try loading font information for U+msa on input line 147.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 136.
+LaTeX Font Info:    Try loading font information for U+msb on input line 147.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 136.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 147.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 136.
- [3]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 151.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 147.
+ [4] [5]
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 167.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmss.fd
@@ -1212,8 +1244,8 @@ File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 \tf@toc=\write3
 \openout3 = `bachelorarbeit.toc'.
 
- [4] [1]
-LaTeX Font Info:    Try loading font information for U+eus on input line 190.
+ [6] [1]
+LaTeX Font Info:    Try loading font information for U+eus on input line 206.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
@@ -1234,14 +1266,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
  []
 
 [6]) (./Theorie/galerkin.tex [7] [8]) (./Theorie/fem.tex [9]
-<hatfunction.png, id=73, 740.7675pt x 623.32875pt>
+<hatfunction.png, id=79, 740.7675pt x 623.32875pt>
 File: hatfunction.png Graphic file (type png)
  <use hatfunction.png>
 Package pdftex.def Info: hatfunction.png used on input line 46.
 (pdftex.def)             Requested size: 256.07741pt x 215.47665pt.
 
 [10 <./hatfunction.png>] [11] [12] [13]) [14] (./Theorie/tensor.tex
-<tensorOrdnung3.png, id=92, 697.60625pt x 588.1975pt>
+<tensorOrdnung3.png, id=98, 697.60625pt x 588.1975pt>
 File: tensorOrdnung3.png Graphic file (type png)
  <use tensorOrdnung3.png>
 Package pdftex.def Info: tensorOrdnung3.png used on input line 11.
@@ -1252,7 +1284,7 @@ Package pdftex.def Info: tensorOrdnung3.png used on input line 11.
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
 d on input line 42.
 
-[16] <hosvdTensor.png, id=101, 1317.92375pt x 562.1pt>
+[16] <hosvdTensor.png, id=108, 1317.92375pt x 562.1pt>
 File: hosvdTensor.png Graphic file (type png)
  <use hosvdTensor.png>
 Package pdftex.def Info: hosvdTensor.png used on input line 92.
@@ -1264,7 +1296,7 @@ Overfull \hbox (1.6174pt too wide) in paragraph at lines 17--18
 s-gra-de be-nut-zen. Die Reich-
  []
 
-<lexi.png, id=113, 683.55376pt x 614.295pt>
+<lexi.png, id=119, 683.55376pt x 614.295pt>
 File: lexi.png Graphic file (type png)
  <use lexi.png>
 Package pdftex.def Info: lexi.png used on input line 21.
@@ -1313,20 +1345,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 346--348
 
  []
 
-[41] [42]) [43] (./Resultate/resultate.tex) [44] (./bachelorarbeit.bbl)
-[45] (./bachelorarbeit.aux)
+[41] [42]
+
+LaTeX Warning: Reference `bem:diagonal' on page 43 undefined on input line 400.
+
+
+) [43] (./Resultate/resultate.tex) [44] (./bachelorarbeit.bbl) [45]
+(./bachelorarbeit.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16724 strings out of 493014
- 294028 string characters out of 6133351
- 445381 words of memory out of 5000000
- 19961 multiletter control sequences out of 15000+600000
+ 16851 strings out of 493014
+ 295442 string characters out of 6133351
+ 447211 words of memory out of 5000000
+ 20084 multiletter control sequences out of 15000+600000
  23872 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,22n,54p,10433b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,22n,54p,10433b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
@@ -1351,10 +1391,10 @@ e/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on bachelorarbeit.pdf (52 pages, 544684 bytes).
+Output written on bachelorarbeit.pdf (54 pages, 549842 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
+ 281 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

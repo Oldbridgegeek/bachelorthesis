@@ -10,6 +10,16 @@
 \usepackage{setspace}
 \onehalfspacing
 
+% Header and Footer
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[CE,CO]{\leftmark}
+
+\fancyfoot[LE,LO]{Enes Witwit}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{1pt}
+
+
 %Packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -93,7 +103,7 @@ eingereicht von \\[0.5cm]
 {\Large Enes Witwit}
 \vspace*{1cm}
 
-betreuut von  \\[0.5cm]
+betreut von  \\[0.5cm]
 {\Large Prof. Dr. Kanschat}
 \vspace*{5cm}
 
@@ -105,7 +115,8 @@ Universität Heidelberg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\newpage\phantom{Leer}
+\thispagestyle{empty}
 \newpage
 \thispagestyle{empty}
 \vspace*{14cm}
@@ -132,16 +143,21 @@ gewesen ist. \\[2ex]
 \vspace*{2.5cm}
 {\center{
 \begin{framed}
-\textbf{Zusammenfassung} \\
-Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität von $O(N^3)$, wobei $N$ der Polynomgrad ist. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität von $O(N^6)$.
+\textbf{Abstract} \\
+The following work attempts to derive efficient algorithms and approaches to compute the matrix vector product with the pseudoinverse of specific cellmatrices in finite elements. The cellmatrices that we take into account are from the mass matrix and the laplace bilinearform. We derive two approaches to compute the pseudoinverse. The first one uses the tensor structure of the cellmatrices to calculate the pseudoinverse and an efficient algorithm to compute the matrix vector product. The second one uses a higher order singular value decomposition to compute the pseudoinverse. The first approach is highly efficient since it has the complexity class $O(N^3)$, where N is the polynomial order. But it lacks unfortunatley of flexibility. The second approach is very flexible but it has a high complexity order of $O(N^6)$.
 \end{framed}
 }}
+
+\newpage
+\vspace*{2.5cm}
 {\center{
 \begin{framed}
-\textbf{Abstract} \\
-The following work attempts to derive efficient algorithms and approaches to compute the matrix vector product with the pseudoinverse of specific cellmatrices. The cellmatrices that we take into account are from the mass matrix and the laplace bilinearform. We derived two approaches to compute the pseudoinverse. The one uses the tensor structure of the cellmatrices to derive the pseudoinverse and an efficient algorithm to compute the matrix vector product. The second one uses a higher order singular value decomposition to compute the pseudoinverse. The first approach is highly efficient since it has the complexity class $O(N^3)$, where N is the polynomial order. But it unfortunatley lacks of flexibility. The second approach is very flexible but it has a high complexity order $O(N^6)$.
+\textbf{Zusammenfassung} \\
+Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität von $O(N^3)$, wobei $N$ der Polynomgrad ist. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität von $O(N^6)$. Der zweite effizientere Ansatz hat aber das Problem, dass er individuell für jede Bilinearform hergeleitet werden muss, wobei der erste Ansatz universell für alle Bilinearformen gültig ist.
 \end{framed}
 }}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,6 +244,7 @@ The following work attempts to derive efficient algorithms and approaches to com
 
 \pagenumbering{arabic} 
 \setcounter{page}{1}
+\pagestyle{fancy}
 %Einleitung und Motivation
 \section{Einführung}
 \input{Einfuehrung/einfuehrung.tex}

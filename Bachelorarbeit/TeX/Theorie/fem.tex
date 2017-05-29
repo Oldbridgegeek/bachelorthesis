@@ -61,7 +61,7 @@ Wir werden hier nodale Basisfunktionen benutzten. Diese sind durch $\, \varphi_k
 $
 \item ~Sei $\, \{ \, \varphi_i \, \}_{i=1}^{\hat{N}}$ die Basis  von $V_n$
 \item ~Definiere $A_n=( \, a(\varphi_k,\varphi_i) \, )_{i,k=1}^{\hat{N}} \, $ und $ \, f_n=( \, f(\varphi_i) \, )_{i=1}^{\hat{N}}$
-\item ~Löse lineares Gleichungssystem $A_n u_n=f_n$ zur Bestimmung der Koeffizienten $u_i$ der Darstellung $u_n(x)=\sum_{i=1}^{\hat{N}} u_i \varphi_i(x)$
+\item ~Löse lineares Gleichungssystem $A_n u_n=f_n$ zur Bestimmung der Koeffizienten $u_i$ der Darstellung $u_n(x)=\sum_{i=1}^{\hat{N}} u_i \varphi_i(x)$.
 \end{enumerate}
 \end{framed}
 
@@ -69,33 +69,33 @@ In unserem Fall war $a(u,v)=\int\limits_{\Omega} \Delta u \, \Delta v \, dx \, $
 
 \begin{equation} \label{eq:element}
 \begin{aligned}
-A_h^j &= (a_{ik}^j)_{i,k \in I_j} \\
+A_h^j &= (a_{ik}^j)_{i,k \in I_j} \, ,\\
 a_{ik}^j &= \int\limits_{\Omega_j} \Delta \varphi_i \, \Delta \varphi_k \, dx \, \, \text{ mit } \, \, 
-I_j =\{ i \, : \, supp \, \varphi_i \cap \, \Omega_j \, \neq \emptyset \, \}
+I_j =\{ i \, : \, supp \, \varphi_i \cap \, \Omega_j \, \neq \emptyset \, \} .
 \end{aligned}
 \end{equation}
 
 Analog dazu die elementweise rechte Seite
 \begin{equation*}
-f^j = (\, f_i^j \, )_{i \in I_j} \, \, \text{ mit } \, \, f_i^j = \int\limits_{\Omega} \, f \, \varphi_i \, dx 
+f^j = (\, f_i^j \, )_{i \in I_j} \, \, \text{ mit } \, \, f_i^j = \int\limits_{\Omega} \, f \, \varphi_i \, dx  \, .
 \end{equation*}
 
 Die globale Steifigkeitstmatrix $A_n$ und die rechte Seite $f_n$ ergeben sich dann wegen der Addivität des Integrals als Summen
 
 \begin{equation*}
-A_n = (a_{ik})_{i,k=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, a_{ik} = \sum_{j=1 \, , \, i \in I_j \, , \, k \in I_j }^M a_{ik}^j 
+A_n = (a_{ik})_{i,k=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, a_{ik} = \sum_{j=1 \, , \, i \in I_j \, , \, k \in I_j }^M a_{ik}^j  
 \end{equation*}
 
 und
 
 \begin{equation*}
-f_h = (f_i)_{i=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, f_i = \sum_{j=1 \, , \, i \in I_j}^M f_i^j
+f_h = (f_i)_{i=1}^{\hat{N}} \, \, \, \text{ mit } \, \, \, f_i = \sum_{j=1 \, , \, i \in I_j}^M f_i^j \, .
 \end{equation*}
 
 $I_j$ ist gerade die List der Eckpunkte der Elemente.
 Wir sehen für die Elemente der Elementsteifigkeitsmatrix in (\ref{eq:element}) ein Integral über ein Teilgebiet $\Omega_j$. Hier liegt eine gute Chance viele Operationen zu sparen, indem wir uns die Struktur vom Integral zu Nutze machen und mit Hilfe vom Transformationssatz für Integrale eine einheitlichere Form herleiten.
 
-Dazu definieren uns sogenannten \textit{Referenzelemente}. Beispielsweise wenn wir eine Zerlegung in Rechtecken wählen, würden wir uns ein Referenzrechteck definieren oder im Falle von Dreieicken ein Referenzdreieck. Weiterhin definieren wir uns eine lineare Transformation die gerade die Ecken unseres Teilgebiets auf die Ecken des korrespondierenden Referenzelements abbildet. Mit Hilfe vom Transformationssatz formen wir das Integral um und erhalten plötzlich für alle Elementsteifigkeitsmatrizen dieselben Integrale bloß mit verschiedenen Konstanten multipliziert. Die Konstanten sind gerade die Beträge der Determinanten der linearen Transformationen.
+Dazu definieren uns sogenannten \textit{Referenzelemente}. Beispielsweise wenn wir eine Zerlegung in Rechtecken wählen, würden wir uns ein Referenzrechteck definieren oder im Falle von Dreieicken ein Referenzdreieck. Weiterhin definieren wir uns eine lineare Transformation die gerade die Ecken unseres Teilgebiets auf die Ecken des korrespondierenden Referenzelements abbildet. Mit Hilfe vom Transformationssatz formen wir das Integral um und erhalten für alle Elementsteifigkeitsmatrizen dieselben Integrale bloß mit verschiedenen Konstanten multipliziert. Die Konstanten sind gerade die Beträge der Determinanten der linearen Transformationen.
 
 Um dann die die Elemente der Elementsteifigkeitsmatrizen in die globale Steifigkeitsmatrix einzubetten, ist dies eine Frage des Umdenkens von einer lokalen Struktur in die globale Struktur.
 Dieses Umdenken ist ausschlaggebend für das Verstehen vom Finite-Elemente Ansatz und auch der späteren Arbeit zur Herleitung der Pseudoinversen.
@@ -105,7 +105,7 @@ Wir rekapitulieren die erste Gleichung dieser Arbeit
 v=A(u)=\sum_{k=1}^{n_{cells}} P_k^T A_k (P_k u).
 \end{equation}
 
-Die Variable $n_{cells}$ ist somit die Anzahl der Teilgebiete $\Omega_j$. Die Matrix $A_k$ ist der elementspezifische Operator A. Die Matrix $P_k$ ist genau diese Transformation von der wir gerade sprachen, nämlich die Transformation von den lokalen Freiheitsgraden in die globalen Freiheitsgrade.
+Die Variable $n_{cells}$ ist somit die Anzahl der Teilgebiete $\Omega_j$. Die Matrix $A_k$ ist der elementspezifische Operator $A$. Die Matrix $P_k$ ist genau diese Transformation von der wir gerade sprachen, nämlich die Transformation von den lokalen Freiheitsgraden in die globalen Freiheitsgrade.
 
 Die Strukturen, die wir betrachten, sollten definiert werden. Das ist einerseits die Masse Matrix mit der Bilinearform
 \begin{equation} \label{eq:mass}

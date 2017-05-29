@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  24 MAY 2017 14:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  29 MAY 2017 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2032,7 +2032,9 @@ Overfull \vbox (3.38956pt too high) detected at line 99
 
 ] [65
 
-]) (./slides.bbl) [66
+]) [66
+
+] (./slides.bbl) [67
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -2045,24 +2047,24 @@ Overfull \vbox (3.38956pt too high) detected at line 99
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (./slides.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 30405 strings out of 493014
- 594826 string characters out of 6133351
+ 30409 strings out of 493014
+ 594863 string characters out of 6133351
  660959 words of memory out of 5000000
- 33136 multiletter control sequences out of 15000+600000
+ 33138 multiletter control sequences out of 15000+600000
  109229 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,62p,10421b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2088,10 +2090,10 @@ ublic/lm/lmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lm
 sy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></u
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on slides.pdf (66 pages, 404930 bytes).
+Output written on slides.pdf (67 pages, 405598 bytes).
 PDF statistics:
- 697 PDF objects out of 1000 (max. 8388607)
- 582 compressed objects within 6 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 704 PDF objects out of 1000 (max. 8388607)
+ 588 compressed objects within 6 object streams
+ 165 named destinations out of 1000 (max. 500000)
  94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

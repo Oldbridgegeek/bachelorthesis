@@ -401,23 +401,7 @@ Wir können uns eine trunkierte Singulärwertzerlegung höherer Ordnung  wagen o
 
 \item Eine letzte Alternative ist die trunkierte HOSVD.
 
-\end{enumerate} 
-
-Wir wollen für eine Effizienzsteigerung folgende Bemerkung nutzen.
-
-\begin{Bemerkung} \label{bem:diagonal}
-Sei A eine Diagonalmatrix mit $A \in \mathbb{R}^{n^2 \times n^2}$, $\mathcal{C},\mathcal{B} \in \mathbb{R}^{n \times n}$ und $y \in \mathbb{R}^{n^2}$. Dann gilt:
-\begin{equation*}
-A(\mathcal{B} \otimes \mathcal{C})y = (\mathcal{B} \otimes \mathcal{C}) 
-\begin{pmatrix}
-a_{11} y_1 \\ \vdots \\ a_{n^2 n^2} y_{n^2} \\
-\end{pmatrix}
-\end{equation*}
-\begin{proof}
-Folgt aus der Kommutativität der Matrixmultiplikation für Diagonalmatrizen.
-\end{proof}
-\end{Bemerkung}
-
+\end{enumerate}
 
 Das Problem ist, dass unser entfalteter Kerntensor keine Diagonalmatrix ist. Der Kerntensor ist an sich zwar super-diagonal, bloß hängt es von der Entfaltung ab, ob der entfaltete Tensor eine Diagonalmatrix ist. 
 Der entfaltete Kerntensor ist genau dann eine Diagonalmatrix, wenn wir die natürliche Entfaltung wählen. Mit dieser Entfaltung ist die Entfaltung gemeint mit Hilfe der Index Transformation $p(\cdot)$.

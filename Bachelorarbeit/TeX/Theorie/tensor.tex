@@ -1,4 +1,4 @@
-In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als einen Tensor umzudefinieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieser Tensors untersuchen. Das Ziel dieser Untersuchungen wird sein einen einfachen Weg zu finden die korrespondierende Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analyisieren, wird in diesem Unterkapitel beantwortet.
+In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als Tensor zu definieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieser Tensoren untersuchen. Das Ziel dieser Untersuchungen ist einen einfachen Weg zu finden, die korrespondierende Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analysieren, wird in diesem Unterkapitel beantwortet.
 
 
 \begin{Definition} (Tensor) \\
@@ -42,29 +42,29 @@ Wir betrachten nur die sogenannte \textit{mode-n Entfaltung}, da dies die einzig
 Eine mode-n Entfaltung des Tensors $\pmb{\mathscr{X}}$ wird mit $\bold{X}_{(n)}$ geschrieben und ordnet die $mode-n$ Fasern in die Spalten der Ergebnismatrix.
 Formal ist es eine Abbildung des Indize N-tupels $(i_1,\dots,i_N)$ auf das Matrixindize-Tupel $(i_n,j) $
 \begin{equation}
-j=1+\sum_{\substack{k=1 \\ k \neq n}}^{N} (i_k-1)J_k \text{ mit } J_k = \prod_{\substack{m=1 \\ m \neq n}}^{k-1} I_m
+j=1+\sum_{\substack{k=1 \\ k \neq n}}^{N} (i_k-1)J_k \text{ mit } J_k = \prod_{\substack{m=1 \\ m \neq n}}^{k-1} I_m \, .
 \end{equation}
 \end{Bemerkung}
 
-Es fehlt uns noch eine Tensor Multiplikation um mit der Dekomposition von Tensoren anzufangen. 
+Es fehlt uns noch eine Tensor Multiplikation, um mit der Dekomposition von Tensoren anzufangen. 
 
 \begin{Definition} (n-mode Produkt) \\
 Das n-mode Produkt des Tensors $\pmb{\mathscr{X}}$ mit einer Matrix $\bold{U} \in \mathbb{R}^{J \times I_n}$ wird als $\pmb{\mathscr{X}} \times_n \bold{U}$ notiert. Die Ergebnismatrix hat die Größe $I_1 \times \dots I_{n-1} \times J \times I_{n+1} \times \dots I_N$
 \begin{equation}
-	(\, \pmb{\mathscr{X}} \times_n \bold{U} \, )_{\, i_1 \, \dots \, i_{n-1} \, j \, i_{n+1}\, \dots \, i_N} = \sum_{i_n = 1}^{I_n} x_{\, i_1 \, \dots \, i_N} \, u_{j \, i_n}
+	(\, \pmb{\mathscr{X}} \times_n \bold{U} \, )_{\, i_1 \, \dots \, i_{n-1} \, j \, i_{n+1}\, \dots \, i_N} = \sum_{i_n = 1}^{I_n} x_{\, i_1 \, \dots \, i_N} \, u_{j \, i_n} \, .
 \end{equation}
 \end{Definition}
 
 \begin{Bemerkung}
-Jedes n-mode Produkt kann mit Hilfe von entfaltenen Tensoren äquivalent ausgedrückt werden.
+Jedes n-mode Produkt kann mit Hilfe von entfalteten Tensoren äquivalent ausgedrückt werden.
 \begin{equation}
-\pmb{\mathscr{Y}} = \pmb{\mathscr{X}} \times_n \bold{U} \Longleftrightarrow \bold{Y}_{(n)} = \bold{U} \bold{X}_{(n)}
+\pmb{\mathscr{Y}} = \pmb{\mathscr{X}} \times_n \bold{U} \Longleftrightarrow \bold{Y}_{(n)} = \bold{U} \bold{X}_{(n)} \, .
 \end{equation}
 \end{Bemerkung}
 
 \subsubsection{Singulärwertzerlegung höherer Ordnung}
 
-Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition} (HOSVD) oder auch bekannt unter Tucker Dekomposition, ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse.
+Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition (HOSVD)}oder auch bekannt unter Tucker Dekomposition, ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse.
 Die HOSVD zerlegt den Tensor in einen sogenannten \textit{Core Tensor} multipliziert mit einer Matrix in jeder Ordnung bzw. mode. 
 
 Allgemein ist die HOSVD des Tensors $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ gegeben durch
@@ -106,7 +106,7 @@ Die Berechnung der HOSVD von ${\pmb{\mathscr{X}}}  \in \mathbb{R}^{I_1 \times I_
 \end{Bemerkung}
 \end{framed}
 
-Die HOSVD existiert für alle Tensoren. Wie sieht es aber mit der Eindeutigkeit aus? Die HOSVD ist keine eindeutige Zerlegung. Dies führen wir an einem Tensor dritter Ordnung an.
+Die HOSVD existiert für alle Tensoren. Wie sieht es aber mit der Eindeutigkeit aus? Die HOSVD ist keine eindeutige Zerlegung. Dies führen wir an einem beliebigen Tensor dritter Ordnung vor.
 
 \begin{Beispiel} (Eindeutigkeit der HOSVD) \\
 Es seien $U \in \mathbb{R}^{P \times P}$, $V \in \mathbb{R}^{Q \times Q}$  und $W \in \mathbb{R}^{R \times R}$ . Es gilt
@@ -121,6 +121,13 @@ Mit dieser Kenntniss können wir nun zum Beispiel versuchen, soviele Elemente de
 
 Wir brauchen noch einige Eigenschaften des Kronecker Produkts, die wir uns später für die Berechnung der Pseudoinversen nutzen wollen.
 
+\begin{Lemma} (Matrixprodukt und Kronecker Produkt) \label{lemma:prod} \\
+Es seien beliebige $A,B,C,D$ Matrizen, deren Matrizenprodukte $AC$ und $BD$ definiert sind. Dann gilt
+\begin{equation*}
+AC \otimes BD = (A \otimes B)(C \otimes D).
+\end{equation*}
+\end{Lemma}
+
 \begin{Lemma} (Invertieren des Kronecker Produkts) \\ \label{lemma:inverse}
 Es seien $A \in \mathbb{R}^{i \times i}$ und $B \in \mathbb{R}^{j \times j}$ invertierbar, so ist auch $(A \otimes B)$ invertierbar. Mit der Inversen
 \begin{equation*}
@@ -132,12 +139,6 @@ Für die Moore Penrose Pseudoinversen gilt analog
 \end{equation*}
 \end{Lemma}
 
-\begin{Lemma} (Matrixprodukt und Kronecker Produkt) \label{lemma:prod} \\
-Es seien $A,B,C,D$ Matrizen, deren Matrizenprodukte $AC$ und $BD$ definiert sind. Dann gilt
-\begin{equation*}
-AC \otimes BD = (A \otimes B)(C \otimes D).
-\end{equation*}
-\end{Lemma}
 
 \begin{Lemma} (Transponieren) \label{lemma:transpose} \\
 Es seien $A,B$ beliebige Matrizen. Es gilt

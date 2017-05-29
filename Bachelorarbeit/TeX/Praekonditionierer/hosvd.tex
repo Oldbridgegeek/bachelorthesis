@@ -44,7 +44,7 @@ Diese Transformation zu definieren erfolgt durch intuitives Umformen und dem Hin
 
 Das Inverse der Transformation ist gegeben durch
 \begin{equation} \label{eq:tupel}
-p^{-1}(i_1,i_2) = i_1 + (N+1)i_2 = i \, 
+p^{-1}(i_1,i_2) = i_1 + (N+1)i_2 = i \, ,
 \end{equation}
 
 wobei $N+1$ die lokalen Freiheitsgrade pro Dimension sind.
@@ -142,7 +142,7 @@ Nun nehmen wir die Pseudoinverse von beiden Seiten. Das können wir machen, da u
 
 Sei $\mathcal{G}$ super-diagonal und $U^{(n)}=U^{(i)}$ für alle $i,n \in \{1,\dots,4\}$. Den Pseudoinversen Operator können wir reinziehen. Ob das reinziehen des Operators erlaubt ist, wurde formal nicht bewiesen. In meiner Arbeit habe ich dies experimentell nachgewiesen. Die Probleme mit dem Beweis dieser Aussage sind die fehlenden Resultate für das Kommunikationsverhalten verschiedener Operatoren. Wir arbeiten hier mit dem $n-mode$ Produkt, Entfaltungen, Matrix Produkten. 
 
-Man könnte folgenden Beweisansatz nehmen.
+Man könnte folgenden Beweisansatz nehmen: \\
 Es sei $\mathscr{X} \in \mathbb{R}^{I \times I \times I \times I}$ ein Tensor der Ordnung 4 und $U \in \mathbb{R}^{I \times I}$ eine orthogonale Matrix.
 Dann gilt es für $n \in \{1,\dots,4\}$ zu zeigen:
 \begin{equation*}
@@ -181,9 +181,9 @@ Da die Faktormatrizen $U^{(n)}$ orthogonal sind, reicht es einfach die Transponi
 Das Invertieren des Kerntensors erweist sich nun aber als problematisch.
 Hier ist es nützlich die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fälle vollbesetzt. Doch genaueres Hinsehen zeigt zwei Arten von Zahlen. Ziemlich große Zahlen von größer als 1 und ziemlich kleine Zahlen von kleiner als $10^{-10}$. 
 Die kleinen Zahlen sind in diesem Fall unbrauchbar und beinhalten wenig Informationen. Doch das Auslöschen vieler kleiner Zahlen nimmt uns in der Summe vielleicht relevante Informationen.
-Wir können also kleine Zahlen einfach ausradieren und erhalten plötzlich einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf einfach jedes Diagonalelement zu Invertieren.
+Wir können also kleine Zahlen einfach ausradieren und erhalten plötzlich einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf einfach jedes Diagonalelement zu invertieren.
 
-Wir wissen nun wie wir unsere Tensoren berechnen können und wissen auch wie die Pseudoinverse sich gewinnen lässt mittles der Singulärwertzerlegung höherer Ordnung.
+Wir wissen nun wie wir unsere Tensoren berechnen können und wissen auch wie sich die Pseudoinverse gewinnen lässt mittels der Singulärwertzerlegung höherer Ordnung. \\
 Der nächste Punkt ist die effiziente Berechnung der Pseudoinversen.
 
 

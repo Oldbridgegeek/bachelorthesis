@@ -14,7 +14,7 @@ Die Basisfunktionen haben eine Tensorstruktur, die wie folgt aussieht
 
 wobei $\varphi^{`2D}$ eine eindimensionale reelle Basisfunktion ist.
 
-Wir werden eine lexikographische Ordnung der Freiheitsgrade benutzen. Die Reichweite von $\, \, i_1 $ und $ i_2 \, $ reicht von $1$ bis $N$. Das heißt der Index $i$ geht von $1$ bis $N_p=(N+1)^2$. In Abbildung (\ref{fig:lexi}) sehen Sie ein Beispiel für $N=3$.
+Wir werden eine lexikographische Ordnung der Freiheitsgrade benutzen. Die Reichweite von $\, \, i_1 $ und $ i_2 \, $ reicht von $1$ bis $N$. Das heißt der Index $i$ geht von $1$ bis $N_p=N^2$. In Abbildung (\ref{fig:lexi}) sehen Sie ein Beispiel für $N=4$.
 
 \begin{figure}[ht] 
 	\centering
@@ -35,21 +35,21 @@ M_{ij} &= \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold
 \end{aligned}
 \end{equation}
 
-Wir wählen die Anzahl der Quadraturpunkte $Q_{1D}$ per Dimension so, dass wir exakt integrieren. Wir wählen $Q_{1D}$ gleich der Anzahl der Basisfunktionen $N$, da wir mit der Gauss Quadratur mit $N+1$ Stützstellen bis $2N$ exakt integrieren und der höchste Grad bei uns $2N$ ist.
+Wir wählen die Anzahl der Quadraturpunkte $Q_{1D}$ per Dimension so, dass wir exakt integrieren. Dazu ist die Wahl von $Q_{1D}$ gleich $N+1$ geeignet, da wir mit der Gauss Quadratur mit $N+1$ Stützstellen bis $2N$ exakt integrieren und der höchste Grad bei uns $2N$ ist.
 
 Wir definieren uns eine Matrix durch $\mathcal{N}_{iq}=\varphi_i(\bold{x}_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massematrix schreiben als
 \begin{equation}
-M = \mathcal{N} \mathcal{W} \mathcal{N}^T
+M = \mathcal{N} \mathcal{W} \mathcal{N}^T \, .
 \end{equation}
 
-In $\mathcal{N}$ sind die Elemente an Stützstellen evaluierte zweidimensionale Basisfunktionen. Wir können dies aber weiter aufspalten in eindimensionale Basisfunktionen, dank der Tensorstruktur der Basisfunktionen, und dadurch eine Effizienzsteigerung erzielen bei der Berechnung des Matrix-Vektor Produkts mit der Elementmassenmatrix.
+In $\mathcal{N}$ sind die Elemente an Stützstellen evaluierte zweidimensionale Basisfunktionen. Wir können dies aber weiter aufspalten in eindimensionale Basisfunktionen, dank der Tensorstruktur der Ansatzfunktionen und dadurch eine Effizienzsteigerung erzielen bei der Berechnung des Matrix-Vektor Produkts mit der Elementmassenmatrix.
 
-Wir fangen damit an, die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
+Wir fangen damit an die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
 \begin{equation} \label{eq:onedim}
 \mathcal{N} = \mathcal{N}^{1D} \otimes \mathcal{N}^{1D}
 \end{equation}
 
-Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bloß mit eindimensionalen Basisfunktionen. Ausgeschrieben sieht die Gleichung (\ref{eq:onedim}) wie folgt aus:
+Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bloß mit eindimensionalen Ansatzfunktionen. Ausgeschrieben sieht die Gleichung (\ref{eq:onedim}) wie folgt aus:
 
 \begin{equation*}
 \begin{bmatrix}
@@ -148,7 +148,7 @@ K_{ij}^1 &=\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bol
 \end{aligned}
 \end{equation}
 
-Man kann die Ähnlichkeit mit der Gleichung (\ref{eq:massapprox}) erkennen. Wir sehen, dass wir in einer Dimension nun aber die evaluierten Ableitungen der Basisfunktionen und in die andere Dimension die evaluierten Basisfunktionen haben.
+Man kann die Ähnlichkeit mit der Gleichung (\ref{eq:massapprox}) erkennen. Wir sehen, dass wir in einer Dimension nun aber die evaluierten Ableitungen der Ansatzfunktionen und in die andere Dimension die evaluierten Ansatzfunktionen haben.
 Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind zu $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren sondern deren Ableitung.
 
 \begin{equation}
@@ -166,7 +166,7 @@ Dann folgt mit analoger Umformung wie bei der Massematrix
 
 \begin{align*}
 K_1 &= (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T) \otimes (\mathcal{W}_N^{1D}(\mathcal{N}^{1D})^T) \\
-K_2 &= (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T)
+K_2 &= (\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T) \otimes (\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T).
 \end{align*}
 
 
@@ -179,7 +179,7 @@ V =[\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathc
 
 \subsubsection{Pseudoinverse}
 
-Die Pseudoinversen für die Elementsteifigkeitsmatrix der Massematrix $M$ und der Laplace Bilinearform $V$ gilt es jetzt herzuleiten. Dank unserer Vorarbeit und unserem Vorwissen zum Kronecker Produkt, ist es möglich, dies problemlos zu machen.
+Die Pseudoinversen für die Elementsteifigkeitsmatrix der Massematrix $M$ und der Laplace Bilinearform $V$ gilt es jetzt herzuleiten. Dank unserer Vorarbeit und unserem Vorwissen zum Kronecker Produkt ist es möglich, dies problemlos zu machen.
 
 Rekapituliere die Tensorstruktur für die Massematrix
 \begin{equation}
