@@ -129,14 +129,19 @@ gewesen ist. \\[2ex]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\vspace*{3cm}
+\vspace*{2.5cm}
 {\center{
 \begin{framed}
 \textbf{Zusammenfassung} \\
-Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität.
+Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität von $O(N^3)$, wobei $N$ der Polynomgrad ist. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität von $O(N^6)$.
 \end{framed}
 }}
-
+{\center{
+\begin{framed}
+\textbf{Abstract} \\
+The following work attempts to derive efficient algorithms and approaches to compute the matrix vector product with the pseudoinverse of specific cellmatrices. The cellmatrices that we take into account are from the mass matrix and the laplace bilinearform. We derived two approaches to compute the pseudoinverse. The one uses the tensor structure of the cellmatrices to derive the pseudoinverse and an efficient algorithm to compute the matrix vector product. The second one uses a higher order singular value decomposition to compute the pseudoinverse. The first approach is highly efficient since it has the complexity class $O(N^3)$, where N is the polynomial order. But it unfortunatley lacks of flexibility. The second approach is very flexible but it has a high complexity order $O(N^6)$.
+\end{framed}
+}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
