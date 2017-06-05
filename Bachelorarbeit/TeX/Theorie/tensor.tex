@@ -1,4 +1,4 @@
-In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Masse Matrix und der Laplace Bilinearform als Tensor zu definieren. Nachdem wir dies gemacht haben, werden wir die Strukturen dieser Tensoren untersuchen. Das Ziel dieser Untersuchungen ist einen einfachen Weg zu finden, die korrespondierende Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analysieren, wird in diesem Unterkapitel beantwortet.
+In Kapitel 3 werden wir sehen, dass es möglich ist die Elementsteifigkeitsmatrix der Massenmatrix und der Laplace Bilinearform als Tensor zu definieren. Daraufhin werden wir die Strukturen dieser Tensoren untersuchen. Das Ziel dieser Untersuchungen ist einen einfachen Weg zu finden, die korrespondierende Pseudoinverse zu bestimmen. Was genau ein Tensor ist, was wir unter der Pseudoinversen eines Tensors verstehen und wie wir einen Tensor analysieren, wird in diesem Unterkapitel beantwortet.
 
 
 \begin{Definition} (Tensor) \\
@@ -13,11 +13,7 @@ Die Ordnung ist die Anzahl der Dimensionen, in diesem Fall $N$.
 	\label{fig:tensorOrdnung3}
 \end{figure}
 
-Vorsicht zu haben, gilt es bei den Begriffen Ordnung und Rang bei Tensoren. Es sollte vermieden werden diese Begriffe zu verwechseln. Außerdem sollte man nicht den Begriff des Rangs einer Matrix, mit dem Begriff des Ranges eines Tensors verwechseln. Die Definition des Rangs eines Tensors werden wir hier auslassen, da dies ein überaus schwieriger Begriff ist und es vermieden werden kann in dieser Arbeit damit zu hantieren. Eine ausführliche Erklärung des Begriffs finden Sie in \cite[464]{Kolda}.
-
-\newpage
-
-Um unsere Tensoren zu klassifizieren und charakterisieren, brauchen wir Eigenschaftsbegriffe. Es sei $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ ein Tensor.
+Um Tensoren zu klassifizieren und charakterisieren, benötigen wir Eigenschaftsbegriffe. Es sei $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ ein Tensor.
 \begin{Definition} (Symmetrie)
 \begin{itemize}
 \item[a)] Den Tensor $\pmb{\mathscr{X}}$ nennt man kubisch genau dann, wenn $I_i = I_j$ für alle $i,j$.
@@ -46,7 +42,7 @@ j=1+\sum_{\substack{k=1 \\ k \neq n}}^{N} (i_k-1)J_k \text{ mit } J_k = \prod_{\
 \end{equation}
 \end{Bemerkung}
 
-Es fehlt uns noch eine Tensor Multiplikation, um mit der Dekomposition von Tensoren anzufangen. 
+An dieser Stelle wird noch eine Definition der Tensor Multiplikation benötigt, um mit der Dekomposition von Tensoren anzufangen. 
 
 \begin{Definition} (n-mode Produkt) \\
 Das n-mode Produkt des Tensors $\pmb{\mathscr{X}}$ mit einer Matrix $\bold{U} \in \mathbb{R}^{J \times I_n}$ wird als $\pmb{\mathscr{X}} \times_n \bold{U}$ notiert. Die Ergebnismatrix hat die Größe $I_1 \times \dots I_{n-1} \times J \times I_{n+1} \times \dots I_N$
@@ -64,15 +60,15 @@ Jedes n-mode Produkt kann mit Hilfe von entfalteten Tensoren äquivalent ausgedr
 
 \subsubsection{Singulärwertzerlegung höherer Ordnung}
 
-Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition (HOSVD)}oder auch bekannt unter Tucker Dekomposition, ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse.
-Die HOSVD zerlegt den Tensor in einen sogenannten \textit{Core Tensor} multipliziert mit einer Matrix in jeder Ordnung bzw. mode. 
+Die \textit{Singulärwertzerlegung höherer Ordnung} bzw. \textit{Higher Order Singular Value Decomposition (HOSVD)}oder auch bekannt unter \textit{Tucker Dekomposition}, ist eine uminterpretierte multidimensionale Hauptkomponentenanalyse.
+Die HOSVD zerlegt den Tensor in einen sogenannten \textit{Core Tensor} multipliziert mit einer Matrix in jeder Ordnung beziehungsweise mode. 
 
 Allgemein ist die HOSVD des Tensors $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ gegeben durch
 \begin{equation}
 \pmb{\mathscr{X}}= \pmb{\mathscr{G}} \times_1 \, A^{(1)} \, \dots \, \times_N A^{(N)} \, .
 \end{equation}
 
-Man kann äquivalent die HOSVD, wie in  \cite[462]{Kolda}, auch mit entfalteten Tensoren wie folgt angeben
+Man kann äquivalent die HOSVD, wie in  \cite[462]{Kolda} praktiziert, auch mit entfalteten Tensoren wie folgt angeben
 \begin{equation} \label{eq:tensortensor}
 \bold{X}_{(n)} = A^{(n)} \, \bold{G}_{(n)} \, ( \, A^{(N)} \, \otimes  \, \dots \, \otimes \, A^{(n+1)} \, \otimes A^{(n-1)} \otimes \dots \otimes \, A^{(1)} \, )^{T} \, .
 \end{equation}
@@ -84,7 +80,7 @@ Es sei $\pmb{\mathscr{X}} \in \mathbb{R}^{I \times J \times K}$.  Dann kann man 
 \end{equation}
 
 wobei $A \in \mathbb{R}^{I \times P}$, $B \in \mathbb{R}^{J \times Q}$ und $C \in \mathbb{R}^{K \times R}$ die orthogonalen Faktormatrizen sind.
-Der Tensor ${\cal G}$ bezeichnet den Kerntesor und zeigt wie hoch die Korrelation zwischen den verschiedenen Komponenten ist.
+Der Tensor ${\cal G}$ bezeichnet den Kerntensor und zeigt wie hoch die Korrelation zwischen den verschiedenen Komponenten ist.
 
 \end{Beispiel}
 \begin{figure}[ht]
@@ -94,7 +90,6 @@ Der Tensor ${\cal G}$ bezeichnet den Kerntesor und zeigt wie hoch die Korrelatio
 	\label{fig:hosvdTensor}
 \end{figure}
 
-\newpage
 \begin{framed}
 \begin{Bemerkung} (Berechnung der HOSVD) \\ \label{hosvd}
 Die Berechnung der HOSVD von ${\pmb{\mathscr{X}}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_N}$ funktioniert wie folgt:
@@ -106,7 +101,7 @@ Die Berechnung der HOSVD von ${\pmb{\mathscr{X}}}  \in \mathbb{R}^{I_1 \times I_
 \end{Bemerkung}
 \end{framed}
 
-Die HOSVD existiert für alle Tensoren. Wie sieht es aber mit der Eindeutigkeit aus? Die HOSVD ist keine eindeutige Zerlegung. Dies führen wir an einem beliebigen Tensor dritter Ordnung vor.
+Die \textit{HOSVD} existiert für alle Tensoren, jedoch ist die \textit{HOSVD} keine eindeutige Zerlegung. Dies führen wir an einem beliebigen Tensor dritter Ordnung vor.
 
 \begin{Beispiel} (Eindeutigkeit der HOSVD) \\
 Es seien $U \in \mathbb{R}^{P \times P}$, $V \in \mathbb{R}^{Q \times Q}$  und $W \in \mathbb{R}^{R \times R}$ . Es gilt
@@ -117,9 +112,9 @@ Es seien $U \in \mathbb{R}^{P \times P}$, $V \in \mathbb{R}^{Q \times Q}$  und $
 
 In anderen Worten: Wir können den Kerntensor ${\pmb{\mathscr{G}}}$ modifizieren, ohne die Gleichung zu ändern, solange wir das Inverse der Modifizierung auf den zugehörigen Faktormatrizen multiplizieren.
 
-Mit dieser Kenntniss können wir nun zum Beispiel versuchen, soviele Elemente des Kerntensor wie möglich auf Null zu bekommen oder so klein wie möglich zu machen, damit wir bei der späteren Herleitung der Pseudoinversen weniger Probleme bekommen. 
+Mit dieser Kenntnis können wir nun zum Beispiel versuchen, so viele Elemente des Kerntensors wie möglich auf Null zu bringen oder so klein wie möglich zu machen, damit entstehen bei der späteren Herleitung der Pseudoinversen weniger Probleme.
 
-Wir brauchen noch einige Eigenschaften des Kronecker Produkts, die wir uns später für die Berechnung der Pseudoinversen nutzen wollen.
+Es bedarf noch einiger Eigenschaften des Kronecker Produkts, die wir später für die Berechnung der Pseudoinversen nutzen wollen.
 
 \begin{Lemma} (Matrixprodukt und Kronecker Produkt) \label{lemma:prod} \\
 Es seien beliebige $A,B,C,D$ Matrizen, deren Matrizenprodukte $AC$ und $BD$ definiert sind. Dann gilt
@@ -147,6 +142,6 @@ Es seien $A,B$ beliebige Matrizen. Es gilt
 \end{equation*}
 \end{Lemma}
 
-Ausführliche Untersuchungen des Kronecker Produkts finden Sie in \cite{Kronecker}.
-Dieses Ergebnisse sind entscheidend für die Herleitung der Pseudoinversen. Die theoretische Grundlage ist nun geschaffen. Es ist Zeit sich dem Herz dieser Arbeit zu widmen, nämlich der Tensorstruktur der Elementarsteifigkeitsmatrizen und die Herleitung der Pseudoinversen.
+Ausführliche Untersuchungen des Kronecker Produkts finden sich in \cite{Kronecker}.
+Diese Ergebnisse sind entscheidend für die Herleitung der Pseudoinversen. Die theoretische Grundlage ist geschaffen, somit widmen wir uns im Folgenden Kapitel der Tensorstruktur der Elementarsteifigkeitsmatrizen und die Herleitung der Pseudoinversen.
 

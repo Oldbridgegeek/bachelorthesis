@@ -4,6 +4,7 @@
 %\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\familydefault}{\rmdefault}
+\setkomafont{disposition}{\normalcolor\bfseries}
 %\usepackage{bookman}
 
 %Zeilenabstand
@@ -17,7 +18,7 @@
 
 \fancyfoot[LE,LO]{Enes Witwit}
 \fancyfoot[LE,RO]{\thepage}
-\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0.02pt}
 
 
 %Packages
@@ -75,7 +76,7 @@ headsep=10mm, footskip=12mm}
 \begin{document}
 \pagestyle{empty}
 \pagenumbering{Roman} 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,8 +90,9 @@ headsep=10mm, footskip=12mm}
 
 
 {\huge{ 
-
-TENSORSTRUKTUR \\ DER ZELLMATRIZEN BEI FINITEN ELEMENTEN
+\begin{singlespace}
+\textbf{Tensorstruktur \\ der Zellmatrizen bei finiten Elementen}
+\end{singlespace}
 }}
 \vspace*{4cm}
 
@@ -105,11 +107,12 @@ eingereicht von \\[0.5cm]
 
 betreut von  \\[0.5cm]
 {\Large Prof. Dr. Kanschat}
-\vspace*{5cm}
+\vspace*{4.5cm}
 
-\textbf{
+
 Fakultät für Mathematik und Informatik\\[0.3cm]
-Universität Heidelberg}
+Ruprecht-Karls-Universität Heidelberg \\[0.3cm]
+\today
 \end{center}
 \end{titlepage}
 
@@ -119,22 +122,18 @@ Universität Heidelberg}
 \thispagestyle{empty}
 \newpage
 \thispagestyle{empty}
-\vspace*{14cm}
+\vspace*{15cm}
 
-\noindent\rule{16cm}{0.4pt}
-
+\noindent\rule{16cm}{0.4pt} \\
 Hiermit versichere ich, Enes Witwit, dass ich die vorliegende Bachelorarbeit selbständig
 verfasst habe.
 Ich versichere, dass ich keine anderen als die angegebenen Quellen benutzt und
 alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als
 solche gekennzeichnet habe, und dass die eingereichte Arbeit weder vollständig
 noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahren
-gewesen ist. \\[2ex] 
+gewesen ist. \\[5ex] 
+Heidelberg, \today \hspace*{8cm} Unterschrift\\[5ex]
 
-\noindent
-
-
-\today \hspace*{1cm}  Heidelberg \hspace*{5cm} Unterschrift\\[5ex]
 % Unterschrift (handgeschrieben)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,7 +152,8 @@ The following work attempts to derive efficient algorithms and approaches to com
 {\center{
 \begin{framed}
 \textbf{Zusammenfassung} \\
-Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. Der erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität von $O(N^3)$, wobei $N$ der Polynomgrad ist. Hingegen stoßen wir, beim ersten Ansatz, auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität von $O(N^5)$. Der zweite effizientere Ansatz hat aber das Problem, dass er individuell für jede Bilinearform hergeleitet werden muss, wobei der erste Ansatz universell für alle Bilinearformen gültig ist.
+Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von der Masse Matrix und der Steifigkeitsmatrix der Laplace Bilinearform, insbesondere die effiziente Berechnung des Matrix-Vektor Produkts mit der Pseudoinversen der genannten Matrizen. Insgesamt werden zwei verschiedene Ansätze hergeleitet. \\
+Der Erste versucht das Ziel durch eine Singulärwertzerlegung höherer Ordnung zu erreichen. Der zweite Ansatz nutzt die Tensorstruktur der genannten Matrizen, um eine einfache Berechnung der Pseudoinversen zu ermöglichen. Mit der zweiten Methode erreichen wir für die Berechnung der Pseudoinversen und dem Matrix-Vektor-Produkt eine geringe Komplexität von $O(N^3)$, wobei $N$ der Polynomgrad ist. Hingegen stoßen wir beim ersten Ansatz auf diverse Probleme bezüglich der einfachen Berechnung des Produktes und der hohen Komplexität von $O(N^5)$. Der zweite, effizientere Ansatz hat jedoch das Problem, dass er individuell für jede Bilinearform hergeleitet werden muss, während der erste Ansatz universell für alle Bilinearformen gültig ist.
 \end{framed}
 }}
 
@@ -261,13 +261,13 @@ Die folgende Arbeit konzentriert sich auf die Berechnung der Pseudoinversen von 
 \newpage
 
 \section{Theorie}
-Das Ziel dieses Kapitels ist es die Verständigung über Notation zu klären und eine theoretische Grundlage für das dritte Kapitel, das Herz dieser Arbeit, zu schaffen.
+Das Ziel dieses Kapitels ist es, die Verständigung über Notation zu klären und eine theoretische Grundlage für das dritte Kapitel zu schaffen.
 
-Zu erst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie schwache Lösung, klassische Lösung, Variationsgleichung und Sobolev Raum werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode. 
+Zuerst behandeln wir einen funktionalanalytischen Ansatz für elliptische Probleme. Begriffe wie \textit{schwache Lösung, klassische Lösung, Variationsgleichung} und \textit{Sobolev Raum} werden geklärt. Dies liefert uns das Basiswissen für die Galerkin Methode. 
 Im dritten Unterkapitel \textit{Methode der Finiten Elemente} ist das Ziel die Gleichung $Au=f$ herzuleiten mit $A$ als globale Steifigkeitsmatrix.
 
-Dann kommen wir zu einem ganz anderen Thema, nämlich dem der Tensor Dekomposition. 
-Zuerst schauen wir uns grundlegende Definitionen an. Mit diesem Basiswissen führen wir die Singulärwertzerlegung höherer Ordnung ein. Mit dieser werden wir uns gewisse Finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 3 und 4 durchführen. In Hoffnung, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
+Daraufhin wird das Thema \textit{Tensor Dekomposition} behandelt.
+Zuerst schauen wir uns grundlegende Definitionen an. Mit diesem Basiswissen führen wir die Singulärwertzerlegung höherer Ordnung ein. Mit dieser werden wir uns gewisse Finite Elemente Operatoren als Tensoren umdefinieren und uns deren Zerlegung anschauen. Wir werden diese Untersuchungen in Kapitel 3 und 4 mit der Hoffnung durchführen, dass die Zerlegung einfach ist und daraus die Pseudoinverse herleitbar ist.
 
 
 %\newpage
@@ -280,7 +280,7 @@ Zuerst schauen wir uns grundlegende Definitionen an. Mit diesem Basiswissen füh
 \input{Theorie/galerkin.tex}
 
 %\newpage
-\subsubsection{Methode der Finiten Elemente}
+\subsubsection{Methode der finiten Elemente}
 \input{Theorie/fem.tex}
 
 %\newpage

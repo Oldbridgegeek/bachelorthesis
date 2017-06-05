@@ -1,26 +1,25 @@
-Hochleistungsrechnen ist eine neue Disziplin, die mit dem Drang entstand, immer komplexere Probleme zu lösen. Es ist eine neue Art an Probleme ranzugehen. Sie eröffnet uns eine neue Sichtweise auf dasselbe Probleme und fordert von uns andere Lösungsstrategien.
-Parallelisierung ist ein großer Zweig des Hochleistungsrechnens. Das Grundgerüst dieser Methodik besteht darin komplexe Probeme modular zu lösen. Das heißt sie in viele wenig komplexere Subprobleme zu unterteilen, die unabhängig voneinander berechenbar sind. Am Ende fasst man die Ergebnisse der Subprobleme zu einem Ergebnis zusammen, welches die Lösung des komplexen Problems darstellt.
+Das Hochleistungsrechnen ist eine neue Disziplin, die mit dem Drang entstand, immer komplexere Probleme zu lösen. Es ist eine neue Art an Probleme heranzugehen. Sie eröffnet uns eine neue Sichtweise auf dasselbe Probleme und fordert von uns andere Lösungsstrategien.
+Parallelisierung ist ein großer Zweig des Hochleistungsrechnens. Das Grundgerüst dieser Methodik besteht darin, komplexe Probeme modular zu lösen. Das bedeutet, sie in viele, wenig komplexere Subprobleme zu unterteilen, die unabhängig voneinander berechenbar sind. Am Ende fasst man die Ergebnisse der Subprobleme zu einem Ergebnis zusammen, welches die Lösung des komplexen Problems darstellt.
 
 \begin{equation} \label{eq:main}
 v=A(u)=\sum_{k=1}^{n_{cells}}  P_k^T A_k (P_k u)
 \end{equation}
 
-ist die Gleichung, welche wir mit Hilfe der Finite-Elemente Methode lösen wollen. $A$ ist ein möglicherweise nichtlinearer Operator, der Vektor $u$ als Input nimmt und das Integral vom Operator multipliziert mit  Testfunktionen $\phi_i$ mit $i=1,\dots,n$, berechnet ~\cite[136]{Kronbichler}. Damit wir diese Gleichung besser nachvollziehen können, werden wir sie im nächsten Kapitel herleiten. Doch um diese Arbeit zu motivieren kann man sich diese Gleichung so vorstellen, dass man ein großes Problem in eine Summe von kleineren Problemen unterteilt. 
+ist die Gleichung, welche wir mit Hilfe der finite Elemente Methode lösen wollen. $A$ ist ein möglicherweise nichtlinearer Operator, der Vektor $u$ als Input nimmt und das Integral vom Operator multipliziert mit  Testfunktionen $\phi_i$ mit $i=1,\dots,n$, berechnet ~\cite[136]{Kronbichler}. Damit wir diese Gleichung besser nachvollziehen können, werden wir sie im nächsten Kapitel herleiten. 
+Die Matrix $A_k$ kann durchaus, wie wir nachher erkennen werden, groß werden. Wenn sie so groß wird, dass sie nicht mehr im Cache liegt, bekommen wir das Problem, dass der Zugriff auf Elemente der Matrix sehr teuer ist. Dementsprechend wollen wir uns vor allem bei der Herleitung unserer Methoden, um diese Subprobleme zu lösen, auf sogenannte \textit{matrix-freie} Heransgehensweisen konzentrieren. Das bedeutet, wir wollen nicht explizit die Matrix $A_k$ ausrechnen, sondern stattdessen ihre Elemente dort berechnen, wo sie auch gebraucht werden. Ob dies möglich ist, ist für diese Arbeit von großer Bedeutung. 
 
-Nun die Matrix $A_k$ kann durchaus, wie wir nachher erkennen werden, groß werden. Wenn sie so groß wird, dass sie nicht mehr im Cache liegt, bekommen wir das Problem, da der Zugriff auf Elemente der Matrix sehr teuer wird. Dementsprechend wollen wir uns vorallem bei der Herleitung unserer Methoden um diese Subprobleme zu lösen auf sogenannten matrix-freie Heransgehensweisen konzentrieren. Das bedeutet, wir wollen nicht explizit die Matrix $A_k$ ausrechnen, sondern stattdessen ihre Elemente dort berechnen wo sie auch gebraucht werden. Ob dies möglich ist, ist für diese Arbeit von großer Bedeutung. 
-
-Der Sinn dieser Arbeit ist einen effiziente Ansatz herzuleiten, der uns 
+Der Sinn dieser Arbeit ist, einen effiziente Ansatz herzuleiten, der uns 
 
 \begin{equation} \label{eq:main2}
 A_k^{+}v_k
 \end{equation}
 
-berechnet, wobei $A_k^{+}$ eine Pseudoinverse darstellt. Dies kann als Präkonditionierer genutzt werden, um (\ref{eq:main}) Gleichung zu lösen. Das heißt die Resultate dieser Arbeit werden benutzt, um damit einen Präkonditionierer zu bauen. Daraus folgern wir, dass die Exaktheit der Lösung von (\ref{eq:main2}) eine redundante Rolle spielt, vielmehr sollten wir eine optimale Lösung im Trade-Off zwischen Genauigkeit und Komplexität anstreben.
+berechnet, wobei $A_k^{+}$ eine Pseudoinverse darstellt. Je nachdem ob es möglich ist, interessieren wir uns auch für die Berechnung von $A_k^{-1}$. Dies kann als Präkonditionierer genutzt werden, um (\ref{eq:main}) Gleichung zu lösen. Das heißt, die Resultate dieser Arbeit werden benutzt, um damit einen Präkonditionierer zu bauen. Daraus folgern wir, dass die Exaktheit der Lösung von (\ref{eq:main2}) eine redundante Rolle spielt, vielmehr sollten wir eine optimale Lösung im Trade-Off zwischen Genauigkeit und Komplexität anstreben.
 
-Im zweiten Kapitel werden wir erstmal ein theoretisches Grundgerüst schaffen, um die beiden Gleichungen besser zu durchleuchten und nachvollziehen zu können. Wir werden uns die Grundlagen der numerischen Behandlung von partiellen Differentialgleichungen anschauen und versuchen die oberen Gleichungen herzuleiten.
-Im zweiten Teil des zweiten Kapitels werden wir uns mit Tensor Dekomposition beschäftigen. Dies liegt daran, dass wir uns den Operator A als Tensor umdefinieren können und die Pseudoinverse mit Hilfe der sogenannten Singulärwertzerlegung höherer Ordnung berechnen können.
+Im zweiten Kapitel werden wir zuerst ein theoretisches Grundgerüst schaffen, um die beiden Gleichungen besser zu durchleuchten und nachvollziehen zu können. Wir werden uns die Grundlagen der numerischen Behandlung von partiellen Differentialgleichungen anschauen und versuchen die obigen Gleichungen herzuleiten.
+Im zweiten Teil des zweiten Kapitels werden wir uns mit \textit{Tensor Dekomposition} beschäftigen. Dies wird dadurch begründet, dass wir den Operator A als Tensor umdefinieren können und die Pseudoinverse mit Hilfe der sogenannten Singulärwertzerlegung höherer Ordnung berechnen können.
 
-Im dritten Kapitel werden wir uns zwei Methoden anschauen die Pseudoinverse zu berechnen. In der erste Methode die Struktur des Operators $A_k$ zu nutze und leiten eine Repräsentation von $A_k$ her die uns die Pseudoinverse mit wenig Aufwand gibt. In der zweiten Methode werden wir uns wie bereits erwähnt, $A_k$ als Tensor umdefinieren und versuchen die Singulärwertzerlegung höherer Ordnung effizient zu berechnen und uns dort auch Strukturen vom Tensor zu Nutze zu machen.
+Im dritten Kapitel werden wir uns zwei Methoden anschauen, um die Pseudoinverse zu berechnen. In der erste Methode machen wir uns die Struktur des Operators $A_k$ zunutze und leiten eine Repräsentation von $A_k$ her, die uns die Pseudoinverse mit wenig Aufwand gibt. In der zweiten Methode werden wir uns wie bereits erwähnt, $A_k$ als Tensor umdefinieren und versuchen, die Singulärwertzerlegung höherer Ordnung effizient zu berechnen und uns dort auch Strukturen vom Tensor zunutze zu machen.
 
 Im vierten Kapitel sprechen wir über die effiziente Implementierung beider Algorithmen und im fünften Kapitel fassen wir alle Resultate zusammen und schließen mit einem Fazit ab.
 

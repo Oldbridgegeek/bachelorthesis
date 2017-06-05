@@ -1,24 +1,25 @@
-Das Ziel dieses Unterkapitels ist es die Tensorstruktur für die Massematrix und der Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
+Das Ziel dieses Unterkapitels ist es die Tensorstruktur für die Massenmatrix und der Laplace Bilinearform herzuleiten und für die Berechnung der Pseudoinversen zu nutzen. 
 
 \subsubsection{Tensorstruktur der Elementmassenmatrix}
-Es sei $T$ die Referenzzelle für Rechtecke und $\varphi^{2D}_i(\bold{x})$ zweidimensionale reelle Basisfunktion des diskreten Raumes $V_n$ mit $\bold{x}=(x,y)$ .
+Es sei $T$ die Referenzzelle für Rechtecke und die $\varphi^{2D}_i(\bold{x})$ zweidimensionalen Basisfunktionen, mit $i \in \{1,\dots,n\}$, des diskreten Raumes $V_n$ mit $\bold{x}=(x,y)$ . Die Massenmatrix kann elementweise dargestellt werden durch:
 \begin{equation} \label{eq:mass}
-M_{ik} = \int\limits_{T} \varphi^{2D}_i (\bold{x}) \, \varphi^{2D}_j (\bold{x}) \, d\bold{x}
+M_{ij} = \int\limits_{T} \varphi^{2D}_i (\bold{x}) \, \varphi^{2D}_j (\bold{x}) \, d\bold{x}.
 \end{equation}
 
+Wir haben hier die Konstante für die Transformation weggelassen, da diese für unsere Arbeit keine Relevanz hat.
 Die Basisfunktionen haben eine Tensorstruktur, die wie folgt aussieht
 \begin{equation} \label{eq:tensor}
-\varphi^{`2D}_i(\bold{x})=\varphi^{2D}_{i_1+(N+1)i_2}(x,y)=\varphi^{1D}_{i_1}(x)\varphi^{1D}_{i_2}(y),
+\varphi^{2D}_i(\bold{x})=\varphi^{2D}_{i_1+(N+1)i_2}(x,y)=\varphi^{1D}_{i_1}(x)\varphi^{1D}_{i_2}(y),
 \end{equation}
 
-wobei $\varphi^{`2D}$ eine eindimensionale reelle Basisfunktion ist.
+wobei $\varphi^{2D}$ eine eindimensionale reelle Basisfunktion ist.
 
-Wir werden eine lexikographische Ordnung der Freiheitsgrade benutzen. Die Reichweite von $\, \, i_1 $ und $ i_2 \, $ reicht von $1$ bis $N$. Das heißt der Index $i$ geht von $1$ bis $N_p=N^2$. In Abbildung (\ref{fig:lexi}) sehen Sie ein Beispiel für $N=4$.
+Wir werden eine lexikographische Ordnung der Freiheitsgrade benutzen. Die Reichweite von $\, \, i_1 $ und $ i_2 \, $ reicht von $1$ bis $N$. Das heißt der Index $i$ geht von $1$ bis $N_p=N^2$. In Abbildung (\ref{fig:lexi}) findet sich ein Beispiel für $N=4$.
 
 \begin{figure}[ht] 
 	\centering
   \includegraphics[width=0.3\textwidth]{lexi.png}
-	\caption{ \cite[3]{Teachlet}}
+	\caption{Lexikographische Ordnung \cite[3]{Teachlet}}
 	\label{fig:lexi}
 \end{figure}
 
@@ -36,19 +37,19 @@ M_{ij} &= \int\limits_{T} \varphi_i (\bold{x}) \, \varphi_j (\bold{x}) \, d\bold
 
 Wir wählen die Anzahl der Quadraturpunkte $Q_{1D}$ per Dimension so, dass wir exakt integrieren. Dazu ist die Wahl von $Q_{1D}$ gleich $N+1$ geeignet, da wir mit der Gauss Quadratur mit $N+1$ Stützstellen bis $2N$ exakt integrieren und der höchste Grad bei uns $2N$ ist.
 
-Wir definieren uns eine Matrix durch $\mathcal{N}_{iq}=\varphi_i(\bold{x}_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massematrix schreiben als
+Wir definieren uns eine Matrix durch $\mathcal{N}_{iq}=\varphi_i(\bold{x}_q)$ und weiterhin die Matrix $\mathcal{W}_{ii}=\bold{w}_i$, die in der Diagonalen die Quadraturgewichte hat und sonst Nullen. Damit können wir nun die Massenmatrix schreiben als
 \begin{equation}
 M = \mathcal{N} \mathcal{W} \mathcal{N}^T \, .
 \end{equation}
 
-In $\mathcal{N}$ sind die Elemente an Stützstellen evaluierte zweidimensionale Basisfunktionen. Wir können dies aber weiter aufspalten in eindimensionale Basisfunktionen, dank der Tensorstruktur der Ansatzfunktionen und dadurch eine Effizienzsteigerung erzielen bei der Berechnung des Matrix-Vektor Produkts mit der Elementmassenmatrix.
+In $\mathcal{N}$ sind die Elemente an Stützstellen evaluierte zweidimensionale Basisfunktionen. Wir können diese aber weiter aufspalten in eindimensionale Basisfunktionen. Dadurch erzielen wir eine Effizienzsteigerung bei der Berechnung des Matrix-Vektor Produkts mit der Elementsteifigkeitsmatrix der Massenmatrix.
 
-Wir fangen damit an die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
+Wir beginnen damit, die Matrix $\mathcal{N}$ in ein Tensorprodukt aufzuspalten. 
 \begin{equation} \label{eq:onedim}
 \mathcal{N} = \mathcal{N}^{1D} \otimes \mathcal{N}^{1D}
 \end{equation}
 
-Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bloß mit eindimensionalen Ansatzfunktionen. Ausgeschrieben sieht die Gleichung (\ref{eq:onedim}) wie folgt aus:
+Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$, nur mit eindimensionalen Ansatzfunktionen. Ausgeschrieben sieht die Gleichung (\ref{eq:onedim}) wie folgt aus:
 
 \begin{equation*}
 \begin{bmatrix}
@@ -67,10 +68,10 @@ Die Matrix $\mathcal{N}^{1D}$ ist nun äquivalent definiert wie $\mathcal{N}$ bl
 \varphi^{1D}_1(x_1) & \hdots & \varphi^{1D}_n(x_1) \\
 \vdots & \ddots & \vdots \\
 \varphi^{1D}_1(x_{Q_{1D}}) & \hdots & \varphi^{1D}_n(x_{Q_{1D}})
-\end{bmatrix}
-\end{equation*}.
+\end{bmatrix}.
+\end{equation*}
 
-Wir nutzen absofort $Q_{1D}=N+1$ und $Q=(N+1)^2$, da wie wir oben bereits argumentiert haben, damit exakt integrieren können.
+Wir nutzen absofort $Q_{1D}=N+1$ und $Q=(N+1)^2$, damit integrieren wir exakt.
 Wir erinnern uns $M=\mathcal{N} \mathcal{W} \mathcal{N}^T$. Da $\mathcal{W}$ eine Diagonalmatrix ist, ist es naheliegend diese Multiplikation bereits durchzuführen. Definiere $\mathcal{W}_{N}=\mathcal{N} \mathcal{W}$ und die Spaltung von $\mathcal{W}_N$ kann im nächsten Schritt hergeleitet werden.
 
 \begin{equation} \label{eq:weight}
@@ -96,8 +97,8 @@ Genauer
 \mathcal{N}_{11}^{1D} w_1 & \hdots & \mathcal{N}_{1N}^{1D} w_N \\
 \vdots & \ddots & \vdots \\
 \mathcal{N}_{N1}^{1D} w_1 & \hdots & \mathcal{N}_{NN}^{1D}w_N
-\end{bmatrix}
-\end{equation*}.
+\end{bmatrix}.
+\end{equation*}
 
 Damit können wir folgende Umformulierung bereits vornehmen
 \begin{equation}
@@ -115,9 +116,8 @@ Dann nutzen wir Lemma (\ref{lemma:prod}) und erhalten
  [\mathcal{W}_N^{1D} \otimes \mathcal{W}_N^{1D}]  [(\mathcal{N}^{1D})^T \otimes (\mathcal{N}_{1D})^T]= [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T].
 \end{equation}
 
-\newpage
 \subsubsection{Tensorstruktur der Elementsteifigkeitsmatrix der Laplace Bilinearform}
-Die Formel, leicht geändert, kann benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform. Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
+Der Ansatz kann leicht geändert, benutzt werden um andere Bilinearformen auszudrücken wie die Laplace Bilinearform. Es sei die Elementsteifigkeitsmatrix der Laplace Bilinearform elementweise gegeben durch
 
 \begin{equation}
 V_{ij} = \int\limits_{T} \nabla \varphi_i(\bold{x}) \, \nabla \varphi_j(\bold{x})  d \bold{x}=\int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \varphi_j(\bold{x})) + ( \partial_{x_2} \varphi_i(\bold{x})  \partial_{x_2} \varphi_j(\bold{x})) \, d\bold{x}.
@@ -130,7 +130,7 @@ V_{ij} &= \int\limits_{T}( \partial_{x_1}  \varphi_i(\bold{x})  \partial_{x_1} \
 \end{aligned}
 \end{equation}
 
-Für die Integrale verwenden wir wieder die Gauss Quadratur.. Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte, dann folgt für die obere Gleichung
+Für die Integrale verwenden wir erneut die Gauss Quadratur. Es seien $\bold{x}_q=(x_{q1},x_{q2})$ die Stützstellen und $\bold{w}_q=w_{q1}w_{q2}$ die Gewichte, dann folgt für die obige Gleichung
 
 \begin{equation}
 \begin{aligned}
@@ -138,17 +138,17 @@ V_{ij}  = \underbrace{\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \va
 \end{aligned}
 \end{equation}
 
-Wir können eine große Ähnlichkeit mit der Struktur der Massematrix in (\ref{eq:massapprox}), wenn wir uns jeweils nur $K^1$ und $K^2$ seperat anschauen. Jetzt gilt es die Tensorstruktur der Ansatzfunktionen auszunutzen. Dafür betrachten wir $K^1$.
+Wir können eine große Ähnlichkeit mit der Struktur der Massenmatrix in (\ref{eq:massapprox}) feststellen, wenn wir uns jeweils $K^1$ und $K^2$ seperat anschauen. Jetzt gilt es die Tensorstruktur der Ansatzfunktionen auszunutzen. Dafür betrachten wir $K^1$:
 \begin{equation}
 \begin{aligned}
 K_{ij}^1 &=\sum\limits_{q=1}^{(N+1)^2} \bold{w}_q \partial_{x_1}  \varphi_i(\bold{x}_q)  \partial_{x_1} \varphi_j (\bold{x}_q) \\ &= \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \partial_{x_1}  \varphi_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \partial_{x_1} \varphi_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\
 &=  \sum\limits_{q_1=1}^{N} \sum\limits_{q_2=1}^{N} w_{q1}w_{q2} \varphi'_{i1}(x_{q1})\varphi_{i2}(x_{q2})  \varphi'_{j1} (x_{q1})\varphi_{j2} (x_{q2}) \\ 
-&= \sum\limits_{q_1=1}^{N} w_{q1} \varphi'_{i1}(x_{q1}) \varphi'_{j1} (x_{q1}) \sum\limits_{q_2=1}^{N} w_{q2} \varphi_{i2}(x_{q2})  \varphi_{j2} (x_{q2}) 
+&= \sum\limits_{q_1=1}^{N} w_{q1} \varphi'_{i1}(x_{q1}) \varphi'_{j1} (x_{q1}) \sum\limits_{q_2=1}^{N} w_{q2} \varphi_{i2}(x_{q2})  \varphi_{j2} (x_{q2}).
 \end{aligned}
 \end{equation}
 
-Man kann die Ähnlichkeit mit der Gleichung (\ref{eq:massapprox}) erkennen. Wir sehen, dass wir in einer Dimension nun aber die evaluierten Ableitungen der Ansatzfunktionen und in die andere Dimension die evaluierten Ansatzfunktionen haben.
-Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind zu $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren sondern deren Ableitung.
+Man kann die Ähnlichkeit mit der Gleichung (\ref{eq:massapprox}) erkennen. Wir sehen, dass wir in einer Dimension nun aber die evaluierten Ableitungen der Ansatzfunktionen und in der anderen Dimension die evaluierten Ansatzfunktionen haben.
+Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\mathcal{N}}^{1D}$ die ähnlich sind zu $\mathcal{W}^{1D}$ und $\mathcal{N}^{1D}$ mit dem Unterschied, dass diese Matrizen nicht die Ansatzfunktionen evaluieren, sondern deren Ableitung.
 
 \begin{equation}
 \widehat{\mathcal{N}}^{1D} = 
@@ -160,7 +160,7 @@ Wir definieren uns zwei Matrizen $\widehat{\mathcal{W}}^{1D}_N$ und $\widehat{\m
 \end{equation}
 
 Analog definieren uns $\widehat{\mathcal{W}}^{1D}_N$.
-Dann folgt mit analoger Umformung wie bei der Massematrix
+Dann folgt mit analoger Umformung wie bei der Massenmatrix
 
 
 \begin{align*}
@@ -178,7 +178,7 @@ V =[\widehat{\mathcal{W}}_N^{1D} (\widehat{\mathcal{N}}^{1D})^T] \otimes [\mathc
 
 \subsubsection{Pseudoinverse}
 
-Die Pseudoinversen für die Elementsteifigkeitsmatrix der Massematrix $M$ und der Laplace Bilinearform $V$ gilt es jetzt herzuleiten. Dank unserer Vorarbeit und unserem Vorwissen zum Kronecker Produkt ist es möglich, dies problemlos zu machen.
+Die Pseudoinversen für die Elementsteifigkeitsmatrix der Massematrix $M$ und der Laplace Bilinearform $V$ sollen im Folgenden hergeleitet werden. Dank der Vorarbeit und dem Vorwissen zum Kronecker Produkt ist diese Herleitung problemlos möglich.
 
 Rekapituliere die Tensorstruktur für die Massematrix
 \begin{equation}
@@ -194,10 +194,10 @@ Wir nutzen Lemma (\ref{lemma:inverse}) und erhalten
 [(\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T] \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T])^+ =  [\mathcal{W}_N^{1D} (\mathcal{N}^{1D})^T]^+ \otimes [\mathcal{W}_N^{1D} (\mathcal{N}_{1D})^T]^+.
 \end{equation}
 
-Hier können wir nun eine Singulärwertzerlegung zum berechnen der Pseudoinversen oder den Gauß Algorithmus zum berechnen der Inversen verwenden. Warum das Ganze? Wir hätten auch die Inverse von der Massematrix berechnen können. Der Unterschied ist, dass wir statt der Inversen einer Matrix der Größe $N^2 \times N^2$ berechnen, berechnen wir die Inverse einer Matrix der Größe $N \times N$.
+An dieser Stelle kann entweder eine Singulärwertzerlegung zum Berechnen der Pseudoinversen oder der Gauss Algorithmus zum berechnen der Inversen verwendet werden. Warum das Ganze? Wir hätten auch die Inverse von der Massematrix berechnen können. Der Unterschied ist, dass wir anstatt der Inversen einer Matrix der Größe $N^2 \times N^2$ berechnen, wir die Inverse einer Matrix der Größe $N \times N$ berechnen.
 
-Für die Laplace Bilinearform können wir dies leider nicht so einfach machen. Das Problem ist die Addition, die uns das ganze stark erschwert. Je nach Basis, kann man das Problem vereinfachen. Man könnte beispielsweise die Lagrange Basis nehmen mit geeigneten Stützstellen und würde für $\mathcal{N}^{1D}$ und $\mathcal{W}_N^{1D}$ Diagonalmatrizen bekommen. Wie wir später sehen werden, ist es sogar möglich die Einheitsmatrix für das Produkt dieser beiden Matrizen zu erhalten.
+Für die Laplace Bilinearform können wir dies leider nicht so einfach machen. Das Problem hierbei ist die Addition, die uns das Ganze stark erschwert. Je nach Basis jedoch, kann man das Problem vereinfachen. Man könnte beispielsweise die Lagrange Basis nehmen und geeigneten Stützstellen verwenden und würde für $\mathcal{N}^{1D}$ und $\mathcal{W}_N^{1D}$ Diagonalmatrizen bekommen. Auf die Möglichkeit, die Einheitsmatrix für das Produkt dieser beiden Matrizen zu erhalten, wird im weiteren Verlauf dieser Arbeit eingegangen.
 
-Was uns letztlich interessiert ist die Auswertung der Pseudoinversen an einem Vektor $u$ also $M^+ u$ und $V^+ u$. Wenn wir uns später diese Strukturen betrachten, werden wir ein Ergebnis aus der Stabilitätstheorie verwenden können, um das Problem mit der Laplace Bilinearform zu lösen. Zu dem werden wir uns effiziente Algorithmen anschauen, um diese Gleichungen optimal zu berechnen.
+Hauptsächlich von Interesse ist die Auswertung der Pseudoinversen an einem Vektor $u$ also $M^+ u$ und $V^+ u$. Wenn wir später diese Strukturen betrachten, werden wir ein Ergebnis aus der Stabilitätstheorie verwenden können, um das Problem mit der Laplace Bilinearform zu lösen. Zudem werden wir uns effiziente Algorithmen anschauen, um diese Gleichungen optimal zu berechnen.
 
 

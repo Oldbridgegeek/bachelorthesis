@@ -6,23 +6,23 @@
 \contentsline {subsection}{\numberline {2.1}Numerische Behandlung partieller Differentialgleichungen}{3}
 \contentsline {subsubsection}{\numberline {2.1.1}Schwache L\IeC {\"o}sungen}{3}
 \contentsline {subsubsection}{\numberline {2.1.2}Galerkin Verfahren}{7}
-\contentsline {subsubsection}{\numberline {2.1.3}Methode der Finiten Elemente}{9}
+\contentsline {subsubsection}{\numberline {2.1.3}Methode der finiten Elemente}{9}
 \contentsline {subsubsection}{\numberline {2.1.4}Quadratur}{13}
 \contentsline {subsection}{\numberline {2.2}Tensor Dekomposition}{15}
 \contentsline {subsubsection}{\numberline {2.2.1}Einf\IeC {\"u}hrung in die Tensor Architektur}{15}
-\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{17}
-\contentsline {section}{\numberline {3}Pseudoinversen der Zellmatrizen}{20}
-\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{20}
-\contentsline {subsubsection}{\numberline {3.1.1}Tensorstruktur der Elementmassenmatrix}{20}
-\contentsline {subsubsection}{\numberline {3.1.2}Tensorstruktur der Elementsteifigkeitsmatrix der Laplace Bilinearform}{23}
-\contentsline {subsubsection}{\numberline {3.1.3}Pseudoinverse}{25}
-\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{25}
-\contentsline {section}{\numberline {4}Effiziente Implementierung und Komplexit\IeC {\"a}tsanalyse}{32}
-\contentsline {subsection}{\numberline {4.1}Effizientes Matrix-Vektor Produkt }{32}
-\contentsline {subsubsection}{\numberline {4.1.1}Erweiterung}{34}
-\contentsline {subsection}{\numberline {4.2}Tensorstruktur}{37}
-\contentsline {subsection}{\numberline {4.3}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{40}
-\contentsline {subsubsection}{\numberline {4.3.1}Naiver Ansatz}{41}
-\contentsline {subsubsection}{\numberline {4.3.2}Entfaltete HOSVD}{42}
-\contentsline {section}{\numberline {5}Resultate}{45}
-\contentsline {section}{Literatur}{46}
+\contentsline {subsubsection}{\numberline {2.2.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{16}
+\contentsline {section}{\numberline {3}Pseudoinversen der Zellmatrizen}{19}
+\contentsline {subsection}{\numberline {3.1}Summenfaktorisierung}{19}
+\contentsline {subsubsection}{\numberline {3.1.1}Tensorstruktur der Elementmassenmatrix}{19}
+\contentsline {subsubsection}{\numberline {3.1.2}Tensorstruktur der Elementsteifigkeitsmatrix der Laplace Bilinearform}{21}
+\contentsline {subsubsection}{\numberline {3.1.3}Pseudoinverse}{23}
+\contentsline {subsection}{\numberline {3.2}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{24}
+\contentsline {section}{\numberline {4}Effiziente Implementierung und Komplexit\IeC {\"a}tsanalyse}{30}
+\contentsline {subsection}{\numberline {4.1}Effizientes Matrix-Vektor Produkt }{30}
+\contentsline {subsubsection}{\numberline {4.1.1}Erweiterung}{32}
+\contentsline {subsection}{\numberline {4.2}Tensorstruktur}{35}
+\contentsline {subsection}{\numberline {4.3}Singul\IeC {\"a}rwertzerlegung h\IeC {\"o}herer Ordnung}{38}
+\contentsline {subsubsection}{\numberline {4.3.1}Naiver Ansatz}{39}
+\contentsline {subsubsection}{\numberline {4.3.2}Entfaltete HOSVD}{40}
+\contentsline {section}{\numberline {5}Resultate}{43}
+\contentsline {section}{Literatur}{44}

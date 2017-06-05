@@ -1,4 +1,4 @@
-Wir wollen nun mit Hilfe von der Theorie zur Singulärwertzerlegung höherer Ordnung eine Theorie entwickeln, wie wir die Pseudoinverse zur Masse Matrix und zur Steifigkeitsmatrix der Laplace Bilinearform effiizient berechnen können. 
+Wir wollen nun mit Hilfe von der Theorie zur Singulärwertzerlegung höherer Ordnung eine Theorie entwickeln, wie wir die Pseudoinverse zur Massenmatrix und zur Steifigkeitsmatrix der Laplace Bilinearform effiizient berechnen können. 
 Es sei $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times \dots \times I_K}$ ein Tensor. Dann können wir mit der HOSVD diesen Tensor zerlegen
 \begin{equation}
 \pmb{\mathscr{X}} = \pmb{\mathscr{G}} \times_{n=1}^{K} U^{ (n) }.
@@ -18,21 +18,21 @@ Die Eigenschaften der Moore Penrose Pseudoinverse für Matrizen lautet
 \end{enumerate}
 \end{Lemma}
 
-Jetzt gilt es diese Eigenschaften auf Tensoren zu übertragen. Da wir erstmal keine intuitive Tensor-Tensor Multiplikation haben, gilt es diese zu definieren. Diese Tensor-Tensor Multiplikation macht dann nur für unsere Anwendung einen Sinn und ist sonst zweckfrei.
+Jetzt gilt es diese Eigenschaften auf Tensoren zu übertragen. Da wir vorerst keine Tensor-Tensor Multiplikation haben, gilt es diese zu definieren. Diese Tensor-Tensor Multiplikation macht dann nur für unsere Anwendung einen Sinn.
 
-Dafür sollten wir erstmal unsere Tensoren herleiten. Dies geschieht mit Hilfe der Tensorstruktur der Ansatzfunktionen.
-Wir definieren den \textit{Massetensor} elementweise durch
+Dafür müssen wir zuerst unsere Tensoren herleiten. Dies geschieht mit Hilfe der Tensorstruktur der Ansatzfunktionen.
+Wir definieren den \textit{Massentensor} elementweise durch
 \begin{equation} 
 M_{i1,i2,j1,j2} = \int\limits_{T} \varphi_{i1} (x_1) \varphi_{i2}(x_2) \varphi_{j1} (x_1) \varphi_{j2} (x_2) \, d(x_1,x_2)
 \end{equation}
-und unseren \textit{lokalen Laplace Tensor}, welcher das pendant zu der Elementsteifigkeitsmatrix der Laplace Bilinearform ist, wie folgt
+und unseren \textit{lokalen Laplace Tensor}, welcher das Pendant zur Elementsteifigkeitsmatrix der Laplace Bilinearform ist, wie folgt
 \begin{equation} 
 V_{i1,i2,j1,j2} = \int\limits_{T} \varphi'_{i1} (x_1) \varphi_{i2}(x_2) \varphi'_{j1} (x_1) \varphi_{j2} (x_2) +
 \varphi_{i1} (x_1) \varphi'_{i2}(x_2) \varphi_{j1} (x_1) \varphi'_{j2} (x_2) \, d(x_1,x_2).
 \end{equation}
 
-Diese Transformation von Matrix zu Tensor ist also eigentlich eine Abbildung die einen Indextupel $(i,j)$ eines Matrixelements auf den Indextupel eines Tensorelements $(i_1,i_2,j_1,j_2)$ abbildet. Damit wir uns eine Tensor-Tensor Multiplikation definieren, sollte uns diese Transformation klar sein.
-In dieser Transformation stecken implizit zwei mal die gleiche Transformation. Nämlich
+Diese Transformation von Matrix zu Tensor ist somit eine Abbildung die einen Indextupel $(i,j)$ eines Matrixelements auf den Indextupel eines Tensorelements $(i_1,i_2,j_1,j_2)$ abbildet. Um eine Tensor-Tensor Multiplikation definieren zu können, muss uns diese Transformation klar sein.
+In dieser Transformation steckt implizit zweimal die gleiche Transformation. Nämlich
 \begin{equation*}
 \begin{aligned}
 p \, : \, i &\rightarrow (i_1,i_2) ,\\
@@ -49,7 +49,7 @@ p^{-1}(i_1,i_2) = i_1 + (N+1)i_2 = i \, ,
 
 wobei $N+1$ die lokalen Freiheitsgrade pro Dimension sind.
 Wie können wir aber gegeben $i$ das korrespondiere Tupel $(i_1,i_2)$ berechnen?
-Dazu nutzen wir die Modulo Rechnung. Wir nehmen einfach das Inverse der Transformation $modulo \, (N+1)$. 
+Dazu nutzen wir die Modulo Rechnung. Hierzu nehmen wir das Inverse der Transformation $modulo \, (N+1)$. 
 
 \begin{equation}
 i \, \, (mod (N+1))=p^{-1}(i_1,i_2) \, \, (mod (N+1)) = i_1 + \underbrace{(N+1)i_2}_{0} \, \, \, (mod (N+1)) 
@@ -60,7 +60,7 @@ Da $(N+1)i_2$ ein vielfaches von $(N+1)$ ist, ergibt dies 0. Da $i_1 < (N+1)$ fo
 i \, \, (mod (N+1)) = i_1 \, \, \, (mod (N+1)) = i_1.
 \end{equation}
 
-Nun wissen wir, wie wir aus der Information $i$ unser korrespondierendes $i_1$ extrahieren können. Die Gleichung (\ref{eq:tupel}) können wir nach $i_2$ wie folgt umstellen
+Nun wissen wir, wie aus der Information $i$ unser korrespondierendes $i_1$ extrahiert werden kann. Die Gleichung (\ref{eq:tupel}) können wir nach $i_2$ wie folgt umstellen
 
 \begin{equation} \label{eq:tupel2}
  i_2 = \dfrac{ i - i_1 } {N+1}.
@@ -78,16 +78,16 @@ Damit haben wir unsere Transformation $p$
 p(i)= \Big{(} i \, \, (mod (N+1)),  \dfrac{ i -  (i \, \, (mod (N+1))) } {N+1} \Big{)}
 \end{equation}
 
-gefunden und eindeutig festmachen können, welches Element der Matrixform zu welchem Element der Tensorform gehört.
-Durch die Definition der Transformationen, können wir diese zu Hilfe nehmen für unser Tensor-Tensor Produkt. Vorher sollten wir uns das Matrix-Matrix Produkt als Motivation anschauen.
+gefunden und eindeutig festgelegt, welches Element der Matrixform zu welchem Element der Tensorform gehört.
+Durch die Definition der Transformationen können wir diese für unser Tensor-Tensor Produkt Definition zu Hilfe nehmen. Zuvor schauen wir uns das Matrix-Matrix Produkt als Motivation an.
 
-Es sei $M \in \mathbb{R}^{N^2 \times N^2}$ die lokale Massematrix. Dann folgt für $MM=C \in \mathbb{R}^{N^2 \times N^2}$ die elementenweise Definition
+Es sei $M \in \mathbb{R}^{N^2 \times N^2}$ die lokale Massenmatrix. Dann folgt für $MM=C \in \mathbb{R}^{N^2 \times N^2}$ die elementenweise Definition
 
 \begin{equation}
 C_{ik}=\sum_{j=1}^{N^2} M_{ij} M_{jk}
 \end{equation}
 
-Nun nutzen wir unsere Index-Transformation, um die Matrixelemente als Tensorelemente umzudefinieren. Es sei weitehrin $p(i)=(i_1,i_2)$ und $p(k)=(k_1,k_2)$.
+Nun nutzen wir unsere Index-Transformation, um die Matrixelemente als Tensorelemente umzudefinieren. Es sei weiterhin $p(i)=(i_1,i_2)$ und $p(k)=(k_1,k_2)$.
 \begin{equation}
 C_{p(i),p(k)} = C_{i_1,i_2,j_1,j_2} =  \sum_{j=1}^{N^2} M_{p(i),p(j)} M_{p(j),p(k)} = \sum_{j_1=1}^N \sum_{j_2=1}^N M_{i_1,i_2,j_1,j_2} M_{j_1,j_2,k_1,k_2} 
 \end{equation}
@@ -101,10 +101,10 @@ ttp(\pmb{\mathscr{X}}^1,\pmb{\mathscr{X}}^2)_{i_1,i_2,j_1,j_2}= \sum_{j_1=1}^{I_
 \end{equation}
 \end{Definition}
 
-Von der Komplexität her, ist das Tensor-Tensor-Produkt der Masse-Tensoren bzw. der lokalen Laplace-Tensoren genau so komplex, wie das Produkt der korrespondieren Matrizen. Dazu später mehr in Kapitel 4.
+Die Komplexität betrachtend, ist das Tensor-Tensor-Produkt der \textit{Massentensoren} beziehungsweise der \textit{lokalen Laplace-Tensoren} genau so komplex wie das Produkt der korrespondieren Matrizen. Darauf wird in Kapitel 4 ausführlich eingegangen.
 
-Es wird noch der Operator des Transponierens für Tensoren gebraucht. Analog zum Tensor-Tensor-Produkt, können wir uns den Operator des Transponierens erstmal für Matrizen anschauen.
-Sei $A \in \mathbb{R}^{N^2 \times N^2}$ beliebige Matrix, dann ist die transponierte Matrix gegeben durch
+Es wird noch der Operator des Transponierens für Tensoren benötigt. Analog zum Tensor-Tensor-Produkt, schauen wir uns den Operator des Transponierens zuerst für Matrizen an.
+Sei $A \in \mathbb{R}^{N^2 \times N^2}$ eine beliebige Matrix, dann ist die transponierte Matrix gegeben durch
 \begin{equation}
 A_{ij}^T = A_{ji}.
 \end{equation}
@@ -114,8 +114,7 @@ Wir können die Index-Transformation nutzen, um den äquivalenten Operator für 
 A_{p(i)p(j)}^T=A_{i_1 \, i_2 \, i_1 \, j_2}^T=A_{ j_1 \, j_2 \, i_1 \, i_2}=A_{p(j) \,p(i)}.
 \end{equation}
 
-Wir können nun die Moore Penrose Pseudoinverse Eigenschaften auch für Tensoren angeben. Vorher sollte aber das Problem mit der Maschinengenauigkeit angesprochen werden. 
-Dazu gibt es ein Trick, den wir nutzen können. Der Trick kann nur mit Vorsicht genossen werden. Die Gleichheit wie in Lemma (\ref{lemma:penrose}) ist mit einem Rechner nicht zu erzielen, daher wird das Lemma abgeschwächt und für Tensoren angegeben. 
+Wir können nun die Moore Penrose Pseudoinverse Eigenschaften auch für Tensoren angeben. Jedoch sollte zuvor das Problem der Maschinengenauigkeit angesprochen werden. Dazu gibt es einen Trick, der mit Bedacht eingesetzt werden muss. Die Gleichheit wie in Lemma (\ref{lemma:penrose}) ist mit einem Rechner nicht zu erzielen, daher wird das Lemma abgeschwächt und für Tensoren angegeben. 
 \begin{Lemma} (Moore Penrose Pseudoinverse für Tensoren) \label{lemma:tpinv}
 \begin{enumerate}
 \item $ttp(A,ttp(A^{+},A))-A \, \, \, \, \, \, \, \, \, \, \, < \epsilon$
@@ -125,24 +124,24 @@ Dazu gibt es ein Trick, den wir nutzen können. Der Trick kann nur mit Vorsicht 
 \end{enumerate}
 \end{Lemma}
 
-Die Wahl des Epsilons ist hier entscheidend. Man könnte Maschinengenauigkeit wählen, doch ist für unser Zweck vielleicht zu Hoch gezielt. Letztlich wollen wir mit unserer Pseudoinversen einen Präkonditionierer bauen. Wenn wir durch die Wahl eines etwas größeren Epsilons erheblichen Aufwand sparen, sollten wir dies in Erwägunge ziehen.
-Nun wissen wir, wie wir einen Tensor als Pseudoinverse klassifizieren können. Doch wie bekommen wir die Pseudoinverse?
+Die Wahl des Epsilons ist hier entscheidend. Man könnte Maschinengenauigkeit wählen, was jedoch in für unseren Zweck sinnlos ist. Letztlich wollen wir mit unserer Pseudoinversen einen Präkonditionierer bauen. Wenn wir durch die Wahl eines etwas größeren Epsilons erheblichen Aufwand sparen, sollten wir dies in Erwägunge ziehen.
+An diesem Punkt wissen wir, wie wir einen Tensor als Pseudoinverse klassifizieren können. Wie errechnet sich jedoch die Pseudoinverse?
 
 Aus der HOSVD ergibt sich die Zerlegung für einen Tensor $\pmb{\mathscr{X}}  \in \mathbb{R}^{I_1 \times I_2 \times I_3 \times I_4}$  mit
 \begin{equation}
 \pmb{\mathscr{X}} = \pmb{\mathscr{G}} \times_{n=1}^{4} U^{ (n) }.
 \end{equation}
 
-Nun nehmen wir die Pseudoinverse von beiden Seiten. Das können wir machen, da uns mittlerweile bekannt ist, was es bedeutet die Pseudoinverse von einem Tensor zu haben. Wir erhalten
+Nun nehmen wir die Pseudoinverse von beiden Seiten. Dies ist möglich, da mittlerweile bekannt ist, was es bedeutet die Pseudoinverse von einem Tensor zu haben. Wir erhalten
 
 \begin{equation}
 \pmb{\mathscr{X}}^{+} = (\pmb{\mathscr{G}} \times_{n=1}^{4} U^{ (n) })^+.
 \end{equation}
 
 
-Sei $\mathcal{G}$ super-diagonal und $U^{(n)}=U^{(i)}$ für alle $i,n \in \{1,\dots,4\}$. Den Pseudoinversen Operator können wir reinziehen. Ob das reinziehen des Operators erlaubt ist, wurde formal nicht bewiesen. In meiner Arbeit habe ich dies experimentell nachgewiesen. Die Probleme mit dem Beweis dieser Aussage sind die fehlenden Resultate für das Kommunikationsverhalten verschiedener Operatoren. Wir arbeiten hier mit dem $n-mode$ Produkt, Entfaltungen, Matrix Produkten. 
+Sei $\mathcal{G}$ super-diagonal und $U^{(n)}=U^{(i)}$ für alle $i,n \in \{1,\dots,4\}$. Den Pseudoinversen Operator können wir hineinziehen. Ob das Hineinziehen des Operators erlaubt ist, wurde formal nicht bewiesen. In meiner Arbeit habe ich dies experimentell nachgewiesen. Die Probleme mit dem Beweis dieser Aussage sind fehlenden Resultate für das Kommunikationsverhalten verschiedener Operatoren. Wir arbeiten hierbei mit dem $n-mode$ Produkt, Entfaltungen und Matrix Produkten. 
 
-Man könnte folgenden Beweisansatz nehmen: \\
+Man könnte folgenden Beweisansatz nutzen: \\
 Es sei $\mathscr{X} \in \mathbb{R}^{I \times I \times I \times I}$ ein Tensor der Ordnung 4 und $U \in \mathbb{R}^{I \times I}$ eine orthogonale Matrix.
 Dann gilt es für $n \in \{1,\dots,4\}$ zu zeigen:
 \begin{equation*}
@@ -155,38 +154,38 @@ Wir nutzen die Äquivalenz des $n-mode$ Produktes mit dem Matrix Produkt mit dem
 (\mathscr{X} \times_n U)^+ _{(n)} = ( U \mathscr{X}_{(n)} )^+ = \mathscr{X}_{(n)}^+ U^+
 \end{equation*}
 
-Den letzten Schritt können wir machen, weil $U$ orthogonal ist.
-Es fehlt noch die Vertauschung von den beiden Matrizen, das heißt wir brauchen Kommutativität.
-Das dürfen wir aber nicht, denn $\mathscr{X}_{(n)}^+ \in \mathbb{R}^{I^3 \times I}$ und $U^+ \in \mathbb{R}^{I \times I}$. Also wäre die Matrixmultiplikation gar nicht wohldefiniert. Das liefert uns aber keinen Widerspruch zu unserem Ergebnis, da gilt:
+Der letzte Schritt können ist möglich, da $U$ orthogonal ist.
+Es fehlt noch der Tausch von beiden Matrizen, das heißt wir brauchen Kommutativität.
+Dies ist allerdings nicht möglich, denn $\mathscr{X}_{(n)}^+ \in \mathbb{R}^{I^3 \times I}$ und $U^+ \in \mathbb{R}^{I \times I}$. Also wäre die Matrixmultiplikation nicht wohldefiniert. Das liefert uns jedoch keinen Widerspruch zu unserem Ergebnis, da gilt:
 
 \begin{equation*}
-(\mathscr{X}^+)_{(n)} \neq (\mathscr{X}_{(n)})^+ \, .
+(\mathscr{X}^+)_{(n)} \neq (\mathscr{X}_{(n)})^+ \,,
 \end{equation*}
 
-Denn Links berechnen wir die Pseudoinverse des Tensors. Wie die Pseudoinverse davon definiert ist, haben wir uns für unsere Anwendung definiert und ist nur für unsere Anwendung sinnvoll. Rechts nehmen wir die Pseudoinverse einer Matrix, das heißt das sind zwei verschiedene Pseudoinversen Operatoren.
+denn links berechnen wir die Pseudoinverse des Tensors. Wie dessen Pseudoinverse davon definiert ist, haben wir für unsere Anwendung definiert und dies ist auch nur für unsere Anwendung sinnvoll. Rechts nehmen wir die Pseudoinverse einer Matrix. Wir haben also zwei verschiedene Pseudoinversen Operatoren.
 
-Das Problem ist, dass wenn man mit dem entfalteten Tensor rechnet, dies eher eine veranschaulichte Darstellung ist und wenig Nützlichkeit birgt.
+Das Problem ist, sollte man mit dem entfalteten Tensor rechnen, dies eher eine veranschaulichte Darstellung ist und wenig Nützlichkeit birgt.
 
-Doch wenn wir nicht mit den entfalteten Tensoren rechnen würden, bräuchten wir Resultate über die Invertierung von $n-mode$ Produkten, die wir nicht haben. Daher nehmen wir es einfach an, dass das Ergebnis stimmt und rechnen weiter. Wir bekommen nun folgende Darstellung der Pseudoinversen
+Doch wenn wir nicht mit den entfalteten Tensoren rechnen würden, bräuchten wir Resultate über die Invertierung von $n-mode$ Produkten, die nicht vorhanden sind. Daher nehmen wir an, dass das Ergebnis stimmt und rechnen weiter. Wir bekommen nun folgende Darstellung der Pseudoinversen
 
 \begin{equation} \label{eq:pinv}
 \pmb{\mathscr{X}}^{+} = \pmb{\mathscr{G}}^{+} \times_{n=1}^{4} U^{ (n) ^{+} }.
 \end{equation}
 
-Da die Faktormatrizen $U^{(n)}$ orthogonal sind, reicht es einfach die Transponierte zu nehmen. 
+Da die Faktormatrizen $U^{(n)}$ orthogonal sind, reicht es, die Transponierte zu verwenden.
 \begin{equation}
 \pmb{\mathscr{X}}^+ = \pmb{\mathscr{G}}^{+} \times_{n=1}^{4} U^{ (n) ^{T} }
 \end{equation}
 
-Das Invertieren des Kerntensors erweist sich nun aber als problematisch.
-Hier ist es nützlich die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fällen vollbesetzt. Doch genaueres Hinsehen zeigt zwei Arten von Zahlen. Ziemlich große Zahlen von größer als 1 und ziemlich kleine Zahlen von kleiner als $10^{-10}$. 
-Die kleinen Zahlen sind in diesem Fall unbrauchbar und beinhalten wenig Informationen. Doch das Auslöschen vieler kleiner Zahlen nimmt uns in der Summe vielleicht relevante Informationen.
-Daher sollte man Vorsichtig bei diesem Verfahren sein. Die Grenze, die entscheidet, welche Zahl klein genug ist um ausradiert zu werden sollte mit bedacht gewählt werden. Je größer die Grenze desto größer muss man dann auch das $\epsilon$ bei der Definition der Tensor-Pseudoinversen, in Lemma (\ref{lemma:tpinv}), wählen.
+Das Invertieren des Kerntensors erweist sich alllerdings als problematisch.
+Hierfür ist es nützlich, die Struktur des Kerntensors zu kennen. Der Kerntensor ist leider in den meisten Fällen voll besetzt. Genaueres Hinsehen zeigt zwei Arten von Zahlen. Relativ große Zahlen von größer als 1 und relativ kleine Zahlen von kleiner als $10^{-10}$. 
+Die kleinen Zahlen sind in diesem Fall unbrauchbar und beinhalten wenig Informationen. Doch das Eliminieren vieler kleiner Zahlen nimmt uns in der Summe möglicherweise relevante Informationen.
+Daher sollte man vorsichtig bei diesem Verfahren sein. Die Grenze, die entscheidet, welche Zahl klein genug ist um eliminiert zu werden, sollte mit Bedacht gewählt werden. Je größer die Grenze ist umso größer muss das $\epsilon$ bei der Definition der Tensor-Pseudoinversen, in Lemma (\ref{lemma:tpinv}), gewählt werden.
 
-Wir können also kleine Zahlen einfach ausradieren und erhalten plötzlich einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf einfach jedes Diagonalelement zu invertieren.
+Wir können folglich kleine Zahlen einfach ausradieren und erhalten dadurch einen super-diagonalen Tensor. Die Invertierung des Tensors beschränkt sich darauf, jedes Diagonalelement zu invertieren.
 
-Wir wissen nun wie wir unsere Tensoren berechnen können und wissen auch wie sich die Pseudoinverse gewinnen lässt mittels der Singulärwertzerlegung höherer Ordnung. \\
-Der nächste Punkt ist die effiziente Berechnung der Pseudoinversen.
+Wir wissen nun wie wir unsere Tensoren berechnen können und wie sich die Pseudoinverse mittels Singulärwertzerlegung höherer Ordnung gewinnen lässt . \\
+Im folgenden Kapitel wird die effiziente Berechnung der Pseudoinversen dargestellt.
 
 
 

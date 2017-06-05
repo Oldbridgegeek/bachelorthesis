@@ -5,12 +5,12 @@ Gegeben sei folgendes Randwertproblem
 	u &= 0 \, \text{ in } \partial \Omega \, ,
 \end{aligned}
 \end{equation}
-mit $\Omega = [ \, 0 \, ,1 \, ]^{2}$ und $f$ : $\bar{\Omega} \rightarrow \mathbb{R}$ zwei mal stetig partiell differenzierbar.
-Der funktionalanalytische Ansatz beschäftigt sich erst mit notwendigen Funktionenräumen um dann auf analytischer Ebene eine Umformulierung der Differentialgleichung durchzuführen, welche uns letztlich die Grundlage für die Finiten-Elementen Methode liefert.
+mit $\Omega = [ \, 0 \, ,1 \, ]^{2}$ und $f$ : $\bar{\Omega} \rightarrow \mathbb{R}$ zweimal stetig partiell differenzierbar.
+Der funktionalanalytische Ansatz beschäftigt sich erst mit notwendigen Funktionenräumen, um dann auf analytischer Ebene eine Umformulierung der Differentialgleichung durchzuführen, welche letztlich die Grundlage für die Finiten-Elementen Methode liefert.
 
-Wir sehen von der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat. Nämlich, dass $u$ zweimal partiell stetig differenzierbar sein sollte. Die Lösung sollte also in dem Raum der zweimal partiell stetig differenzierbaren Funktionen liegen.
+Wir sehen an der Form der Differentialgleichung, dass die gesuchte Lösung bestimmte Differenzierbarkeits- und Stetigkeitsbedingungen zu erfüllen hat, und zwar dass $u$ zweimal partiell stetig differenzierbar sein sollte. Die Lösung sollte folglich in dem Raum der zweimal partiell stetig differenzierbaren Funktionen liegen.
 
-Es kann aber sein, dass eine Lösung für dieses Problem nicht in diesem Raum existiert. Wir können uns dafür als Beispiel die Betragsfunktion $b$ : $\mathbb{R} \rightarrow \mathbb{R}$ anschauen.
+Jedoch ist es möglich, dass eine Lösung für dieses Problem nicht in diesem Raum existiert. Wir können dafür als Beispiel die Betragsfunktion $b$ : $\mathbb{R} \rightarrow \mathbb{R}$ anschauen.
 \begin{equation}
 \begin{aligned}
 b(x) &= | \, x \, |
@@ -29,7 +29,7 @@ b'(x) &=
 \end{aligned}
 \end{equation}
 
-Dies zeigt uns, dass wir potentiell auch eine Art von Lösungen finden können, in Räumen, deren Elemente nicht alle notwendigen Regularitätsbedingungen erfüllen. Diese Lösungen nennen wir dann \textit{schwache Lösungen}. Doch wie finden wir schwache Lösungen?
+Dies zeigt uns, dass wir potentiell auch eine Art von Lösungen, in Räumen finden können, deren Elemente nicht alle notwendigen Regularitätsbedingungen erfüllen. Diese Lösungen nennen wir \textit{schwache Lösungen}. Doch wie finden wir schwache Lösungen?
 Dafür nutzen wir eine Idee, die aus der Distributionstheorie stammt.
 Wir multiplizieren mit einer Testfunktion $v \in C(\bar{\Omega})$  und integrieren über das Gebiet.
 
@@ -38,7 +38,7 @@ Wir multiplizieren mit einer Testfunktion $v \in C(\bar{\Omega})$  und integrier
 \int\limits_{\Omega} - \Delta u \, v  \, dx = \int\limits_{\Omega} f \, v  \, dx
 \end{equation}
 
-Der nächste Schritt, welcher durchwegs fundamental für die Herleitung ist, ist die intuitive Nutzung der Struktur und Integrationswerkzeuge um zu erreichen, dass an $u$ weniger Differenzierbarkeitsanforderungen gebunden sind. Für diesen Schritt ist der Satz von Green und die partielle Integration von Wichtigkeit.
+Der nächste Schritt, welcher durchwegs fundamental für die Herleitung ist, ist die intuitive Nutzung der Struktur und Integrationswerkzeuge, um zu erreichen, dass an $u$ weniger Differenzierbarkeitsanforderungen gebunden sind. Für diesen Schritt ist der Satz von Green und die partielle Integration von Wichtigkeit.
 
 \begin{Lemma} (Partielle Integration) \label{lemma:part} \\
 Es sei $\Omega \, \subset \, \mathbb{R}^{n}$ , $n=2,3$ ein beschränktes Lipschitz-Gebiet. Dann gilt
@@ -54,9 +54,9 @@ Für unsere Differentialgleichung (\ref{eq:sf1}) nutzen wir die partielle Integr
 \int\limits_{\Omega} - \nabla u \, \nabla v \, dx = \int\limits_{\Omega} f \, v \, dx \, .
 \end{equation}
   
-Dies ist die so genannte \textit{Variationsgleichung}. Sie ist ein erster Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie. 
+Dies ist die so genannte \textit{Variationsgleichung}. Sie ist ein erstes Indiz für die später gewünschte Bilinearform der zugrundeliegenden Topologie. 
 Die Lösung $u$ von (\ref{eq:sf2}) nennt man \textit{schwache Lösung} für das Problem (\ref{eq:dg}).
-Die Lösung $u \in C_{0}^{2}$ von (\ref{eq:dg}) nennt man \textit{klassische Lösung}. Es ist jetzt klar, in welchem Raum die klassische Lösung liegt, aber welche Topologie ist für die schwache Lösung sinnvoll? 
+Die Lösung $u \in C_{0}^{2}$ von (\ref{eq:dg}) nennt man \textit{klassische Lösung}. An diesem Punkt steht fest, in welchem Raum die klassische Lösung liegt. Jedoch stellt sich die Frage, welche Topologie für die schwache Lösung am sinnvolsten ist.
 Man versucht die Räume zu definieren, in der die Lösung $u$ für (\ref{eq:sf2}) liegt. In unserem Fall wäre folgender Raum ergiebig
 
 \begin{equation*}
@@ -76,11 +76,11 @@ W^{k,p} (\Omega) = \{ v \, \in  \, L_p (\Omega) \, : \, D^{\alpha} \, v \, \in \
 \end{equation*}
 \end{Definition}
 
-Sobolev Räume sind eine Teilmenge von den $L_{p}$ Räumen.
-Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der finiten Elementen Methode ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit sprengen, daher verweise ich an gegebenen Stellen an weiterführende Literatur.
+Sobolev Räume sind eine Teilmenge der $L_{p}$ Räume.
+Von der analytischen Perspektive ist die Wahl des Funktionenraumes essentiell für den Nachweis der Existenz der Lösung. Von der Perspektive der \textit{finiten Elementen Methode} ist dies für die Fehlerabschätzung wichtig, da wir dann die induzierte Norm des Funktionenraumes benutzen~\cite[36]{Johnson}. Beide genannten Themen würden den Rahmen dieser Bachelorarbeit deutlich überschreiten, daher verweise ich an gegebenen Stellen auf weiterführende Literatur.
 
 Die Sobolev Räume wurden mit Skalarprodukten ausgestattet, sodass unsere Variationsgleichung intuitiv als Skalarprodukt der zugrundeliegenden Sobolev Räume geschrieben werden kann.
-
+\newpage
 \begin{Definition} (Sobolev Norm) \\
 \begin{equation*}
 || \, v \, ||_{W^{k,p}(\Omega)} =
@@ -101,7 +101,7 @@ Für $p=2$ wird die Norm durch das Skalarprodukt induziert.
 \end{Definition}
 
 $W^{{k,2}}(\Omega )$ ist daher ein Hilbertraum und wir schreiben $H^{k}(\Omega ):=W^{{k,2}}(\Omega )$.
-Für die Untersuchung ellptischer Randwertaufaben zweiter bzw. vierter Ordnung sind vor allem Sobolev-Räume $H^1(\Omega)$ bzw. $H^2(\Omega)$ und deren Unterräume von Bedeutung ~\cite[134]{Numerik}. 
+Für die Untersuchung elliptischer Randwertaufaben zweiter beziehungsweise vierter Ordnung sind vor allem Sobolev Räume $H^1(\Omega)$ bzw. $H^2(\Omega)$ und deren Unterräume von Bedeutung ~\cite[134]{Numerik}. 
 
 Wir wollen noch ein wichtiges Resultat erwähnen, das Relevanz für die Herleitung der Variationsgleichung hat.
 Durch wiederholte Anwendung und Beachtung von Grenzübergängen von Lemma (\ref{lemma:part}) erhält man folgendes Resultat
@@ -116,7 +116,7 @@ für beliebige $u$ , $v$ $\in \, C^1(\bar{\Omega})$ und n bezeichne die äußere
 \end{Satz}
 Der Satz von Green liefert uns ein mächtiges Werkzeug zur Herleitung der Variationsgleichung.
 
-Nun kommen wir wieder zurück zu unserem ursprünglichen Problem.
+Nun kommen wir zurück zu unserem ursprünglichen Problem.
 \begin{equation*} 
 \begin{aligned}
 	- \Delta u &= f \text{ in } \Omega \\
@@ -134,7 +134,7 @@ Wir definieren uns $a( \cdot , \cdot )$ : $H^1_0 (\Omega) \times H^1_0(\Omega) \
 a(u,v) := \int\limits_{\Omega} \nabla u \, \nabla v \, dx
 \end{equation*}
 
-Wir können zeigen, dass die Lösung des Problems (\ref{eq:vary}) unter gewissen Bedingungen äquivalent ist, zum Lösen des folgenden Minimierungsproblems. Das Minimierungsproblem nennen wir auch \textit{Variationsaufgabe} oder \textit{Variationsproblem}.
+Wir können zeigen, dass die Lösung des Problems (\ref{eq:vary}) unter gewissen Bedingungen äquivalent ist zum Lösen des folgenden Minimierungsproblems. Das Minimierungsproblem nennen wir auch \textit{Variationsaufgabe} oder \textit{Variationsproblem}.
 
 \begin{Satz} (Verbindung zwischen Variationsaufgabe und Variationsgleichung) \\
 Es sei $a( \cdot , \cdot )$ : $ V \times V \rightarrow \mathbb{R} $ eine Bilinearform. Sei ferner $f \in V^{*}$.
@@ -142,7 +142,7 @@ Falls die Bilinearform $a(\, \cdot \, , \, \cdot \, )$ symmetrisch ist, ist $u \
 \begin{equation} \label{eq:mini}
 J(u) = \min_{v \in V} J(v) = \dfrac{1}{2} a(u,v) - f(v) \, ,
 \end{equation}
-genau dann wenn u die schwache Formulierung löst.
+genau dann, wenn u die schwache Formulierung löst.
 \end{Satz}
 
 
